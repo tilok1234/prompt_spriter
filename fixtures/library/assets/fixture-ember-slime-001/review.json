@@ -1,0 +1,14 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.0.0",
+  "assetId": "fixture-ember-slime-001",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "intake"
+  },
+  "notes": [],
+  "archiveHistory": [],
+  "updatedAt": "2026-07-30T12:00:00.000Z"
+}
+

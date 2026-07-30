@@ -1,0 +1,109 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt-spriter.local/schemas/submission.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "schemaVersion",
+    "jobId",
+    "assetId",
+    "baseRevisionId",
+    "requestedName",
+    "request",
+    "category",
+    "style",
+    "producer",
+    "output",
+    "submittedAt"
+  ],
+  "properties": {
+    "kind": {
+      "const": "agent-submission"
+    },
+    "schemaVersion": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/semver"
+    },
+    "jobId": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+    },
+    "assetId": {
+      "oneOf": [
+        {
+          "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "baseRevisionId": {
+      "oneOf": [
+        {
+          "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/revisionId"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "requestedName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "request": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/contractRef"
+    },
+    "style": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/contractRef"
+    },
+    "producer": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/producer"
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourcePath",
+        "sheetPath",
+        "thumbnailPath",
+        "directions",
+        "animations"
+      ],
+      "properties": {
+        "sourcePath": {
+          "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/relativePath"
+        },
+        "sheetPath": {
+          "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/relativePath"
+        },
+        "thumbnailPath": {
+          "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/relativePath"
+        },
+        "directions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+          }
+        },
+        "animations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/animationLayout"
+          }
+        }
+      }
+    },
+    "submittedAt": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/dateTime"
+    }
+  }
+}
+

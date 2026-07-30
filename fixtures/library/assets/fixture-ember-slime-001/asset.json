@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "fixture-ember-slime-001",
+  "name": "Ember Slime",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-07-30T12:00:00.000Z",
+  "tags": [
+    "fixture",
+    "slime",
+    "fire"
+  ]
+}
+

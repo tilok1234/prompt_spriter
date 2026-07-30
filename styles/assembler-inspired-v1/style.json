@@ -1,0 +1,81 @@
+{
+  "kind": "style-profile",
+  "schemaVersion": "1.0.0",
+  "id": "assembler-inspired-v1",
+  "version": "0.1.0",
+  "status": "draft",
+  "displayName": "Assembler Inspired v1",
+  "description": "Compact readable pixel art inspired by the read-only 8-bit Sprite Assembler reference.",
+  "principles": [
+    "Prioritize silhouette and subject identity at native scale.",
+    "Use compact material clusters instead of noisy single-pixel texture.",
+    "Keep direction, volume, and grounding consistent.",
+    "Animate anatomy and weight rather than sliding a static drawing.",
+    "Use restrained contrast accents to focus the face and action."
+  ],
+  "color": {
+    "alphaPolicy": "hard",
+    "recommendedOpaqueColorsMin": 6,
+    "recommendedOpaqueColorsMax": 12,
+    "maximumOpaqueColors": 16,
+    "maximumShadeStepsPerMaterial": 3,
+    "pureBlackPolicy": "discouraged-unless-needed-for-contrast"
+  },
+  "outline": {
+    "mode": "selective",
+    "continuousOutlineRequired": false,
+    "preferLocalDarkColors": true
+  },
+  "shape": {
+    "silhouettePriority": "high",
+    "internalDetailDensity": "low-to-medium",
+    "singlePixelNoise": "avoid",
+    "minimumFeatureRule": "A feature must remain readable at 1x or support a larger cluster."
+  },
+  "shading": {
+    "mode": "clustered",
+    "dithering": "avoid-by-default",
+    "lightDirection": "upper-left-consistent",
+    "specularUse": "restrained"
+  },
+  "motion": {
+    "grounding": "stable",
+    "subpixelMotion": false,
+    "idle": "small breathing, posture, tail, ear, or material motion",
+    "locomotion": "clear contact, passing, and lift phases",
+    "attack": "readable anticipation, action, impact, and recovery",
+    "hurt": "brief directional recoil without identity loss",
+    "cast": "clear origin, buildup, release, and recovery",
+    "death": "loss of support followed by a readable final resting pose"
+  },
+  "prohibitions": [
+    "baked ground shadows",
+    "blurred or anti-aliased edges",
+    "uncontrolled palette expansion",
+    "detail that changes randomly between directions",
+    "translation-only animation posing",
+    "copying reference pixels as a substitute for drawing the requested subject"
+  ],
+  "references": [
+    {
+      "path": "C:\\Users\\headc\\Documents\\8-bit sprite assembler\\asset-pack\\enemies\\bigcat-tiger.png",
+      "purpose": "quadruped simplification, direction clarity, restrained palette",
+      "access": "read-only"
+    },
+    {
+      "path": "C:\\Users\\headc\\Documents\\8-bit sprite assembler\\asset-pack\\enemies\\goblin-brute.png",
+      "purpose": "compact humanoid silhouette and material clusters",
+      "access": "read-only"
+    },
+    {
+      "path": "C:\\Users\\headc\\Documents\\8-bit sprite assembler\\asset-pack\\players\\hero-knight.png",
+      "purpose": "equipment readability and focal contrast",
+      "access": "read-only"
+    }
+  ],
+  "reviewScales": [
+    1,
+    4
+  ]
+}
+

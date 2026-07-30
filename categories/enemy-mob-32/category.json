@@ -1,0 +1,160 @@
+{
+  "kind": "category-contract",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32",
+  "version": "0.1.0",
+  "status": "draft",
+  "displayName": "Enemy Mob 32x32",
+  "description": "Four-direction 32x32 enemy creatures with compact low-frame pixel animation.",
+  "frame": {
+    "width": 32,
+    "height": 32,
+    "colorMode": "rgba",
+    "alphaPolicy": "hard",
+    "trim": false,
+    "bakedShadow": false
+  },
+  "directions": [
+    {
+      "id": "down",
+      "row": 0
+    },
+    {
+      "id": "left",
+      "row": 1
+    },
+    {
+      "id": "right",
+      "row": 2
+    },
+    {
+      "id": "up",
+      "row": 3
+    }
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "run",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 100,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 10,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    },
+    {
+      "id": "hurt",
+      "startColumn": 14,
+      "frames": 2,
+      "durationMs": 140,
+      "playback": "once"
+    },
+    {
+      "id": "cast",
+      "startColumn": 16,
+      "frames": 4,
+      "durationMs": 140,
+      "playback": "once"
+    },
+    {
+      "id": "death",
+      "startColumn": 20,
+      "frames": 6,
+      "durationMs": 160,
+      "playback": "hold-last",
+      "finalFrameHoldMs": 600
+    }
+  ],
+  "timeline": {
+    "order": "direction-major",
+    "tagPattern": "{direction}_{animation}",
+    "framesPerDirection": 26,
+    "totalFrames": 104
+  },
+  "source": {
+    "format": "aseprite",
+    "requiredLayers": [
+      "body",
+      "details"
+    ],
+    "optionalLayers": [
+      "outline",
+      "effects",
+      "guides"
+    ],
+    "layerOrderBottomToTop": [
+      "outline",
+      "body",
+      "details",
+      "effects",
+      "guides"
+    ],
+    "hiddenExportLayers": [
+      "guides"
+    ]
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 26,
+    "rows": 4,
+    "width": 832,
+    "height": 128,
+    "scale": 1,
+    "reviewScale": 4,
+    "padding": 0,
+    "innerPadding": 0,
+    "trim": false
+  },
+  "mirroring": {
+    "default": "allowed-when-symmetric",
+    "requiresIndependentSidesFor": [
+      "asymmetric equipment",
+      "one-sided markings",
+      "one-sided injuries",
+      "direction-specific attachments"
+    ]
+  },
+  "firstVerticalSlice": {
+    "animations": [
+      "idle",
+      "walk",
+      "attack"
+    ],
+    "columns": 10,
+    "rows": 4,
+    "totalFrames": 40,
+    "sheetWidth": 320,
+    "sheetHeight": 128
+  },
+  "validation": {
+    "maxOpaqueColors": 16,
+    "recommendedOpaqueColors": 12,
+    "emptyFrame": "error",
+    "missingTag": "error",
+    "unexpectedIntermediateAlpha": "error",
+    "duplicateFrame": "warning",
+    "cellBoundaryContact": "warning",
+    "clippedOpaquePixel": "error"
+  }
+}
+

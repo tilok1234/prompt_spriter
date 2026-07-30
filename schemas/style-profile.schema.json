@@ -1,0 +1,271 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt-spriter.local/schemas/style-profile.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "schemaVersion",
+    "id",
+    "version",
+    "status",
+    "displayName",
+    "description",
+    "principles",
+    "color",
+    "outline",
+    "shape",
+    "shading",
+    "motion",
+    "prohibitions",
+    "references",
+    "reviewScales"
+  ],
+  "properties": {
+    "kind": {
+      "const": "style-profile"
+    },
+    "schemaVersion": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/semver"
+    },
+    "id": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+    },
+    "version": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/semver"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "active",
+        "retired"
+      ]
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "principles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "color": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "alphaPolicy",
+        "recommendedOpaqueColorsMin",
+        "recommendedOpaqueColorsMax",
+        "maximumOpaqueColors",
+        "maximumShadeStepsPerMaterial",
+        "pureBlackPolicy"
+      ],
+      "properties": {
+        "alphaPolicy": {
+          "enum": [
+            "hard",
+            "intermediate-allowed"
+          ]
+        },
+        "recommendedOpaqueColorsMin": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "recommendedOpaqueColorsMax": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maximumOpaqueColors": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "maximumShadeStepsPerMaterial": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "pureBlackPolicy": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "outline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "continuousOutlineRequired",
+        "preferLocalDarkColors"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "none",
+            "selective",
+            "continuous"
+          ]
+        },
+        "continuousOutlineRequired": {
+          "type": "boolean"
+        },
+        "preferLocalDarkColors": {
+          "type": "boolean"
+        }
+      }
+    },
+    "shape": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "silhouettePriority",
+        "internalDetailDensity",
+        "singlePixelNoise",
+        "minimumFeatureRule"
+      ],
+      "properties": {
+        "silhouettePriority": {
+          "type": "string",
+          "minLength": 1
+        },
+        "internalDetailDensity": {
+          "type": "string",
+          "minLength": 1
+        },
+        "singlePixelNoise": {
+          "type": "string",
+          "minLength": 1
+        },
+        "minimumFeatureRule": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "shading": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "dithering",
+        "lightDirection",
+        "specularUse"
+      ],
+      "properties": {
+        "mode": {
+          "type": "string",
+          "minLength": 1
+        },
+        "dithering": {
+          "type": "string",
+          "minLength": 1
+        },
+        "lightDirection": {
+          "type": "string",
+          "minLength": 1
+        },
+        "specularUse": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "motion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "grounding",
+        "subpixelMotion",
+        "idle",
+        "locomotion",
+        "attack",
+        "hurt",
+        "cast",
+        "death"
+      ],
+      "properties": {
+        "grounding": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subpixelMotion": {
+          "type": "boolean"
+        },
+        "idle": {
+          "type": "string",
+          "minLength": 1
+        },
+        "locomotion": {
+          "type": "string",
+          "minLength": 1
+        },
+        "attack": {
+          "type": "string",
+          "minLength": 1
+        },
+        "hurt": {
+          "type": "string",
+          "minLength": 1
+        },
+        "cast": {
+          "type": "string",
+          "minLength": 1
+        },
+        "death": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "prohibitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "purpose",
+          "access"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "access": {
+            "const": "read-only"
+          }
+        }
+      }
+    },
+    "reviewScales": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    }
+  }
+}
+

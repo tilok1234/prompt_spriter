@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt-spriter.local/schemas/asset.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "schemaVersion",
+    "id",
+    "name",
+    "category",
+    "style",
+    "createdAt",
+    "tags"
+  ],
+  "properties": {
+    "kind": {
+      "const": "asset"
+    },
+    "schemaVersion": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/semver"
+    },
+    "id": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "category": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/contractRef"
+    },
+    "style": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/contractRef"
+    },
+    "createdAt": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/dateTime"
+    },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+      }
+    }
+  }
+}
+

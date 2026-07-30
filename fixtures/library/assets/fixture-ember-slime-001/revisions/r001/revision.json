@@ -1,0 +1,71 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "fixture-ember-slime-001",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-30T12:00:00.000Z",
+  "request": "Deterministic Phase 1 fixture for the minimal Intake viewer.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Prompt Spriter Fixture Generator",
+    "model": "deterministic-fixture",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": null,
+    "sheet": {
+      "path": "revisions/r001/sheet.png"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": "phase-one-fixture"
+}
+

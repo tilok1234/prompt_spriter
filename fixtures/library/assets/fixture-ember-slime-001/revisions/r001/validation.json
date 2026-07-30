@@ -1,0 +1,28 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "phase-one-fixture-job",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "sheet-dimensions",
+      "level": "info",
+      "status": "passed",
+      "message": "The fixture sheet is 320x128 with 32x32 cells."
+    },
+    {
+      "code": "vertical-slice-layout",
+      "level": "info",
+      "status": "passed",
+      "message": "Idle, walk, and attack occupy 10 columns across four direction rows."
+    },
+    {
+      "code": "source-artifact",
+      "level": "info",
+      "status": "not-assessed",
+      "message": "The deterministic UI fixture intentionally has no Aseprite source."
+    }
+  ],
+  "createdAt": "2026-07-30T12:00:00.000Z"
+}
+

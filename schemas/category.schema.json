@@ -1,0 +1,386 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt-spriter.local/schemas/category.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "schemaVersion",
+    "id",
+    "version",
+    "status",
+    "displayName",
+    "description",
+    "frame",
+    "directions",
+    "animations",
+    "timeline",
+    "source",
+    "sheet",
+    "mirroring",
+    "firstVerticalSlice",
+    "validation"
+  ],
+  "properties": {
+    "kind": {
+      "const": "category-contract"
+    },
+    "schemaVersion": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/semver"
+    },
+    "id": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+    },
+    "version": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/semver"
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "active",
+        "retired"
+      ]
+    },
+    "displayName": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "frame": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "width",
+        "height",
+        "colorMode",
+        "alphaPolicy",
+        "trim",
+        "bakedShadow"
+      ],
+      "properties": {
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "colorMode": {
+          "enum": [
+            "rgba",
+            "indexed",
+            "grayscale"
+          ]
+        },
+        "alphaPolicy": {
+          "enum": [
+            "hard",
+            "intermediate-allowed"
+          ]
+        },
+        "trim": {
+          "type": "boolean"
+        },
+        "bakedShadow": {
+          "type": "boolean"
+        }
+      }
+    },
+    "directions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "row"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+          },
+          "row": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "animations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/animationLayout"
+      }
+    },
+    "timeline": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "order",
+        "tagPattern",
+        "framesPerDirection",
+        "totalFrames"
+      ],
+      "properties": {
+        "order": {
+          "const": "direction-major"
+        },
+        "tagPattern": {
+          "const": "{direction}_{animation}"
+        },
+        "framesPerDirection": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "totalFrames": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format",
+        "requiredLayers",
+        "optionalLayers",
+        "layerOrderBottomToTop",
+        "hiddenExportLayers"
+      ],
+      "properties": {
+        "format": {
+          "const": "aseprite"
+        },
+        "requiredLayers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "optionalLayers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "layerOrderBottomToTop": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "hiddenExportLayers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "sheet": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cellWidth",
+        "cellHeight",
+        "columns",
+        "rows",
+        "width",
+        "height",
+        "scale",
+        "reviewScale",
+        "padding",
+        "innerPadding",
+        "trim"
+      ],
+      "properties": {
+        "cellWidth": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "cellHeight": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "columns": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "rows": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "width": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "height": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "scale": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "reviewScale": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "padding": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "innerPadding": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "trim": {
+          "type": "boolean"
+        }
+      }
+    },
+    "mirroring": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "default",
+        "requiresIndependentSidesFor"
+      ],
+      "properties": {
+        "default": {
+          "enum": [
+            "never",
+            "allowed-when-symmetric",
+            "allowed"
+          ]
+        },
+        "requiresIndependentSidesFor": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "firstVerticalSlice": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "animations",
+        "columns",
+        "rows",
+        "totalFrames",
+        "sheetWidth",
+        "sheetHeight"
+      ],
+      "properties": {
+        "animations": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+          },
+          "uniqueItems": true
+        },
+        "columns": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "rows": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "totalFrames": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sheetWidth": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sheetHeight": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "validation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "maxOpaqueColors",
+        "recommendedOpaqueColors",
+        "emptyFrame",
+        "missingTag",
+        "unexpectedIntermediateAlpha",
+        "duplicateFrame",
+        "cellBoundaryContact",
+        "clippedOpaquePixel"
+      ],
+      "properties": {
+        "maxOpaqueColors": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "recommendedOpaqueColors": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "emptyFrame": {
+          "enum": [
+            "warning",
+            "error"
+          ]
+        },
+        "missingTag": {
+          "enum": [
+            "warning",
+            "error"
+          ]
+        },
+        "unexpectedIntermediateAlpha": {
+          "enum": [
+            "warning",
+            "error"
+          ]
+        },
+        "duplicateFrame": {
+          "enum": [
+            "warning",
+            "error"
+          ]
+        },
+        "cellBoundaryContact": {
+          "enum": [
+            "warning",
+            "error"
+          ]
+        },
+        "clippedOpaquePixel": {
+          "enum": [
+            "warning",
+            "error"
+          ]
+        }
+      }
+    }
+  }
+}
+

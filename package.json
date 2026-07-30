@@ -1,0 +1,35 @@
+{
+  "name": "prompt-spriter",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Local-first AI-assisted sprite intake, review, and library application.",
+  "scripts": {
+    "build": "tsc --noEmit && vite build",
+    "check": "npm run check:foundation && npm run check:contracts && npm run test && npm run build",
+    "check:contracts": "node tools/validate-contracts.mjs",
+    "check:foundation": "node tools/check-foundation.mjs",
+    "dev": "vite",
+    "fixture:generate": "node tools/generate-fixture.mjs",
+    "ingest:submission": "node tools/ingest-submission.mjs",
+    "scan:library": "node tools/scan-library.mjs",
+    "test": "vitest run",
+    "validate:submission": "node tools/validate-submission.mjs"
+  },
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8"
+  },
+  "devDependencies": {
+    "@types/pngjs": "^6.0.5",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.4",
+    "pngjs": "^7.0.0",
+    "typescript": "^7.0.2",
+    "vite": "^8.1.5",
+    "vitest": "^4.1.10"
+  }
+}

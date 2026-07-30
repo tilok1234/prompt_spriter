@@ -1,0 +1,74 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt-spriter.local/schemas/validation.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "schemaVersion",
+    "jobId",
+    "status",
+    "checks",
+    "createdAt"
+  ],
+  "properties": {
+    "kind": {
+      "const": "validation-report"
+    },
+    "schemaVersion": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/semver"
+    },
+    "jobId": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+    },
+    "status": {
+      "enum": [
+        "passed",
+        "passed-with-warnings",
+        "failed",
+        "not-completed"
+      ]
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "code",
+          "level",
+          "status",
+          "message"
+        ],
+        "properties": {
+          "code": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+          },
+          "level": {
+            "enum": [
+              "info",
+              "warning",
+              "error"
+            ]
+          },
+          "status": {
+            "enum": [
+              "passed",
+              "warning",
+              "failed",
+              "not-assessed"
+            ]
+          },
+          "message": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "createdAt": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/dateTime"
+    }
+  }
+}
+

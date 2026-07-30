@@ -1,0 +1,14 @@
+node_modules/
+dist/
+coverage/
+workspace/
+src-tauri/target/
+
+.env
+.env.*
+!.env.example
+
+*.log
+Thumbs.db
+.DS_Store
+

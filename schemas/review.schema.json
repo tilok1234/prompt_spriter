@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt-spriter.local/schemas/review.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "schemaVersion",
+    "assetId",
+    "approvedRevisionId",
+    "candidate",
+    "notes",
+    "archiveHistory",
+    "updatedAt"
+  ],
+  "properties": {
+    "kind": {
+      "const": "review"
+    },
+    "schemaVersion": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/semver"
+    },
+    "assetId": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+    },
+    "approvedRevisionId": {
+      "oneOf": [
+        {
+          "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/revisionId"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "candidate": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "revisionId",
+            "lane"
+          ],
+          "properties": {
+            "revisionId": {
+              "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/revisionId"
+            },
+            "lane": {
+              "enum": [
+                "intake",
+                "revise",
+                "archive"
+              ]
+            }
+          }
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "text",
+          "createdAt",
+          "resolvedAt",
+          "target"
+        ],
+        "properties": {
+          "id": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1
+          },
+          "createdAt": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/dateTime"
+          },
+          "resolvedAt": {
+            "oneOf": [
+              {
+                "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "target": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "direction": {
+                "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+              },
+              "animation": {
+                "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+              },
+              "frames": {
+                "type": "array",
+                "items": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "archiveHistory": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "revisionId",
+          "archivedAt",
+          "restoredAt"
+        ],
+        "properties": {
+          "revisionId": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/revisionId"
+          },
+          "archivedAt": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/dateTime"
+          },
+          "restoredAt": {
+            "oneOf": [
+              {
+                "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/dateTime"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "updatedAt": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/dateTime"
+    }
+  }
+}
+

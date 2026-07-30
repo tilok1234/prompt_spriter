@@ -1,0 +1,70 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt-spriter.local/schemas/batch.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "schemaVersion",
+    "id",
+    "batchType",
+    "createdAt",
+    "items"
+  ],
+  "properties": {
+    "kind": {
+      "const": "batch"
+    },
+    "schemaVersion": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/semver"
+    },
+    "id": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+    },
+    "batchType": {
+      "enum": [
+        "creation",
+        "revision"
+      ]
+    },
+    "createdAt": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/dateTime"
+    },
+    "items": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetId",
+          "baseRevisionId",
+          "notes"
+        ],
+        "properties": {
+          "assetId": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+          },
+          "baseRevisionId": {
+            "oneOf": [
+              {
+                "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/revisionId"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
