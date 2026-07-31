@@ -224,6 +224,9 @@ export const validateSubmissionDirectory = ({
       try {
         const inspection = inspectSpriteSheet(artifactPaths.sheet, {
           sheet: sheetDeclaration,
+          directions: submission.output.directions,
+          animations: submission.output.animations,
+          validation: category.validation,
         });
         failures.push(...inspection.failures);
         technicalWarnings.push(...inspection.warnings);

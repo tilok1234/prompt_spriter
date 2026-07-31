@@ -1,5 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import {
+  clearPromptinatorV2TestBatch,
+  createPromptinatorV2TestBatch,
   importPromptCatalog,
   previewPromptCatalog,
   setPromptinatorEntryStyle,
@@ -55,6 +57,7 @@ export function PromptinatorView({
   const [importOpen, setImportOpen] = useState(false);
   const [pending, setPending] = useState(false);
   const [pendingEntryId, setPendingEntryId] = useState("");
+  const [selectedBatchIds, setSelectedBatchIds] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
 
@@ -117,11 +120,39 @@ export function PromptinatorView({
   const completedCount = store.entries.filter(
     (entry) => entry.state === "completed",
   ).length;
+  const allReady = useMemo(
+    () =>
+      store.entries
+        .filter((entry) => entry.state === "ready")
+        .sort((left, right) => left.ordinal - right.ordinal),
+    [store.entries],
+  );
+  const activeBatchEntries = useMemo(
+    () =>
+      (store.activeTestBatch?.entryIds ?? [])
+        .map((entryId) => store.entries.find((entry) => entry.id === entryId))
+        .filter((entry): entry is PromptinatorEntry => Boolean(entry)),
+    [store.activeTestBatch, store.entries],
+  );
+  const activeBatchReady = activeBatchEntries.filter(
+    (entry) => entry.state === "ready",
+  );
+  const nextClaim = store.activeTestBatch
+    ? activeBatchReady[0] ?? null
+    : allReady[0] ?? null;
+  const activeBatchDispatched = activeBatchEntries.length - activeBatchReady.length;
 
   useEffect(() => {
     if (!selected) setSelectedId("");
     else if (selected.id !== selectedId) setSelectedId(selected.id);
   }, [selected, selectedId]);
+
+  useEffect(() => {
+    const readyIds = new Set(allReady.map((entry) => entry.id));
+    setSelectedBatchIds((current) =>
+      current.filter((entryId) => readyIds.has(entryId)),
+    );
+  }, [allReady]);
 
   const clearFeedback = () => {
     setError(null);
@@ -256,6 +287,53 @@ export function PromptinatorView({
     }
   };
 
+  const toggleBatchEntry = (entryId: string) => {
+    clearFeedback();
+    setSelectedBatchIds((current) =>
+      current.includes(entryId)
+        ? current.filter((candidate) => candidate !== entryId)
+        : [...current, entryId],
+    );
+  };
+
+  const startV2TestBatch = async () => {
+    clearFeedback();
+    setPending(true);
+    try {
+      const updated = await createPromptinatorV2TestBatch({
+        entryIds: selectedBatchIds,
+        expectedUpdatedAt: store.updatedAt,
+      });
+      onStoreChange(updated);
+      setSelectedBatchIds([]);
+      setNotice(
+        `${selectedBatchIds.length} Ready entries were pinned as an explicit v2 test batch.`,
+      );
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : String(caught));
+    } finally {
+      setPending(false);
+    }
+  };
+
+  const endV2TestBatch = async () => {
+    if (!store.activeTestBatch) return;
+    clearFeedback();
+    setPending(true);
+    try {
+      const updated = await clearPromptinatorV2TestBatch({
+        batchId: store.activeTestBatch.id,
+        expectedUpdatedAt: store.updatedAt,
+      });
+      onStoreChange(updated);
+      setNotice("The explicit v2 test batch ended; normal ordinal claiming resumed.");
+    } catch (caught) {
+      setError(caught instanceof Error ? caught.message : String(caught));
+    } finally {
+      setPending(false);
+    }
+  };
+
   const reload = async () => {
     clearFeedback();
     setPending(true);
@@ -319,6 +397,62 @@ export function PromptinatorView({
             Completed <b>{completedCount}</b>
           </button>
         </div>
+
+        <section className="promptinator__dispatch" aria-label="Next Promptinator claim">
+          <div className="promptinator__dispatch-heading">
+            <span>
+              {store.activeTestBatch ? "ACTIVE V2 TEST BATCH" : "NEXT TRUSTED CLAIM"}
+            </span>
+            <b>
+              {nextClaim
+                ? `${nextClaim.style.id}@${nextClaim.style.version}`
+                : store.activeTestBatch
+                  ? "BATCH EXHAUSTED"
+                  : "NO READY ENTRY"}
+            </b>
+          </div>
+          {nextClaim ? (
+            <>
+              <strong>#{nextClaim.ordinal} · {nextClaim.name}</strong>
+              <small>
+                The next trusted claim and manual Copy next action both use this exact entry and style.
+              </small>
+            </>
+          ) : store.activeTestBatch ? (
+            <small>
+              No selected entry remains Ready. End this batch before claiming from the normal queue.
+            </small>
+          ) : (
+            <small>Import or requeue an entry before starting another claim.</small>
+          )}
+          {store.activeTestBatch ? (
+            <div className="promptinator__dispatch-actions">
+              <span>
+                {activeBatchDispatched}/{activeBatchEntries.length} dispatched · {activeBatchReady.length} Ready
+              </span>
+              <button
+                type="button"
+                className="button button--secondary"
+                disabled={pending}
+                onClick={() => void endV2TestBatch()}
+              >
+                End test batch
+              </button>
+            </div>
+          ) : lane === "ready" ? (
+            <div className="promptinator__dispatch-actions">
+              <span>{selectedBatchIds.length} selected · choose 2-24 Ready entries</span>
+              <button
+                type="button"
+                className="button button--secondary"
+                disabled={pending || selectedBatchIds.length < 2}
+                onClick={() => void startV2TestBatch()}
+              >
+                Pin selected as v2 batch
+              </button>
+            </div>
+          ) : null}
+        </section>
 
         {importOpen ? (
           <div className="promptinator__import">
@@ -392,39 +526,62 @@ export function PromptinatorView({
           <div className="promptinator__feedback">{notice}</div>
         ) : null}
 
-        {lane === "ready" && ready.length > 0 ? (
+        {lane === "ready" && nextClaim ? (
           <button
             type="button"
             className="button button--primary promptinator__copy-next"
             disabled={Boolean(pendingEntryId)}
-            onClick={() => void copyEntry(ready[0])}
+            onClick={() => void copyEntry(nextClaim)}
           >
-            Copy next · #{ready[0].ordinal} {ready[0].name}
+            Copy next · #{nextClaim.ordinal} {nextClaim.name} · {nextClaim.style.id === "assembler-inspired-v2" ? "v2" : "legacy v1"}
           </button>
         ) : null}
 
         <div className="promptinator__entries">
-          {visible.map((entry) => (
-            <button
-              type="button"
-              className={selected?.id === entry.id ? "is-selected" : ""}
-              onClick={() => setSelectedId(entry.id)}
-              key={entry.id}
-            >
-              <span>#{entry.ordinal} · {entry.family.name}</span>
-              <strong>{entry.name}</strong>
-              <small>{entry.brief.coreConcept}</small>
-              <b>
-                {entry.style.id === "assembler-inspired-v2"
-                  ? "v2 default"
-                  : entry.state === "claimed"
-                  ? "claimed"
-                  : entry.state === "copied"
-                    ? "manual"
-                    : entry.state}
-              </b>
-            </button>
-          ))}
+          {visible.map((entry) => {
+            const isBatchSelected = selectedBatchIds.includes(entry.id);
+            const isActiveBatchEntry = Boolean(
+              store.activeTestBatch?.entryIds.includes(entry.id),
+            );
+            return (
+              <div
+                className={`promptinator__entry-row${isBatchSelected ? " is-batch-selected" : ""}${isActiveBatchEntry ? " is-active-batch-entry" : ""}`}
+                key={entry.id}
+              >
+                {lane === "ready" && !store.activeTestBatch ? (
+                  <button
+                    type="button"
+                    className="promptinator__batch-toggle"
+                    aria-label={`${isBatchSelected ? "Remove" : "Add"} ${entry.name} ${isBatchSelected ? "from" : "to"} the v2 test batch`}
+                    aria-pressed={isBatchSelected}
+                    onClick={() => toggleBatchEntry(entry.id)}
+                  >
+                    {isBatchSelected ? "✓" : "+"}
+                  </button>
+                ) : null}
+                <button
+                  type="button"
+                  className={`promptinator__entry-card${selected?.id === entry.id ? " is-selected" : ""}`}
+                  onClick={() => setSelectedId(entry.id)}
+                >
+                  <span>#{entry.ordinal} · {entry.family.name}</span>
+                  <strong>{entry.name}</strong>
+                  <small>{entry.brief.coreConcept}</small>
+                  <b>
+                    {isActiveBatchEntry
+                      ? "v2 test"
+                      : entry.style.id === "assembler-inspired-v2"
+                        ? "v2 default"
+                        : entry.state === "claimed"
+                          ? "claimed"
+                          : entry.state === "copied"
+                            ? "manual"
+                            : entry.state}
+                  </b>
+                </button>
+              </div>
+            );
+          })}
           {visible.length === 0 ? (
             <div className="promptinator__empty">
               <strong>{query.trim() ? "No matching prompts" : `${lane} is empty`}</strong>
@@ -451,26 +608,34 @@ export function PromptinatorView({
               </div>
               {selected.state === "ready" ? (
                 <div className="promptinator__detail-actions">
-                  <button
-                    type="button"
-                    className="button button--secondary"
-                    disabled={Boolean(pendingEntryId)}
-                    onClick={() => void changeStyle(selected)}
-                  >
-                    {selected.style.id === "assembler-inspired-v2"
-                      ? "Use legacy v1"
-                      : "Use v2 default"}
-                  </button>
-                  <button
-                    type="button"
-                    className="button button--primary"
-                    disabled={Boolean(pendingEntryId)}
-                    onClick={() => void copyEntry(selected)}
-                  >
-                    {pendingEntryId === selected.id
-                      ? "Working…"
-                      : "Copy & move to In progress"}
-                  </button>
+                  {!store.activeTestBatch ? (
+                    <button
+                      type="button"
+                      className="button button--secondary"
+                      disabled={Boolean(pendingEntryId)}
+                      onClick={() => void changeStyle(selected)}
+                    >
+                      {selected.style.id === "assembler-inspired-v2"
+                        ? "Use legacy v1"
+                        : "Use v2 default"}
+                    </button>
+                  ) : null}
+                  {!store.activeTestBatch || selected.id === nextClaim?.id ? (
+                    <button
+                      type="button"
+                      className="button button--primary"
+                      disabled={Boolean(pendingEntryId)}
+                      onClick={() => void copyEntry(selected)}
+                    >
+                      {pendingEntryId === selected.id
+                        ? "Working…"
+                        : "Copy & move to In progress"}
+                    </button>
+                  ) : (
+                    <span className="promptinator__dispatch-lock">
+                      Active test batch pins a different next entry.
+                    </span>
+                  )}
                 </div>
               ) : ["copied", "claimed"].includes(selected.state) ? (
                 <button

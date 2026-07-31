@@ -26,8 +26,9 @@ import { routeAfterReviewAction } from "./domain/review-navigation";
 import type { ReviewNote, ViewerAsset } from "./domain/types";
 import "./styles.css";
 
-type Section = "intake" | "revise" | "library" | "archive";
+type Section = "intake" | "denied" | "library" | "archive";
 type StageBackground = "checker" | "midnight" | "paper";
+type IntakeFilter = "all" | "awaiting-review" | "revision-requested";
 
 const titleCase = (value: string) =>
   value.replace(/(^|-)([a-z])/g, (_, prefix, letter: string) =>
@@ -87,10 +88,13 @@ const formatCreatedAt = (value: string) =>
 const batchSelectionKey = (item: ViewerAsset) =>
   `${item.asset.id}:${item.revision.id}`;
 
+const hasUnresolvedNotes = (item: ViewerAsset) =>
+  item.review.notes.some((note) => note.resolvedAt === null);
+
 const navigation: Array<{
   id: Exclude<Section, "archive">;
   label: string;
-  icon: "intake" | "revise" | "library";
+  icon: "intake" | "denied" | "library";
 }> = [
   {
     id: "intake",
@@ -98,9 +102,9 @@ const navigation: Array<{
     icon: "intake",
   },
   {
-    id: "revise",
-    label: "Revise",
-    icon: "revise",
+    id: "denied",
+    label: "Denied",
+    icon: "denied",
   },
   {
     id: "library",
@@ -111,8 +115,9 @@ const navigation: Array<{
 
 const actionForDialog: Record<ReviewDialogMode, ReviewMutationAction> = {
   approve: "approve",
-  "send-to-revise": "send-to-revise",
   "add-note": "add-note",
+  deny: "deny",
+  reopen: "reopen",
   "start-revision": "start-revision",
   archive: "archive",
   restore: "restore",
@@ -150,9 +155,9 @@ function LaneEmpty({
 
   const copy = {
     intake: "Completed Antigravity candidates will collect here.",
-    revise: "Reviewed candidates with actionable notes will collect here.",
+    denied: "Dormant rejected candidates will collect here until reopened or archived.",
     library: "Only revisions you explicitly approve will appear here.",
-    archive: "Only candidates archived from Revise will appear here.",
+    archive: "Only candidates archived from Denied will appear here.",
   }[section];
 
   return (
@@ -177,6 +182,7 @@ function App() {
     ? (requestedSection as Section)
     : "intake";
   const [query, setQuery] = useState("");
+  const [intakeFilter, setIntakeFilter] = useState<IntakeFilter>("all");
   const [assets, setAssets] = useState<ViewerAsset[]>([fixtureAsset]);
   const [librarySource, setLibrarySource] = useState<"fixture" | "local">(
     "fixture",
@@ -204,8 +210,9 @@ function App() {
   const [promptinatorStore, setPromptinatorStore] =
     useState<PromptinatorStore>({
       kind: "promptinator-store",
-      schemaVersion: "1.3.0",
+      schemaVersion: "1.4.0",
       updatedAt: "1970-01-01T00:00:00.000Z",
+      activeTestBatch: null,
       entries: [],
     });
   const [promptinatorLoadError, setPromptinatorLoadError] = useState<
@@ -277,7 +284,7 @@ function App() {
     () => ({
       intake: assets.filter((asset) => belongsToSection(asset, "intake"))
         .length,
-      revise: assets.filter((asset) => belongsToSection(asset, "revise"))
+      denied: assets.filter((asset) => belongsToSection(asset, "denied"))
         .length,
       library: assets.filter((asset) => belongsToSection(asset, "library"))
         .length,
@@ -292,7 +299,14 @@ function App() {
   const sectionItems = assets.filter((asset) =>
     belongsToSection(asset, section),
   );
-  const filteredItems = sectionItems.filter((asset) =>
+  const intakeFilteredItems = sectionItems.filter((asset) => {
+    if (section !== "intake" || intakeFilter === "all") return true;
+    const revisionRequested = hasUnresolvedNotes(asset);
+    return intakeFilter === "revision-requested"
+      ? revisionRequested
+      : !revisionRequested;
+  });
+  const filteredItems = intakeFilteredItems.filter((asset) =>
     matchesSearch(asset, query),
   );
   const filteredBatches = batches.filter((entry) => {
@@ -308,7 +322,8 @@ function App() {
   const selectedBatchKeySet = new Set(selectedBatchKeys);
   const selectedBatchItems = assets.filter(
     (candidate) =>
-      belongsToSection(candidate, "revise") &&
+      belongsToSection(candidate, "intake") &&
+      hasUnresolvedNotes(candidate) &&
       selectedBatchKeySet.has(batchSelectionKey(candidate)),
   );
   const requestedAssetId = routeParts[3];
@@ -363,6 +378,9 @@ function App() {
     item.review.candidate?.revisionId === item.revision.id
       ? item.review.candidate
       : null;
+  const unresolvedNoteCount = item.review.notes.filter(
+    (note) => note.resolvedAt === null,
+  ).length;
   const reviewActionsEnabled =
     librarySource === "local" && item.origin === "local-library";
   const batchActionsEnabled = librarySource === "local";
@@ -370,7 +388,11 @@ function App() {
   useEffect(() => {
     const availableKeys = new Set(
       assets
-        .filter((candidate) => belongsToSection(candidate, "revise"))
+        .filter(
+          (candidate) =>
+            belongsToSection(candidate, "intake") &&
+            hasUnresolvedNotes(candidate),
+        )
         .map(batchSelectionKey),
     );
     setSelectedBatchKeys((current) => {
@@ -527,14 +549,17 @@ function App() {
           ? "library"
           : dialogMode === "archive"
             ? "archive"
-            : "revise";
+            : dialogMode === "deny" || dialogMode === "restore"
+              ? "denied"
+              : "intake";
       const notice = {
         approve: `${item.asset.name} ${item.revision.id} is now the approved Library revision.`,
-        "send-to-revise": `${item.asset.name} moved to Revise with its first note.`,
-        "add-note": `Revision note added to ${item.asset.name}.`,
-        "start-revision": `${item.asset.name} opened in Revise while ${item.revision.id} stays approved.`,
-        archive: `${item.asset.name} moved from Revise to Archive.`,
-        restore: `${item.asset.name} restored to Revise.`,
+        "add-note": `Revision requested for ${item.asset.name}; approval is blocked until the note is resolved.`,
+        deny: `${item.asset.name} moved to Denied.`,
+        reopen: `${item.asset.name} returned to Intake.`,
+        "start-revision": `${item.asset.name} opened in Intake while ${item.revision.id} stays approved.`,
+        archive: `${item.asset.name} moved from Denied to Archive.`,
+        restore: `${item.asset.name} restored to Denied.`,
       }[dialogMode];
       setActionNotice(notice);
       setDialogMode(null);
@@ -719,11 +744,34 @@ function App() {
                 : isPromptinatorPage
                   ? "ready prompts"
                   : section === "intake"
-                    ? "awaiting review"
+                    ? "active candidates"
                     : "items"}
             </span>
           </div>
         </header>
+
+        {!isSpecialPage && section === "intake" ? (
+          <div className="intake-filter-bar" aria-label="Intake status filter">
+            <span>INTAKE STATUS</span>
+            {(
+              [
+                ["all", "All"],
+                ["awaiting-review", "Awaiting review"],
+                ["revision-requested", "Revision requested"],
+              ] as Array<[IntakeFilter, string]>
+            ).map(([value, label]) => (
+              <button
+                type="button"
+                key={value}
+                className={intakeFilter === value ? "is-active" : ""}
+                aria-pressed={intakeFilter === value}
+                onClick={() => setIntakeFilter(value)}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        ) : null}
 
         {isBatchesPage ? (
           <>
@@ -770,11 +818,11 @@ function App() {
                 </button>
               </div>
 
-              {section === "revise" ? (
+              {section === "intake" ? (
                 <div className="batch-selection-bar">
                   <span>
                     <b>{selectedBatchItems.length}</b> selected for a revision
-                    batch
+                    batch · only candidates with open notes are selectable
                   </span>
                   <button
                     type="button"
@@ -794,10 +842,12 @@ function App() {
                 const candidateBatchKey = batchSelectionKey(candidate);
                 const selectedForBatch =
                   selectedBatchKeySet.has(candidateBatchKey);
+                const candidateHasUnresolvedNotes =
+                  hasUnresolvedNotes(candidate);
                 return (
                   <div
                     className={`asset-card-shell ${
-                      section === "revise"
+                      section === "intake" && candidateHasUnresolvedNotes
                         ? "asset-card-shell--batchable"
                         : ""
                     } ${
@@ -805,7 +855,7 @@ function App() {
                     }`}
                     key={`${candidate.asset.id}-${candidate.revision.id}`}
                   >
-                    {section === "revise" ? (
+                    {section === "intake" && candidateHasUnresolvedNotes ? (
                       <button
                         type="button"
                         className="batch-select-toggle"
@@ -847,7 +897,11 @@ function App() {
                       <div className="asset-card__body">
                         <div className="asset-card__topline">
                           <span className="lane-pill">
-                            {section.toUpperCase()}
+                            {section === "intake"
+                              ? candidateHasUnresolvedNotes
+                                ? "REVISION REQUESTED"
+                                : "AWAITING REVIEW"
+                              : section.toUpperCase()}
                           </span>
                           <time>
                             {formatCreatedAt(
@@ -905,30 +959,45 @@ function App() {
                       <button
                         type="button"
                         className="button button--secondary"
-                        onClick={() => openReviewDialog("send-to-revise")}
+                        onClick={() => openReviewDialog("add-note")}
                         disabled={!reviewActionsEnabled}
                       >
-                        Send to Revise
+                        Add revision note
+                      </button>
+                      <button
+                        type="button"
+                        className="button button--quiet"
+                        onClick={() => openReviewDialog("deny")}
+                        disabled={!reviewActionsEnabled}
+                      >
+                        Deny
                       </button>
                       <button
                         type="button"
                         className="button button--primary"
                         onClick={() => openReviewDialog("approve")}
-                        disabled={!reviewActionsEnabled}
+                        disabled={
+                          !reviewActionsEnabled || unresolvedNoteCount > 0
+                        }
+                        title={
+                          unresolvedNoteCount > 0
+                            ? "Resolve all revision notes before approval"
+                            : undefined
+                        }
                       >
                         Approve
                       </button>
                     </>
                   ) : null}
-                  {section === "revise" && exactCandidate?.lane === "revise" ? (
+                  {section === "denied" && exactCandidate?.lane === "denied" ? (
                     <>
                       <button
                         type="button"
                         className="button button--secondary"
-                        onClick={() => openReviewDialog("add-note")}
+                        onClick={() => openReviewDialog("reopen")}
                         disabled={!reviewActionsEnabled}
                       >
-                        Add note
+                        Return to Intake
                       </button>
                       <button
                         type="button"
@@ -948,7 +1017,7 @@ function App() {
                       onClick={() => openReviewDialog("restore")}
                       disabled={!reviewActionsEnabled}
                     >
-                      Restore to Revise
+                      Restore to Denied
                     </button>
                   ) : null}
                   {section === "library" &&
@@ -1339,23 +1408,27 @@ function App() {
                   <div className="review-state-card">
                     <span>
                       {section === "intake"
-                        ? "USER DECISION"
+                        ? unresolvedNoteCount > 0
+                          ? "REVISION REQUESTED"
+                          : "USER DECISION"
                         : section === "library"
                           ? "LIBRARY REVISION"
                           : section === "archive"
                             ? "RECOVERABLE STORAGE"
-                            : "REVISION WORKSPACE"}
+                            : "DORMANT CANDIDATE"}
                     </span>
                     <p>
                       {section === "intake"
-                        ? "Choose Approve or Send to Revise. Technical validation does not make this decision."
+                        ? unresolvedNoteCount > 0
+                          ? `${unresolvedNoteCount} unresolved revision note${unresolvedNoteCount === 1 ? "" : "s"} block approval. Add notes, include this candidate in a revision batch, or deny it.`
+                          : "Choose Approve, add a revision note, or Deny. Technical validation does not make the approval decision."
                         : section === "library"
                           ? item.review.candidate
                             ? `This exact ${item.revision.id} revision stays approved while ${item.review.candidate.revisionId} is in ${titleCase(item.review.candidate.lane)}.`
                             : `This exact ${item.revision.id} revision is manually approved. Start revision opens a separate working candidate without changing it.`
                           : section === "archive"
-                            ? "Only Restore is available here. Restoring returns this candidate and its notes to Revise."
-                            : "Add review notes here or move the candidate into recoverable Archive storage."}
+                            ? "Only Restore is available here. Restoring returns this candidate and its notes to Denied."
+                            : "This candidate is dormant. Return it to Intake to reconsider or move it into recoverable Archive storage."}
                     </p>
                   </div>
                 </aside>

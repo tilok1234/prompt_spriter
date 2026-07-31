@@ -30,7 +30,9 @@ const promptinatorRequestPattern =
   /^Promptinator entry ID:\s*(prompt-[0-9]{4,}-[a-z0-9]+(?:-[a-z0-9]+)*)\s*$/m;
 const claimIdPattern =
   /^claim-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
-const currentStoreVersion = "1.3.0";
+const testBatchIdPattern =
+  /^v2-test-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
+const currentStoreVersion = "1.4.0";
 const productionStyle = { id: "assembler-inspired-v2", version: "0.1.0" };
 const legacyStyle = { id: "assembler-inspired-v1", version: "0.1.0" };
 
@@ -290,6 +292,7 @@ const emptyStore = (at = "1970-01-01T00:00:00.000Z") => ({
   kind: "promptinator-store",
   schemaVersion: currentStoreVersion,
   updatedAt: at,
+  activeTestBatch: null,
   entries: [],
 });
 const storePathFor = (workspaceRoot) =>
@@ -298,7 +301,7 @@ const lockPathFor = (workspaceRoot) =>
   join(resolve(workspaceRoot), "promptinator", "store.lock");
 
 const migrateStore = (store) => {
-  if (!["1.0.0", "1.1.0", "1.2.0"].includes(store?.schemaVersion)) {
+  if (!["1.0.0", "1.1.0", "1.2.0", "1.3.0"].includes(store?.schemaVersion)) {
     return store;
   }
   const migrateReadyEntry = (entry) => {
@@ -341,6 +344,7 @@ const migrateStore = (store) => {
   return {
     ...store,
     schemaVersion: currentStoreVersion,
+    activeTestBatch: null,
     entries: Array.isArray(store.entries)
       ? store.entries.map(migrateReadyEntry)
       : store.entries,
@@ -404,11 +408,20 @@ const validateStore = (store, label) => {
     families.set(entry.family.ordinal, familySignature);
     for (const event of entry.history) {
       if (
-        ["style-selected", "default-style-migrated"].includes(event.action) &&
+        [
+          "style-selected",
+          "default-style-migrated",
+          "v2-test-batch-selected",
+        ].includes(event.action) &&
         !event.style
       ) {
         failures.push(
           `${label}: ${event.action} history is missing its style for ${entry.id}`,
+        );
+      }
+      if (event.action === "v2-test-batch-selected" && !event.batchId) {
+        failures.push(
+          `${label}: v2 test-batch history is missing its batch ID for ${entry.id}`,
         );
       }
     }
@@ -448,6 +461,7 @@ const validateStore = (store, label) => {
           "requeued",
           "style-selected",
           "default-style-migrated",
+          "v2-test-batch-selected",
         ].includes(lastAction))
     ) {
       failures.push(`${label}: inconsistent ready state for ${entry.id}`);
@@ -470,6 +484,49 @@ const validateStore = (store, label) => {
         entry.history.at(-1)?.revisionId !== entry.completion?.revisionId)
     ) {
       failures.push(`${label}: inconsistent completed state for ${entry.id}`);
+    }
+  }
+  if (failures.length === 0 && store.activeTestBatch) {
+    const batch = store.activeTestBatch;
+    if (
+      batch.style.id !== productionStyle.id ||
+      batch.style.version !== productionStyle.version
+    ) {
+      failures.push(`${label}: active test batch must use the v2 production style`);
+    }
+    const selectedEntries = batch.entryIds.map((entryId) =>
+      store.entries.find((entry) => entry.id === entryId),
+    );
+    for (let index = 0; index < selectedEntries.length; index += 1) {
+      const entry = selectedEntries[index];
+      const entryId = batch.entryIds[index];
+      if (!entry) {
+        failures.push(`${label}: active test batch references missing entry ${entryId}`);
+        continue;
+      }
+      if (
+        entry.style.id !== productionStyle.id ||
+        entry.style.version !== productionStyle.version ||
+        entry.formulaVersion !== "structured-v2"
+      ) {
+        failures.push(`${label}: active test-batch entry ${entryId} is not locked to v2`);
+      }
+      if (
+        !entry.history.some(
+          (event) =>
+            event.action === "v2-test-batch-selected" &&
+            event.batchId === batch.id,
+        )
+      ) {
+        failures.push(`${label}: active test-batch entry ${entryId} lacks batch provenance`);
+      }
+    }
+    const sortedEntryIds = [...selectedEntries]
+      .filter(Boolean)
+      .sort((left, right) => left.ordinal - right.ordinal)
+      .map((entry) => entry.id);
+    if (JSON.stringify(sortedEntryIds) !== JSON.stringify(batch.entryIds)) {
+      failures.push(`${label}: active test-batch entries must be in ordinal order`);
     }
   }
   if (failures.length > 0) {
@@ -618,6 +675,21 @@ export const transitionPromptinatorEntry = ({
           409,
         );
       }
+      if (store.activeTestBatch) {
+        const nextBatchEntryId = store.activeTestBatch.entryIds.find(
+          (candidateId) =>
+            store.entries.some(
+              (candidate) =>
+                candidate.id === candidateId && candidate.state === "ready",
+            ),
+        );
+        if (entry.id !== nextBatchEntryId) {
+          throw new PromptinatorError(
+            `Active v2 test batch ${store.activeTestBatch.id} permits manual copy only for its next Ready entry.`,
+            409,
+          );
+        }
+      }
     } else {
       if (entry.state === "ready") return store;
       if (!["copied", "claimed"].includes(entry.state)) {
@@ -684,6 +756,16 @@ export const setPromptinatorEntryStyle = ({
       );
     }
     if (
+      store.activeTestBatch?.entryIds.includes(entry.id) &&
+      (requestedStyle.id !== productionStyle.id ||
+        requestedStyle.version !== productionStyle.version)
+    ) {
+      throw new PromptinatorError(
+        `${entry.name} is locked to v2 by active test batch ${store.activeTestBatch.id}.`,
+        409,
+      );
+    }
+    if (
       entry.style.id === requestedStyle.id &&
       entry.style.version === requestedStyle.version
     ) {
@@ -719,6 +801,129 @@ export const setPromptinatorEntryStyle = ({
     });
   });
 };
+
+export const createPromptinatorV2TestBatch = ({
+  workspaceRoot,
+  entryIds,
+  expectedUpdatedAt,
+  now = () => new Date().toISOString(),
+  batchIdFactory = () => `v2-test-${randomUUID()}`,
+}) => {
+  if (
+    !Array.isArray(entryIds) ||
+    entryIds.length < 2 ||
+    entryIds.length > 24 ||
+    entryIds.some((entryId) => typeof entryId !== "string") ||
+    new Set(entryIds).size !== entryIds.length
+  ) {
+    throw new PromptinatorError(
+      "A v2 test batch requires 2-24 unique Ready entry IDs.",
+    );
+  }
+
+  return withPromptinatorLock(workspaceRoot, () => {
+    const store = readPromptinatorStore({ workspaceRoot });
+    assertExpectedUpdatedAt(store, expectedUpdatedAt);
+    if (store.activeTestBatch) {
+      throw new PromptinatorError(
+        `End active test batch ${store.activeTestBatch.id} before starting another.`,
+        409,
+      );
+    }
+    const selectedEntries = entryIds.map((entryId) => {
+      const entry = store.entries.find((candidate) => candidate.id === entryId);
+      if (!entry) {
+        throw new PromptinatorError(
+          `Promptinator entry was not found: ${entryId}.`,
+          404,
+        );
+      }
+      if (entry.state !== "ready") {
+        throw new PromptinatorError(
+          `${entry.name} can join a v2 test batch only while it is Ready.`,
+          409,
+        );
+      }
+      return entry;
+    }).sort((left, right) => left.ordinal - right.ordinal);
+    const batchId = batchIdFactory();
+    if (!testBatchIdPattern.test(batchId)) {
+      throw new PromptinatorError(
+        "Promptinator produced an invalid v2 test-batch ID.",
+        500,
+      );
+    }
+    const at = now();
+    const selectedIds = selectedEntries.map((entry) => entry.id);
+    const selectedSet = new Set(selectedIds);
+    const nextEntries = store.entries.map((entry) => {
+      if (!selectedSet.has(entry.id)) return entry;
+      return {
+        ...entry,
+        style: { ...productionStyle },
+        formulaVersion: "structured-v2",
+        promptText: renderPromptinatorPrompt({
+          id: entry.id,
+          name: entry.name,
+          family: entry.family,
+          brief: entry.brief,
+          style: productionStyle,
+          formulaVersion: "structured-v2",
+        }),
+        history: [
+          ...entry.history,
+          {
+            action: "v2-test-batch-selected",
+            at,
+            style: { ...productionStyle },
+            batchId,
+          },
+        ],
+      };
+    });
+    const activeTestBatch = {
+      id: batchId,
+      style: { ...productionStyle },
+      createdAt: at,
+      entryIds: selectedIds,
+    };
+    return writeStore({
+      workspaceRoot,
+      store: {
+        ...store,
+        updatedAt: at,
+        activeTestBatch,
+        entries: nextEntries,
+      },
+    });
+  });
+};
+
+export const clearPromptinatorV2TestBatch = ({
+  workspaceRoot,
+  batchId,
+  expectedUpdatedAt,
+  now = () => new Date().toISOString(),
+}) =>
+  withPromptinatorLock(workspaceRoot, () => {
+    const store = readPromptinatorStore({ workspaceRoot });
+    assertExpectedUpdatedAt(store, expectedUpdatedAt);
+    if (!store.activeTestBatch) return store;
+    if (store.activeTestBatch.id !== batchId) {
+      throw new PromptinatorError(
+        "The active v2 test batch changed since this view loaded.",
+        409,
+      );
+    }
+    return writeStore({
+      workspaceRoot,
+      store: {
+        ...store,
+        updatedAt: now(),
+        activeTestBatch: null,
+      },
+    });
+  });
 
 const normalizedPromptText = (value) =>
   String(value ?? "").replace(/\r\n?/g, "\n").trim();
@@ -861,8 +1066,29 @@ export const claimNextPromptinatorEntry = ({
       entries: store.entries,
       libraryEntries,
     });
-    const entryIndex = reconciled.entries.findIndex(
-      (entry) => entry.state === "ready",
+    const activeBatch = store.activeTestBatch;
+    const nextBatchEntryId = activeBatch?.entryIds.find((entryId) =>
+      reconciled.entries.some(
+        (entry) => entry.id === entryId && entry.state === "ready",
+      ),
+    );
+    if (activeBatch && !nextBatchEntryId) {
+      const at = now();
+      if (reconciled.reconciledCount > 0) {
+        writeStore({
+          workspaceRoot,
+          store: { ...store, updatedAt: at, entries: reconciled.entries },
+        });
+      }
+      throw new PromptinatorError(
+        `Active v2 test batch ${activeBatch.id} has no Ready entries. End it in Promptinator before claiming outside the batch.`,
+        409,
+      );
+    }
+    const entryIndex = reconciled.entries.findIndex((entry) =>
+      activeBatch
+        ? entry.id === nextBatchEntryId
+        : entry.state === "ready",
     );
     const at = now();
     if (entryIndex < 0) {
@@ -909,6 +1135,7 @@ export const claimNextPromptinatorEntry = ({
       store: nextStore,
       entry: claimedEntry,
       claim,
+      testBatch: activeBatch,
       reconciledCount: reconciled.reconciledCount,
     };
   });

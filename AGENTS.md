@@ -39,9 +39,13 @@ For a live Antigravity sprite job, also follow
   its current assigned staging job. Creator self-review is not user approval.
 - Only the user can approve an exact revision into the Library.
 - Automated checks are validation, never visual approval.
-- Revision notes belong in Revise, not Intake.
-- Archive is available only from Revise.
-- Restoring an archived candidate returns it to Revise.
+- Intake is the sole active candidate lane. Unresolved revision notes mark an
+  Intake candidate as **Revision requested** and block approval until trusted
+  revision ingestion resolves them.
+- Denied is a dormant, reversible rejection lane. Only a Denied candidate may
+  be archived, and it may be returned to Intake instead.
+- Restoring an archived candidate returns it to Denied, never directly to
+  Intake.
 - An approved Library revision remains unchanged while a newer candidate is
   created or revised.
 

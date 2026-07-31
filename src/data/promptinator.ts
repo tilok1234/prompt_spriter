@@ -42,9 +42,11 @@ export interface PromptinatorEntry {
       | "completed"
       | "requeued"
       | "style-selected"
-      | "default-style-migrated";
+      | "default-style-migrated"
+      | "v2-test-batch-selected";
     at: string;
     style?: { id: string; version: string };
+    batchId?: string;
     claimId?: string;
     assetId?: string;
     revisionId?: string;
@@ -53,8 +55,14 @@ export interface PromptinatorEntry {
 
 export interface PromptinatorStore {
   kind: "promptinator-store";
-  schemaVersion: "1.3.0";
+  schemaVersion: "1.4.0";
   updatedAt: string;
+  activeTestBatch: {
+    id: string;
+    style: { id: string; version: string };
+    createdAt: string;
+    entryIds: string[];
+  } | null;
   entries: PromptinatorEntry[];
 }
 
@@ -182,6 +190,50 @@ export const setPromptinatorEntryStyle = async ({
         action: "set-style",
         entryId,
         style,
+        expectedUpdatedAt,
+      }),
+    }),
+  );
+  if (!payload.store) throw new Error("Updated store was not returned.");
+  return payload.store;
+};
+
+export const createPromptinatorV2TestBatch = async ({
+  entryIds,
+  expectedUpdatedAt,
+}: {
+  entryIds: string[];
+  expectedUpdatedAt: string;
+}) => {
+  const payload = await payloadFrom(
+    await fetch("/__prompt-spriter/promptinator", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        action: "create-v2-test-batch",
+        entryIds,
+        expectedUpdatedAt,
+      }),
+    }),
+  );
+  if (!payload.store) throw new Error("Updated store was not returned.");
+  return payload.store;
+};
+
+export const clearPromptinatorV2TestBatch = async ({
+  batchId,
+  expectedUpdatedAt,
+}: {
+  batchId: string;
+  expectedUpdatedAt: string;
+}) => {
+  const payload = await payloadFrom(
+    await fetch("/__prompt-spriter/promptinator", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        action: "clear-v2-test-batch",
+        batchId,
         expectedUpdatedAt,
       }),
     }),

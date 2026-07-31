@@ -85,9 +85,9 @@ export function RevisionBatchDialog({
               <strong>{created.batch.id}</strong>
               <span>{created.relativeDirectory}</span>
               <p>
-                The batch snapshots {created.batch.items.length} exact Revise
-                candidate{created.batch.items.length === 1 ? "" : "s"}. Their
-                review state has not changed.
+                The batch snapshots {created.batch.items.length} exact Intake
+                candidate{created.batch.items.length === 1 ? "" : "s"} with
+                open revision notes. Their review state has not changed.
               </p>
             </div>
             <label className="batch-brief-preview">
@@ -114,7 +114,7 @@ export function RevisionBatchDialog({
               />
             </label>
             <div className="batch-dialog__items">
-              <span>Selected Revise candidates</span>
+              <span>Selected Intake candidates with open notes</span>
               {sortedItems.map((item) => (
                 <article key={`${item.asset.id}-${item.revision.id}`}>
                   <div>

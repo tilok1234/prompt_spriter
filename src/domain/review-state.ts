@@ -2,7 +2,7 @@ import type { ReviewRecord } from "./types";
 
 const requireCandidateLane = (
   review: ReviewRecord,
-  expectedLane: "intake" | "revise" | "archive",
+  expectedLane: "intake" | "denied" | "archive",
 ) => {
   if (!review.candidate || review.candidate.lane !== expectedLane) {
     throw new Error(`Action requires a candidate in ${expectedLane}`);
@@ -10,7 +10,7 @@ const requireCandidateLane = (
   return review.candidate;
 };
 
-export const sendToRevise = (
+export const denyCandidate = (
   review: ReviewRecord,
   updatedAt: string,
 ): ReviewRecord => {
@@ -19,7 +19,22 @@ export const sendToRevise = (
     ...review,
     candidate: {
       ...candidate,
-      lane: "revise",
+      lane: "denied",
+    },
+    updatedAt,
+  };
+};
+
+export const reopenCandidate = (
+  review: ReviewRecord,
+  updatedAt: string,
+): ReviewRecord => {
+  const candidate = requireCandidateLane(review, "denied");
+  return {
+    ...review,
+    candidate: {
+      ...candidate,
+      lane: "intake",
     },
     updatedAt,
   };
@@ -30,6 +45,9 @@ export const approveCandidate = (
   updatedAt: string,
 ): ReviewRecord => {
   const candidate = requireCandidateLane(review, "intake");
+  if (review.notes.some((note) => note.resolvedAt === null)) {
+    throw new Error("Candidate has unresolved revision notes");
+  }
   return {
     ...review,
     approvedRevisionId: candidate.revisionId,
@@ -42,7 +60,7 @@ export const archiveCandidate = (
   review: ReviewRecord,
   archivedAt: string,
 ): ReviewRecord => {
-  const candidate = requireCandidateLane(review, "revise");
+  const candidate = requireCandidateLane(review, "denied");
   return {
     ...review,
     candidate: {
@@ -92,7 +110,7 @@ export const restoreCandidate = (
     ...review,
     candidate: {
       ...candidate,
-      lane: "revise",
+      lane: "denied",
     },
     archiveHistory: history,
     updatedAt: restoredAt,
@@ -115,7 +133,7 @@ export const startLibraryRevision = (
     ...review,
     candidate: {
       revisionId: candidateRevisionId,
-      lane: "revise",
+      lane: "intake",
     },
     updatedAt,
   };

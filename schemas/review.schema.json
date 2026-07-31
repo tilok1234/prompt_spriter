@@ -49,7 +49,7 @@
             "lane": {
               "enum": [
                 "intake",
-                "revise",
+                "denied",
                 "archive"
               ]
             }
@@ -150,4 +150,3 @@
     }
   }
 }
-

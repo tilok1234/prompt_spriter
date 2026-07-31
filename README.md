@@ -3,7 +3,7 @@
 Prompt Spriter is a local-first sprite production viewer and library for
 AI-assisted Aseprite workflows. Its contract-first browser viewer loads
 immutable local-library revisions and gives the user direct control over
-Intake, Revise, Archive, and approved Library state. A deterministic fixture
+Intake, Denied, Archive, and approved Library state. A deterministic fixture
 remains available when no production library exists.
 
 The intended daily loop is deliberately simple:
@@ -14,15 +14,22 @@ The intended daily loop is deliberately simple:
    existing shared Aseprite Pro MCP setup, validates its output, and submits the
    completed candidate to Intake.
 3. The user reviews candidates in Prompt Spriter.
-4. The user either approves a candidate into the Library or sends it to Revise
-   with notes for a later agent batch.
-5. For an approved sprite, **Start revision** opens a separate Revise candidate
-   with notes while the approved revision remains protected in the Library.
-6. A completed revision job is ingested as the next immutable revision and
+4. The user either approves a candidate into the Library, adds an actionable
+   revision note while it stays in Intake, or moves it to Denied.
+5. An unresolved note marks the Intake candidate **Revision requested** and
+   blocks approval until trusted revision ingestion resolves it.
+6. For an approved sprite, **Start revision** opens a separate Intake candidate
+   with a note while the approved revision remains protected in the Library.
+7. A completed revision job is ingested as the next immutable revision and
    returns to Intake for another manual decision.
-7. Several Revise candidates can be selected into a durable revision batch.
+8. Several Intake candidates with unresolved notes can be selected into a
+   durable revision batch.
    Prompt Spriter generates a copy-ready Antigravity brief without moving or
    resolving any selected item.
+
+Denied candidates can be returned to Intake or moved to recoverable Archive.
+Restoring from Archive returns to Denied, preserving a deliberate two-step path
+before a rejected candidate becomes active again.
 
 For queued creation work, Antigravity atomically claims the next Ready prompt
 through the repository command. The claim remains resumable in **In progress**

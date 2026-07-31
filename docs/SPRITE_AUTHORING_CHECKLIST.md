@@ -3,7 +3,8 @@
 This is the required creator-side visual gate for Prompt Spriter sprite jobs.
 It turns the existing category and style rules into a repeatable drawing and
 self-review sequence. It does not change a category or style contract, and it
-does not constitute the user's visual approval.
+does not constitute the user's visual approval. The four-direction idle
+checkpoint applies equally to legacy v1 and production v2 jobs.
 
 ## 1. Translate the brief into visible anchors
 
@@ -44,6 +45,10 @@ do not rotate the finished side-view drawing or the canvas by 90 degrees.
 - Preserve the same head size, body thickness, major masses, and signature
   features through the turn. Foreshortening changes visible length, not the
   creature's anatomy.
+- A `quadruped` must remain a low four-legged body in down and up. Keep a
+  horizontal torso mass with four supports attached or visibly overlapped
+  around it; never reinterpret the front or rear view as an upright biped,
+  humanoid torso, or tail-balanced figure.
 
 Before building any animation, render only the four idle key poses together
 and inspect them at 1x and nearest-neighbor 4x. Do not fill the complete
@@ -62,6 +67,8 @@ Every direction must pass all of these checks:
 - the facing direction is clear from the head, body axis, limbs, and appendages;
 - the creature remains grounded and does not rotate its long body axis into an
   upright stance between profile and down/up views;
+- a quadruped remains recognizably low and four-legged in down and up instead
+  of becoming an upright humanoid;
 - the shape does not resemble an unrelated box, rock, furniture item, or terrain
   prop;
 - the side view is a constructed profile, not a narrowed front view;

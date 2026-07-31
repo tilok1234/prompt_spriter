@@ -13,8 +13,9 @@ const revisionIdPattern = /^r[0-9]{3,}$/;
 
 export const reviewActions = [
   "approve",
-  "send-to-revise",
   "add-note",
+  "deny",
+  "reopen",
   "start-revision",
   "archive",
   "restore",
@@ -217,16 +218,23 @@ export const applyReviewAction = ({
   switch (action) {
     case "approve": {
       requireCandidate(review, revisionId, "intake");
+      if (review.notes.some((entry) => entry.resolvedAt === null)) {
+        throw new ReviewActionError(
+          "Resolve the candidate's open revision notes before approving it.",
+          409,
+        );
+      }
       nextReview = {
         ...review,
+        schemaVersion: "1.1.0",
         approvedRevisionId: revisionId,
         candidate: null,
         updatedAt: changedAt,
       };
       break;
     }
-    case "send-to-revise": {
-      const candidate = requireCandidate(review, revisionId, "intake");
+    case "add-note": {
+      requireCandidate(review, revisionId, "intake");
       const reviewNote = normalizeNote({
         note,
         revision,
@@ -235,26 +243,34 @@ export const applyReviewAction = ({
       });
       nextReview = {
         ...review,
-        candidate: {
-          ...candidate,
-          lane: "revise",
-        },
+        schemaVersion: "1.1.0",
         notes: [...review.notes, reviewNote],
         updatedAt: changedAt,
       };
       break;
     }
-    case "add-note": {
-      requireCandidate(review, revisionId, "revise");
-      const reviewNote = normalizeNote({
-        note,
-        revision,
-        createdAt: changedAt,
-        noteIdFactory,
-      });
+    case "deny": {
+      const candidate = requireCandidate(review, revisionId, "intake");
       nextReview = {
         ...review,
-        notes: [...review.notes, reviewNote],
+        schemaVersion: "1.1.0",
+        candidate: {
+          ...candidate,
+          lane: "denied",
+        },
+        updatedAt: changedAt,
+      };
+      break;
+    }
+    case "reopen": {
+      const candidate = requireCandidate(review, revisionId, "denied");
+      nextReview = {
+        ...review,
+        schemaVersion: "1.1.0",
+        candidate: {
+          ...candidate,
+          lane: "intake",
+        },
         updatedAt: changedAt,
       };
       break;
@@ -277,9 +293,10 @@ export const applyReviewAction = ({
       });
       nextReview = {
         ...review,
+        schemaVersion: "1.1.0",
         candidate: {
           revisionId,
-          lane: "revise",
+          lane: "intake",
         },
         notes: [...review.notes, reviewNote],
         updatedAt: changedAt,
@@ -287,9 +304,10 @@ export const applyReviewAction = ({
       break;
     }
     case "archive": {
-      const candidate = requireCandidate(review, revisionId, "revise");
+      const candidate = requireCandidate(review, revisionId, "denied");
       nextReview = {
         ...review,
+        schemaVersion: "1.1.0",
         candidate: {
           ...candidate,
           lane: "archive",
@@ -328,9 +346,10 @@ export const applyReviewAction = ({
       archiveHistory[openEntryIndex].restoredAt = changedAt;
       nextReview = {
         ...review,
+        schemaVersion: "1.1.0",
         candidate: {
           ...candidate,
-          lane: "revise",
+          lane: "denied",
         },
         archiveHistory,
         updatedAt: changedAt,

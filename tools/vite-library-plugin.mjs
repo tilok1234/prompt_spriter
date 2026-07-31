@@ -12,6 +12,8 @@ import {
   ReviewActionError,
 } from "./lib/review-actions.mjs";
 import {
+  clearPromptinatorV2TestBatch,
+  createPromptinatorV2TestBatch,
   importPromptCatalog,
   parsePromptCatalog,
   PromptinatorError,
@@ -407,6 +409,44 @@ const handlePromptinatorRequest = async (request, response) => {
         workspaceRoot,
         entryId: payload.entryId,
         style: payload.style,
+        expectedUpdatedAt: payload.expectedUpdatedAt,
+      });
+      sendJson(response, 200, { store });
+      return;
+    }
+    if (payload.action === "create-v2-test-batch") {
+      const allowed = new Set([
+        "action",
+        "entryIds",
+        "expectedUpdatedAt",
+      ]);
+      if (Object.keys(payload).some((key) => !allowed.has(key))) {
+        throw new PromptinatorError(
+          "Promptinator v2 test-batch selection contains unsupported fields.",
+        );
+      }
+      const store = createPromptinatorV2TestBatch({
+        workspaceRoot,
+        entryIds: payload.entryIds,
+        expectedUpdatedAt: payload.expectedUpdatedAt,
+      });
+      sendJson(response, 200, { store });
+      return;
+    }
+    if (payload.action === "clear-v2-test-batch") {
+      const allowed = new Set([
+        "action",
+        "batchId",
+        "expectedUpdatedAt",
+      ]);
+      if (Object.keys(payload).some((key) => !allowed.has(key))) {
+        throw new PromptinatorError(
+          "Promptinator v2 test-batch clear contains unsupported fields.",
+        );
+      }
+      const store = clearPromptinatorV2TestBatch({
+        workspaceRoot,
+        batchId: payload.batchId,
         expectedUpdatedAt: payload.expectedUpdatedAt,
       });
       sendJson(response, 200, { store });

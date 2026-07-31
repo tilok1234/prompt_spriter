@@ -4,7 +4,9 @@ import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 import {
   claimNextPromptinatorEntry,
+  clearPromptinatorV2TestBatch,
   completePromptinatorClaim,
+  createPromptinatorV2TestBatch,
   importPromptCatalog,
   parsePromptCatalog,
   readPromptinatorStore,
@@ -39,6 +41,18 @@ Movement personality: Nervous and cunning.
 Attack concept: Fires curved thorn shots.
 Directional details: The tail curls toward its right.
 Avoid: Cute pet fox.
+`;
+
+const sampleThree = `${sample}3
+Name: Canopy Rammer
+Core concept: A horned forest ambusher.
+Body and silhouette: Low four-legged body with a wedge-shaped head.
+Signature features: Forked bark horns and a fern mane.
+Palette and materials: Dark bark and bright fern green.
+Movement personality: Patient, then explosive.
+Attack concept: Lunges forward with both horns.
+Directional details: A broken left horn remains consistent.
+Avoid: Upright humanoid posture.
 `;
 
 const workspace = () => {
@@ -89,7 +103,7 @@ describe("Promptinator", () => {
       now: () => "2026-07-31T08:00:00.000Z",
     });
     expect(first.importedCount).toBe(2);
-    expect(first.store.schemaVersion).toBe("1.3.0");
+    expect(first.store.schemaVersion).toBe("1.4.0");
     expect(first.store.entries[0].style.id).toBe("assembler-inspired-v2");
     expect(first.store.entries[0].formulaVersion).toBe("structured-v2");
     const duplicate = importPromptCatalog({
@@ -253,7 +267,8 @@ describe("Promptinator", () => {
     );
 
     const migrated = readPromptinatorStore({ workspaceRoot: root });
-    expect(migrated.schemaVersion).toBe("1.3.0");
+    expect(migrated.schemaVersion).toBe("1.4.0");
+    expect(migrated.activeTestBatch).toBeNull();
     expect(migrated.entries[0].style.id).toBe("assembler-inspired-v2");
     expect(migrated.entries[0].formulaVersion).toBe("structured-v2");
     expect(migrated.entries[0].history.at(-1)).toEqual({
@@ -297,6 +312,90 @@ describe("Promptinator", () => {
     });
     expect(requeued.entries[0].state).toBe("ready");
     expect(requeued.entries[0].claim).toBeNull();
+  });
+
+  it("pins a selected Ready group as an atomic v2 test batch", () => {
+    const root = workspace();
+    const imported = importPromptCatalog({
+      workspaceRoot: root,
+      text: sampleThree,
+      sourceName: "three.txt",
+      expectedUpdatedAt: "1970-01-01T00:00:00.000Z",
+      now: () => "2026-07-31T08:00:00.000Z",
+    });
+    const legacy = setPromptinatorEntryStyle({
+      workspaceRoot: root,
+      entryId: imported.store.entries[1].id,
+      style: { id: "assembler-inspired-v1", version: "0.1.0" },
+      expectedUpdatedAt: imported.store.updatedAt,
+      now: () => "2026-07-31T08:01:00.000Z",
+    });
+    const batched = createPromptinatorV2TestBatch({
+      workspaceRoot: root,
+      entryIds: [legacy.entries[2].id, legacy.entries[1].id],
+      expectedUpdatedAt: legacy.updatedAt,
+      now: () => "2026-07-31T08:02:00.000Z",
+      batchIdFactory: () =>
+        "v2-test-33333333-3333-4333-8333-333333333333",
+    });
+    expect(batched.activeTestBatch).toEqual({
+      id: "v2-test-33333333-3333-4333-8333-333333333333",
+      style: { id: "assembler-inspired-v2", version: "0.1.0" },
+      createdAt: "2026-07-31T08:02:00.000Z",
+      entryIds: [legacy.entries[1].id, legacy.entries[2].id],
+    });
+    expect(batched.entries[1].style.id).toBe("assembler-inspired-v2");
+    expect(batched.entries[1].formulaVersion).toBe("structured-v2");
+    expect(batched.entries[1].history.at(-1)).toEqual({
+      action: "v2-test-batch-selected",
+      at: "2026-07-31T08:02:00.000Z",
+      style: { id: "assembler-inspired-v2", version: "0.1.0" },
+      batchId: "v2-test-33333333-3333-4333-8333-333333333333",
+    });
+    expect(() =>
+      transitionPromptinatorEntry({
+        workspaceRoot: root,
+        entryId: batched.entries[0].id,
+        action: "mark-copied",
+        expectedUpdatedAt: batched.updatedAt,
+      }),
+    ).toThrow("permits manual copy only for its next Ready entry");
+
+    const claimed = claimNextPromptinatorEntry({
+      workspaceRoot: root,
+      now: () => "2026-07-31T08:03:00.000Z",
+      claimIdFactory: () =>
+        "claim-44444444-4444-4444-8444-444444444444",
+    });
+    expect(claimed.entry.id).toBe(legacy.entries[1].id);
+    expect(claimed.entry.style.id).toBe("assembler-inspired-v2");
+    expect(claimed.testBatch.id).toBe(batched.activeTestBatch.id);
+    expect(claimed.store.entries[0].state).toBe("ready");
+
+    const secondClaim = claimNextPromptinatorEntry({
+      workspaceRoot: root,
+      now: () => "2026-07-31T08:03:30.000Z",
+      claimIdFactory: () =>
+        "claim-55555555-5555-4555-8555-555555555555",
+    });
+    expect(secondClaim.entry.id).toBe(legacy.entries[2].id);
+    expect(() =>
+      claimNextPromptinatorEntry({
+        workspaceRoot: root,
+        now: () => "2026-07-31T08:03:45.000Z",
+      }),
+    ).toThrow("has no Ready entries");
+    expect(readPromptinatorStore({ workspaceRoot: root }).entries[0].state).toBe(
+      "ready",
+    );
+
+    const cleared = clearPromptinatorV2TestBatch({
+      workspaceRoot: root,
+      batchId: batched.activeTestBatch.id,
+      expectedUpdatedAt: secondClaim.store.updatedAt,
+      now: () => "2026-07-31T08:04:00.000Z",
+    });
+    expect(cleared.activeTestBatch).toBeNull();
   });
 
   it("completes an active claim with exact Intake provenance", () => {

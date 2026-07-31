@@ -26,10 +26,12 @@ particular:
 - establish readable down, left, right, and up idle silhouettes before filling
   the timeline;
 - render those four idle poses as a checkpoint before generating the remaining
-  frames, even when a Lua or JavaScript generator is used;
+  frames for both v1 and v2, even when a Lua or JavaScript generator is used;
 - keep one fixed elevated game camera and ground plane; for long, low bodies,
   foreshorten and overlap the body in down/up views instead of rotating a full
   side silhouette into a vertical pose;
+- keep quadrupeds low and four-legged in down/up; never reinterpret them as
+  upright bipeds or humanoids;
 - preserve a recognizable creature body plan instead of collapsing the subject
   into a blob, box, rock, or prop-like shape;
 - make profiles and the rear view genuinely rotate the anatomy and required

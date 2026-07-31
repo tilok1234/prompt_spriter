@@ -128,5 +128,10 @@ Before writing the completion marker, the agent must:
 6. confirm the export is untrimmed and transparent;
 7. run the repository submission validator.
 
-These are technical checks. They do not approve the sprite.
+For `enemy-mob-32`, submission validation also requires every finished frame
+to contain at least 32 opaque pixels, occupy at least a 6x6 bounding box, and
+use at least two visible opaque colors. In each direction, the two idle frames
+must be distinct, while walk and attack must each contain at least three
+distinct frames. These are technical failure thresholds, not visual approval.
 
+These are technical checks. They do not approve the sprite.

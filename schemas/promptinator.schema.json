@@ -4,11 +4,17 @@
   "title": "Promptinator Store",
   "type": "object",
   "additionalProperties": false,
-  "required": ["kind", "schemaVersion", "updatedAt", "entries"],
+  "required": ["kind", "schemaVersion", "updatedAt", "activeTestBatch", "entries"],
   "properties": {
     "kind": { "const": "promptinator-store" },
-    "schemaVersion": { "const": "1.3.0" },
+    "schemaVersion": { "const": "1.4.0" },
     "updatedAt": { "type": "string", "format": "date-time" },
+    "activeTestBatch": {
+      "oneOf": [
+        { "$ref": "#/$defs/testBatch" },
+        { "type": "null" }
+      ]
+    },
     "entries": {
       "type": "array",
       "items": { "$ref": "#/$defs/entry" }
@@ -58,9 +64,10 @@
       "additionalProperties": false,
       "required": ["action", "at"],
       "properties": {
-        "action": { "enum": ["imported", "copied", "claimed", "completed", "requeued", "style-selected", "default-style-migrated"] },
+        "action": { "enum": ["imported", "copied", "claimed", "completed", "requeued", "style-selected", "default-style-migrated", "v2-test-batch-selected"] },
         "at": { "type": "string", "format": "date-time" },
         "style": { "$ref": "#/$defs/contractReference" },
+        "batchId": { "type": "string", "pattern": "^v2-test-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$" },
         "claimId": { "type": "string", "pattern": "^claim-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$" },
         "assetId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
         "revisionId": { "type": "string", "pattern": "^r[0-9]{3,}$" }
@@ -85,6 +92,23 @@
         "assetId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
         "revisionId": { "type": "string", "pattern": "^r[0-9]{3,}$" },
         "completedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "testBatch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "style", "createdAt", "entryIds"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^v2-test-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$" },
+        "style": { "$ref": "#/$defs/contractReference" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "entryIds": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 24,
+          "uniqueItems": true,
+          "items": { "type": "string", "pattern": "^prompt-[0-9]{4,}-[a-z0-9]+(?:-[a-z0-9]+)*$" }
+        }
       }
     },
     "entry": {

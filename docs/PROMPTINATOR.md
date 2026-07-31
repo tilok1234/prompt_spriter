@@ -10,10 +10,12 @@ validation, and ingestion to the repository contracts.
 1. Open **Promptinator** in the viewer sidebar.
 2. Use **Bulk import** to choose one or more TXT catalogs or paste their text.
 3. Validate the complete import, then add it to **Ready**.
-4. Optionally select one Ready entry and choose **Use legacy v1**.
-5. Start Antigravity from this repository and ask it to create the next sprite
+4. For a controlled canary, select 2-24 Ready entries and choose **Pin selected
+   as v2 batch**. The dispatch panel shows the exact next entry and style.
+5. Optionally select one unbatched Ready entry and choose **Use legacy v1**.
+6. Start Antigravity from this repository and ask it to create the next sprite
    in the Promptinator queue.
-6. Antigravity runs the trusted claim command, creates the exact request, and
+7. Antigravity runs the trusted claim command, creates the exact request, and
    ingests the completed candidate into Intake.
 
 The normal user request is:
@@ -27,9 +29,13 @@ The agent claims work with:
 npm.cmd run promptinator:claim-next
 ```
 
-The claim operation atomically selects the lowest-ordinal Ready entry, so two
-agent sessions cannot claim the same prompt. A successful trusted Intake
-ingestion completes the matching claim automatically.
+Without an active test batch, the claim operation atomically selects the
+lowest-ordinal Ready entry, so two agent sessions cannot claim the same prompt.
+With an active v2 test batch, it selects the next Ready entry from that exact
+pinned group before any unrelated queue entry. When no selected batch entry
+remains Ready, claiming stops with an explicit error until the user ends the
+batch; it never spills into unrelated work silently. A successful trusted
+Intake ingestion completes the matching claim automatically.
 
 Promptinator has three practical views:
 
@@ -42,6 +48,24 @@ until it succeeds or the user deliberately chooses **Requeue**. Completed
 entries cannot be requeued because their immutable sprite provenance already
 exists. **Copy next** remains as a manual fallback; a clipboard failure leaves
 the entry in Ready.
+
+## Explicit v2 test batches
+
+The Ready lane supports one active v2 test batch at a time. Selection and style
+locking happen in one atomic queue write:
+
+- every selected entry must still be Ready;
+- duplicate, stale, missing, or partially transitioned selections are refused;
+- every selected entry is locked to `assembler-inspired-v2@0.1.0` and
+  `structured-v2` with durable batch provenance in its history;
+- the selected IDs are stored in ordinal order and trusted claims stay inside
+  that group;
+- **End test batch** removes only the dispatch pin. It does not requeue,
+  complete, approve, revise, archive, or alter any sprite candidate.
+
+The dispatch panel is authoritative for the next claim. It shows the exact
+entry and exact style used by both `promptinator:claim-next` and the manual
+**Copy next** fallback, independent of search filtering.
 
 ## Structured catalog fields
 
@@ -107,11 +131,12 @@ Runtime state lives in the ignored local file:
 workspace/promptinator/store.json
 ```
 
-The store preserves source SHA-256, original ordinal, generated prompt,
-Ready/In-progress/Completed state, exclusive claims, exact asset/revision
-completion links, and event history. Promptinator cannot approve sprites,
-change review lanes, edit category/style contracts, or change MCP
-configuration.
+Store schema `1.4.0` preserves source SHA-256, original ordinal, generated
+prompt, Ready/In-progress/Completed state, the active v2 test-batch dispatch
+pin, exclusive claims, exact asset/revision completion links, and event
+history. Reading a `1.3.0` store adds a null batch pin without rewriting entry
+provenance. Promptinator cannot approve sprites, change review lanes, edit
+category/style contracts, or change MCP configuration.
 
 Operator import uses the same validation path:
 

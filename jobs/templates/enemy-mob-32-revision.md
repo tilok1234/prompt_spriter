@@ -53,6 +53,8 @@ scales. Preserve the strongest readable parts of the base while ensuring that:
 - all four idle poses use one fixed elevated game camera and ground plane;
 - long, low bodies use foreshortening and overlap in down/up views instead of a
   full side silhouette rotated into a vertical pose;
+- quadrupeds remain low and four-legged in down/up instead of becoming upright
+  bipeds or humanoids;
 - profiles and the up view use constructed anatomy rather than recolored or
   narrowed front poses;
 - locomotion changes support anatomy instead of sliding the body;

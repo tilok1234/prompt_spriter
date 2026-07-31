@@ -332,7 +332,12 @@
         "unexpectedIntermediateAlpha",
         "duplicateFrame",
         "cellBoundaryContact",
-        "clippedOpaquePixel"
+        "clippedOpaquePixel",
+        "minOpaquePixelsPerFrame",
+        "minOccupiedWidth",
+        "minOccupiedHeight",
+        "minVisibleColorsPerFrame",
+        "minimumDistinctFramesPerDirection"
       ],
       "properties": {
         "maxOpaqueColors": {
@@ -378,9 +383,34 @@
             "warning",
             "error"
           ]
+        },
+        "minOpaquePixelsPerFrame": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minOccupiedWidth": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minOccupiedHeight": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minVisibleColorsPerFrame": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "minimumDistinctFramesPerDirection": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["idle", "walk", "attack"],
+          "properties": {
+            "idle": { "type": "integer", "minimum": 1 },
+            "walk": { "type": "integer", "minimum": 1 },
+            "attack": { "type": "integer", "minimum": 1 }
+          }
         }
       }
     }
   }
 }
-

@@ -2127,6 +2127,96 @@ input:focus-visible {
   margin-left: 5px;
 }
 
+.intake-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  min-height: 42px;
+  padding: 6px 28px;
+  border-bottom: 1px solid #202829;
+  background: #101516;
+}
+
+.intake-filter-bar > span {
+  margin-right: 5px;
+  color: #657273;
+  font-family: "Cascadia Mono", "Consolas", monospace;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.intake-filter-bar button {
+  min-height: 26px;
+  padding: 0 9px;
+  border: 1px solid #30393a;
+  border-radius: 2px;
+  color: #7b8788;
+  background: #151b1c;
+  font-size: 8px;
+  cursor: pointer;
+}
+
+.intake-filter-bar button:hover,
+.intake-filter-bar button.is-active {
+  border-color: #7f5831;
+  color: var(--accent);
+  background: #241b14;
+}
+
+.promptinator__dispatch {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #84572c;
+  background: linear-gradient(135deg, #241b12, #171714);
+  box-shadow: inset 3px 0 #e0a35d;
+}
+
+.promptinator__dispatch-heading,
+.promptinator__dispatch-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.promptinator__dispatch-heading span,
+.promptinator__dispatch-heading b,
+.promptinator__dispatch-actions span {
+  font: 8px "Cascadia Mono", "Consolas", monospace;
+  text-transform: uppercase;
+}
+
+.promptinator__dispatch-heading span {
+  color: #d8a66f;
+  letter-spacing: 0.08em;
+}
+
+.promptinator__dispatch-heading b {
+  padding: 4px 6px;
+  color: #172019;
+  background: #9bd7b7;
+}
+
+.promptinator__dispatch > strong {
+  color: #f0d4b4;
+  font-size: 12px;
+}
+
+.promptinator__dispatch > small,
+.promptinator__dispatch-actions span {
+  color: #a18d78;
+  font-size: 8px;
+  line-height: 1.45;
+}
+
+.promptinator__dispatch-actions {
+  padding-top: 8px;
+  border-top: 1px solid #473725;
+}
+
 .promptinator__import {
   display: grid;
   gap: 10px;
@@ -2227,7 +2317,28 @@ input:focus-visible {
   margin-top: 12px;
 }
 
-.promptinator__entries > button {
+.promptinator__entry-row {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  gap: 6px;
+}
+
+.promptinator__batch-toggle {
+  border: 1px solid #3b4647;
+  color: #778485;
+  background: #111617;
+  font: 13px "Cascadia Mono", "Consolas", monospace;
+  cursor: pointer;
+}
+
+.promptinator__batch-toggle:hover,
+.promptinator__batch-toggle[aria-pressed="true"] {
+  border-color: #9a6937;
+  color: #f0c18b;
+  background: #251b12;
+}
+
+.promptinator__entry-card {
   position: relative;
   display: grid;
   width: 100%;
@@ -2240,13 +2351,23 @@ input:focus-visible {
   cursor: pointer;
 }
 
-.promptinator__entries > button:hover,
-.promptinator__entries > button.is-selected {
+.promptinator__entry-card:only-child {
+  grid-column: 1 / -1;
+}
+
+.promptinator__entry-card:hover,
+.promptinator__entry-card.is-selected {
   border-color: #654725;
   background: #191b1a;
 }
 
-.promptinator__entries > button.is-selected::before {
+.promptinator__entry-row.is-batch-selected .promptinator__entry-card,
+.promptinator__entry-row.is-active-batch-entry .promptinator__entry-card {
+  border-color: #6f5637;
+  background: #1d1b17;
+}
+
+.promptinator__entry-card.is-selected::before {
   position: absolute;
   top: 8px;
   bottom: 8px;
@@ -2256,21 +2377,21 @@ input:focus-visible {
   content: "";
 }
 
-.promptinator__entries > button span,
-.promptinator__entries > button b {
+.promptinator__entry-card span,
+.promptinator__entry-card b {
   color: #788485;
   font: 7px "Cascadia Mono", "Consolas", monospace;
   text-transform: uppercase;
 }
 
-.promptinator__entries > button strong {
+.promptinator__entry-card strong {
   overflow: hidden;
   font-size: 12px;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.promptinator__entries > button small {
+.promptinator__entry-card small {
   display: -webkit-box;
   overflow: hidden;
   color: #687475;
@@ -2280,7 +2401,7 @@ input:focus-visible {
   -webkit-line-clamp: 2;
 }
 
-.promptinator__entries > button b {
+.promptinator__entry-card b {
   position: absolute;
   top: 12px;
   right: 10px;
@@ -2330,6 +2451,14 @@ input:focus-visible {
   flex-wrap: wrap;
   justify-content: flex-end;
   gap: 7px;
+}
+
+.promptinator__dispatch-lock {
+  max-width: 190px;
+  color: #b99a77;
+  font: 8px/1.45 "Cascadia Mono", "Consolas", monospace;
+  text-align: right;
+  text-transform: uppercase;
 }
 
 .promptinator__metadata {

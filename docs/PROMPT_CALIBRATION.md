@@ -172,8 +172,12 @@ and body-plan projection failures that technical validation did not catch.
 Those v1 outcomes justify future validator and checklist work, but they are not
 evidence for or against v2.
 
-Next calibration should use a smaller batch whose entries are verified as v2
-before dispatch. Candidate structural checks to evaluate separately are minimum
-opaque occupancy and bounding box, per-frame color count, animation
-distinctness, and the existing four-idle/body-plan checkpoint. Do not silently
-change immutable prior profiles or review state while testing them.
+The next calibration should use the explicit pinned v2 test-batch control so
+every selected entry is verified as v2 before dispatch. The first safeguards
+are now enforced for `enemy-mob-32`: 32 opaque pixels, a 6x6 occupied
+footprint, two visible opaque colors per frame, two distinct idle frames, and
+three distinct walk and attack frames per direction. The shared creator gate
+also requires the four-idle checkpoint for both styles and rejects quadruped
+down/up views that become upright humanoids. These checks remain technical
+floors, not visual approval. Do not silently change immutable prior profiles or
+review state while testing them.

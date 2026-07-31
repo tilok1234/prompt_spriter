@@ -39,6 +39,17 @@ Avoid isolated highlight and shadow pixels that do not form a readable shape.
 
 ## Animation
 
+Before animation, follow the shared mandatory construction order in
+`docs/SPRITE_AUTHORING_CHECKLIST.md`: draw only the down, left, right, and up
+idle key poses, inspect them together at 1x and nearest-neighbor 4x, and repair
+camera, ground-plane, body-plan, and direction failures before expanding the
+timeline. This checkpoint is required for v1 as well as v2 and cannot be
+skipped by a Lua or JavaScript generator.
+
+For a quadruped, down and up must preserve a low horizontal torso with four
+connected or visibly overlapped supports. A front or rear view that becomes an
+upright biped, humanoid torso, or tail-balanced figure fails the checkpoint.
+
 Every animation needs an anatomical reason:
 
 - idle changes posture, breathing, ears, tail, or another living feature;
@@ -61,4 +72,3 @@ pixels should not be copied into a new subject.
 Feedback changes asset revisions first. A recurring improvement that should
 affect future sprites becomes a proposed new style-profile version and is tested
 on a small canary set before promotion.
-

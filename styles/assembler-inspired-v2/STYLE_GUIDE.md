@@ -40,7 +40,7 @@ authoring; do not let each direction improvise a different anatomy.
 
 | Body plan | Side-view occupancy | Down/up construction | Required anchors |
 | --- | --- | --- | --- |
-| `quadruped` | 22-29 px wide, 12-21 px high | 14-23 px wide, 16-25 px high; head/rear overlaps torso | four supports connected to torso, head at one end, tail at the other |
+| `quadruped` | 22-29 px wide, 12-21 px high | 14-23 px wide, 16-25 px high; low horizontal torso remains visible while head/rear overlaps it; never upright or humanoid | four supports connected to or visibly overlapped around the torso, head at one end, tail at the other |
 | `biped` | 12-22 px wide, 18-27 px high | similar height with shoulder/hip rotation | head, torso, two connected supports; arms or equipment remain attached |
 | `flyer` | 18-29 px wide, 12-24 px high | wing spread rotates around one central body | connected central body, paired wings, readable head or eye focus |
 | `serpent` | 24-29 px long, 8-16 px high | compact 12-22 px by 16-26 px footprint using overlap or shallow S-curve | head remains wider or higher contrast than tail; body stays on ground plane |
@@ -62,6 +62,10 @@ in the world; never rotate a completed side drawing on the canvas. Long, low
 creatures show full length in profile but use overlap and foreshortening in
 down/up. A vertical full-length eel, crocodile, or tail-balanced body is a
 failed view.
+
+A quadruped must still read as a low four-legged animal in down and up. Do not
+replace its torso and four supports with an upright biped or humanoid front/rear
+construction merely because the visible length is foreshortened.
 
 Down, left, and right normally require a readable eye or face cluster of at
 least two connected high-contrast pixels. Up must show rear anatomy and must

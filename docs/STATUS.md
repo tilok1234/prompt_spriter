@@ -18,7 +18,7 @@ Phases 0 through 2 are complete:
 - animated browser Intake viewer with direction, animation, frame, zoom, and
   background controls;
 - contract/library scanner and structural PNG validation;
-- review-state unit tests, including Archive-only-from-Revise;
+- review-state unit tests, including Archive-only-from-Denied;
 - production TypeScript/Vite build.
 - read-only inventory of the visible Aseprite Pro MCP capabilities;
 - user-started Antigravity workflow;
@@ -41,14 +41,17 @@ the user's visual decision remain separate.
 
 ## Phase 3 completed checkpoint
 
-The complete Phase 3 review loop is implemented:
+The Phase 3 review loop is implemented and was simplified in Phase 4 so Intake
+is the sole active candidate lane:
 
 - manual Approve of one exact Intake revision;
-- Send to Revise with one required actionable note;
+- Add revision note while the candidate stays in Intake;
 - optional note targets for direction, animation, and frames;
-- additional notes from the Revise view;
-- Archive action available only from Revise;
-- Restore action returning Archive candidates to Revise;
+- unresolved-note safeguard blocking approval until revision ingestion;
+- derived **Awaiting review** and **Revision requested** Intake filters;
+- Deny and Return-to-Intake actions;
+- Archive action available only from Denied;
+- Restore action returning Archive candidates to Denied;
 - Library membership for the exact approved revision;
 - atomic `review.json` replacement with retry-safe Windows writes;
 - stale-review conflict detection and exact revision/lane enforcement;
@@ -57,7 +60,7 @@ The complete Phase 3 review loop is implemented:
 - protected **Start revision** from an approved Library revision with a required
   actionable note;
 - completion-required existing-asset revision ingestion from the exact active
-  Revise candidate;
+  Intake candidate with unresolved notes;
 - automatic next `rNNN` allocation with parent-revision provenance;
 - preserved approved revision while a newer immutable candidate returns to
   Intake;
@@ -74,14 +77,14 @@ The complete Phase 3 review loop is implemented:
 The live lion remains in Intake with `approvedRevisionId: null`. Implementation
 and tests do not make a visual decision for the user.
 
-`npm.cmd run check` passes the current gate with 8 test files and 40 tests.
+`npm.cmd run check` passes the current gate with 9 test files and 49 tests.
 Technical validation and the user's visual decision remain separate.
 
 ## Phase 4 current work
 
 The first revision-batch slice is implemented:
 
-- multi-selection of exact candidates in Revise;
+- multi-selection of exact Intake candidates with unresolved notes;
 - unique kebab-case revision-batch identity;
 - stale `review.updatedAt`, exact revision, lane, and unresolved-note checks;
 - deterministic `batch.json` registration;
@@ -91,6 +94,8 @@ The first revision-batch slice is implemented:
 - read-only Batches view with saved briefs and copy control;
 - tests proving batch creation never changes review records or immutable sprite
   artifacts.
+- deterministic in-memory migration of legacy Revise candidates into Intake,
+  with schema `1.1.0` persisted on the next trusted review action or ingestion;
 - recovery of a fully validated new-asset transaction when Windows interrupts
   the final registration move;
 - development-viewer exclusion of the ignored `workspace/` tree from Vite file
@@ -113,9 +118,19 @@ The first revision-batch slice is implemented:
 - Promptinator viewer lanes for Ready, In progress, and Completed, including a
   refresh control for external Antigravity updates.
 - `assembler-inspired-v2@0.1.0` promoted to the production creation default;
-- Promptinator store schema `1.3.0`, which migrates only still-Ready legacy-v1
-  entries while preserving copied, claimed, completed, and ingested provenance;
+- Promptinator store schema `1.4.0`, which retains the Ready-only v2 migration
+  and adds one atomic active v2 test-batch dispatch pin;
 - Ready-only legacy-v1 selection for deliberate compatibility work.
+- explicit multi-selection of 2-24 Ready entries into a durable v2 test batch;
+- prominent exact next-claim entry/style display shared by trusted claim and
+  manual Copy next;
+- trusted claim priority constrained to the active test batch, with an explicit
+  stop instead of silent spillover when the selected group is exhausted.
+- simplified review schema `1.1.0` with Intake as the sole active lane, Denied
+  as reversible dormant rejection, Archive-only-from-Denied, and deterministic
+  legacy Revise projection;
+- unresolved-note approval blocking plus Awaiting-review and Revision-requested
+  Intake filters;
 
 Remaining Phase 4 work:
 
@@ -123,8 +138,8 @@ Remaining Phase 4 work:
 - calculate per-batch queued, returned-to-Intake, approved, and remaining
   outcome counts;
 - add batch-based asset filtering;
-- decide whether creation-session batches need a first-class manual control or
-  whether existing producer/session provenance is sufficient.
+- decide whether creation sessions need broader first-class batch metadata
+  beyond the focused active-v2 test-batch dispatch pin.
 
 ## Prompt calibration checkpoint
 
@@ -155,9 +170,17 @@ The first prompt-density canary is recorded in
 - In the completed entries 20-31 test batch, only Mirewitch Newt used v2.
   Entries 21-31 used v1, so their successes and failures must not be attributed
   to the v2 profile.
-- The next quality work is a smaller genuine v2 batch plus structural checks
-  for occupancy, per-frame color use, animation distinctness, and long-body
-  down/up projection. Those checks are not part of this promotion checkpoint.
+- `enemy-mob-32` now fails technical validation below 32 opaque pixels, a 6x6
+  occupied footprint, or two visible opaque colors in any finished frame.
+  Idle requires two distinct frames per direction; walk and attack each require
+  at least three.
+- The four-idle checkpoint now explicitly applies to both v1 and v2. Shared and
+  style-specific guidance rejects quadruped down/up views that become upright
+  bipeds or humanoids.
+- The six-subject genuine v2 batch is complete: Snowcap Ram, Driftwing Owl,
+  Slushbelly Yeti, Glaciershell Beetle, Kelpcoil Serpent, and Meadow Slime all
+  carry exact v2 provenance and immutable `r001` Intake results. Their visual
+  review remains a separate user decision.
 
 ## Frozen first-slice decisions
 
@@ -172,6 +195,10 @@ The first prompt-density canary is recorded in
   required master palette and contour rule.
 - Empty frames, intermediate alpha, clipping, and contract mismatches fail;
   duplicate frames and boundary contact warn.
+- Every frame requires at least 32 opaque pixels, a 6x6 occupied footprint,
+  and two visible opaque colors.
+- Per direction, idle requires two distinct frames; walk and attack each
+  require at least three distinct frames.
 
 ## Protected state
 

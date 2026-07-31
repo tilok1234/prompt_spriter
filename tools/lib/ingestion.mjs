@@ -432,7 +432,7 @@ export const ingestSubmission = ({
   };
   const review = {
     kind: "review",
-    schemaVersion: "1.0.0",
+    schemaVersion: "1.1.0",
     assetId: submission.assetId,
     approvedRevisionId: null,
     candidate: {

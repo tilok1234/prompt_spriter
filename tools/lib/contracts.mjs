@@ -9,7 +9,32 @@ const libraryDirectory = dirname(fileURLToPath(import.meta.url));
 export const repositoryRoot = dirname(dirname(libraryDirectory));
 const schemasDirectory = join(repositoryRoot, "schemas");
 
-const readJson = (path) => JSON.parse(readFileSync(path, "utf8"));
+export const migrateReviewRecord = (record) => {
+  if (!record || record.kind !== "review") return record;
+
+  if (record.schemaVersion !== "1.0.0") {
+    return record;
+  }
+
+  const legacyLane = record.candidate?.lane;
+
+  return {
+    ...record,
+    schemaVersion: "1.1.0",
+    candidate:
+      record.candidate === null
+        ? null
+        : record.candidate
+          ? {
+              ...record.candidate,
+              lane: legacyLane === "revise" ? "intake" : legacyLane,
+            }
+          : record.candidate,
+  };
+};
+
+const readJson = (path) =>
+  migrateReviewRecord(JSON.parse(readFileSync(path, "utf8")));
 
 const schemaFiles = [
   "category.schema.json",
@@ -154,6 +179,23 @@ export const validateCategorySemantics = (category, label) => {
     failures.push(`${label}: first vertical slice dimensions are inconsistent`);
   }
 
+  if (
+    category.validation.minOccupiedWidth > category.frame.width ||
+    category.validation.minOccupiedHeight > category.frame.height
+  ) {
+    failures.push(`${label}: minimum occupied footprint exceeds the frame size`);
+  }
+  for (const [animationId, minimum] of Object.entries(
+    category.validation.minimumDistinctFramesPerDirection,
+  )) {
+    const animation = animationsById.get(animationId);
+    if (!animation || minimum > animation.frames) {
+      failures.push(
+        `${label}: ${animationId} distinct-frame minimum exceeds its animation length`,
+      );
+    }
+  }
+
   return failures;
 };
 
@@ -248,10 +290,35 @@ export const inspectSpriteSheet = (path, revision) => {
   }
 
   const frameHashes = new Map();
+  const cellHashes = Array.from(
+    { length: revision.sheet.rows },
+    () => Array(revision.sheet.columns).fill(null),
+  );
+  const quality = revision.validation ?? null;
+  const describeFrame = (row, column) => {
+    const directionValue = revision.directions?.[row];
+    const direction =
+      typeof directionValue === "string"
+        ? directionValue
+        : directionValue?.id ?? `row ${row + 1}`;
+    const animation = revision.animations?.find(
+      (candidate) =>
+        column >= candidate.startColumn &&
+        column < candidate.startColumn + candidate.frames,
+    );
+    return animation
+      ? `${direction} ${animation.id} frame ${column - animation.startColumn + 1}`
+      : `frame row ${row + 1}, column ${column + 1}`;
+  };
   for (let row = 0; row < revision.sheet.rows; row += 1) {
     for (let column = 0; column < revision.sheet.columns; column += 1) {
       let opaquePixels = 0;
       let boundaryPixels = 0;
+      let minX = revision.sheet.cellWidth;
+      let minY = revision.sheet.cellHeight;
+      let maxX = -1;
+      let maxY = -1;
+      const frameColors = new Set();
       const bytes = [];
       for (let y = 0; y < revision.sheet.cellHeight; y += 1) {
         for (let x = 0; x < revision.sheet.cellWidth; x += 1) {
@@ -259,8 +326,17 @@ export const inspectSpriteSheet = (path, revision) => {
           const pixelY = row * revision.sheet.cellHeight + y;
           const index = (png.width * pixelY + pixelX) * 4;
           const alpha = png.data[index + 3];
-          if (alpha > 0) {
+          if (alpha === 255) {
             opaquePixels += 1;
+            minX = Math.min(minX, x);
+            minY = Math.min(minY, y);
+            maxX = Math.max(maxX, x);
+            maxY = Math.max(maxY, y);
+            frameColors.add(
+              `${png.data[index]},${png.data[index + 1]},${png.data[index + 2]}`,
+            );
+          }
+          if (alpha > 0) {
             if (
               x === 0 ||
               y === 0 ||
@@ -283,6 +359,28 @@ export const inspectSpriteSheet = (path, revision) => {
         failures.push(
           `${path}: frame at row ${row + 1}, column ${column + 1} is empty`,
         );
+      } else if (quality) {
+        const frameLabel = describeFrame(row, column);
+        if (opaquePixels < quality.minOpaquePixelsPerFrame) {
+          failures.push(
+            `${path}: ${frameLabel} has ${opaquePixels} opaque pixels; minimum is ${quality.minOpaquePixelsPerFrame}`,
+          );
+        }
+        const occupiedWidth = maxX - minX + 1;
+        const occupiedHeight = maxY - minY + 1;
+        if (
+          occupiedWidth < quality.minOccupiedWidth ||
+          occupiedHeight < quality.minOccupiedHeight
+        ) {
+          failures.push(
+            `${path}: ${frameLabel} occupies ${occupiedWidth}x${occupiedHeight}; minimum is ${quality.minOccupiedWidth}x${quality.minOccupiedHeight}`,
+          );
+        }
+        if (frameColors.size < quality.minVisibleColorsPerFrame) {
+          failures.push(
+            `${path}: ${frameLabel} uses ${frameColors.size} visible opaque color${frameColors.size === 1 ? "" : "s"}; minimum is ${quality.minVisibleColorsPerFrame}`,
+          );
+        }
       }
       if (boundaryPixels > 0) {
         warnings.push(
@@ -291,6 +389,7 @@ export const inspectSpriteSheet = (path, revision) => {
       }
 
       const hash = Buffer.from(bytes).toString("base64");
+      cellHashes[row][column] = hash;
       const prior = frameHashes.get(hash);
       if (prior) {
         warnings.push(
@@ -298,6 +397,31 @@ export const inspectSpriteSheet = (path, revision) => {
         );
       } else {
         frameHashes.set(hash, `row ${row + 1}, column ${column + 1}`);
+      }
+    }
+  }
+
+  if (quality) {
+    for (const animation of revision.animations ?? []) {
+      const minimum =
+        quality.minimumDistinctFramesPerDirection?.[animation.id];
+      if (!minimum) continue;
+      for (let row = 0; row < revision.sheet.rows; row += 1) {
+        const hashes = cellHashes[row].slice(
+          animation.startColumn,
+          animation.startColumn + animation.frames,
+        );
+        const distinct = new Set(hashes.filter(Boolean)).size;
+        if (distinct < minimum) {
+          const directionValue = revision.directions?.[row];
+          const direction =
+            typeof directionValue === "string"
+              ? directionValue
+              : directionValue?.id ?? `row ${row + 1}`;
+          failures.push(
+            `${path}: ${direction} ${animation.id} has ${distinct} distinct frame${distinct === 1 ? "" : "s"}; minimum is ${minimum}`,
+          );
+        }
       }
     }
   }
@@ -325,6 +449,7 @@ export const validateLibraryRoot = ({
   category,
   style,
   styles,
+  enforceQuality = true,
 }) => {
   const failures = [];
   const warnings = [];
@@ -333,7 +458,7 @@ export const validateLibraryRoot = ({
   let revisions = 0;
   const lanes = {
     intake: 0,
-    revise: 0,
+    denied: 0,
     archive: 0,
     library: 0,
   };
@@ -465,7 +590,10 @@ export const validateLibraryRoot = ({
 
       const sheetPath = join(assetDirectory, revision.artifacts.sheet.path);
       if (existsSync(sheetPath)) {
-        const pngInspection = inspectSpriteSheet(sheetPath, revision);
+        const pngInspection = inspectSpriteSheet(sheetPath, {
+          ...revision,
+          ...(enforceQuality ? { validation: category.validation } : {}),
+        });
         failures.push(...pngInspection.failures);
         warnings.push(...pngInspection.warnings);
         if (

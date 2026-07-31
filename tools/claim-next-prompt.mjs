@@ -39,6 +39,9 @@ if (!claimant || args.some((value) => !supportedArgs.has(value))) {
     console.log(
       `Style: ${result.entry.style.id}@${result.entry.style.version}`,
     );
+    console.log(
+      `Dispatch source: ${result.testBatch ? `active v2 test batch ${result.testBatch.id}` : "normal Ready queue"}`,
+    );
     console.log(`Claim: ${result.claim.id}`);
     console.log(`Expected asset ID: ${result.claim.expectedAssetId}`);
     console.log(

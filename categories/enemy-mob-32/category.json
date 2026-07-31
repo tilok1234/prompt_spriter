@@ -154,7 +154,15 @@
     "unexpectedIntermediateAlpha": "error",
     "duplicateFrame": "warning",
     "cellBoundaryContact": "warning",
-    "clippedOpaquePixel": "error"
+    "clippedOpaquePixel": "error",
+    "minOpaquePixelsPerFrame": 32,
+    "minOccupiedWidth": 6,
+    "minOccupiedHeight": 6,
+    "minVisibleColorsPerFrame": 2,
+    "minimumDistinctFramesPerDirection": {
+      "idle": 2,
+      "walk": 3,
+      "attack": 3
+    }
   }
 }
-

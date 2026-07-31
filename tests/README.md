@@ -3,13 +3,16 @@
 Automated coverage includes:
 
 - review-state transitions and Archive restrictions;
-- persisted Approve, Revise-note, Archive, and Restore actions;
+- persisted Approve, Intake-note, Deny, Return-to-Intake, Archive, and Restore
+  actions;
+- unresolved-note approval blocking and legacy Revise migration;
 - stale-review and exact-revision conflict refusal;
 - immutable asset/revision/artifact hashes across review mutations;
 - sprite sheet frame-to-background-position mapping;
 - completion-required, immutable new-asset ingestion;
 - completion-required existing-asset revision ingestion;
-- exact active-Revise-base enforcement and identity/contract protection;
+- exact active-Intake-base-with-notes enforcement and identity/contract
+  protection;
 - idempotent revision-ingestion retry from retained transaction evidence;
 - approved-revision protection while a newer candidate returns to Intake;
 - all immutable revisions exposed for side-by-side comparison;

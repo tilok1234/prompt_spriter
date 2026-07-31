@@ -31,7 +31,7 @@ if (result.failures.length > 0) {
   console.log(`Assets: ${result.assets}`);
   console.log(`Revisions: ${result.revisions}`);
   console.log(
-    `Views: Intake ${result.lanes.intake}, Revise ${result.lanes.revise}, Library ${result.lanes.library}, Archive ${result.lanes.archive}`,
+    `Views: Intake ${result.lanes.intake}, Denied ${result.lanes.denied}, Library ${result.lanes.library}, Archive ${result.lanes.archive}`,
   );
   console.log(`Advisory warnings: ${result.warnings.length}`);
 }
