@@ -2,7 +2,7 @@
 
 **Date:** 2026-07-31
 **Canonical repository:** `C:\Users\headc\Documents\prompt_spriter`
-**Checkpoint branch:** `codex/promote-v2-default`
+**Checkpoint branch:** `main`
 **Current phase:** Phase 4 revision batches; v2 production style active
 
 ## Start here
