@@ -11,7 +11,9 @@ These machine-readable contracts define the Phase 1 data boundary:
 - `submission.schema.json` - agent-authored staging submission;
 - `validation.schema.json` - technical validation evidence;
 - `completion.schema.json` - final staging completion marker;
-- `batch.schema.json` - creation and revision batches.
+- `batch.schema.json` - creation and revision batches;
+- `promptinator.schema.json` - application-owned prompt queue, exclusive claim,
+  completion provenance, and event history.
 
 Schemas use JSON Schema 2020-12. Semantic checks supplement schema validation
 for calculated dimensions, timeline continuity, safe relative paths, and legal

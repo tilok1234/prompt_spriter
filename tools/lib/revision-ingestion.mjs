@@ -200,6 +200,7 @@ const finishRevisionTransaction = ({
   libraryRoot,
   category,
   style,
+  styles,
 }) => {
   const transactionRevisionDirectory = join(
     transactionRoot,
@@ -275,7 +276,7 @@ const finishRevisionTransaction = ({
     ajv,
     libraryRoot,
     category,
-    style,
+    styles,
   });
   if (finalScan.failures.length > 0) {
     throw new Error(
@@ -320,6 +321,7 @@ export const ingestExistingRevision = ({
     completion,
     category,
     style,
+    styles,
     artifactPaths,
   } = validationResult;
   const libraryRoot = join(resolvedWorkspaceRoot, "library");
@@ -429,6 +431,7 @@ export const ingestExistingRevision = ({
       libraryRoot,
       category,
       style,
+      styles,
     });
   }
 
@@ -445,7 +448,7 @@ export const ingestExistingRevision = ({
     ajv,
     libraryRoot,
     category,
-    style,
+    styles,
   });
   if (currentScan.failures.length > 0) {
     throw new Error(
@@ -555,5 +558,6 @@ export const ingestExistingRevision = ({
     libraryRoot,
     category,
     style,
+    styles,
   });
 };

@@ -60,6 +60,27 @@ sheet and manifests before ingestion can proceed.
 
 The first Antigravity run is documented in `ANTIGRAVITY_WORKFLOW.md`.
 
+Claim the next Ready Promptinator entry from a user-started Antigravity session
+with:
+
+```powershell
+npm.cmd run promptinator:claim-next
+```
+
+This is an atomic local queue operation. It prints the expected asset identity
+and exact structured request. Trusted ingestion completes the claim after the
+matching revision enters Intake. Existing pre-claim work can be reconciled
+without changing review state with:
+
+```powershell
+npm.cmd run promptinator:reconcile
+```
+
+Promptinator store schema `1.3.0` makes v2 the production default. Reading an
+older store migrates only entries that are still Ready on the v1 default;
+copied, claimed, completed, and ingested work remains on its exact recorded
+style. A Ready entry can still select legacy v1 before dispatch.
+
 ## Local review actions
 
 The Vite development server exposes a same-origin, JSON-only review endpoint
@@ -79,8 +100,8 @@ manifests and artifacts are not rewritten.
 
 Start revision keeps the exact approved revision selected while opening the
 same revision as the Revise base with a required note. The later agent job
-still cannot mutate review state; only trusted ingestion replaces that working
-base with the newly allocated Intake revision.
+still cannot mutate review state directly; it may invoke only trusted ingestion,
+which replaces that working base with the newly allocated Intake revision.
 
 Tests exercise review actions against temporary library copies. Do not use the
 production `workspace/library` to automate approval or state-transition tests.

@@ -5,8 +5,10 @@ import {
   inspectSpriteSheet,
   isSafeRelativePath,
   readJson,
+  readStyleProfiles,
   repositoryRoot,
   validateRecord,
+  validateStyleSemantics,
 } from "./contracts.mjs";
 import { verifyAsepriteSource } from "./aseprite-source.mjs";
 
@@ -62,9 +64,8 @@ export const validateSubmissionDirectory = ({
   const category = readJson(
     join(repositoryRoot, "categories", "enemy-mob-32", "category.json"),
   );
-  const style = readJson(
-    join(repositoryRoot, "styles", "assembler-inspired-v1", "style.json"),
-  );
+  const styles = readStyleProfiles();
+  let style = null;
   const submissionPath = join(resolvedJobDirectory, "submission.json");
   const validationPath = join(resolvedJobDirectory, "validation.json");
   const completionPath = join(resolvedJobDirectory, "completion.json");
@@ -88,6 +89,7 @@ export const validateSubmissionDirectory = ({
       completion: null,
       category,
       style,
+      styles,
       artifactPaths,
       sourceEvidence,
       jobDirectory: resolvedJobDirectory,
@@ -116,12 +118,26 @@ export const validateSubmissionDirectory = ({
       );
     }
 
-    if (
-      submission.style.id !== style.id ||
-      submission.style.version !== style.version
-    ) {
+    style = styles.find(
+      (candidate) =>
+        submission.style.id === candidate.id &&
+        submission.style.version === candidate.version,
+    );
+    if (!style) {
       failures.push(
-        "submission does not reference the live assembler-inspired-v1 profile",
+        `submission style is not available: ${submission.style.id}@${submission.style.version}`,
+      );
+    } else {
+      failures.push(
+        ...validateRecord(
+          ajv,
+          style,
+          `${submission.style.id}@${submission.style.version}`,
+        ),
+        ...validateStyleSemantics(
+          style,
+          `${submission.style.id}@${submission.style.version}`,
+        ),
       );
     }
 
@@ -211,7 +227,10 @@ export const validateSubmissionDirectory = ({
         });
         failures.push(...inspection.failures);
         technicalWarnings.push(...inspection.warnings);
-        if (inspection.opaqueColors > style.color.maximumOpaqueColors) {
+        if (
+          style &&
+          inspection.opaqueColors > style.color.maximumOpaqueColors
+        ) {
           failures.push(
             `${artifactPaths.sheet}: uses ${inspection.opaqueColors} opaque colors; style maximum is ${style.color.maximumOpaqueColors}`,
           );
@@ -341,6 +360,7 @@ export const validateSubmissionDirectory = ({
     completion,
     category,
     style,
+    styles,
     artifactPaths,
     sourceEvidence,
     jobDirectory: resolvedJobDirectory,

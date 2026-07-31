@@ -9,6 +9,7 @@ interface IconProps {
     | "library"
     | "pause"
     | "play"
+    | "prompt"
     | "revise"
     | "search"
     | "step";
@@ -21,6 +22,7 @@ const paths: Record<IconProps["name"], string> = {
   archive: "M4 7h16v13H4z M3 4h18v4H3z M9 11h6",
   category: "M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h6v6h-6z",
   batch: "M6 5h14v14H6z M3 8v12h14",
+  prompt: "M5 4h14v16H5z M8 8h8 M8 12h8 M8 16h5",
   search: "M10.5 4a6.5 6.5 0 110 13 6.5 6.5 0 010-13z M15 15l5 5",
   play: "M8 5l11 7-11 7z",
   pause: "M7 5h4v14H7z M14 5h4v14h-4z",

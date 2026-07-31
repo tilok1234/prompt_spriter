@@ -1451,6 +1451,28 @@ input:focus-visible {
   margin: 0 0 10px;
 }
 
+.inspector__label-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.inspector__label-row .inspector__label {
+  margin: 0;
+}
+
+.inspector__label-row button {
+  padding: 3px 6px;
+  border: 1px solid #3a4445;
+  color: #8b9795;
+  background: #171d1e;
+  font: 7px "Cascadia Mono", "Consolas", monospace;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
 .validation-summary {
   display: flex;
   align-items: center;
@@ -2032,6 +2054,385 @@ input:focus-visible {
   font-size: 16px;
 }
 
+.promptinator {
+  display: grid;
+  grid-template-columns: 390px minmax(620px, 1fr);
+  min-height: 0;
+  flex: 1;
+}
+
+.promptinator__queue {
+  min-height: 0;
+  padding: 18px;
+  overflow-y: auto;
+  border-right: 1px solid #222a2b;
+  background: #0f1314;
+}
+
+.promptinator__queue-header,
+.promptinator__detail > header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.promptinator__queue-header p,
+.promptinator__detail > header p {
+  margin: 0 0 6px;
+  color: var(--accent);
+  font: 8px "Cascadia Mono", "Consolas", monospace;
+  letter-spacing: 0.1em;
+}
+
+.promptinator__queue-header h2,
+.promptinator__detail > header h2 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.promptinator__queue-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.promptinator__tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 17px;
+  border: 1px solid #2d3637;
+}
+
+.promptinator__tabs button {
+  min-height: 38px;
+  border: 0;
+  color: #758182;
+  background: #121718;
+  font: 9px "Cascadia Mono", "Consolas", monospace;
+  cursor: pointer;
+}
+
+.promptinator__tabs button + button {
+  border-left: 1px solid #2d3637;
+}
+
+.promptinator__tabs button.is-active {
+  color: #e0a35d;
+  background: #211a14;
+}
+
+.promptinator__tabs b {
+  margin-left: 5px;
+}
+
+.promptinator__import {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #3a352d;
+  background: #171714;
+}
+
+.promptinator__import label {
+  display: grid;
+  gap: 6px;
+}
+
+.promptinator__import label > span {
+  color: #7c8787;
+  font: 8px "Cascadia Mono", "Consolas", monospace;
+  text-transform: uppercase;
+}
+
+.promptinator__import input,
+.promptinator__import textarea {
+  width: 100%;
+  border: 1px solid #303a3b;
+  border-radius: 2px;
+  outline: 0;
+  color: #b8c0be;
+  background: #0f1415;
+  font: 9px/1.5 "Cascadia Mono", "Consolas", monospace;
+}
+
+.promptinator__import input {
+  min-height: 34px;
+  padding: 7px 9px;
+}
+
+.promptinator__import textarea {
+  min-height: 150px;
+  padding: 9px;
+  resize: vertical;
+}
+
+.promptinator__file {
+  padding: 9px;
+  border: 1px dashed #465051;
+  background: #121718;
+}
+
+.promptinator__file input {
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 8px;
+}
+
+.promptinator__preview,
+.promptinator__feedback {
+  display: grid;
+  gap: 4px;
+  margin-top: 10px;
+  padding: 9px;
+  border: 1px solid #2d5a43;
+  color: #9fd3b7;
+  background: #14211c;
+  font-size: 9px;
+}
+
+.promptinator__feedback--error {
+  border-color: #6c3632;
+  color: #e4a7a1;
+  background: #241514;
+}
+
+.promptinator__preview span,
+.promptinator__preview small {
+  color: #718d7d;
+  font-size: 8px;
+}
+
+.promptinator__import-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.promptinator__copy-next {
+  width: 100%;
+  margin-top: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.promptinator__entries {
+  display: grid;
+  gap: 7px;
+  margin-top: 12px;
+}
+
+.promptinator__entries > button {
+  position: relative;
+  display: grid;
+  width: 100%;
+  gap: 5px;
+  padding: 12px 62px 12px 11px;
+  border: 1px solid #2d3637;
+  color: inherit;
+  background: #151a1b;
+  text-align: left;
+  cursor: pointer;
+}
+
+.promptinator__entries > button:hover,
+.promptinator__entries > button.is-selected {
+  border-color: #654725;
+  background: #191b1a;
+}
+
+.promptinator__entries > button.is-selected::before {
+  position: absolute;
+  top: 8px;
+  bottom: 8px;
+  left: -1px;
+  width: 2px;
+  background: var(--accent);
+  content: "";
+}
+
+.promptinator__entries > button span,
+.promptinator__entries > button b {
+  color: #788485;
+  font: 7px "Cascadia Mono", "Consolas", monospace;
+  text-transform: uppercase;
+}
+
+.promptinator__entries > button strong {
+  overflow: hidden;
+  font-size: 12px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.promptinator__entries > button small {
+  display: -webkit-box;
+  overflow: hidden;
+  color: #687475;
+  font-size: 8px;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.promptinator__entries > button b {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  color: var(--accent);
+}
+
+.promptinator__empty {
+  padding: 28px 16px;
+  border: 1px dashed #30393a;
+  color: #758182;
+  text-align: center;
+}
+
+.promptinator__empty p {
+  margin: 7px 0 0;
+  font-size: 9px;
+}
+
+.promptinator__detail {
+  min-width: 0;
+  min-height: 0;
+  padding: 24px;
+  overflow-y: auto;
+  background:
+    radial-gradient(circle at 58% 10%, rgb(240 164 75 / 4%), transparent 26%),
+    #101415;
+}
+
+.promptinator__detail > header {
+  padding-bottom: 18px;
+  border-bottom: 1px solid #293132;
+}
+
+.promptinator__detail > header h2 {
+  font-size: 22px;
+}
+
+.promptinator__detail > header span {
+  display: block;
+  margin-top: 6px;
+  color: #657172;
+  font: 8px "Cascadia Mono", "Consolas", monospace;
+}
+
+.promptinator__detail-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.promptinator__metadata {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.promptinator__metadata > div,
+.promptinator__brief {
+  padding: 10px;
+  border: 1px solid #293233;
+  background: #131819;
+}
+
+.promptinator__metadata span,
+.promptinator__metadata strong {
+  display: block;
+}
+
+.promptinator__provenance {
+  display: grid;
+  gap: 5px;
+  margin-top: 12px;
+  padding: 11px;
+  border: 1px solid #31503f;
+  background: #121c18;
+}
+
+.promptinator__provenance span,
+.promptinator__provenance small {
+  color: #6f8c7d;
+  font: 7px/1.5 "Cascadia Mono", "Consolas", monospace;
+  text-transform: uppercase;
+}
+
+.promptinator__provenance strong {
+  color: #acd0bd;
+  font: 9px/1.5 "Cascadia Mono", "Consolas", monospace;
+}
+
+.promptinator__metadata span {
+  color: #657172;
+  font: 7px "Cascadia Mono", "Consolas", monospace;
+  text-transform: uppercase;
+}
+
+.promptinator__metadata strong {
+  margin-top: 5px;
+  color: #b9c2c0;
+  font-size: 9px;
+}
+
+.promptinator__brief {
+  margin-top: 12px;
+  padding: 14px;
+}
+
+.promptinator__brief > p {
+  margin: 0 0 12px;
+  color: #8f9a98;
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+.promptinator__brief dl {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  margin: 0;
+  background: #242c2d;
+}
+
+.promptinator__brief dl > div {
+  padding: 10px;
+  background: #101516;
+}
+
+.promptinator__brief dt {
+  color: #9c7245;
+  font: 7px "Cascadia Mono", "Consolas", monospace;
+  text-transform: uppercase;
+}
+
+.promptinator__brief dd {
+  margin: 5px 0 0;
+  color: #919b99;
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+.promptinator__prompt {
+  margin: 12px 0 0;
+  padding: 16px;
+  overflow-x: auto;
+  border: 1px solid #3a352d;
+  color: #aeb7b4;
+  background: #0d1213;
+  font: 9px/1.65 "Cascadia Mono", "Consolas", monospace;
+  white-space: pre-wrap;
+}
+
 .empty-state {
   display: grid;
   max-width: 430px;
@@ -2071,6 +2472,10 @@ input:focus-visible {
 
   .batches-layout {
     grid-template-columns: 300px minmax(580px, 1fr);
+  }
+
+  .promptinator {
+    grid-template-columns: 340px minmax(580px, 1fr);
   }
 
   .review-body {

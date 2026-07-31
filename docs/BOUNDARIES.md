@@ -47,7 +47,9 @@ workflow, validation requirements, or build.
 
 ## Agent submission versus user review
 
-Agents own staging submissions and technical evidence. Prompt Spriter owns:
+Agents own staging submissions and technical evidence. After completion, an
+agent may invoke Prompt Spriter's documented trusted ingestion command. Prompt
+Spriter—not the agent—then owns the resulting writes to:
 
 - stable asset identity;
 - immutable ingested revisions;
@@ -56,14 +58,23 @@ Agents own staging submissions and technical evidence. Prompt Spriter owns:
 - Archive history;
 - the selected approved revision.
 
-An agent submission cannot set approval, Archive state, or a user decision.
+An agent submission cannot set approval, Archive state, user notes, or a user
+decision. Agents must not author or patch `review.json` directly. Trusted
+ingestion may only create or replace the current candidate as an unapproved
+Intake revision.
+
+Promptinator claim and completion records are creation-dispatch provenance,
+not human review state. The trusted queue command may reserve one Ready entry,
+and trusted ingestion may complete that exact claim after Intake registration.
+Neither action may approve, revise, archive, restore, or add user notes.
 
 ## File safety
 
-- Agents write new work under an assigned staging directory.
+- Agents author new work under an assigned staging directory, then may invoke
+  trusted ingestion after completion-required validation passes.
+- Agents never write directly into `workspace/library/` or transaction folders.
 - Ingested revisions are immutable.
 - Runtime library data is stored under the ignored `workspace/` root during
   early development.
 - No automatic deletion or destructive cleanup is allowed.
 - If a path or asset identity is ambiguous, stop before writing.
-

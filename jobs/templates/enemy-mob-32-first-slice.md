@@ -6,7 +6,7 @@ vertical slice.
 ## Fixed contract
 
 - Category: `enemy-mob-32@0.1.0`
-- Style: `assembler-inspired-v1@0.1.0`
+- Style: exact Promptinator claim; otherwise `assembler-inspired-v2@0.1.0`
 - Cell: 32x32 pixels
 - Directions and rows: down, left, right, up
 - Animations and columns:
@@ -15,8 +15,42 @@ vertical slice.
   - attack: columns 6-9, 4 frames, 120 ms, once
 - Sheet: 10 columns x 4 rows, 320x128 pixels
 - Alpha: transparent background with hard alpha
-- Opaque palette: no more than 16 colors
+- Opaque palette: obey the selected profile (`v1`: 16 maximum; `v2`: 12)
 - Source layers and tags: follow `docs/ASEPRITE_CONTRACT.md`
+
+## Required visual authoring gate
+
+Follow `docs/SPRITE_AUTHORING_CHECKLIST.md` before completing the job. In
+particular:
+
+- establish readable down, left, right, and up idle silhouettes before filling
+  the timeline;
+- render those four idle poses as a checkpoint before generating the remaining
+  frames, even when a Lua or JavaScript generator is used;
+- keep one fixed elevated game camera and ground plane; for long, low bodies,
+  foreshorten and overlap the body in down/up views instead of rotating a full
+  side silhouette into a vertical pose;
+- preserve a recognizable creature body plan instead of collapsing the subject
+  into a blob, box, rock, or prop-like shape;
+- make profiles and the rear view genuinely rotate the anatomy and required
+  asymmetry;
+- animate four meaningful locomotion phases rather than translating or bobbing
+  an unchanged body;
+- make anticipation, action, impact, and recovery readable with the effects
+  layer hidden;
+- inspect the exact exported sheet at 1x and nearest-neighbor 4x and repair any
+  failed checklist answer in this same staging job.
+
+All job-specific scripts and previews belong inside the assigned staging
+directory. Do not create per-sprite generator files under repository `tools/`.
+
+Technical validation can pass an artistically weak sheet. Do not use a passing
+validator or ingestion readiness as a substitute for this creator-side gate.
+
+For a claimed job, use the exact style printed by the claim. The production
+`assembler-inspired-v2@0.1.0` profile requires its master palette, binary
+contour rule, controlled body-plan anchors, and construction order. A deliberate
+legacy-v1 claim remains v1; never substitute one profile for the other.
 
 ## Required manifest values
 
@@ -36,12 +70,12 @@ vertical slice.
     "version": "0.1.0"
   },
   "style": {
-    "id": "assembler-inspired-v1",
-    "version": "0.1.0"
+    "id": "<exact selected style ID>",
+    "version": "<exact selected style version>"
   },
   "producer": {
     "application": "Antigravity with Aseprite Pro MCP",
-    "model": "Gemini Flash 3.6",
+    "model": "Gemini 3.6 High",
     "sessionId": null
   },
   "output": {
@@ -80,6 +114,12 @@ vertical slice.
 Do not add approval, lane, Archive, or user-note fields. Those belong to Prompt
 Spriter after ingestion.
 
+For a Promptinator-claimed job, use the exact prompt printed between the
+`PROMPTINATOR PROMPT START` and `PROMPTINATOR PROMPT END` markers as `request`.
+Keep the printed expected asset ID as both the staging job ID and `assetId`.
+Do not claim a second entry to replace or retry the current one; an interrupted
+claim remains resumable in Promptinator.
+
 ## Completion marker
 
 After `validation.json` agrees with the validator result, write
@@ -102,12 +142,21 @@ After `validation.json` agrees with the validator result, write
   ],
   "producer": {
     "application": "Antigravity with Aseprite Pro MCP",
-    "model": "Gemini Flash 3.6",
+    "model": "Gemini 3.6 High",
     "sessionId": null
   },
   "completedAt": "<ISO-8601 timestamp>"
 }
 ```
 
-Stop after completion. Prompt Spriter, not the creation agent, performs
-ingestion and creates the Intake review record.
+After writing `completion.json`, run:
+
+```powershell
+npm.cmd run validate:submission -- workspace/staging/<job-id> --require-completion
+npm.cmd run ingest:submission -- workspace/staging/<job-id>
+```
+
+Stop only after trusted ingestion reports the exact asset as `r001` in Intake.
+For a claimed job, it must also report the Promptinator entry as `completed`.
+Do not write Library, transaction, or review files directly, and do not approve
+the candidate.

@@ -5,16 +5,29 @@ import {
   mkdirSync,
   mkdtempSync,
   readFileSync,
+  renameSync,
   rmSync,
+  unlinkSync,
   writeFileSync,
 } from "node:fs";
 import { createHash } from "node:crypto";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
-import { readJson } from "../tools/lib/contracts.mjs";
+import {
+  createContractValidator,
+  readJson,
+  readStyleProfiles,
+  validateLibraryRoot,
+} from "../tools/lib/contracts.mjs";
 import { ingestSubmission } from "../tools/lib/ingestion.mjs";
 import { readViewerLibrary } from "../tools/lib/library-view.mjs";
+import {
+  claimNextPromptinatorEntry,
+  importPromptCatalog,
+  readPromptinatorStore,
+  setPromptinatorEntryStyle,
+} from "../tools/lib/promptinator.mjs";
 import { applyReviewAction } from "../tools/lib/review-actions.mjs";
 import { validateSubmissionDirectory } from "../tools/lib/submission.mjs";
 
@@ -56,6 +69,8 @@ const createStagingJob = ({
   assetId = "lion-mob-001",
   baseRevisionId = null,
   requestedName = "Lion",
+  request = "Create a 32x32 enemy mob lion using the first vertical slice.",
+  style = { id: "assembler-inspired-v1", version: "0.1.0" },
 } = {}) => {
   const jobDirectory = join(workspaceRoot, "staging", jobId);
   mkdirSync(jobDirectory, { recursive: true });
@@ -82,15 +97,12 @@ const createStagingJob = ({
     assetId,
     baseRevisionId,
     requestedName,
-    request: "Create a 32x32 enemy mob lion using the first vertical slice.",
+    request,
     category: {
       id: "enemy-mob-32",
       version: "0.1.0",
     },
-    style: {
-      id: "assembler-inspired-v1",
-      version: "0.1.0",
-    },
+    style,
     producer: {
       application: "Antigravity with Aseprite Pro MCP",
       model: "Gemini Flash 3.6",
@@ -225,6 +237,170 @@ describe("staging ingestion", () => {
     ).toThrow("will not be overwritten");
   });
 
+  it("completes an active Promptinator claim only after Intake ingestion", () => {
+    const workspaceRoot = createWorkspaceRoot();
+    const catalog = `1. Test Collection
+
+Queue integration subjects.
+
+1
+Name: Queue Lion
+Core concept: A queue-driven lion mob.
+Body and silhouette: Compact feline body.
+Signature features: Square mane and long tail.
+Palette and materials: Ochre fur and brown mane.
+Movement personality: Alert and deliberate.
+Attack concept: A short forward swipe.
+Directional details: A notch marks the right ear.
+Avoid: House-cat proportions.
+`;
+    importPromptCatalog({
+      workspaceRoot,
+      text: catalog,
+      sourceName: "queue.txt",
+      expectedUpdatedAt: "1970-01-01T00:00:00.000Z",
+      now: () => "2026-07-30T14:58:00.000Z",
+    });
+    const claimed = claimNextPromptinatorEntry({
+      workspaceRoot,
+      now: () => "2026-07-30T14:59:00.000Z",
+      claimIdFactory: () =>
+        "claim-33333333-3333-4333-8333-333333333333",
+    });
+    const { jobDirectory } = createStagingJob({
+      workspaceRoot,
+      jobId: claimed.claim.expectedAssetId,
+      assetId: claimed.claim.expectedAssetId,
+      requestedName: claimed.entry.name,
+      request: claimed.entry.promptText,
+      style: claimed.entry.style,
+    });
+
+    const result = ingestSubmission({
+      jobDirectory,
+      workspaceRoot,
+      verifySource: false,
+    });
+
+    expect(result.promptinator).toEqual({
+      entryId: claimed.entry.id,
+      claimId: claimed.claim.id,
+      state: "completed",
+    });
+    const entry = readPromptinatorStore({ workspaceRoot }).entries[0];
+    expect(entry.state).toBe("completed");
+    expect(entry.completion).toEqual({
+      assetId: claimed.claim.expectedAssetId,
+      revisionId: "r001",
+      completedAt: "2026-07-30T15:01:00.000Z",
+    });
+    const review = readJson(
+      join(result.assetDirectory, "review.json"),
+    );
+    expect(review.candidate).toEqual({ revisionId: "r001", lane: "intake" });
+  });
+
+  it("validates and completes a production-default v2 Promptinator entry", () => {
+    const workspaceRoot = createWorkspaceRoot();
+    const catalog = `1. Test Collection
+
+Production v2 subjects.
+
+1
+Name: Production Lion
+Core concept: A palette-controlled lion mob.
+Body and silhouette: Compact feline body.
+Signature features: Square mane and long tail.
+Palette and materials: Warm hide and earth-bark mane.
+Movement personality: Alert and deliberate.
+Attack concept: A short forward swipe.
+Directional details: A notch marks the right ear.
+Avoid: House-cat proportions.
+`;
+    const imported = importPromptCatalog({
+      workspaceRoot,
+      text: catalog,
+      sourceName: "v2-production.txt",
+      expectedUpdatedAt: "1970-01-01T00:00:00.000Z",
+      now: () => "2026-07-30T14:57:00.000Z",
+    });
+    const claimed = claimNextPromptinatorEntry({
+      workspaceRoot,
+      now: () => "2026-07-30T14:59:00.000Z",
+      claimIdFactory: () =>
+        "claim-44444444-4444-4444-8444-444444444444",
+    });
+    expect(claimed.entry.style).toEqual({
+      id: "assembler-inspired-v2",
+      version: "0.1.0",
+    });
+    expect(imported.store.entries[0].formulaVersion).toBe("structured-v2");
+
+    const { jobDirectory } = createStagingJob({
+      workspaceRoot,
+      jobId: claimed.claim.expectedAssetId,
+      assetId: claimed.claim.expectedAssetId,
+      requestedName: claimed.entry.name,
+      request: claimed.entry.promptText,
+      style: claimed.entry.style,
+    });
+    const preflight = validateSubmissionDirectory({
+      jobDirectory,
+      requireCompletion: true,
+    });
+    expect(preflight.failures).toEqual([]);
+    expect(preflight.style.id).toBe("assembler-inspired-v2");
+
+    const result = ingestSubmission({
+      jobDirectory,
+      workspaceRoot,
+      verifySource: false,
+    });
+    expect(result.promptinator?.state).toBe("completed");
+    const revision = readJson(
+      join(result.assetDirectory, "revisions", "r001", "revision.json"),
+    );
+    expect(revision.style).toEqual(claimed.entry.style);
+  });
+
+  it("scans a mixed v1 and v2 library against each asset's recorded style", () => {
+    const workspaceRoot = createWorkspaceRoot();
+    const first = createStagingJob({
+      workspaceRoot,
+      jobId: "mixed-v1",
+      assetId: "mixed-v1",
+      requestedName: "Mixed V1",
+    });
+    ingestSubmission({
+      jobDirectory: first.jobDirectory,
+      workspaceRoot,
+      verifySource: false,
+    });
+    const second = createStagingJob({
+      workspaceRoot,
+      jobId: "mixed-v2",
+      assetId: "mixed-v2",
+      requestedName: "Mixed V2",
+      style: { id: "assembler-inspired-v2", version: "0.1.0" },
+    });
+    ingestSubmission({
+      jobDirectory: second.jobDirectory,
+      workspaceRoot,
+      verifySource: false,
+    });
+
+    const scan = validateLibraryRoot({
+      ajv: createContractValidator(),
+      libraryRoot: join(workspaceRoot, "library"),
+      category: readJson(
+        join(repositoryRoot, "categories", "enemy-mob-32", "category.json"),
+      ),
+      styles: readStyleProfiles(),
+    });
+    expect(scan.failures).toEqual([]);
+    expect(scan.assets).toBe(2);
+  });
+
   it("refuses a staging job without a completion marker", () => {
     const { workspaceRoot, jobDirectory } = createStagingJob({
       complete: false,
@@ -241,6 +417,53 @@ describe("staging ingestion", () => {
         join(workspaceRoot, "library", "assets", "lion-mob-001"),
       ),
     ).toBe(false);
+  });
+
+  it("recovers a prepared new-asset transaction after final registration was interrupted", () => {
+    const { workspaceRoot, jobDirectory } = createStagingJob({
+      jobId: "recover-new-asset",
+      assetId: "recover-new-asset",
+      requestedName: "Recover New Asset",
+    });
+    const first = ingestSubmission({
+      jobDirectory,
+      workspaceRoot,
+      verifySource: false,
+    });
+    const transactionRoot = resolve(
+      first.transactionReceipt,
+      "..",
+    );
+    const preparedAssetDirectory = join(
+      transactionRoot,
+      "assets",
+      first.assetId,
+    );
+    mkdirSync(resolve(preparedAssetDirectory, ".."), {
+      recursive: true,
+    });
+    renameSync(first.assetDirectory, preparedAssetDirectory);
+    unlinkSync(first.transactionReceipt);
+
+    const recovered = ingestSubmission({
+      jobDirectory,
+      workspaceRoot,
+      verifySource: false,
+    });
+
+    expect(recovered.assetId).toBe("recover-new-asset");
+    expect(recovered.revisionId).toBe("r001");
+    expect(existsSync(recovered.assetDirectory)).toBe(true);
+    expect(existsSync(preparedAssetDirectory)).toBe(false);
+    expect(existsSync(recovered.transactionReceipt)).toBe(true);
+    const review = readJson(
+      join(recovered.assetDirectory, "review.json"),
+    );
+    expect(review.approvedRevisionId).toBeNull();
+    expect(review.candidate).toEqual({
+      revisionId: "r001",
+      lane: "intake",
+    });
   });
 
   it("registers r002 from the exact Revise base and preserves r001", () => {

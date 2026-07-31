@@ -15,29 +15,33 @@ const categoryPath = join(
   "enemy-mob-32",
   "category.json",
 );
-const stylePath = join(
-  repositoryRoot,
-  "styles",
-  "assembler-inspired-v1",
-  "style.json",
-);
+const stylePaths = [
+  join(repositoryRoot, "styles", "assembler-inspired-v1", "style.json"),
+  join(repositoryRoot, "styles", "assembler-inspired-v2", "style.json"),
+];
 const fixtureRoot = join(repositoryRoot, "fixtures", "library");
 
 const category = readJson(categoryPath);
-const style = readJson(stylePath);
+const styles = stylePaths.map((stylePath) => ({
+  path: stylePath,
+  value: readJson(stylePath),
+}));
+const fixtureStyle = styles[0].value;
 const ajv = createContractValidator();
 const failures = [
   ...validateRecord(ajv, category, categoryPath),
   ...validateCategorySemantics(category, categoryPath),
-  ...validateRecord(ajv, style, stylePath),
-  ...validateStyleSemantics(style, stylePath),
+  ...styles.flatMap(({ path, value }) => [
+    ...validateRecord(ajv, value, path),
+    ...validateStyleSemantics(value, path),
+  ]),
 ];
 
 const library = validateLibraryRoot({
   ajv,
   libraryRoot: fixtureRoot,
   category,
-  style,
+  style: fixtureStyle,
 });
 failures.push(...library.failures);
 
@@ -55,4 +59,3 @@ if (failures.length > 0) {
     console.log(`Advisory fixture warnings: ${library.warnings.length}`);
   }
 }
-

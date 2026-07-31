@@ -6,6 +6,7 @@ import {
 import { basename, join, relative, resolve } from "node:path";
 import {
   createContractValidator,
+  readJson,
   repositoryRoot,
   validateLibraryRoot,
   validateRecord,
@@ -16,6 +17,10 @@ import {
   writeJson,
 } from "./fs-safety.mjs";
 import { ingestExistingRevision } from "./revision-ingestion.mjs";
+import {
+  completePromptinatorClaim,
+  resolvePromptinatorClaimForSubmission,
+} from "./promptinator.mjs";
 import { validateSubmissionDirectory } from "./submission.mjs";
 
 const staysInside = (root, path) => {
@@ -36,6 +41,200 @@ const tagsForSubmission = (submission) => {
     .split(/\s+/)
     .filter(Boolean);
   return [...new Set([...words, "antigravity", submission.category.id])];
+};
+
+const sameJson = (left, right) =>
+  JSON.stringify(left) === JSON.stringify(right);
+
+const newAssetReceiptFor = ({
+  submission,
+  revisionId,
+  resolvedJobDirectory,
+  targetAssetDirectory,
+  completedAt,
+  warnings,
+}) => ({
+  kind: "ingestion-receipt",
+  jobId: submission.jobId,
+  assetId: submission.assetId,
+  revisionId,
+  sourceStagingDirectory: resolvedJobDirectory,
+  registeredAssetDirectory: targetAssetDirectory,
+  completedAt,
+  warnings,
+});
+
+const newAssetResultFor = ({
+  submission,
+  revisionId,
+  targetAssetDirectory,
+  receiptPath,
+  warnings,
+}) => ({
+  assetId: submission.assetId,
+  revisionId,
+  jobId: submission.jobId,
+  assetDirectory: targetAssetDirectory,
+  transactionReceipt: receiptPath,
+  warnings,
+});
+
+const completePromptinatorForResult = ({
+  result,
+  resolvedWorkspaceRoot,
+  promptinatorClaim,
+  completedAt,
+}) => {
+  if (!promptinatorClaim) return result;
+  const store = completePromptinatorClaim({
+    workspaceRoot: resolvedWorkspaceRoot,
+    entryId: promptinatorClaim.entryId,
+    claimId: promptinatorClaim.claimId,
+    assetId: result.assetId,
+    revisionId: result.revisionId,
+    completedAt,
+  });
+  const entry = store.entries.find(
+    (candidate) => candidate.id === promptinatorClaim.entryId,
+  );
+  return {
+    ...result,
+    promptinator: {
+      entryId: promptinatorClaim.entryId,
+      claimId: promptinatorClaim.claimId,
+      state: entry?.state ?? "completed",
+    },
+  };
+};
+
+const validatePreparedNewAssetTransaction = ({
+  transactionRoot,
+  transactionAssetDirectory,
+  submission,
+  validation,
+  completion,
+  category,
+  style,
+  styles,
+  artifactPaths,
+}) => {
+  const revisionId = "r001";
+  const revisionDirectory = join(
+    transactionAssetDirectory,
+    "revisions",
+    revisionId,
+  );
+  const paths = {
+    asset: join(transactionAssetDirectory, "asset.json"),
+    review: join(transactionAssetDirectory, "review.json"),
+    revision: join(revisionDirectory, "revision.json"),
+    validation: join(revisionDirectory, "validation.json"),
+    source: join(revisionDirectory, "source.aseprite"),
+    sheet: join(revisionDirectory, "sheet.png"),
+    thumbnail: join(revisionDirectory, "thumbnail.png"),
+  };
+  const missingPaths = Object.values(paths).filter(
+    (path) => !existsSync(path),
+  );
+  if (missingPaths.length > 0) {
+    throw new Error(
+      [
+        `Incomplete new-asset transaction cannot be recovered automatically: ${transactionRoot}`,
+        ...missingPaths.map((path) => `- missing ${path}`),
+      ].join("\n"),
+    );
+  }
+
+  const asset = readJson(paths.asset);
+  const review = readJson(paths.review);
+  const revision = readJson(paths.revision);
+  const copiedValidation = readJson(paths.validation);
+  const ajv = createContractValidator();
+  const failures = [
+    ...validateRecord(ajv, asset, "prepared asset.json"),
+    ...validateRecord(ajv, review, "prepared review.json"),
+    ...validateRecord(ajv, revision, "prepared revision.json"),
+    ...validateRecord(
+      ajv,
+      copiedValidation,
+      "prepared validation.json",
+    ),
+  ];
+
+  if (
+    asset.id !== submission.assetId ||
+    asset.name !== submission.requestedName ||
+    asset.createdAt !== submission.submittedAt ||
+    !sameJson(asset.category, submission.category) ||
+    !sameJson(asset.style, submission.style)
+  ) {
+    failures.push(
+      "prepared asset identity does not match the current staging submission",
+    );
+  }
+  if (
+    review.assetId !== submission.assetId ||
+    review.approvedRevisionId !== null ||
+    review.candidate?.revisionId !== revisionId ||
+    review.candidate?.lane !== "intake" ||
+    review.updatedAt !== completion.completedAt
+  ) {
+    failures.push(
+      "prepared review state is not the expected unapproved r001 Intake candidate",
+    );
+  }
+  if (
+    revision.assetId !== submission.assetId ||
+    revision.id !== revisionId ||
+    revision.parentRevisionId !== null ||
+    revision.createdAt !== completion.completedAt ||
+    revision.request !== submission.request ||
+    !sameJson(revision.category, submission.category) ||
+    !sameJson(revision.style, submission.style) ||
+    !sameJson(revision.producer, submission.producer)
+  ) {
+    failures.push(
+      "prepared revision provenance does not match the current staging submission",
+    );
+  }
+  if (!sameJson(copiedValidation, validation)) {
+    failures.push(
+      "prepared validation report does not match the current staging report",
+    );
+  }
+
+  const expectedHashes = {
+    source: sha256(artifactPaths.source),
+    sheet: sha256(artifactPaths.sheet),
+    thumbnail: sha256(artifactPaths.thumbnail),
+  };
+  for (const artifact of ["source", "sheet", "thumbnail"]) {
+    if (
+      sha256(paths[artifact]) !== expectedHashes[artifact] ||
+      revision.artifacts?.[artifact]?.sha256 !==
+        expectedHashes[artifact]
+    ) {
+      failures.push(
+        `prepared ${artifact} does not match the current staging artifact`,
+      );
+    }
+  }
+
+  const transactionScan = validateLibraryRoot({
+    ajv,
+    libraryRoot: transactionRoot,
+    category,
+    styles,
+  });
+  failures.push(...transactionScan.failures);
+  if (failures.length > 0) {
+    throw new Error(
+      [
+        `Prepared new-asset transaction failed recovery validation: ${transactionRoot}`,
+        ...failures.map((failure) => `- ${failure}`),
+      ].join("\n"),
+    );
+  }
 };
 
 export const ingestSubmission = ({
@@ -72,11 +271,16 @@ export const ingestSubmission = ({
     completion,
     category,
     style,
+    styles,
     artifactPaths,
   } = validationResult;
   if (!submission.assetId) {
     throw new Error("An ingestion submission must declare a stable assetId");
   }
+  const promptinatorClaim = resolvePromptinatorClaimForSubmission({
+    workspaceRoot: resolvedWorkspaceRoot,
+    submission,
+  });
   if (submission.baseRevisionId !== null) {
     return ingestExistingRevision({
       resolvedWorkspaceRoot,
@@ -100,18 +304,60 @@ export const ingestSubmission = ({
     "transactions",
     transactionId,
   );
-  if (existsSync(transactionRoot)) {
-    throw new Error(
-      `Ingestion transaction already exists and was left untouched: ${transactionRoot}`,
-    );
-  }
-
   const revisionId = "r001";
   const transactionAssetDirectory = join(
     transactionRoot,
     "assets",
     submission.assetId,
   );
+  const receiptPath = join(transactionRoot, "receipt.json");
+  if (existsSync(transactionRoot)) {
+    if (
+      existsSync(receiptPath) ||
+      !existsSync(transactionAssetDirectory)
+    ) {
+      throw new Error(
+        `Ingestion transaction already exists and was left untouched: ${transactionRoot}`,
+      );
+    }
+    validatePreparedNewAssetTransaction({
+      transactionRoot,
+      transactionAssetDirectory,
+      submission,
+      validation,
+      completion,
+      category,
+      style,
+      styles,
+      artifactPaths,
+    });
+    mkdirSync(assetsRoot, { recursive: true });
+    renameWithRetry(transactionAssetDirectory, targetAssetDirectory);
+    writeJson(
+      receiptPath,
+      newAssetReceiptFor({
+        submission,
+        revisionId,
+        resolvedJobDirectory,
+        targetAssetDirectory,
+        completedAt: completion.completedAt,
+        warnings: validationResult.technicalWarnings,
+      }),
+    );
+    return completePromptinatorForResult({
+      resolvedWorkspaceRoot,
+      promptinatorClaim,
+      completedAt: completion.completedAt,
+      result: newAssetResultFor({
+        submission,
+        revisionId,
+        targetAssetDirectory,
+        receiptPath,
+        warnings: validationResult.technicalWarnings,
+      }),
+    });
+  }
+
   const revisionDirectory = join(
     transactionAssetDirectory,
     "revisions",
@@ -222,7 +468,7 @@ export const ingestSubmission = ({
     ajv,
     libraryRoot: transactionRoot,
     category,
-    style,
+    styles,
   });
   if (transactionScan.failures.length > 0) {
     throw new Error(
@@ -235,25 +481,30 @@ export const ingestSubmission = ({
 
   mkdirSync(assetsRoot, { recursive: true });
   renameWithRetry(transactionAssetDirectory, targetAssetDirectory);
-  writeJson(join(transactionRoot, "receipt.json"), {
-    kind: "ingestion-receipt",
-    jobId: submission.jobId,
-    assetId: submission.assetId,
-    revisionId,
-    sourceStagingDirectory: resolvedJobDirectory,
-    registeredAssetDirectory: targetAssetDirectory,
-    completedAt: createdAt,
-    warnings: validationResult.technicalWarnings,
-  });
+  writeJson(
+    receiptPath,
+    newAssetReceiptFor({
+      submission,
+      revisionId,
+      resolvedJobDirectory,
+      targetAssetDirectory,
+      completedAt: createdAt,
+      warnings: validationResult.technicalWarnings,
+    }),
+  );
 
-  return {
-    assetId: submission.assetId,
-    revisionId,
-    jobId: submission.jobId,
-    assetDirectory: targetAssetDirectory,
-    transactionReceipt: join(transactionRoot, "receipt.json"),
-    warnings: validationResult.technicalWarnings,
-  };
+  return completePromptinatorForResult({
+    resolvedWorkspaceRoot,
+    promptinatorClaim,
+    completedAt: completion.completedAt,
+    result: newAssetResultFor({
+      submission,
+      revisionId,
+      targetAssetDirectory,
+      receiptPath,
+      warnings: validationResult.technicalWarnings,
+    }),
+  });
 };
 
 export const defaultWorkspaceRoot = resolve(repositoryRoot, "workspace");

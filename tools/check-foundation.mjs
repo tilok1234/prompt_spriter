@@ -9,6 +9,7 @@ const failures = [];
 const requiredFiles = [
   ".gitignore",
   "AGENTS.md",
+  "HANDOFF.md",
   "README.md",
   "docs/ANTIGRAVITY_WORKFLOW.md",
   "docs/ASEPRITE_CAPABILITIES.md",
@@ -16,6 +17,7 @@ const requiredFiles = [
   "docs/BOUNDARIES.md",
   "docs/DEVELOPMENT.md",
   "docs/MASTER_PLAN.md",
+  "docs/PROMPTINATOR.md",
   "docs/STATUS.md",
   "docs/WORKFLOW.md",
   "categories/README.md",
@@ -23,6 +25,8 @@ const requiredFiles = [
   "styles/README.md",
   "tests/README.md",
   "jobs/templates/enemy-mob-32-first-slice.md",
+  "tools/claim-next-prompt.mjs",
+  "tools/reconcile-promptinator.mjs",
 ];
 
 for (const relativePath of requiredFiles) {

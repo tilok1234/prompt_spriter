@@ -11,6 +11,14 @@ import {
   applyReviewAction,
   ReviewActionError,
 } from "./lib/review-actions.mjs";
+import {
+  importPromptCatalog,
+  parsePromptCatalog,
+  PromptinatorError,
+  readPromptinatorStore,
+  setPromptinatorEntryStyle,
+  transitionPromptinatorEntry,
+} from "./lib/promptinator.mjs";
 
 const libraryRoot = process.env.PROMPT_SPRITER_LIBRARY_ROOT
   ? resolve(repositoryRoot, process.env.PROMPT_SPRITER_LIBRARY_ROOT)
@@ -65,6 +73,28 @@ const readJsonRequest = async (request) => {
     return JSON.parse(Buffer.concat(chunks).toString("utf8"));
   } catch {
     throw new ReviewActionError("Review request must contain valid JSON.");
+  }
+};
+
+const readPromptinatorJsonRequest = async (request) => {
+  const chunks = [];
+  let size = 0;
+  for await (const chunk of request) {
+    size += chunk.length;
+    if (size > 2 * 1024 * 1024) {
+      throw new PromptinatorError("Promptinator request is too large.", 413);
+    }
+    chunks.push(chunk);
+  }
+  if (chunks.length === 0) {
+    throw new PromptinatorError("Promptinator request body is required.");
+  }
+  try {
+    return JSON.parse(Buffer.concat(chunks).toString("utf8"));
+  } catch {
+    throw new PromptinatorError(
+      "Promptinator request must contain valid JSON.",
+    );
   }
 };
 
@@ -241,6 +271,164 @@ const handleReviewAction = async (request, response) => {
   }
 };
 
+const handlePromptinatorRequest = async (request, response) => {
+  if (request.method === "GET") {
+    try {
+      sendJson(response, 200, {
+        store: readPromptinatorStore({ workspaceRoot }),
+      });
+    } catch (error) {
+      sendJson(
+        response,
+        error instanceof PromptinatorError ? error.statusCode : 500,
+        {
+          error:
+            error instanceof Error
+              ? error.message
+              : "Promptinator could not be read.",
+        },
+      );
+    }
+    return;
+  }
+  if (request.method !== "POST") {
+    response.setHeader("Allow", "GET, POST");
+    sendJson(response, 405, {
+      error: "Promptinator requests require GET or POST.",
+    });
+    return;
+  }
+  if (!requestIsSameOrigin(request)) {
+    sendJson(response, 403, {
+      error: "Cross-origin Promptinator request refused.",
+    });
+    return;
+  }
+  if (
+    !String(request.headers["content-type"] ?? "")
+      .toLowerCase()
+      .startsWith("application/json")
+  ) {
+    sendJson(response, 415, {
+      error: "Promptinator requests require application/json.",
+    });
+    return;
+  }
+
+  try {
+    const payload = await readPromptinatorJsonRequest(request);
+    if (!payload || typeof payload !== "object" || Array.isArray(payload)) {
+      throw new PromptinatorError(
+        "Promptinator request must be a JSON object.",
+      );
+    }
+    if (payload.action === "preview-import") {
+      const allowed = new Set(["action", "sourceName", "text"]);
+      if (Object.keys(payload).some((key) => !allowed.has(key))) {
+        throw new PromptinatorError(
+          "Promptinator preview contains unsupported fields.",
+        );
+      }
+      const preview = parsePromptCatalog({
+        text: payload.text,
+        sourceName: payload.sourceName,
+      });
+      sendJson(response, 200, {
+        preview: {
+          sourceName: preview.sourceName,
+          sourceSha256: preview.sourceSha256,
+          entryCount: preview.entries.length,
+          familyCount: preview.families.length,
+          firstOrdinal: Math.min(
+            ...preview.entries.map((entry) => entry.ordinal),
+          ),
+          lastOrdinal: Math.max(
+            ...preview.entries.map((entry) => entry.ordinal),
+          ),
+          sampleNames: preview.entries.slice(0, 3).map((entry) => entry.name),
+        },
+      });
+      return;
+    }
+    if (payload.action === "import") {
+      const allowed = new Set([
+        "action",
+        "sourceName",
+        "text",
+        "expectedUpdatedAt",
+      ]);
+      if (Object.keys(payload).some((key) => !allowed.has(key))) {
+        throw new PromptinatorError(
+          "Promptinator import contains unsupported fields.",
+        );
+      }
+      const result = importPromptCatalog({
+        workspaceRoot,
+        text: payload.text,
+        sourceName: payload.sourceName,
+        expectedUpdatedAt: payload.expectedUpdatedAt,
+      });
+      sendJson(response, result.alreadyImported ? 200 : 201, result);
+      return;
+    }
+    if (["mark-copied", "requeue"].includes(payload.action)) {
+      const allowed = new Set([
+        "action",
+        "entryId",
+        "expectedUpdatedAt",
+      ]);
+      if (Object.keys(payload).some((key) => !allowed.has(key))) {
+        throw new PromptinatorError(
+          "Promptinator transition contains unsupported fields.",
+        );
+      }
+      const store = transitionPromptinatorEntry({
+        workspaceRoot,
+        entryId: payload.entryId,
+        action: payload.action,
+        expectedUpdatedAt: payload.expectedUpdatedAt,
+      });
+      sendJson(response, 200, { store });
+      return;
+    }
+    if (payload.action === "set-style") {
+      const allowed = new Set([
+        "action",
+        "entryId",
+        "style",
+        "expectedUpdatedAt",
+      ]);
+      if (Object.keys(payload).some((key) => !allowed.has(key))) {
+        throw new PromptinatorError(
+          "Promptinator style selection contains unsupported fields.",
+        );
+      }
+      const store = setPromptinatorEntryStyle({
+        workspaceRoot,
+        entryId: payload.entryId,
+        style: payload.style,
+        expectedUpdatedAt: payload.expectedUpdatedAt,
+      });
+      sendJson(response, 200, { store });
+      return;
+    }
+    throw new PromptinatorError(
+      `Unsupported Promptinator action "${String(payload.action)}".`,
+    );
+  } catch (error) {
+    sendJson(
+      response,
+      error instanceof PromptinatorError ? error.statusCode : 500,
+      {
+        error:
+          error instanceof Error
+            ? error.message
+            : "Promptinator request failed.",
+      },
+    );
+  }
+};
+
 export const promptSpriterLibrary = () => ({
   name: "prompt-spriter-local-library",
   configureServer(server) {
@@ -262,6 +450,11 @@ export const promptSpriterLibrary = () => ({
 
       if (url.pathname === "/__prompt-spriter/batches") {
         void handleBatchRequest(request, response);
+        return;
+      }
+
+      if (url.pathname === "/__prompt-spriter/promptinator") {
+        void handlePromptinatorRequest(request, response);
         return;
       }
 

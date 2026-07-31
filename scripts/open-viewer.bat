@@ -2,7 +2,7 @@
 setlocal
 title Prompt Spriter Viewer
 
-set "PROJECT_DIR=C:\Users\headc\Documents\AI_training_lab\prompt_spriter"
+set "PROJECT_DIR=C:\Users\headc\Documents\prompt_spriter"
 
 if not exist "%PROJECT_DIR%\package.json" (
   echo.

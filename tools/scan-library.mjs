@@ -2,6 +2,7 @@ import { resolve } from "node:path";
 import {
   createContractValidator,
   readJson,
+  readStyleProfiles,
   repositoryRoot,
   validateLibraryRoot,
 } from "./lib/contracts.mjs";
@@ -11,14 +12,12 @@ const libraryRoot = resolve(repositoryRoot, requestedRoot);
 const category = readJson(
   resolve(repositoryRoot, "categories/enemy-mob-32/category.json"),
 );
-const style = readJson(
-  resolve(repositoryRoot, "styles/assembler-inspired-v1/style.json"),
-);
+const styles = readStyleProfiles();
 const result = validateLibraryRoot({
   ajv: createContractValidator(),
   libraryRoot,
   category,
-  style,
+  styles,
 });
 
 if (result.failures.length > 0) {
@@ -36,4 +35,3 @@ if (result.failures.length > 0) {
   );
   console.log(`Advisory warnings: ${result.warnings.length}`);
 }
-

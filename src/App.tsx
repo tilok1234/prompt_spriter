@@ -6,6 +6,7 @@ import {
 } from "./components/ReviewDialog";
 import { RevisionBatchDialog } from "./components/RevisionBatchDialog";
 import { RevisionBatchesView } from "./components/RevisionBatchesView";
+import { PromptinatorView } from "./components/PromptinatorView";
 import { SpriteFrame } from "./components/SpriteFrame";
 import { fixtureAsset } from "./data/fixture";
 import {
@@ -17,6 +18,11 @@ import {
   type ReviewNoteDraft,
   type ReviewMutationAction,
 } from "./data/library";
+import {
+  loadPromptinatorStore,
+  type PromptinatorStore,
+} from "./data/promptinator";
+import { routeAfterReviewAction } from "./domain/review-navigation";
 import type { ReviewNote, ViewerAsset } from "./domain/types";
 import "./styles.css";
 
@@ -163,6 +169,8 @@ function App() {
   const routeParts = route.split("/");
   const requestedSection = routeParts[1] || "intake";
   const isBatchesPage = requestedSection === "batches";
+  const isPromptinatorPage = requestedSection === "promptinator";
+  const isSpecialPage = isBatchesPage || isPromptinatorPage;
   const section = [...navigation.map((entry) => entry.id), "archive"].includes(
     requestedSection as Section,
   )
@@ -193,6 +201,19 @@ function App() {
   const [batchError, setBatchError] = useState<string | null>(null);
   const [createdBatch, setCreatedBatch] =
     useState<RevisionBatchEntry | null>(null);
+  const [promptinatorStore, setPromptinatorStore] =
+    useState<PromptinatorStore>({
+      kind: "promptinator-store",
+      schemaVersion: "1.3.0",
+      updatedAt: "1970-01-01T00:00:00.000Z",
+      entries: [],
+    });
+  const [promptinatorLoadError, setPromptinatorLoadError] = useState<
+    string | null
+  >(null);
+  const [requestCopyState, setRequestCopyState] = useState<
+    "idle" | "copied" | "error"
+  >("idle");
 
   useEffect(() => {
     let active = true;
@@ -233,6 +254,25 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    let active = true;
+    loadPromptinatorStore()
+      .then((store) => {
+        if (!active) return;
+        setPromptinatorStore(store);
+        setPromptinatorLoadError(null);
+      })
+      .catch((error) => {
+        if (!active) return;
+        setPromptinatorLoadError(
+          error instanceof Error ? error.message : String(error),
+        );
+      });
+    return () => {
+      active = false;
+    };
+  }, []);
+
   const laneCounts = useMemo(
     () => ({
       intake: assets.filter((asset) => belongsToSection(asset, "intake"))
@@ -246,6 +286,9 @@ function App() {
     }),
     [assets],
   );
+  const promptinatorReadyCount = promptinatorStore.entries.filter(
+    (entry) => entry.state === "ready",
+  ).length;
   const sectionItems = assets.filter((asset) =>
     belongsToSection(asset, section),
   );
@@ -339,6 +382,10 @@ function App() {
   useEffect(() => {
     setFrameIndex(0);
   }, [selectedAnimationId, selectedDirection]);
+
+  useEffect(() => {
+    setRequestCopyState("idle");
+  }, [item.asset.id, item.revision.id]);
 
   useEffect(() => {
     if (
@@ -464,8 +511,9 @@ function App() {
     setActionPending(true);
     setActionError(null);
     try {
+      const mutationAction = actionForDialog[dialogMode];
       const updatedAssets = await mutateReview({
-        action: actionForDialog[dialogMode],
+        action: mutationAction,
         assetId: item.asset.id,
         revisionId: item.revision.id,
         expectedUpdatedAt: item.review.updatedAt,
@@ -490,11 +538,29 @@ function App() {
       }[dialogMode];
       setActionNotice(notice);
       setDialogMode(null);
-      window.location.hash = `#/${nextSection}/review/${item.asset.id}/${item.revision.id}`;
+      window.location.hash = routeAfterReviewAction({
+        action: mutationAction,
+        currentSection: section,
+        nextSection,
+        assetId: item.asset.id,
+        revisionId: item.revision.id,
+      });
     } catch (error) {
       setActionError(error instanceof Error ? error.message : String(error));
     } finally {
       setActionPending(false);
+    }
+  };
+
+  const copyRevisionRequest = async () => {
+    try {
+      if (!navigator.clipboard?.writeText) {
+        throw new Error("Clipboard access is unavailable.");
+      }
+      await navigator.clipboard.writeText(item.revision.request);
+      setRequestCopyState("copied");
+    } catch {
+      setRequestCopyState("error");
     }
   };
 
@@ -521,7 +587,7 @@ function App() {
               type="button"
               key={entry.id}
               className={
-                !isBatchesPage && section === entry.id ? "is-active" : ""
+                !isSpecialPage && section === entry.id ? "is-active" : ""
               }
               onClick={() => changeSection(entry.id)}
             >
@@ -553,8 +619,19 @@ function App() {
           </button>
           <button
             type="button"
+            className={isPromptinatorPage ? "is-active" : ""}
+            onClick={() => {
+              window.location.hash = "#/promptinator";
+            }}
+          >
+            <Icon name="prompt" />
+            <span>Promptinator</span>
+            <b>{promptinatorReadyCount}</b>
+          </button>
+          <button
+            type="button"
             className={
-              !isBatchesPage && section === "archive" ? "is-active" : ""
+              !isSpecialPage && section === "archive" ? "is-active" : ""
             }
             onClick={() => changeSection("archive")}
           >
@@ -592,9 +669,19 @@ function App() {
         <header className="topbar">
           <div>
             <p className="topbar__kicker">
-              {isBatchesPage ? "REVISION DISPATCH" : "REVIEW QUEUE"}
+              {isBatchesPage
+                ? "REVISION DISPATCH"
+                : isPromptinatorPage
+                  ? "CREATION DISPATCH"
+                  : "REVIEW QUEUE"}
             </p>
-            <h1>{isBatchesPage ? "Batches" : titleCase(section)}</h1>
+            <h1>
+              {isBatchesPage
+                ? "Batches"
+                : isPromptinatorPage
+                  ? "Promptinator"
+                  : titleCase(section)}
+            </h1>
           </div>
           <label className="search">
             <Icon name="search" />
@@ -604,10 +691,16 @@ function App() {
               placeholder={
                 isBatchesPage
                   ? "Search batches and asset IDs"
-                  : "Search sprites, tags, IDs"
+                  : isPromptinatorPage
+                    ? "Search prompts, collections, concepts"
+                    : "Search sprites, tags, IDs"
               }
               aria-label={
-                isBatchesPage ? "Search revision batches" : "Search sprites"
+                isBatchesPage
+                  ? "Search revision batches"
+                  : isPromptinatorPage
+                    ? "Search Promptinator"
+                    : "Search sprites"
               }
             />
             <kbd>CTRL K</kbd>
@@ -616,14 +709,18 @@ function App() {
             <strong>
               {isBatchesPage
                 ? filteredBatches.length
-                : laneCounts[section]}
+                : isPromptinatorPage
+                  ? promptinatorReadyCount
+                  : laneCounts[section]}
             </strong>
             <span>
               {isBatchesPage
                 ? "revision batches"
-                : section === "intake"
-                  ? "awaiting review"
-                  : "items"}
+                : isPromptinatorPage
+                  ? "ready prompts"
+                  : section === "intake"
+                    ? "awaiting review"
+                    : "items"}
             </span>
           </div>
         </header>
@@ -637,6 +734,24 @@ function App() {
             ) : null}
             <RevisionBatchesView batches={filteredBatches} />
           </>
+        ) : isPromptinatorPage ? (
+          <PromptinatorView
+            store={promptinatorStore}
+            query={query}
+            loadError={promptinatorLoadError}
+            onStoreChange={setPromptinatorStore}
+            onReload={async () => {
+              try {
+                const store = await loadPromptinatorStore();
+                setPromptinatorStore(store);
+                setPromptinatorLoadError(null);
+              } catch (error) {
+                setPromptinatorLoadError(
+                  error instanceof Error ? error.message : String(error),
+                );
+              }
+            }}
+          />
         ) : sectionItems.length === 0 || filteredItems.length === 0 ? (
           <LaneEmpty
             section={section}
@@ -1178,7 +1293,19 @@ function App() {
                   </div>
 
                   <div className="inspector__section">
-                    <p className="inspector__label">REQUEST</p>
+                    <div className="inspector__label-row">
+                      <p className="inspector__label">STORED CREATION PROMPT</p>
+                      <button
+                        type="button"
+                        onClick={() => void copyRevisionRequest()}
+                      >
+                        {requestCopyState === "copied"
+                          ? "Copied"
+                          : requestCopyState === "error"
+                            ? "Copy failed"
+                            : "Copy"}
+                      </button>
+                    </div>
                     <blockquote>{item.revision.request}</blockquote>
                     <div className="producer">
                       <span>AI</span>

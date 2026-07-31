@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt-spriter.local/schemas/promptinator.schema.json",
+  "title": "Promptinator Store",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["kind", "schemaVersion", "updatedAt", "entries"],
+  "properties": {
+    "kind": { "const": "promptinator-store" },
+    "schemaVersion": { "const": "1.3.0" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "entries": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/entry" }
+    }
+  },
+  "$defs": {
+    "contractReference": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" }
+      }
+    },
+    "family": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ordinal", "name", "description"],
+      "properties": {
+        "ordinal": { "type": "integer", "minimum": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "description": { "type": "string", "minLength": 1 }
+      }
+    },
+    "brief": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "coreConcept", "bodyAndSilhouette", "signatureFeatures",
+        "paletteAndMaterials", "movementPersonality", "attackConcept",
+        "directionalDetails", "avoid"
+      ],
+      "properties": {
+        "coreConcept": { "type": "string", "minLength": 1 },
+        "bodyAndSilhouette": { "type": "string", "minLength": 1 },
+        "signatureFeatures": { "type": "string", "minLength": 1 },
+        "paletteAndMaterials": { "type": "string", "minLength": 1 },
+        "movementPersonality": { "type": "string", "minLength": 1 },
+        "attackConcept": { "type": "string", "minLength": 1 },
+        "directionalDetails": { "type": "string", "minLength": 1 },
+        "avoid": { "type": "string", "minLength": 1 }
+      }
+    },
+    "historyEvent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["action", "at"],
+      "properties": {
+        "action": { "enum": ["imported", "copied", "claimed", "completed", "requeued", "style-selected", "default-style-migrated"] },
+        "at": { "type": "string", "format": "date-time" },
+        "style": { "$ref": "#/$defs/contractReference" },
+        "claimId": { "type": "string", "pattern": "^claim-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$" },
+        "assetId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "revisionId": { "type": "string", "pattern": "^r[0-9]{3,}$" }
+      }
+    },
+    "claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "claimedAt", "claimant", "expectedAssetId"],
+      "properties": {
+        "id": { "type": "string", "pattern": "^claim-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$" },
+        "claimedAt": { "type": "string", "format": "date-time" },
+        "claimant": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "expectedAssetId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" }
+      }
+    },
+    "completion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["assetId", "revisionId", "completedAt"],
+      "properties": {
+        "assetId": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "revisionId": { "type": "string", "pattern": "^r[0-9]{3,}$" },
+        "completedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id", "ordinal", "name", "family", "brief", "category", "style",
+        "formulaVersion", "promptText", "state", "importedAt", "copiedAt",
+        "claim", "completion", "source", "history"
+      ],
+      "properties": {
+        "id": { "type": "string", "pattern": "^prompt-[0-9]{4,}-[a-z0-9]+(?:-[a-z0-9]+)*$" },
+        "ordinal": { "type": "integer", "minimum": 1 },
+        "name": { "type": "string", "minLength": 1 },
+        "family": { "$ref": "#/$defs/family" },
+        "brief": { "$ref": "#/$defs/brief" },
+        "category": { "$ref": "#/$defs/contractReference" },
+        "style": { "$ref": "#/$defs/contractReference" },
+        "formulaVersion": { "enum": ["structured-v1", "structured-v2"] },
+        "promptText": { "type": "string", "minLength": 1 },
+        "state": { "enum": ["ready", "copied", "claimed", "completed"] },
+        "importedAt": { "type": "string", "format": "date-time" },
+        "copiedAt": { "type": ["string", "null"], "format": "date-time" },
+        "claim": {
+          "oneOf": [
+            { "$ref": "#/$defs/claim" },
+            { "type": "null" }
+          ]
+        },
+        "completion": {
+          "oneOf": [
+            { "$ref": "#/$defs/completion" },
+            { "type": "null" }
+          ]
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "sha256"],
+          "properties": {
+            "name": { "type": "string", "minLength": 1 },
+            "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          }
+        },
+        "history": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/historyEvent" }
+        }
+      }
+    }
+  }
+}

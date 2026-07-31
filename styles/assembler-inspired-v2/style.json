@@ -1,0 +1,142 @@
+{
+  "kind": "style-profile",
+  "schemaVersion": "1.0.0",
+  "id": "assembler-inspired-v2",
+  "version": "0.1.0",
+  "status": "active",
+  "displayName": "Assembler Inspired v2",
+  "description": "The active palette-anchored production style for compact 32x32 creatures based on read-only 8-bit Sprite Assembler references.",
+  "principles": [
+    "Construct one readable creature from a controlled body plan before adding texture or effects.",
+    "Use one fixed elevated game camera and one ground plane in all four directions.",
+    "Build broad flat pixel masses with a small master-palette selection.",
+    "Use dark contact separations and focal marks instead of a continuous exterior outline.",
+    "Preserve anatomy, scale, grounding, and material ramps through every direction and frame."
+  ],
+  "color": {
+    "alphaPolicy": "hard",
+    "recommendedOpaqueColorsMin": 4,
+    "recommendedOpaqueColorsMax": 8,
+    "maximumOpaqueColors": 12,
+    "maximumShadeStepsPerMaterial": 4,
+    "pureBlackPolicy": "forbidden; use the shared shadow-line color"
+  },
+  "masterPalette": {
+    "sharedColors": {
+      "shadowLine": "#1A1C2C",
+      "focalLight": "#F4F4F4"
+    },
+    "ramps": [
+      {
+        "id": "moss",
+        "purpose": "moss, leaves, forest hide, muted green material",
+        "colors": ["#3A5424", "#557838", "#7CA85E", "#C9F29B"]
+      },
+      {
+        "id": "marsh",
+        "purpose": "reptile skin, wet vegetation, bog creatures",
+        "colors": ["#3E612A", "#668F42", "#91B45D", "#B6C77B"]
+      },
+      {
+        "id": "earth-bark",
+        "purpose": "wood, bark, soil, leather, brown hide",
+        "colors": ["#2F2116", "#5F3D26", "#8A5A3A", "#C88A4A"]
+      },
+      {
+        "id": "bone-fungus",
+        "purpose": "bone, tusk, dry fungus, pale natural material",
+        "colors": ["#6F5530", "#9C7A4A", "#C2B492", "#E8DDC4"]
+      },
+      {
+        "id": "warm-accent",
+        "purpose": "red fungus, wounds, fire-adjacent accents, warning color",
+        "colors": ["#A12B20", "#D84A3A", "#E8B93E", "#F7DC85"]
+      },
+      {
+        "id": "moon-cool",
+        "purpose": "moonlit fey, cool wings, spectral or night material",
+        "colors": ["#55516F", "#8B86A6", "#9A91BD", "#D9D3EE"]
+      },
+      {
+        "id": "rose-flesh",
+        "purpose": "tongue, inner ear, exposed flesh, restrained organic accent",
+        "colors": ["#A85A78", "#E878A8", "#F2A0BD"]
+      }
+    ],
+    "selection": {
+      "maximumRampsPerSprite": 3,
+      "outsidePalette": "forbidden"
+    }
+  },
+  "outline": {
+    "mode": "selective",
+    "continuousOutlineRequired": false,
+    "preferLocalDarkColors": true
+  },
+  "shape": {
+    "silhouettePriority": "required before internal detail",
+    "internalDetailDensity": "low",
+    "singlePixelNoise": "forbidden unless it is a required focal mark",
+    "minimumFeatureRule": "A feature must form a readable cluster at 1x and remain attached to its parent body mass."
+  },
+  "shading": {
+    "mode": "broad flat clusters with at most one shadow and one highlight per material mass",
+    "dithering": "forbidden",
+    "lightDirection": "upper-left-consistent",
+    "specularUse": "focal and rare"
+  },
+  "motion": {
+    "grounding": "support anatomy remains attached and returns to a stable shared ground plane",
+    "subpixelMotion": false,
+    "idle": "one restrained living change without silhouette jitter",
+    "locomotion": "clear contact, passing, lift, and settle phases",
+    "attack": "body-first anticipation, action, impact, and recovery readable without effects",
+    "hurt": "brief directional recoil without identity loss",
+    "cast": "clear body origin, buildup, release, and recovery",
+    "death": "loss of support followed by a readable final resting pose"
+  },
+  "prohibitions": [
+    "continuous exterior outline around the whole creature",
+    "colors outside the master palette",
+    "baked ground shadows",
+    "blurred, anti-aliased, or intermediate-alpha edges",
+    "checkerboard, lattice, or evenly scattered texture",
+    "full side-view silhouette rotated vertically for down or up",
+    "limbs, feet, wings, fins, or tails detached from their parent mass",
+    "translation-only animation posing",
+    "copying reference pixels as a substitute for drawing the requested subject"
+  ],
+  "references": [
+    {
+      "path": "C:\\Users\\headc\\Documents\\8-bit sprite assembler\\asset-pack\\enemies\\bigcat-tiger.png",
+      "purpose": "quadruped simplification, flat masses, direction clarity",
+      "access": "read-only"
+    },
+    {
+      "path": "C:\\Users\\headc\\Documents\\8-bit sprite assembler\\asset-pack\\enemies\\crocodile-marsh.png",
+      "purpose": "long low quadruped foreshortening and ground-plane rotation",
+      "access": "read-only"
+    },
+    {
+      "path": "C:\\Users\\headc\\Documents\\8-bit sprite assembler\\asset-pack\\enemies\\bat-moss.png",
+      "purpose": "flying body-plan readability and moss ramp",
+      "access": "read-only"
+    },
+    {
+      "path": "C:\\Users\\headc\\Documents\\8-bit sprite assembler\\asset-pack\\enemies\\shroom-toad.png",
+      "purpose": "fungus body plan, simple face anchor, warm accent ramp",
+      "access": "read-only"
+    },
+    {
+      "path": "C:\\Users\\headc\\Documents\\8-bit sprite assembler\\asset-pack\\enemies\\skeleton-grunt.png",
+      "purpose": "compact biped construction and bone ramp",
+      "access": "read-only"
+    },
+    {
+      "path": "C:\\Users\\headc\\Documents\\8-bit sprite assembler\\asset-pack\\enemies\\moth-moon.png",
+      "purpose": "four-direction flyer rotation and moon-cool ramp",
+      "access": "read-only"
+    }
+  ],
+  "reviewScales": [1, 4]
+}

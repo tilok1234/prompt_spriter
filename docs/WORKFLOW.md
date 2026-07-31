@@ -6,15 +6,24 @@ remain in `MASTER_PLAN.md`.
 ## Creation loop
 
 1. The user starts an Antigravity chat from this repository.
-2. The user requests a sprite.
-3. The agent follows the selected category contract and style profile.
+2. The user requests a named sprite or asks for the next Promptinator sprite.
+   For the latter, the agent atomically claims the lowest Ready entry with the
+   documented trusted command; the user does not copy a prompt.
+3. The agent follows the selected category contract and exact style profile.
+   New and still-Ready creation work defaults to v2; a deliberately selected
+   legacy-v1 prompt remains v1 through ingestion.
 4. The agent creates and inspects the exact result in Aseprite through the
    existing shared Aseprite Pro MCP setup.
 5. The agent runs technical validation and completes its staging submission.
-6. Prompt Spriter ingests the new immutable candidate revision into Intake.
-7. The user reviews it whenever convenient.
+6. The agent invokes Prompt Spriter's trusted ingestion command, which
+   registers the new immutable candidate revision in Intake.
+7. If the job came from Promptinator, that same ingestion completes the claim
+   and links it to the exact asset/revision.
+8. The user reviews it whenever convenient.
 
 Intake may accumulate across sessions. It is not a chat or revision-note queue.
+Promptinator In progress is separate dispatch state: failures remain resumable
+there and never imply visual approval.
 
 ## User decisions
 
@@ -47,9 +56,10 @@ the first actionable note.
 4. The agent reads `asset.json`, `review.json`, the exact base revision, and all
    unresolved notes.
 5. The agent creates a new source and complete submission in a new staging
-   folder. It never overwrites the ingested base source or edits `review.json`.
-6. Trusted Prompt Spriter ingestion allocates the next revision ID and returns
-   that immutable candidate to Intake.
+   folder. It never overwrites the ingested base source or edits `review.json`
+   directly.
+6. The agent invokes trusted Prompt Spriter ingestion, which allocates the next
+   revision ID and returns that immutable candidate to Intake.
 7. Notes processed by that ingestion remain in history with a processed marker.
 
 Earlier revisions remain immutable and available for comparison.

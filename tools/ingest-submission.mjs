@@ -20,6 +20,11 @@ try {
   console.log(`Immutable asset: ${result.assetDirectory}`);
   console.log(`Transaction receipt: ${result.transactionReceipt}`);
   console.log(`Advisory warnings retained: ${result.warnings.length}`);
+  if (result.promptinator) {
+    console.log(
+      `Promptinator completed: ${result.promptinator.entryId} (${result.promptinator.state}).`,
+    );
+  }
 } catch (error) {
   console.error(
     error instanceof Error ? error.message : String(error),

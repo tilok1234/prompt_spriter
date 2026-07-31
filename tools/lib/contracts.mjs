@@ -21,6 +21,7 @@ const schemaFiles = [
   "validation.schema.json",
   "completion.schema.json",
   "batch.schema.json",
+  "promptinator.schema.json",
 ];
 
 const schemaForKind = {
@@ -33,6 +34,7 @@ const schemaForKind = {
   "validation-report": "validation.schema.json",
   "completion-marker": "completion.schema.json",
   batch: "batch.schema.json",
+  "promptinator-store": "promptinator.schema.json",
 };
 
 export const createContractValidator = () => {
@@ -179,6 +181,18 @@ export const validateStyleSemantics = (style, label) => {
   return failures;
 };
 
+export const readStyleProfiles = (
+  stylesRoot = join(repositoryRoot, "styles"),
+) =>
+  readdirSync(stylesRoot, { withFileTypes: true })
+    .filter(
+      (entry) =>
+        entry.isDirectory() &&
+        existsSync(join(stylesRoot, entry.name, "style.json")),
+    )
+    .sort((left, right) => left.name.localeCompare(right.name))
+    .map((entry) => readJson(join(stylesRoot, entry.name, "style.json")));
+
 export const isSafeRelativePath = (value) => {
   if (typeof value !== "string" || value.length === 0 || isAbsolute(value)) {
     return false;
@@ -310,6 +324,7 @@ export const validateLibraryRoot = ({
   libraryRoot,
   category,
   style,
+  styles,
 }) => {
   const failures = [];
   const warnings = [];
@@ -322,6 +337,11 @@ export const validateLibraryRoot = ({
     archive: 0,
     library: 0,
   };
+  const availableStyles = Array.isArray(styles)
+    ? styles
+    : style
+      ? [style]
+      : [];
 
   if (!existsSync(assetsRoot)) {
     return {
@@ -362,7 +382,12 @@ export const validateLibraryRoot = ({
     ) {
       failures.push(`${assetPath}: category reference is not available`);
     }
-    if (asset.style.id !== style.id || asset.style.version !== style.version) {
+    const assetStyle = availableStyles.find(
+      (candidate) =>
+        asset.style.id === candidate.id &&
+        asset.style.version === candidate.version,
+    );
+    if (!assetStyle) {
       failures.push(`${assetPath}: style reference is not available`);
     }
 
@@ -388,6 +413,12 @@ export const validateLibraryRoot = ({
 
       if (revision.assetId !== asset.id) {
         failures.push(`${revisionPath}: revision asset ID does not match`);
+      }
+      if (
+        revision.style.id !== asset.style.id ||
+        revision.style.version !== asset.style.version
+      ) {
+        failures.push(`${revisionPath}: revision style does not match asset`);
       }
 
       let nextColumn = 0;
@@ -437,9 +468,12 @@ export const validateLibraryRoot = ({
         const pngInspection = inspectSpriteSheet(sheetPath, revision);
         failures.push(...pngInspection.failures);
         warnings.push(...pngInspection.warnings);
-        if (pngInspection.opaqueColors > style.color.maximumOpaqueColors) {
+        if (
+          assetStyle &&
+          pngInspection.opaqueColors > assetStyle.color.maximumOpaqueColors
+        ) {
           failures.push(
-            `${sheetPath}: uses ${pngInspection.opaqueColors} opaque colors; style maximum is ${style.color.maximumOpaqueColors}`,
+            `${sheetPath}: uses ${pngInspection.opaqueColors} opaque colors; style maximum is ${assetStyle.color.maximumOpaqueColors}`,
           );
         }
       }

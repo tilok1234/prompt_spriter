@@ -12,6 +12,9 @@
     "dev": "vite",
     "fixture:generate": "node tools/generate-fixture.mjs",
     "ingest:submission": "node tools/ingest-submission.mjs",
+    "promptinator:claim-next": "node tools/claim-next-prompt.mjs",
+    "promptinator:import": "node tools/import-prompt-catalog.mjs",
+    "promptinator:reconcile": "node tools/reconcile-promptinator.mjs",
     "scan:library": "node tools/scan-library.mjs",
     "test": "vitest run",
     "validate:submission": "node tools/validate-submission.mjs"

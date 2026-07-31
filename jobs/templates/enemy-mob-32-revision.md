@@ -23,7 +23,7 @@ directory and save every changed artifact there.
 ## Fixed first-slice contract
 
 - Category: `enemy-mob-32@0.1.0`
-- Style: `assembler-inspired-v1@0.1.0`
+- Style: exact style recorded by the existing asset and base revision
 - Cell: 32x32 pixels
 - Directions and rows: down, left, right, up
 - Animations and columns:
@@ -32,11 +32,38 @@ directory and save every changed artifact there.
   - attack: columns 6-9, 4 frames, 120 ms, once
 - Sheet: 10 columns x 4 rows, 320x128 pixels
 - Alpha: transparent background with hard alpha
-- Opaque palette: no more than 16 colors
+- Opaque palette: obey the recorded style profile
 - Source layers and tags: follow `docs/ASEPRITE_CONTRACT.md`
 
 Do not silently change the existing asset name, category, style, dimensions,
 directions, animation layout, or timing.
+
+The production-default promotion does not upgrade an existing revision. A v1
+asset remains v1 unless a separately authorized remaster creates a new asset or
+versioned workflow.
+
+## Required visual authoring gate
+
+Follow `docs/SPRITE_AUTHORING_CHECKLIST.md` before completing the revision.
+Compare the exact base and new sheet at the same native and nearest-neighbor 4x
+scales. Preserve the strongest readable parts of the base while ensuring that:
+
+- every unresolved user note is visibly addressed;
+- creature identity and direction read in all four rows;
+- all four idle poses use one fixed elevated game camera and ground plane;
+- long, low bodies use foreshortening and overlap in down/up views instead of a
+  full side silhouette rotated into a vertical pose;
+- profiles and the up view use constructed anatomy rather than recolored or
+  narrowed front poses;
+- locomotion changes support anatomy instead of sliding the body;
+- attack remains readable with the effects layer hidden;
+- the revised result does not introduce a blob, box, prop-like silhouette,
+  repetitive lattice texture, or clipped motion.
+
+Repair failed checklist answers in this new staging job. Never overwrite the
+ingested base and never treat creator self-review as the user's approval.
+Keep any job-specific generator or preview helper inside this staging
+directory; do not add per-sprite scripts to repository `tools/`.
 
 ## Required manifest values
 
@@ -57,12 +84,12 @@ with these revision-specific values:
     "version": "0.1.0"
   },
   "style": {
-    "id": "assembler-inspired-v1",
-    "version": "0.1.0"
+    "id": "<exact existing style ID>",
+    "version": "<exact existing style version>"
   },
   "producer": {
     "application": "Antigravity with Aseprite Pro MCP",
-    "model": "Gemini Flash 3.6",
+    "model": "Gemini 3.6 High",
     "sessionId": null
   },
   "output": {
@@ -123,5 +150,11 @@ validator, make `validation.json` agree with its computed result, then write
 npm.cmd run validate:submission -- workspace/staging/<job-id> --require-completion
 ```
 
-Stop only when that command passes. Do not run ingestion and do not edit the
-asset's `review.json`; the trusted operator performs ingestion after completion.
+When that command passes, run:
+
+```powershell
+npm.cmd run ingest:submission -- workspace/staging/<job-id>
+```
+
+Stop only after trusted ingestion reports the new immutable revision in Intake.
+Do not edit the asset's `review.json` directly or make any user review decision.

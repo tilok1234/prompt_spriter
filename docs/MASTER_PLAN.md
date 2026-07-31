@@ -1,8 +1,8 @@
 # Prompt Spriter Master Plan
 
-**Status:** Active - Phase 4 revision batches underway  
-**Plan version:** 0.3  
-**Date:** 2026-07-30  
+**Status:** Active - Phase 4 revision batches underway; v2 production style promoted
+**Plan version:** 0.4
+**Date:** 2026-07-31
 **Repository:** `tilok1234/prompt_spriter`
 
 ## 1. Product definition
@@ -35,11 +35,16 @@ large approval bureaucracy.
 1. The user starts Antigravity from the repository.
 2. The user asks for a sprite, for example:
    `Create a 32x32 enemy mob lion.`
-3. The agent reads the applicable repository instructions, category contract,
-   and style profile.
+3. For a queued request, the agent atomically claims the lowest Ready
+   Promptinator entry; otherwise it uses the named user request. The agent then
+   reads the applicable repository instructions, category contract, and style
+   profile.
 4. The agent creates the sprite in Aseprite, exports it, runs the documented
    technical checks, and writes a completion marker last.
-5. Prompt Spriter ingests the completed candidate into Intake.
+5. The agent invokes Prompt Spriter's trusted ingestion command, which
+   registers the completed candidate in Intake without granting the agent any
+   user review decision. If the job carries an active Promptinator claim, that
+   same handoff completes and links the queue entry.
 
 The user does not need to review the candidate immediately. Intake is allowed to
 accumulate across a session or several sessions.
@@ -154,7 +159,10 @@ The user can select Revise items and generate a concise revision-batch brief.
 The user then asks Antigravity to process that named batch. When the agent
 finishes an item, the new candidate revision returns to Intake.
 
-The first version does not automatically launch or message Antigravity.
+The first version does not automatically launch or message Antigravity. A
+user-started Antigravity agent may atomically claim the next Promptinator entry
+through a repository command, which is dispatch coordination rather than
+automatic agent launching.
 
 ## 4. Category contracts
 
@@ -239,9 +247,9 @@ requirement.
 A category specifies what must be produced. A style profile specifies how it
 should look and move.
 
-This separation allows an `enemy-mob-32` lion to use an
-`assembler-inspired-v1` style without inheriting the reference assembler's
-24x24 layout.
+This separation allows an `enemy-mob-32` lion to use the production-default
+`assembler-inspired-v2` style without inheriting the reference assembler's
+24x24 layout. Legacy v1 revisions keep their exact original provenance.
 
 ### 5.2 Initial reference
 
@@ -289,6 +297,10 @@ A Style Lab workflow may:
 Promoting a style version does not redraw or relabel existing Library assets.
 Remastering is an explicit per-asset or selected-batch action.
 
+`assembler-inspired-v2@0.1.0` was promoted to the production creation default
+on 2026-07-31. This was a user decision about the style contract and dispatch
+default, not visual approval of an individual candidate or a golden example.
+
 Style Lab is planned after the core Intake/Revise/Library loop is reliable.
 
 ## 6. Agent workflow and protected boundaries
@@ -299,7 +311,8 @@ Antigravity is initially an external, user-started worker:
 
 1. the user starts a chat from the repository;
 2. the agent reads the root instructions;
-3. the user provides a creation request or revision-batch name;
+3. the user provides a creation request, asks for the next Promptinator entry,
+   or provides a revision-batch name;
 4. the agent uses Aseprite Pro MCP;
 5. the agent renders and inspects the exact output artifact in Aseprite;
 6. the agent writes only the assigned asset/job outputs;
@@ -497,6 +510,7 @@ No automatic deletion or destructive cleanup is allowed.
 - Categories;
 - Styles;
 - Batches;
+- Promptinator creation-request queue;
 - Archive through a secondary filter or menu;
 - Settings.
 
@@ -601,6 +615,10 @@ The core application will not use:
 An optional engine preview, custom read-only MCP, or additional export adapter
 may be considered later as a separate feature. None is a prerequisite for the
 core workflow.
+
+The Promptinator `claim-next` command is not automatic dispatch: it neither
+launches nor messages Antigravity. It only lets an already user-started agent
+reserve one queue entry without a clipboard round trip.
 
 ## 10. Validation and quality strategy
 
@@ -745,7 +763,8 @@ Deliver:
 - full idle, walk, run, attack, hurt, cast, and death support;
 - category-specific structural checks;
 - curated style examples and counterexamples;
-- first approved style-profile version;
+- production-default style-profile version (v2 is promoted; curated golden
+  evidence remains pending);
 - more than one subject proving the category is not lion-specific.
 
 Exit condition: the user approves the category/style baseline for expansion.
@@ -820,7 +839,7 @@ agent launching are not required for this MVP.
 
 ## 13. Decisions still requiring explicit freeze
 
-The decisions needed for the first live lion job are now frozen in:
+The decisions needed for the first live lion job remain frozen in:
 
 - `categories/enemy-mob-32/category.json`;
 - `styles/assembler-inspired-v1/style.json`;
@@ -829,6 +848,10 @@ The decisions needed for the first live lion job are now frozen in:
 
 Changing one of these contracts after the live run begins requires an explicit
 version or a clearly identified correction, never a silent rewrite.
+
+For new creation work, `styles/assembler-inspired-v2/style.json` is now the
+active production default. The v1 file above remains the immutable legacy
+contract for revisions that already reference it.
 
 Before packaging:
 
@@ -927,3 +950,28 @@ No new workflow state or major subsystem is added. Phase 2 should add only the
 safe bridge from a completed staging folder to an immutable local revision and
 the working viewer. Approval, Revise notes, and Archive mutations remain Phase
 3 so the first live sprite test cannot accidentally modify human review state.
+
+## 17. Reassessment after Promptinator and style trials
+
+Version 0.4 was reassessed after the Promptinator queue, creator-side visual
+checklist, v2 style canary, and completed entries 20-31 test batch.
+
+### Result
+
+- Intake, Revise, Library, and Revise-only Archive remain sufficient; no Denied
+  or additional WIP lane is needed.
+- Promptinator claim state is correctly separate from sprite review state.
+- v2 is the production creation default, while immutable v1 provenance and
+  Ready-only legacy selection remain supported.
+- Style-default promotion and visual approval remain separate; no golden sprite
+  is implied by the promotion.
+- Structural validation needs targeted quality checks, but automatic validation
+  must still never become user approval.
+- Fresh-agent queue scheduling remains useful later, after the v2 style and
+  validation thresholds are calibrated on a smaller exact-v2 sample.
+
+### Scope adjustment
+
+Phase 4 remains active. Do not add a new workflow state, embedded model, Godot
+integration, or automatic scheduler to solve visual-quality failures. The next
+quality slice should be small, measurable, and based on verified v2 claims.
