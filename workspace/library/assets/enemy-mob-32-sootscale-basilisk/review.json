@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-sootscale-basilisk",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-9c21f0d5-bddb-496a-afe2-e2703204b751",
+      "text": "this was the second i did in the same chat i think thats why so bad quyality",
+      "createdAt": "2026-08-01T19:44:47.574Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T19:44:47.574Z"
+}

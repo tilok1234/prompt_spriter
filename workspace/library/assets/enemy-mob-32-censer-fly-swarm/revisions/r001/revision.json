@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-censer-fly-swarm",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T22:10:15.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0125-censer-fly-swarm\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Censer Fly Swarm\".\n\n## Creative brief\n\n- Collection: The Pestilent March. Plague-bearing animals, desperate scavengers, quarantine troops, and creatures thriving around abandoned roads and sickened villages.\n- Core concept: A mobile swarm that hides a central target within rotating insects.\n- Body and silhouette: Dense oval cloud of large flies circling a stolen hanging censer.\n- Signature features: Swinging bronze censer, visible smoke spiral, and several pale-winged leader flies.\n- Palette and materials: Black, green-gray, tarnished bronze, and yellow smoke.\n- Movement personality: Drifting, erratic, and difficult to approach.\n- Attack concept: The swarm rotates around the censer while releasing staggered smoke pellets along its orbit.\n- Directional details: The censer chain hangs toward the lower-right, and one pale fly remains near the front-left.\n- Avoid: Featureless particle cloud, tiny realistic insects, invisible central hitbox.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.\n- Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature; the dominant anchor must remain recognizable at native 1x in all four idle directions.\n- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.\n- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.\n- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.\n- Derive prop visibility per row before drawing: facing down places the creature's left side on the viewer's right; facing up places it on the viewer's left; the left-facing profile shows the creature's own left flank; the right-facing profile shows its right flank. State which asymmetric props are visible in each of the four rows and keep far-flank props hidden.\n- State each row's on-screen attack direction before animating: thrown or projected effects travel toward that row's facing (down toward the cell bottom, up toward the top, left and right toward their edges), stay at least 2 pixels inside every cell edge, and resolve into a recovery pose rather than freezing mid-flight.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "77b46e2c10146fb29d5b5da4d2d4cae96cfc2837b6fdff8ae88dd4a9f26d4314"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "92950fb8fe591307260bc8802dcbbd34db4bfedf94881f093d546300c1c37840"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "9853360d11fc7742b9f674ba3d5f8f31e54ec5e83b48313241fb33e7cb2a7e95"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

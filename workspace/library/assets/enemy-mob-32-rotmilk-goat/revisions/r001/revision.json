@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-rotmilk-goat",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T22:08:10.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0124-rotmilk-goat\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Rotmilk Goat\".\n\n## Creative brief\n\n- Collection: The Pestilent March. Plague-bearing animals, desperate scavengers, quarantine troops, and creatures thriving around abandoned roads and sickened villages.\n- Core concept: A diseased herd animal that creates slippery hazardous areas.\n- Body and silhouette: Narrow goat body, drooping head, angular legs, and uneven horns.\n- Signature features: Swollen milk sac, cloth quarantine tag, and patchy pale coat.\n- Palette and materials: Dirty cream, dull gray, faded yellow, and rough matted fur.\n- Movement personality: Unsteady, stubborn, and unexpectedly hostile.\n- Attack concept: Kicks sour globules backward, then lowers its head and forces players toward the resulting slippery pools.\n- Directional details: The quarantine tag hangs from the left ear, and the right horn curves inward.\n- Avoid: Demonic goat, graphic disease, ordinary farm animal.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.\n- Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature; the dominant anchor must remain recognizable at native 1x in all four idle directions.\n- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.\n- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.\n- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.\n- Derive prop visibility per row before drawing: facing down places the creature's left side on the viewer's right; facing up places it on the viewer's left; the left-facing profile shows the creature's own left flank; the right-facing profile shows its right flank. State which asymmetric props are visible in each of the four rows and keep far-flank props hidden.\n- State each row's on-screen attack direction before animating: thrown or projected effects travel toward that row's facing (down toward the cell bottom, up toward the top, left and right toward their edges), stay at least 2 pixels inside every cell edge, and resolve into a recovery pose rather than freezing mid-flight.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "0f6bf218ace89ee9de0e15a1654c48a908a194eaf6a25162c4ed2975356992f1"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "afb5417d9fbfdc12b6bcacaf7601bba5514292fda88ba4e45909e3b58c093983"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "6e88f66ef37507498fee136c4fe222717ab5023a93337b272647c06a513526e9"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

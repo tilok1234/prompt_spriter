@@ -1,7 +1,7 @@
 {
   "kind": "promptinator-store",
   "schemaVersion": "1.6.0",
-  "updatedAt": "2026-08-01T16:22:59.504Z",
+  "updatedAt": "2026-08-01T20:13:42.854Z",
   "entries": [
     {
       "id": "prompt-0001-mossback-tuskling",
@@ -8407,7 +8407,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "claimed",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8439,6 +8439,13 @@
           "action": "claimed",
           "at": "2026-08-01T16:22:59.504Z",
           "claimId": "claim-b283890e-a253-44ac-9d61-99b0fce17de4"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T18:24:55.000Z",
+          "claimId": "claim-b283890e-a253-44ac-9d61-99b0fce17de4",
+          "assetId": "enemy-mob-32-chainclaw-troglodyte",
+          "revisionId": "r001"
         }
       ],
       "claim": {
@@ -8447,7 +8454,11 @@
         "claimant": "Antigravity",
         "expectedAssetId": "enemy-mob-32-chainclaw-troglodyte"
       },
-      "completion": null
+      "completion": {
+        "assetId": "enemy-mob-32-chainclaw-troglodyte",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T18:24:55.000Z"
+      }
     },
     {
       "id": "prompt-0117-sootscale-basilisk",
@@ -8478,7 +8489,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8505,10 +8516,31 @@
         {
           "action": "directional-safeguards-migrated",
           "at": "2026-08-01T15:44:21.355Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T19:22:33.713Z",
+          "claimId": "claim-b9f9dbb3-7650-4b89-81ab-d77c49b9588f"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T21:23:45.000Z",
+          "claimId": "claim-b9f9dbb3-7650-4b89-81ab-d77c49b9588f",
+          "assetId": "enemy-mob-32-sootscale-basilisk",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-b9f9dbb3-7650-4b89-81ab-d77c49b9588f",
+        "claimedAt": "2026-08-01T19:22:33.713Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-sootscale-basilisk"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-sootscale-basilisk",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T21:23:45.000Z"
+      }
     },
     {
       "id": "prompt-0118-tunnel-rammer",
@@ -8539,7 +8571,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8566,10 +8598,31 @@
         {
           "action": "directional-safeguards-migrated",
           "at": "2026-08-01T15:44:21.355Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T19:35:54.030Z",
+          "claimId": "claim-e568153f-1d8b-47c3-a581-6ffd24093950"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T19:37:41.621Z",
+          "claimId": "claim-e568153f-1d8b-47c3-a581-6ffd24093950",
+          "assetId": "enemy-mob-32-tunnel-rammer",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-e568153f-1d8b-47c3-a581-6ffd24093950",
+        "claimedAt": "2026-08-01T19:35:54.030Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-tunnel-rammer"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-tunnel-rammer",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T19:37:41.621Z"
+      }
     },
     {
       "id": "prompt-0119-echo-snail",
@@ -8600,7 +8653,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8627,10 +8680,31 @@
         {
           "action": "directional-safeguards-migrated",
           "at": "2026-08-01T15:44:21.355Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T19:40:16.958Z",
+          "claimId": "claim-66ff7824-5ac7-47a4-ab51-0268ac10d015"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T21:42:00.000Z",
+          "claimId": "claim-66ff7824-5ac7-47a4-ab51-0268ac10d015",
+          "assetId": "enemy-mob-32-echo-snail",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-66ff7824-5ac7-47a4-ab51-0268ac10d015",
+        "claimedAt": "2026-08-01T19:40:16.958Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-echo-snail"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-echo-snail",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T21:42:00.000Z"
+      }
     },
     {
       "id": "prompt-0120-deepwell-shaman",
@@ -8661,7 +8735,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8688,10 +8762,31 @@
         {
           "action": "directional-safeguards-migrated",
           "at": "2026-08-01T15:44:21.355Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T19:44:34.320Z",
+          "claimId": "claim-6973583f-5c23-45f2-9008-28c5ecedd17d"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T19:46:20.711Z",
+          "claimId": "claim-6973583f-5c23-45f2-9008-28c5ecedd17d",
+          "assetId": "enemy-mob-32-deepwell-shaman",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-6973583f-5c23-45f2-9008-28c5ecedd17d",
+        "claimedAt": "2026-08-01T19:44:34.320Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-deepwell-shaman"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-deepwell-shaman",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T19:46:20.711Z"
+      }
     },
     {
       "id": "prompt-0121-blister-rat",
@@ -8722,7 +8817,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8749,10 +8844,31 @@
         {
           "action": "directional-safeguards-migrated",
           "at": "2026-08-01T15:44:21.355Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T19:53:01.587Z",
+          "claimId": "claim-d4ab0420-935c-4713-9bf3-979404bdb73b"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T21:55:50.000Z",
+          "claimId": "claim-d4ab0420-935c-4713-9bf3-979404bdb73b",
+          "assetId": "enemy-mob-32-blister-rat",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-d4ab0420-935c-4713-9bf3-979404bdb73b",
+        "claimedAt": "2026-08-01T19:53:01.587Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-blister-rat"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-blister-rat",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T21:55:50.000Z"
+      }
     },
     {
       "id": "prompt-0122-pallid-crow",
@@ -8783,7 +8899,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8810,10 +8926,31 @@
         {
           "action": "directional-safeguards-migrated",
           "at": "2026-08-01T15:44:21.355Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T19:56:22.070Z",
+          "claimId": "claim-e01568aa-376f-49dd-bfad-63d570a06144"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T21:57:25.000Z",
+          "claimId": "claim-e01568aa-376f-49dd-bfad-63d570a06144",
+          "assetId": "enemy-mob-32-pallid-crow",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-e01568aa-376f-49dd-bfad-63d570a06144",
+        "claimedAt": "2026-08-01T19:56:22.070Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-pallid-crow"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-pallid-crow",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T21:57:25.000Z"
+      }
     },
     {
       "id": "prompt-0123-fever-hound",
@@ -8844,7 +8981,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8871,10 +9008,31 @@
         {
           "action": "directional-safeguards-migrated",
           "at": "2026-08-01T15:44:21.355Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T20:04:16.855Z",
+          "claimId": "claim-b735e30f-8b1d-4e92-a136-65ac0a478d8c"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T20:06:00.000Z",
+          "claimId": "claim-b735e30f-8b1d-4e92-a136-65ac0a478d8c",
+          "assetId": "enemy-mob-32-fever-hound",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-b735e30f-8b1d-4e92-a136-65ac0a478d8c",
+        "claimedAt": "2026-08-01T20:04:16.855Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-fever-hound"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-fever-hound",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T20:06:00.000Z"
+      }
     },
     {
       "id": "prompt-0124-rotmilk-goat",
@@ -8905,7 +9063,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8932,10 +9090,31 @@
         {
           "action": "directional-safeguards-migrated",
           "at": "2026-08-01T15:44:21.355Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T20:07:14.875Z",
+          "claimId": "claim-03f78e76-5d52-458c-86d2-6dffdf6ede80"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T22:08:10.000Z",
+          "claimId": "claim-03f78e76-5d52-458c-86d2-6dffdf6ede80",
+          "assetId": "enemy-mob-32-rotmilk-goat",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-03f78e76-5d52-458c-86d2-6dffdf6ede80",
+        "claimedAt": "2026-08-01T20:07:14.875Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-rotmilk-goat"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-rotmilk-goat",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T22:08:10.000Z"
+      }
     },
     {
       "id": "prompt-0125-censer-fly-swarm",
@@ -8966,7 +9145,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8993,10 +9172,31 @@
         {
           "action": "directional-safeguards-migrated",
           "at": "2026-08-01T15:44:21.355Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T20:09:04.142Z",
+          "claimId": "claim-653311d1-15cb-466e-a9d4-8ae7ed7e0956"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T22:10:15.000Z",
+          "claimId": "claim-653311d1-15cb-466e-a9d4-8ae7ed7e0956",
+          "assetId": "enemy-mob-32-censer-fly-swarm",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-653311d1-15cb-466e-a9d4-8ae7ed7e0956",
+        "claimedAt": "2026-08-01T20:09:04.142Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-censer-fly-swarm"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-censer-fly-swarm",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T22:10:15.000Z"
+      }
     },
     {
       "id": "prompt-0126-quarantine-reaver",
@@ -9027,7 +9227,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -9054,9 +9254,19 @@
         {
           "action": "directional-safeguards-migrated",
           "at": "2026-08-01T15:44:21.355Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T20:13:42.854Z",
+          "claimId": "claim-3bfe01d4-911f-48e0-8df7-85cf6ececce8"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-3bfe01d4-911f-48e0-8df7-85cf6ececce8",
+        "claimedAt": "2026-08-01T20:13:42.854Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-quarantine-reaver"
+      },
       "completion": null
     },
     {

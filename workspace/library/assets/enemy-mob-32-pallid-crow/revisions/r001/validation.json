@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-pallid-crow",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "contract-identity",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission matches category and style contracts."
+    }
+  ],
+  "createdAt": "2026-08-01T21:57:22.000Z"
+}
