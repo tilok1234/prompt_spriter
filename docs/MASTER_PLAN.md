@@ -1,6 +1,6 @@
 # Prompt Spriter Master Plan
 
-**Status:** Active - Phase 4 revision batches and simplified review workflow underway
+**Status:** Active - Phase 4 revision batches and restored Revise workflow underway
 **Plan version:** 0.5
 **Date:** 2026-08-01
 **Repository:** `tilok1234/prompt_spriter`
@@ -10,11 +10,10 @@
 Prompt Spriter is a local-first Windows application that combines:
 
 - an animated sprite-sheet viewer;
-- an Intake queue for all active AI-created candidates, with derived awaiting-
-  review and revision-requested states;
-- a dormant Denied queue with an explicit return-to-Intake recovery action;
+- an Intake queue for new AI-created candidates;
+- a Revise queue for reviewed candidates with actionable notes;
 - a manually approved sprite Library;
-- a recoverable Archive reachable only from Denied;
+- a recoverable Archive reachable only from Revise;
 - an extensible category-contract system;
 - versioned visual style profiles;
 - a durable record of sources, exports, prompts, validation, batches, and
@@ -54,46 +53,42 @@ accumulate across a session or several sessions.
 
 The three primary user-facing areas are:
 
-- **Intake:** all active candidates; unresolved notes derive the **Revision
-  requested** state and block approval;
-- **Denied:** dormant rejected candidates that may accumulate, return to Intake,
-  or move to Archive;
+- **Intake:** completed candidates waiting for the user's decision;
+- **Revise:** reviewed candidates carrying notes for future agent work;
 - **Library:** manually approved revisions.
 
 Archive is secondary storage rather than a primary work area.
 
-Intake, Denied, and Archive describe the current candidate's work lane. Library
+Intake, Revise, and Archive describe the current candidate's work lane. Library
 membership records an approved revision. These are deliberately separate. An
 asset may remain safely represented in the Library by revision `r003` while a
-new working candidate `r004` is in Intake, Denied, or Archive.
+new working candidate `r004` is in Revise or Intake.
 
 ### 2.3 Allowed transitions
 
 ```text
 Antigravity completion -> Intake
 Intake -> Approve -> Library
-Intake -> Add revision note -> Intake (Revision requested; approval blocked)
-Intake (Revision requested) -> Agent produces a new revision -> Intake (Awaiting review)
-Intake -> Deny -> Denied
-Denied -> Return to Intake -> Intake
-Denied -> Archive
-Archive -> Restore -> Denied
-Library revision -> Create separate working candidate with note -> Intake
+Intake -> Send to Revise -> Revise
+Revise -> Agent produces a new revision -> Intake
+Revise -> Archive
+Archive -> Restore -> Revise
+Library revision -> Create separate working candidate -> Revise
 ```
 
 Rules:
 
 - There is no direct `Intake -> Archive` action.
 - There is no direct `Library -> Archive` action.
-- Archive is available only for an item currently in Denied.
-- Restoring an archived item returns it to Denied with its notes and history.
-- Returning a Denied candidate to Intake is a separate explicit action.
+- Archive is available only for an item currently in Revise.
+- Restoring an archived item returns it to Revise with its notes and history.
 - The agent cannot approve, archive, or change the user's review state.
 - A new revision of a Library asset does not replace or modify the approved
   revision. The approved revision stays safe until the user approves a
   replacement.
-- Approving a candidate requires zero unresolved revision notes, updates the
-  exact approved revision, and clears that candidate from Intake.
+- Approving a candidate updates the exact approved revision and clears that
+  candidate from the active Intake/Revise lane. The persisted boundary also
+  defensively rejects unresolved notes.
 - Archiving a working candidate does not remove an older approved revision from
   the Library.
 
@@ -132,9 +127,9 @@ side-by-side comparison with earlier revisions.
 Approval selects one exact revision. Earlier candidates are retained unless the
 user deliberately deletes them through a future maintenance feature.
 
-### 3.2 Intake revision notes
+### 3.2 Revise notes
 
-The Intake area supports notes at these levels:
+The Revise area supports notes at these levels:
 
 - general asset note;
 - direction;
@@ -161,8 +156,7 @@ Prompt Spriter records:
 - included asset IDs;
 - current outcome counts.
 
-The user can select Intake items with unresolved notes and generate a concise
-revision-batch brief.
+The user can select Revise items and generate a concise revision-batch brief.
 The user then asks Antigravity to process that named batch. When the agent
 finishes an item, the new candidate revision returns to Intake.
 
@@ -308,7 +302,7 @@ Remastering is an explicit per-asset or selected-batch action.
 on 2026-07-31. This was a user decision about the style contract and dispatch
 default, not visual approval of an individual candidate or a golden example.
 
-Style Lab is planned after the core Intake/Denied/Library loop is reliable.
+Style Lab is planned after the core Intake/Revise/Library loop is reliable.
 
 ## 6. Agent workflow and protected boundaries
 
@@ -407,7 +401,7 @@ Each asset has:
 - category ID and contract version;
 - style-profile ID and version;
 - creation and revision history;
-- optional current candidate revision and its `intake`, `denied`, or `archive`
+- optional current candidate revision and its `intake`, `revise`, or `archive`
   lane;
 - optional approved revision;
 - creation and revision batch IDs;
@@ -432,7 +426,7 @@ Each revision records:
 
 ### 7.2 Stable physical paths, logical views
 
-Intake, Denied, Library, and Archive are logical views over stable asset IDs.
+Intake, Revise, Library, and Archive are logical views over stable asset IDs.
 Changing a candidate lane or approved revision should not repeatedly move or
 rename large asset folders.
 
@@ -512,7 +506,7 @@ No automatic deletion or destructive cleanup is allowed.
 ### 8.1 Primary navigation
 
 - Intake;
-- Denied;
+- Revise;
 - Library;
 - Categories;
 - Styles;
@@ -528,7 +522,7 @@ The browser should support:
 - category, size, state, validation, style, tag, date, and batch filters;
 - search by name, ID, prompt text, and notes;
 - thumbnail and compact-list modes;
-- clear counters for Intake and Denied, plus derived Intake status filters;
+- clear counters for Intake and Revise;
 - sorting by newest, oldest, category, and priority.
 
 ### 8.3 Sprite review
@@ -547,11 +541,11 @@ The review view should provide:
 - side-by-side revision comparison;
 - manifest, contract, style, prompt, batch, and validation information;
 - open exact source or review artifact in Aseprite;
-- Approve, Add revision note, and Deny actions when viewing Intake;
-- derived Awaiting-review and Revision-requested filters plus revision-batch
-  controls in Intake;
-- Return to Intake and Archive actions when viewing Denied;
-- approval disabled and rejected while unresolved notes remain.
+- Approve and Send to Revise actions when viewing Intake;
+- grouped, multi-select quick-issue presets that seed editable revision notes;
+- notes and revision-batch controls when viewing Revise;
+- Archive action only when viewing Revise;
+- approval defensively disabled and rejected while unresolved notes remain.
 
 ### 8.4 AI Review Mode
 
@@ -578,7 +572,7 @@ The Library must make approved work easy to use again. It should support:
 - later add engine-specific export profiles without changing the canonical
   source.
 
-Intake and Denied may export review material, but game-ready export actions
+Intake and Revise may export review material, but game-ready export actions
 should default to the exact approved Library revision.
 
 ## 9. Technical architecture
@@ -660,13 +654,12 @@ violates an explicit category rule.
 Tests should cover:
 
 - legal and illegal review-state transitions;
-- Archive visibility only in Denied;
-- restored Archive items returning to Denied;
-- Denied candidates returning to Intake only through an explicit action;
+- Archive visibility only in Revise;
+- restored Archive items returning to Revise;
 - approval refusal while Intake has unresolved revision notes;
 - approved revision immutability;
 - approved Library membership remaining intact while a newer candidate is in
-  Intake, Denied, or Archive;
+  Intake, Revise, or Archive;
 - rejection of agent submissions that attempt to set review or approval fields;
 - creation and revision ingestion;
 - interrupted/partial job handling;
@@ -743,26 +736,25 @@ viewer. Completion does not imply visual approval.
 Deliver:
 
 - manual Approve action;
-- Add revision note while staying in Intake;
+- Send to Revise with notes;
 - unresolved-note approval safeguard;
 - immutable revisions;
 - side-by-side comparison;
-- derived Intake status filters;
-- Denied queue with Return to Intake;
-- Archive available only from Denied;
-- restore Archive to Denied;
+- Revise queue;
+- Archive available only from Revise;
+- restore Archive to Revise;
 - Library view;
 - protected approved revision when starting new work.
 
-Exit condition: the complete `Intake note -> revised Intake candidate ->
-Library` loop works, including approval and Archive restrictions.
+Exit condition: the complete `Intake -> Revise -> Intake -> Library` loop works,
+including approval and Archive restrictions.
 
 ### Phase 4 - Revision batches
 
 Deliver:
 
 - creation-session/batch metadata;
-- multi-select of Intake candidates with unresolved notes;
+- multi-select in Revise;
 - generated revision-batch brief;
 - documented Antigravity revision workflow;
 - new agent revision returning to Intake;
@@ -840,12 +832,12 @@ The first meaningful MVP is complete when:
 4. The user can inspect directions, animations, frames, metadata, and
    validation.
 5. The user can approve the exact revision into Library.
-6. The user can instead add revision notes while it remains in Intake.
+6. The user can instead send it to Revise with notes.
 7. A revision batch can produce a new immutable revision that returns to Intake.
-8. Archive is available only in Denied and restores only to Denied.
+8. Archive is available only in Revise and restores only to Revise.
 9. Approved revisions cannot be overwritten.
 10. An approved Library revision remains available while a newer working
-    candidate moves through Intake, Denied, or Archive.
+    candidate moves through Revise or Archive.
 11. The manifest store can be re-scanned without losing review state.
 12. The exact approved revision can be retrieved and exported without including
     an unapproved working candidate.
@@ -986,39 +978,75 @@ checklist, v2 style canary, and completed entries 20-31 test batch.
 - Fresh-agent queue scheduling remains useful later, after the v2 style and
   validation thresholds are calibrated on a smaller exact-v2 sample.
 
-## 18. Reassessment after the six-subject v2 run and review-lane simplification
+## 18. Reassessment after the six-subject v2 run and Revise restoration
 
 Version 0.5 supersedes the earlier lane conclusions in sections 15 through 17.
 Those sections remain as decision history; this section and the active product,
 workflow, viewer, and delivery sections above define current behavior.
 
-The user found that separating Intake from Revise added a decision and naming
-step without adding useful protection. Intake is therefore the sole active
-candidate workspace. Revision intent is derived from unresolved notes rather
-than represented by a separate lane:
+After exercising the simplified Intake/Denied model, the user chose to restore
+the clearer dedicated Revise workspace. The current lane contract is:
 
-- **Awaiting review:** Intake candidate with no unresolved notes;
-- **Revision requested:** Intake candidate with one or more unresolved notes;
-- unresolved notes block approval at both the viewer and persisted-transition
-  boundary;
-- revision batches accept only Intake candidates with unresolved notes;
-- trusted revision ingestion resolves those notes and returns the new immutable
-  candidate to Intake for a fresh review.
+- Intake contains completed candidates awaiting the user's decision;
+- **Send to Revise** requires the first actionable note;
+- Revise holds revision intent, supports more notes and revision batches, and
+  is the only lane from which a candidate may be archived;
+- Archive restores to Revise;
+- **Start revision** keeps the exact approved Library revision protected while
+  opening its working base in Revise;
+- trusted revision ingestion resolves the base notes and returns the new
+  immutable candidate to Intake for a fresh decision;
+- there is no Denied lane.
 
-Denied is now a dormant rejection lane, not a work queue. Denied candidates may
-accumulate without affecting active revision dispatch. A candidate may return
-from Denied to Intake, or move from Denied to recoverable Archive. Archive
-restores to Denied so recovery into active work always requires a second,
-deliberate user action.
+Grouped quick-issue presets reduce repetitive note entry without constraining
+free-form feedback. Approval also retains the unresolved-note guard as a
+defensive persisted-state safeguard even though valid Intake records normally
+carry no open revision notes.
 
-Legacy `review.json` records are projected deterministically from schema `1.0.0`
-to `1.1.0`: a legacy `revise` candidate becomes an Intake candidate while its
-notes, history, approval, and timestamps remain intact. The projection is
-read-only until the next trusted review action or ingestion persists the new
-schema. Production review records are not bulk hand-edited.
+Legacy `review.json` records are projected deterministically into schema
+`1.2.0`: schema `1.0.0` Revise candidates remain in Revise; schema `1.1.0`
+Denied candidates and Intake candidates with unresolved notes become Revise;
+clean Intake and Archive records keep their lane. Notes, history, approval, and
+timestamps remain intact. The projection is read-only until the next trusted
+review action or ingestion persists the new schema. Production review records
+are not bulk hand-edited.
 
 ### Scope adjustment
 
 Phase 4 remains active. Do not add a new workflow state, embedded model, Godot
 integration, or automatic scheduler to solve visual-quality failures. The next
 quality slice should be small, measurable, and based on verified v2 claims.
+
+## 19. Reassessment after first-attempt outcome review
+
+A read-only review of 115 first revisions found that v2 reduced catastrophic
+Archive outcomes substantially, but direct approval remained limited because
+subject recognition and silhouette readability dominated the user's revision
+notes. Recent failures clustered around tiny identifying details, thin or
+floating bodies without a readable center, equipment merged into torsos, and
+plant or construct masses becoming overly chunky.
+
+The response is intentionally narrower than a palette or animation rewrite.
+It is implemented in versioned Ready-only prompt migration and creator-side
+guidance; the already-used `assembler-inspired-v2@0.1.0` profile remains
+immutable:
+
+- v2 spends its 32x32 recognition budget on exactly one dominant silhouette
+  anchor and one secondary identifying feature;
+- the dominant anchor must survive at native 1x in all four idle directions;
+- winged, fey, spectral, floating, and thin subjects keep a solid center mass;
+- key equipment remains separated from a humanoid torso in front and back;
+- plant and construct heads or focal cores remain distinct from their supports;
+- a tiny face, eye, or internal mark cannot carry the entire concept;
+- three matching quick-note presets capture hidden key features, chunky merged
+  bodies, and misaligned faces or eyes;
+- no new animation rule is added in this slice because animation complaints
+  were not the leading first-attempt failure.
+
+The next calibration gate is one pinned 12-entry v2 batch containing four
+winged/ethereal, four humanoid-with-props, and four construct/plant/animal
+subjects. Every result must be a new `r001` first attempt, and no candidate is
+revised until the user has recorded an outcome for all twelve. Success targets
+are at least 50% direct approval, at most 10% Archive, and readability-themed
+notes on fewer than 25% of the cohort. The experiment remains human-reviewed;
+technical checks do not assign an outcome.

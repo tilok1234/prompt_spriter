@@ -7,7 +7,7 @@
   "required": ["kind", "schemaVersion", "updatedAt", "activeTestBatch", "entries"],
   "properties": {
     "kind": { "const": "promptinator-store" },
-    "schemaVersion": { "const": "1.4.0" },
+    "schemaVersion": { "const": "1.5.0" },
     "updatedAt": { "type": "string", "format": "date-time" },
     "activeTestBatch": {
       "oneOf": [
@@ -64,7 +64,7 @@
       "additionalProperties": false,
       "required": ["action", "at"],
       "properties": {
-        "action": { "enum": ["imported", "copied", "claimed", "completed", "requeued", "style-selected", "default-style-migrated", "v2-test-batch-selected"] },
+        "action": { "enum": ["imported", "copied", "claimed", "completed", "requeued", "style-selected", "default-style-migrated", "recognition-safeguards-migrated", "v2-test-batch-selected"] },
         "at": { "type": "string", "format": "date-time" },
         "style": { "$ref": "#/$defs/contractReference" },
         "batchId": { "type": "string", "pattern": "^v2-test-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$" },

@@ -12,22 +12,33 @@ const schemasDirectory = join(repositoryRoot, "schemas");
 export const migrateReviewRecord = (record) => {
   if (!record || record.kind !== "review") return record;
 
-  if (record.schemaVersion !== "1.0.0") {
+  if (
+    record.schemaVersion !== "1.0.0" &&
+    record.schemaVersion !== "1.1.0"
+  ) {
     return record;
   }
 
-  const legacyLane = record.candidate?.lane;
+  const currentLane = record.candidate?.lane;
+  const hasUnresolvedNotes = record.notes?.some(
+    (note) => note.resolvedAt === null,
+  );
+  const projectedLane =
+    currentLane === "denied" ||
+    (currentLane === "intake" && hasUnresolvedNotes)
+      ? "revise"
+      : currentLane;
 
   return {
     ...record,
-    schemaVersion: "1.1.0",
+    schemaVersion: "1.2.0",
     candidate:
       record.candidate === null
         ? null
         : record.candidate
           ? {
               ...record.candidate,
-              lane: legacyLane === "revise" ? "intake" : legacyLane,
+              lane: projectedLane,
             }
           : record.candidate,
   };
@@ -458,7 +469,7 @@ export const validateLibraryRoot = ({
   let revisions = 0;
   const lanes = {
     intake: 0,
-    denied: 0,
+    revise: 0,
     archive: 0,
     library: 0,
   };

@@ -2,7 +2,7 @@ import type { ReviewRecord } from "./types";
 
 const requireCandidateLane = (
   review: ReviewRecord,
-  expectedLane: "intake" | "denied" | "archive",
+  expectedLane: "intake" | "revise" | "archive",
 ) => {
   if (!review.candidate || review.candidate.lane !== expectedLane) {
     throw new Error(`Action requires a candidate in ${expectedLane}`);
@@ -10,31 +10,17 @@ const requireCandidateLane = (
   return review.candidate;
 };
 
-export const denyCandidate = (
+export const sendToRevise = (
   review: ReviewRecord,
   updatedAt: string,
 ): ReviewRecord => {
   const candidate = requireCandidateLane(review, "intake");
   return {
     ...review,
+    schemaVersion: "1.2.0",
     candidate: {
       ...candidate,
-      lane: "denied",
-    },
-    updatedAt,
-  };
-};
-
-export const reopenCandidate = (
-  review: ReviewRecord,
-  updatedAt: string,
-): ReviewRecord => {
-  const candidate = requireCandidateLane(review, "denied");
-  return {
-    ...review,
-    candidate: {
-      ...candidate,
-      lane: "intake",
+      lane: "revise",
     },
     updatedAt,
   };
@@ -50,6 +36,7 @@ export const approveCandidate = (
   }
   return {
     ...review,
+    schemaVersion: "1.2.0",
     approvedRevisionId: candidate.revisionId,
     candidate: null,
     updatedAt,
@@ -60,9 +47,10 @@ export const archiveCandidate = (
   review: ReviewRecord,
   archivedAt: string,
 ): ReviewRecord => {
-  const candidate = requireCandidateLane(review, "denied");
+  const candidate = requireCandidateLane(review, "revise");
   return {
     ...review,
+    schemaVersion: "1.2.0",
     candidate: {
       ...candidate,
       lane: "archive",
@@ -108,9 +96,10 @@ export const restoreCandidate = (
 
   return {
     ...review,
+    schemaVersion: "1.2.0",
     candidate: {
       ...candidate,
-      lane: "denied",
+      lane: "revise",
     },
     archiveHistory: history,
     updatedAt: restoredAt,
@@ -131,9 +120,10 @@ export const startLibraryRevision = (
 
   return {
     ...review,
+    schemaVersion: "1.2.0",
     candidate: {
       revisionId: candidateRevisionId,
-      lane: "intake",
+      lane: "revise",
     },
     updatedAt,
   };

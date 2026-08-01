@@ -41,7 +41,7 @@ The source staging folder remains unchanged. Transaction receipts are retained
 under the ignored `workspace/transactions/` root.
 
 The same command registers an existing-asset revision when
-`submission.json.baseRevisionId` names the exact active Intake candidate with
+`submission.json.baseRevisionId` names the exact active Revise candidate with
 at least one unresolved revision note.
 Revision ingestion:
 
@@ -82,12 +82,13 @@ without changing review state with:
 npm.cmd run promptinator:reconcile
 ```
 
-Promptinator store schema `1.4.0` retains the v2 production-default migration
-and adds one atomic active v2 test-batch dispatch pin. Reading an older store
-migrates only entries that are still Ready on the v1 default; copied, claimed,
-completed, and ingested work remains on its exact recorded style. A Ready entry
-can still select legacy v1 before dispatch unless it is locked into the active
-v2 test batch.
+Promptinator store schema `1.5.0` retains the v2 production-default migration
+and atomic active v2 test-batch dispatch pin. Reading an older store migrates
+only entries that are still Ready on the v1 default and refreshes only
+still-Ready v2 prompt text with the current recognition safeguards. Copied,
+claimed, completed, and ingested work remains on its exact recorded style and
+prompt. A Ready entry can still select legacy v1 before dispatch unless it is
+locked into the active v2 test batch.
 
 ## Local review actions
 
@@ -95,11 +96,10 @@ The Vite development server exposes a same-origin, JSON-only review endpoint
 used by the viewer. It supports:
 
 - Approve from Intake;
-- add a required revision note while staying in Intake;
-- Deny from Intake;
-- Return to Intake from Denied;
-- Archive only from Denied;
-- Restore only from Archive into Denied;
+- Send to Revise with a required note;
+- add another note while in Revise;
+- Archive only from Revise;
+- Restore only from Archive into Revise;
 - Start revision from an approved Library item with no active candidate.
 
 Every request names the exact asset/revision and includes the `updatedAt` value
@@ -109,7 +109,7 @@ actions atomically replace only the asset's `review.json`; immutable revision
 manifests and artifacts are not rewritten.
 
 Start revision keeps the exact approved revision selected while opening the
-same revision as the Intake base with a required note. The later agent job
+same revision as the Revise base with a required note. The later agent job
 still cannot mutate review state directly; it may invoke only trusted ingestion,
 which replaces that working base with the newly allocated Intake revision.
 
@@ -118,9 +118,9 @@ production `workspace/library` to automate approval or state-transition tests.
 
 ## Revision batches
 
-The Intake viewer can select multiple exact candidates with unresolved notes
+The Revise viewer can select multiple exact candidates with unresolved notes
 and POST a batch request to the same-origin local server. The server revalidates
-each asset, base revision, Intake lane, `review.updatedAt`, and unresolved-note
+each asset, base revision, Revise lane, `review.updatedAt`, and unresolved-note
 set before writing anything.
 
 Registered revision batches live under:
@@ -133,7 +133,7 @@ workspace/batches/revision/<batch-id>/
 
 Creation uses a retained transaction receipt under
 `workspace/transactions/create-revision-batch-<batch-id>/`. Existing batch IDs,
-stale selections, non-Intake candidates, duplicate selections, and candidates
+stale selections, non-Revise candidates, duplicate selections, and candidates
 without unresolved notes are refused. Batch creation never changes
 `review.json` or an immutable revision artifact.
 

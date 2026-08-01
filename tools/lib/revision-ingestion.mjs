@@ -124,11 +124,11 @@ const validateCurrentRecords = ({
   if (
     !review.candidate ||
     review.candidate.revisionId !== submission.baseRevisionId ||
-    review.candidate.lane !== "intake" ||
+    review.candidate.lane !== "revise" ||
     !review.notes.some((note) => note.resolvedAt === null)
   ) {
     failures.push(
-      `revision ingestion requires base ${submission.baseRevisionId} as the active Intake candidate with unresolved revision notes`,
+      `revision ingestion requires base ${submission.baseRevisionId} as the active Revise candidate with unresolved revision notes`,
     );
   }
   return failures;
@@ -247,7 +247,7 @@ const finishRevisionTransaction = ({
   if (
     currentReview.updatedAt === transaction.reviewUpdatedAtBefore &&
     currentReview.candidate?.revisionId === transaction.baseRevisionId &&
-    currentReview.candidate?.lane === "intake" &&
+    currentReview.candidate?.lane === "revise" &&
     currentReview.notes.some((note) => note.resolvedAt === null)
   ) {
     writeJsonAtomically(reviewPath, nextReview);
@@ -498,7 +498,7 @@ export const ingestExistingRevision = ({
   });
   const nextReview = {
     ...review,
-    schemaVersion: "1.1.0",
+    schemaVersion: "1.2.0",
     candidate: {
       revisionId,
       lane: "intake",

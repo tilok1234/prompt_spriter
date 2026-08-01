@@ -8,23 +8,40 @@ checkpoint applies equally to legacy v1 and production v2 jobs.
 
 ## 1. Translate the brief into visible anchors
 
-Before drawing, identify the smallest set of features that must survive at
-32x32:
+Before drawing, identify the visible anchors that must survive at 32x32.
+Production v2 uses a recognition budget of exactly two identifying ideas:
 
 - one controlled body plan: `quadruped`, `biped`, `flyer`, `serpent`,
   `arthropod`, or `fungus-amorphous`;
 - body plan: head, torso, support or locomotion anatomy, and major appendages;
-- species or creature-type cue that must read from the silhouette;
-- one dominant signature feature and any required asymmetry;
+- exactly one dominant silhouette anchor that names the subject at native 1x;
+- exactly one secondary identifying feature, including any required asymmetry;
 - material masses that need distinct clustered values;
 - idle, walk, and attack actions expressed as body movement rather than effects.
 
 When small secondary details compete for space, prioritize the body plan,
-dominant feature, and action read. Do not replace anatomy with texture or a
-generic blob. If the body plan and dominant feature cannot fit the contract
-cleanly, stop and report the conflict instead of silently changing the format.
-State the chosen controlled body plan before drawing. Every direction must use
-that same construction; do not independently reinterpret the creature per row.
+dominant anchor, secondary feature, and action read. Do not let a tiny face,
+eye, or internal detail carry the whole concept, and do not replace anatomy
+with texture or a generic blob. If the body plan and two-feature recognition
+budget cannot fit the contract cleanly, stop and report the conflict instead
+of silently changing the format. State the chosen controlled body plan before
+drawing. Every direction must use that same construction; do not independently
+reinterpret the creature per row.
+
+Apply the matching construction emphasis without inventing a new body plan:
+
+- for a winged, fey, spectral, floating, or thin subject, build a solid central
+  body first and keep wings, wisps, and trailing effects secondary;
+- for a humanoid or biped with equipment, separate the key weapon or tool from
+  the torso in front and back as well as profile;
+- for a plant or construct, separate the head or focal core from roots, limbs,
+  trunk, pot, or chassis supports so the body does not merge into one chunky
+  unidentifiable mass.
+
+This budget is a Promptinator and creator-side safeguard for new v2 work; it
+does not rewrite the immutable `assembler-inspired-v2@0.1.0` profile or any
+used request. A deliberate legacy-v1 job keeps its exact style while still
+using the native-scale visibility questions below for self-review.
 
 ## 2. Lock one camera and ground plane
 
@@ -64,6 +81,10 @@ animation. Inspect the body and outline without effects at native 1x scale.
 Every direction must pass all of these checks:
 
 - the creature type can be identified without reading its name or prompt;
+- for v2, the dominant silhouette anchor and one secondary feature both
+  survive at 1x;
+- the head, face, or declared focal core reads without carrying the whole
+  concept by itself;
 - the facing direction is clear from the head, body axis, limbs, and appendages;
 - the creature remains grounded and does not rotate its long body axis into an
   upright stance between profile and down/up views;
@@ -123,10 +144,14 @@ poses in the saved source. Ask:
 2. Do all views use one camera and ground plane, with down/up foreshortening
    rather than a side pose rotated vertically?
 3. Does the dominant signature feature survive at 1x?
-4. Does walk animate locomotion rather than translation or bobbing alone?
-5. Does attack read with the effects layer hidden?
-6. Are volume, grounding, lighting, and anatomical sides consistent?
-7. Are all poses and effects comfortably inside the 32x32 cell?
+4. For v2, is exactly one secondary feature visible without merging into the
+   torso or center mass?
+5. Is the head, face, or focal core aligned and readable without being the only
+   clue to the concept?
+6. Does walk animate locomotion rather than translation or bobbing alone?
+7. Does attack read with the effects layer hidden?
+8. Are volume, grounding, lighting, and anatomical sides consistent?
+9. Are all poses and effects comfortably inside the 32x32 cell?
 
 If any answer is no, repair the current assigned staging job and repeat the
 review before writing `completion.json`. Do not claim a replacement prompt or

@@ -50,6 +50,12 @@ scales. Preserve the strongest readable parts of the base while ensuring that:
 
 - every unresolved user note is visibly addressed;
 - creature identity and direction read in all four rows;
+- for a v2 revision, the recognition budget remains limited to one dominant
+  silhouette anchor and one secondary feature, with neither hidden or merged at
+  native 1x;
+- for v2, thin, winged, or spectral bodies retain a solid center; equipment
+  stays separate from a biped torso; plant or construct cores stay distinct
+  from their supports;
 - all four idle poses use one fixed elevated game camera and ground plane;
 - long, low bodies use foreshortening and overlap in down/up views instead of a
   full side silhouette rotated into a vertical pose;

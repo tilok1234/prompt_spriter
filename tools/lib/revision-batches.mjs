@@ -192,10 +192,10 @@ const readSelectedItem = ({
   }
   if (
     review.candidate?.revisionId !== selection.revisionId ||
-    review.candidate?.lane !== "intake"
+    review.candidate?.lane !== "revise"
   ) {
     throw new RevisionBatchError(
-      `Batch selection requires ${selection.assetId} ${selection.revisionId} in Intake.`,
+      `Batch selection requires ${selection.assetId} ${selection.revisionId} in Revise.`,
       409,
     );
   }
@@ -204,7 +204,7 @@ const readSelectedItem = ({
     selection.expectedUpdatedAt !== review.updatedAt
   ) {
     throw new RevisionBatchError(
-      `Review state changed for ${selection.assetId}. Reload Intake before creating the batch.`,
+      `Review state changed for ${selection.assetId}. Reload Revise before creating the batch.`,
       409,
     );
   }
@@ -242,7 +242,7 @@ export const createRevisionBatch = ({
     selections.length > 100
   ) {
     throw new RevisionBatchError(
-      "A revision batch must select between 1 and 100 Intake items with unresolved revision notes.",
+      "A revision batch must select between 1 and 100 Revise items with unresolved revision notes.",
     );
   }
 

@@ -32,9 +32,15 @@ const claimIdPattern =
   /^claim-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
 const testBatchIdPattern =
   /^v2-test-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
-const currentStoreVersion = "1.4.0";
+const currentStoreVersion = "1.5.0";
 const productionStyle = { id: "assembler-inspired-v2", version: "0.1.0" };
 const legacyStyle = { id: "assembler-inspired-v1", version: "0.1.0" };
+const structuredV2RecognitionRules = [
+  "- Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature; the dominant anchor must remain recognizable at native 1x in all four idle directions.",
+  "- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.",
+  "- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.",
+  "- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.",
+];
 
 export class PromptinatorError extends Error {
   constructor(message, statusCode = 400) {
@@ -65,14 +71,17 @@ const promptId = (ordinal, name) => {
   return `prompt-${String(ordinal).padStart(4, "0")}-${slug}`;
 };
 
-export const renderPromptinatorPrompt = ({
-  id,
-  name,
-  family,
-  brief,
-  style = productionStyle,
-  formulaVersion = "structured-v2",
-}) =>
+const renderPromptinatorPromptVersion = (
+  {
+    id,
+    name,
+    family,
+    brief,
+    style = productionStyle,
+    formulaVersion = "structured-v2",
+  },
+  { includeRecognitionRules },
+) =>
   [
     "Read and follow the project documentation.",
     "",
@@ -109,9 +118,16 @@ export const renderPromptinatorPrompt = ({
           "- Before drawing, choose and state one controlled body plan from the required style guide.",
           "- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.",
           "- Use only the required style profile's master palette and contour rule.",
+          ...(includeRecognitionRules ? structuredV2RecognitionRules : []),
         ]
       : []),
   ].join("\n");
+
+export const renderPromptinatorPrompt = (options) =>
+  renderPromptinatorPromptVersion(options, { includeRecognitionRules: true });
+
+const renderLegacyPromptinatorPrompt = (options) =>
+  renderPromptinatorPromptVersion(options, { includeRecognitionRules: false });
 
 const nextNonBlank = (lines, startIndex) => {
   let index = startIndex;
@@ -301,7 +317,11 @@ const lockPathFor = (workspaceRoot) =>
   join(resolve(workspaceRoot), "promptinator", "store.lock");
 
 const migrateStore = (store) => {
-  if (!["1.0.0", "1.1.0", "1.2.0", "1.3.0"].includes(store?.schemaVersion)) {
+  if (
+    !["1.0.0", "1.1.0", "1.2.0", "1.3.0", "1.4.0"].includes(
+      store?.schemaVersion,
+    )
+  ) {
     return store;
   }
   const migrateReadyEntry = (entry) => {
@@ -312,42 +332,90 @@ const migrateStore = (store) => {
         : {}),
     };
     if (
-      normalizedEntry.state !== "ready" ||
-      normalizedEntry.style?.id !== legacyStyle.id ||
-      normalizedEntry.style?.version !== legacyStyle.version ||
-      normalizedEntry.formulaVersion !== "structured-v1"
+      normalizedEntry.state === "ready" &&
+      normalizedEntry.style?.id === legacyStyle.id &&
+      normalizedEntry.style?.version === legacyStyle.version &&
+      normalizedEntry.formulaVersion === "structured-v1"
     ) {
-      return normalizedEntry;
-    }
-    return {
-      ...normalizedEntry,
-      style: { ...productionStyle },
-      formulaVersion: "structured-v2",
-      promptText: renderPromptinatorPrompt({
-        id: normalizedEntry.id,
-        name: normalizedEntry.name,
-        family: normalizedEntry.family,
-        brief: normalizedEntry.brief,
-        style: productionStyle,
+      return {
+        ...normalizedEntry,
+        style: { ...productionStyle },
         formulaVersion: "structured-v2",
-      }),
-      history: [
-        ...normalizedEntry.history,
-        {
-          action: "default-style-migrated",
-          at: store.updatedAt,
-          style: { ...productionStyle },
-        },
-      ],
+        promptText: renderPromptinatorPrompt({
+          id: normalizedEntry.id,
+          name: normalizedEntry.name,
+          family: normalizedEntry.family,
+          brief: normalizedEntry.brief,
+          style: productionStyle,
+          formulaVersion: "structured-v2",
+        }),
+        history: [
+          ...normalizedEntry.history,
+          {
+            action: "default-style-migrated",
+            at: store.updatedAt,
+            style: { ...productionStyle },
+          },
+        ],
+      };
+    }
+
+    const promptOptions = {
+      id: normalizedEntry.id,
+      name: normalizedEntry.name,
+      family: normalizedEntry.family,
+      brief: normalizedEntry.brief,
+      style: normalizedEntry.style,
+      formulaVersion: normalizedEntry.formulaVersion,
     };
+    if (
+      normalizedEntry.state === "ready" &&
+      normalizedEntry.style?.id === productionStyle.id &&
+      normalizedEntry.style?.version === productionStyle.version &&
+      normalizedEntry.formulaVersion === "structured-v2" &&
+      normalizedEntry.promptText ===
+        renderLegacyPromptinatorPrompt(promptOptions)
+    ) {
+      return {
+        ...normalizedEntry,
+        promptText: renderPromptinatorPrompt(promptOptions),
+        history: [
+          ...normalizedEntry.history,
+          {
+            action: "recognition-safeguards-migrated",
+            at: store.updatedAt,
+          },
+        ],
+      };
+    }
+
+    return normalizedEntry;
   };
   return {
     ...store,
     schemaVersion: currentStoreVersion,
-    activeTestBatch: null,
+    activeTestBatch: store.activeTestBatch ?? null,
     entries: Array.isArray(store.entries)
       ? store.entries.map(migrateReadyEntry)
       : store.entries,
+  };
+};
+
+const expectedPromptTexts = (entry) => {
+  const options = {
+    id: entry.id,
+    name: entry.name,
+    family: entry.family,
+    brief: entry.brief,
+    style: entry.style,
+    formulaVersion: entry.formulaVersion,
+  };
+  return {
+    current: renderPromptinatorPrompt(options),
+    legacy:
+      entry.formulaVersion === "structured-v2"
+        ? renderLegacyPromptinatorPrompt(options)
+        : null,
   };
 };
 
@@ -428,17 +496,10 @@ const validateStore = (store, label) => {
     if (entry.id !== promptId(entry.ordinal, entry.name)) {
       failures.push(`${label}: mismatched ID for ${entry.id}`);
     }
-    if (
-      entry.promptText !==
-      renderPromptinatorPrompt({
-        id: entry.id,
-        name: entry.name,
-        family: entry.family,
-        brief: entry.brief,
-        style: entry.style,
-        formulaVersion: entry.formulaVersion,
-      })
-    ) {
+    const promptTexts = expectedPromptTexts(entry);
+    const keepsHistoricalPrompt =
+      entry.state !== "ready" && entry.promptText === promptTexts.legacy;
+    if (entry.promptText !== promptTexts.current && !keepsHistoricalPrompt) {
       failures.push(`${label}: mismatched prompt text for ${entry.id}`);
     }
     const lastAction = entry.history.at(-1)?.action;
@@ -461,6 +522,7 @@ const validateStore = (store, label) => {
           "requeued",
           "style-selected",
           "default-style-migrated",
+          "recognition-safeguards-migrated",
           "v2-test-batch-selected",
         ].includes(lastAction))
     ) {
@@ -704,6 +766,17 @@ export const transitionPromptinatorEntry = ({
     nextEntries[entryIndex] = {
       ...entry,
       state: action === "mark-copied" ? "copied" : "ready",
+      promptText:
+        action === "requeue"
+          ? renderPromptinatorPrompt({
+              id: entry.id,
+              name: entry.name,
+              family: entry.family,
+              brief: entry.brief,
+              style: entry.style,
+              formulaVersion: entry.formulaVersion,
+            })
+          : entry.promptText,
       copiedAt: action === "mark-copied" ? at : null,
       claim: null,
       completion: null,

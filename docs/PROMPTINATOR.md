@@ -120,8 +120,13 @@ revision. The viewer exposes that text as **Stored creation prompt**.
 
 `structured-v2` keeps the same user-authored creative fields and additionally
 names the exact v2 profile and guide, requires the controlled body-plan choice,
-four-idle-pose checkpoint, fixed camera/ground plane, master palette, and v2
-contour rule.
+four-idle-pose checkpoint, fixed camera/ground plane, master palette, v2
+contour rule, and recognition budget. That budget permits one dominant
+silhouette anchor plus one secondary feature, requires a readable center mass
+for thin or winged subjects, and prevents equipment or plant/construct anatomy
+from merging into an unidentifiable body. It is a versioned dispatch and
+creator safeguard, not an in-place edit of the already-used
+`assembler-inspired-v2@0.1.0` style profile.
 
 ## Storage and boundaries
 
@@ -131,12 +136,15 @@ Runtime state lives in the ignored local file:
 workspace/promptinator/store.json
 ```
 
-Store schema `1.4.0` preserves source SHA-256, original ordinal, generated
+Store schema `1.5.0` preserves source SHA-256, original ordinal, generated
 prompt, Ready/In-progress/Completed state, the active v2 test-batch dispatch
 pin, exclusive claims, exact asset/revision completion links, and event
-history. Reading a `1.3.0` store adds a null batch pin without rewriting entry
-provenance. Promptinator cannot approve sprites, change review lanes, edit
-category/style contracts, or change MCP configuration.
+history. Reading a `1.4.0` store refreshes only still-Ready v2 prompt text with
+the recognition safeguards and records that migration. Copied, claimed,
+completed, and ingested prompt text remains exact historical provenance; an
+old copied or claimed entry receives the current prompt only if the user later
+returns it to Ready. Promptinator cannot approve sprites, change review lanes,
+edit category/style contracts, or change MCP configuration.
 
 Operator import uses the same validation path:
 

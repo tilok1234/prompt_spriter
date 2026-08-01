@@ -1,13 +1,12 @@
 export type ReviewNavigationAction =
   | "approve"
+  | "send-to-revise"
   | "add-note"
-  | "deny"
-  | "reopen"
   | "start-revision"
   | "archive"
   | "restore";
 
-export type ReviewSection = "intake" | "denied" | "library" | "archive";
+export type ReviewSection = "intake" | "revise" | "library" | "archive";
 
 interface ReviewNavigationInput {
   action: ReviewNavigationAction;
@@ -24,7 +23,11 @@ export const routeAfterReviewAction = ({
   assetId,
   revisionId,
 }: ReviewNavigationInput): string => {
-  if (action === "deny" || action === "archive") {
+  if (
+    action === "approve" ||
+    action === "send-to-revise" ||
+    action === "archive"
+  ) {
     return `#/${currentSection}`;
   }
 

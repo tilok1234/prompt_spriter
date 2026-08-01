@@ -39,10 +39,7 @@ export function RevisionBatchesView({
       <div className="empty-state">
         <span className="empty-state__glyph">+</span>
         <h2>No revision batches yet</h2>
-        <p>
-          Select one or more Intake candidates with open revision notes to
-          generate the first brief.
-        </p>
+        <p>Select one or more candidates in Revise to generate the first brief.</p>
       </div>
     );
   }

@@ -3,9 +3,8 @@ import reviewJson from "../fixtures/library/assets/fixture-ember-slime-001/revie
 import {
   approveCandidate,
   archiveCandidate,
-  denyCandidate,
-  reopenCandidate,
   restoreCandidate,
+  sendToRevise,
   startLibraryRevision,
 } from "../src/domain/review-state";
 import type { ReviewRecord } from "../src/domain/types";
@@ -14,17 +13,18 @@ const intakeReview = reviewJson as ReviewRecord;
 const time = "2026-07-30T13:00:00.000Z";
 
 describe("review state", () => {
-  it("moves Intake to Denied without changing approval", () => {
-    const denied = denyCandidate(intakeReview, time);
-    expect(denied.candidate?.lane).toBe("denied");
-    expect(denied.approvedRevisionId).toBeNull();
-    expect(reopenCandidate(denied, time).candidate?.lane).toBe("intake");
+  it("moves Intake to Revise without changing approval", () => {
+    const revise = sendToRevise(intakeReview, time);
+    expect(revise.candidate?.lane).toBe("revise");
+    expect(revise.approvedRevisionId).toBeNull();
+    expect(revise.schemaVersion).toBe("1.2.0");
   });
 
   it("approves the exact Intake revision", () => {
     const approved = approveCandidate(intakeReview, time);
     expect(approved.approvedRevisionId).toBe("r001");
     expect(approved.candidate).toBeNull();
+    expect(approved.schemaVersion).toBe("1.2.0");
   });
 
   it("blocks approval while revision notes are unresolved", () => {
@@ -45,23 +45,23 @@ describe("review state", () => {
     );
   });
 
-  it("allows Archive only from Denied", () => {
+  it("allows Archive only from Revise", () => {
     expect(() => archiveCandidate(intakeReview, time)).toThrow(
-      "requires a candidate in denied",
+      "requires a candidate in revise",
     );
-    const denied = denyCandidate(intakeReview, time);
-    const archived = archiveCandidate(denied, time);
+    const revise = sendToRevise(intakeReview, time);
+    const archived = archiveCandidate(revise, time);
     expect(archived.candidate?.lane).toBe("archive");
   });
 
-  it("restores Archive only to Denied", () => {
-    const denied = denyCandidate(intakeReview, time);
-    const archived = archiveCandidate(denied, time);
+  it("restores Archive only to Revise", () => {
+    const revise = sendToRevise(intakeReview, time);
+    const archived = archiveCandidate(revise, time);
     const restored = restoreCandidate(
       archived,
       "2026-07-30T14:00:00.000Z",
     );
-    expect(restored.candidate?.lane).toBe("denied");
+    expect(restored.candidate?.lane).toBe("revise");
     expect(restored.archiveHistory.at(-1)?.restoredAt).not.toBeNull();
   });
 
@@ -75,7 +75,8 @@ describe("review state", () => {
     expect(working.approvedRevisionId).toBe("r001");
     expect(working.candidate).toEqual({
       revisionId: "r002",
-      lane: "intake",
+      lane: "revise",
     });
+    expect(working.schemaVersion).toBe("1.2.0");
   });
 });

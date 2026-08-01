@@ -1,4 +1,4 @@
-export type CandidateLane = "intake" | "denied" | "archive";
+export type CandidateLane = "intake" | "revise" | "archive";
 export type PlaybackMode = "loop" | "once" | "hold-last";
 
 export interface ContractReference {

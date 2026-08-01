@@ -79,7 +79,7 @@ For a revision job, replace step 11 with
 3. exact `revisions/<base-revision-id>/revision.json`
 4. exact base `source.aseprite`
 
-The base revision must be the active candidate in Intake with at least one
+The base revision must be the active candidate in Revise with at least one
 unresolved note. Read its unresolved notes as the revision brief, but do not
 edit `review.json`.
 
@@ -156,10 +156,9 @@ before it can complete the active claim.
 
 ## Revising an existing asset
 
-The user first adds revision notes to the Intake candidate. For an approved
-Library item, the user does this with **Start revision**; the approved revision
-remains selected throughout the work while the base candidate appears in
-Intake.
+The user first places the item in Revise with notes. For an approved Library
+item, the user does this with **Start revision**; the approved revision remains
+selected throughout the work.
 
 Use a new staging job ID and keep the existing asset identity:
 
@@ -170,7 +169,7 @@ workspace/staging/<new-revision-job-id>/
 In `submission.json`, set:
 
 - `assetId` to the exact existing asset ID;
-- `baseRevisionId` to the exact active Intake candidate revision;
+- `baseRevisionId` to the exact active Revise candidate revision;
 - `requestedName`, category, and style to the existing asset values;
 - `request` to a concise revision brief covering the unresolved notes.
 
@@ -202,7 +201,7 @@ notes as the exact dispatch list.
 Process each item independently:
 
 1. re-read the asset's current `review.json`;
-2. confirm the listed base is still the active Intake candidate with unresolved
+2. confirm the listed base is still the active Revise candidate with unresolved
    notes;
 3. create one new staging directory for that asset;
 4. follow `jobs/templates/enemy-mob-32-revision.md`;
@@ -233,7 +232,7 @@ current staging manifests and artifact hashes before resuming. It never
 overwrites an existing Library asset.
 
 When `baseRevisionId` is non-null, the same command performs existing-asset
-revision ingestion. It requires that exact base to still be the active Intake
+revision ingestion. It requires that exact base to still be the active Revise
 candidate with unresolved notes, refuses identity or contract drift, creates
 the next `rNNN`
 directory, and leaves every earlier revision untouched. Retained transaction
@@ -243,8 +242,8 @@ Refresh or reopen the viewer after ingestion. The Vite development server reads
 the local `workspace/library/` manifests directly and streams only the selected
 PNG artifacts to the browser.
 
-Running this command does not grant permission to approve, add or resolve
-notes, Deny, return to Intake, Archive, restore, or patch `review.json`.
+Running this command does not grant permission to approve, move a candidate to
+Revise, add or resolve notes, Archive, restore, or patch `review.json`.
 
 ## Aseprite evidence
 
@@ -261,6 +260,13 @@ vertical drawing is a failed checkpoint and must be rebuilt before walk or
 attack frames are added. A quadruped must retain a low horizontal torso and
 four connected or visibly overlapped supports in down/up; an upright humanoid
 reinterpretation fails this checkpoint.
+
+For v2, also enforce the recognition budget at that checkpoint: one dominant
+silhouette anchor and one secondary identifying feature must survive at native
+1x in every direction. Thin, winged, floating, or spectral subjects still need
+a solid center mass. Keep a humanoid's key prop separate from its torso in
+front/back, and keep a plant or construct's head or focal core distinct from
+its supports. A tiny face or eye cannot be the only clue to the concept.
 
 Do not write `completion.json` while the creature is an ambiguous blob or
 object, a direction lacks constructed anatomy, locomotion is only translation,

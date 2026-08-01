@@ -4,6 +4,7 @@ import {
   mkdtempSync,
   readFileSync,
   rmSync,
+  writeFileSync,
 } from "node:fs";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
@@ -87,14 +88,14 @@ describe("persisted review actions", () => {
     expect(immutableHashes(assetDirectory)).toEqual(before);
   });
 
-  it("adds a normalized targeted note while the candidate stays in Intake", () => {
+  it("moves Intake to Revise with a normalized targeted note", () => {
     const { libraryRoot, assetDirectory, reviewPath } = createLibrary();
     const before = immutableHashes(assetDirectory);
     const review = readJson(reviewPath);
 
     applyReviewAction(
       actionInput(libraryRoot, review, {
-        action: "add-note",
+        action: "send-to-revise",
         note: {
           text: "  Give the walk more weight.  ",
           target: {
@@ -106,12 +107,13 @@ describe("persisted review actions", () => {
       }),
     );
 
-    const revisionRequested = readJson(reviewPath);
-    expect(revisionRequested.candidate).toEqual({
+    const revised = readJson(reviewPath);
+    expect(revised.schemaVersion).toBe("1.2.0");
+    expect(revised.candidate).toEqual({
       revisionId: "r001",
-      lane: "intake",
+      lane: "revise",
     });
-    expect(revisionRequested.notes).toEqual([
+    expect(revised.notes).toEqual([
       {
         id: "note-test-note",
         text: "Give the walk more weight.",
@@ -151,14 +153,15 @@ describe("persisted review actions", () => {
     expect(working.approvedRevisionId).toBe("r001");
     expect(working.candidate).toEqual({
       revisionId: "r001",
-      lane: "intake",
+      lane: "revise",
     });
+    expect(working.schemaVersion).toBe("1.2.0");
     expect(working.notes.at(-1)?.text).toBe(
       "Give the next version a stronger attack.",
     );
   });
 
-  it("adds notes in Intake and enforces Archive-only-from-Denied", () => {
+  it("adds notes in Revise and enforces Archive-only-from-Revise", () => {
     const { libraryRoot, reviewPath } = createLibrary();
     const intake = readJson(reviewPath);
 
@@ -166,21 +169,21 @@ describe("persisted review actions", () => {
       applyReviewAction(
         actionInput(libraryRoot, intake, { action: "archive" }),
       ),
-    ).toThrow("requires revision r001 in denied");
+    ).toThrow("requires revision r001 in revise");
     expect(readJson(reviewPath)).toEqual(intake);
 
     applyReviewAction(
       actionInput(libraryRoot, intake, {
-        action: "add-note",
+        action: "send-to-revise",
         note: {
           text: "Strengthen the silhouette.",
           target: {},
         },
       }),
     );
-    const revisionRequested = readJson(reviewPath);
+    const revised = readJson(reviewPath);
     applyReviewAction(
-      actionInput(libraryRoot, revisionRequested, {
+      actionInput(libraryRoot, revised, {
         action: "add-note",
         now: () => "2026-07-30T18:01:00.000Z",
         noteIdFactory: () => "second-note",
@@ -193,28 +196,21 @@ describe("persisted review actions", () => {
     expect(readJson(reviewPath).notes).toHaveLength(2);
   });
 
-  it("denies from Intake, archives from Denied, and restores only to Denied", () => {
+  it("archives from Revise and restores only to Revise", () => {
     const { libraryRoot, reviewPath } = createLibrary();
     const intake = readJson(reviewPath);
     applyReviewAction(
       actionInput(libraryRoot, intake, {
-        action: "add-note",
+        action: "send-to-revise",
         note: {
           text: "Keep for a later pass.",
           target: {},
         },
       }),
     );
-    const revisionRequested = readJson(reviewPath);
+    const revised = readJson(reviewPath);
     applyReviewAction(
-      actionInput(libraryRoot, revisionRequested, {
-        action: "deny",
-        now: () => "2026-07-30T18:01:00.000Z",
-      }),
-    );
-    const denied = readJson(reviewPath);
-    applyReviewAction(
-      actionInput(libraryRoot, denied, {
+      actionInput(libraryRoot, revised, {
         action: "archive",
         now: () => "2026-07-30T18:02:00.000Z",
       }),
@@ -234,76 +230,35 @@ describe("persisted review actions", () => {
       }),
     );
     const restored = readJson(reviewPath);
-    expect(restored.candidate?.lane).toBe("denied");
+    expect(restored.candidate?.lane).toBe("revise");
     expect(restored.archiveHistory.at(-1)?.restoredAt).toBe(
       "2026-07-30T18:03:00.000Z",
     );
     expect(restored.notes).toHaveLength(1);
   });
 
-  it("returns a Denied candidate to Intake without losing its revision request", () => {
-    const { libraryRoot, assetDirectory, reviewPath } = createLibrary();
-    const before = immutableHashes(assetDirectory);
-    const intake = readJson(reviewPath);
-
-    applyReviewAction(
-      actionInput(libraryRoot, intake, {
-        action: "add-note",
-        note: {
-          text: "Rework the attack silhouette.",
-          target: { animation: "attack" },
-        },
-      }),
-    );
-    const revisionRequested = readJson(reviewPath);
-
-    applyReviewAction(
-      actionInput(libraryRoot, revisionRequested, {
-        action: "deny",
-        now: () => "2026-07-30T18:01:00.000Z",
-      }),
-    );
-    const denied = readJson(reviewPath);
-    expect(denied.candidate?.lane).toBe("denied");
-
-    applyReviewAction(
-      actionInput(libraryRoot, denied, {
-        action: "reopen",
-        now: () => "2026-07-30T18:02:00.000Z",
-      }),
-    );
-    const reopened = readJson(reviewPath);
-
-    expect(reopened.candidate).toEqual({
-      revisionId: "r001",
-      lane: "intake",
-    });
-    expect(reopened.notes).toEqual(revisionRequested.notes);
-    expect(reopened.archiveHistory).toEqual([]);
-    expect(immutableHashes(assetDirectory)).toEqual(before);
-    expect(() =>
-      applyReviewAction(actionInput(libraryRoot, reopened)),
-    ).toThrow("open revision notes");
-  });
-
   it("blocks approval while an Intake candidate has an unresolved note", () => {
     const { libraryRoot, reviewPath } = createLibrary();
     const intake = readJson(reviewPath);
-    applyReviewAction(
-      actionInput(libraryRoot, intake, {
-        action: "add-note",
-        note: {
+    const invalidIntake = {
+      ...intake,
+      schemaVersion: "1.2.0",
+      notes: [
+        {
+          id: "note-open",
           text: "Increase the silhouette.",
+          createdAt: "2026-07-30T17:00:00.000Z",
+          resolvedAt: null,
           target: {},
         },
-      }),
-    );
-    const revisionRequested = readJson(reviewPath);
+      ],
+    };
+    writeFileSync(reviewPath, `${JSON.stringify(invalidIntake, null, 2)}\n`);
 
     expect(() =>
-      applyReviewAction(actionInput(libraryRoot, revisionRequested)),
+      applyReviewAction(actionInput(libraryRoot, invalidIntake)),
     ).toThrow("open revision notes");
-    expect(readJson(reviewPath)).toEqual(revisionRequested);
+    expect(readJson(reviewPath)).toEqual(invalidIntake);
   });
 
   it("refuses stale, mismatched, and unsafe requests without changing review state", () => {

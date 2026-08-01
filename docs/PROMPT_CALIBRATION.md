@@ -181,3 +181,58 @@ also requires the four-idle checkpoint for both styles and rejects quadruped
 down/up views that become upright humanoids. These checks remain technical
 floors, not visual approval. Do not silently change immutable prior profiles or
 review state while testing them.
+
+## First-attempt outcome review and recognition-budget response
+
+**Date:** 2026-08-01
+**Scope:** read-only reconstruction of the first user decision for 115 assets
+
+The outcome review separated exact v2 provenance from legacy v1 work:
+
+- all styles: 37 direct approvals (32%), 53 Revise outcomes (46%), and 25
+  Archive outcomes (22%);
+- exact v2 only, 83 assets: 32 direct approvals (39%), 47 Revise outcomes
+  (57%), and 4 Archive outcomes (5%);
+- recent 27-asset proxy slice: 9 direct approvals (33%), 16 Revise outcomes
+  (59%), and 2 Archive outcomes (7%).
+
+The strong v2 reduction in Archive rate supports preserving the palette and
+overall art direction. The remaining first-attempt problem is recognition:
+48 of 86 notes across the full sample were readability-themed, and 16 of 22
+notes in the recent slice were readability-themed. Recent custom notes also
+called out hidden weapons, overly chunky bodies, and misaligned eyes. Animation
+presets were not a leading recent signal.
+
+The v2 response is therefore a recognition budget in the Ready-only prompt and
+creator gate rather than more iteration or more animation rules. The used
+`assembler-inspired-v2@0.1.0` profile remains unchanged:
+
+1. exactly one dominant silhouette anchor plus one secondary feature;
+2. the dominant anchor readable at native 1x in all four idle directions;
+3. a solid center mass for winged, ethereal, floating, and thin subjects;
+4. visible prop separation for equipped humanoids in front and back;
+5. distinct head/core/support masses for plants and constructs;
+6. no tiny face or detail carrying the entire concept.
+
+## Next experiment: 12 first attempts
+
+Use one explicit pinned v2 batch with this balanced cohort:
+
+- 4 winged or ethereal subjects;
+- 4 humanoids with a weapon, tool, or other defining prop;
+- 4 construct, plant, or animal subjects.
+
+Every candidate must be a new exact-v2 `r001`. Measure only its first user
+decision: direct approval, Send to Revise, or Archive after Revise. Do not
+create a revised candidate until all twelve first-attempt outcomes and note
+themes are recorded.
+
+The predeclared targets are:
+
+- at least 6 of 12 direct approvals (50%);
+- no more than 1 of 12 Archive outcomes (10% target, rounded to a usable whole
+  candidate threshold);
+- readability-themed complaints on fewer than 3 of 12 candidates (25%).
+
+Passing or missing these targets informs the next prompt/construction change;
+it does not automatically approve art or authorize a palette rewrite.

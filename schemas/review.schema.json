@@ -49,7 +49,7 @@
             "lane": {
               "enum": [
                 "intake",
-                "denied",
+                "revise",
                 "archive"
               ]
             }

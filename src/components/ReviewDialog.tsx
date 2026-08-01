@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react";
 import type { ReviewNoteDraft } from "../data/library";
+import {
+  hasRevisionNotePreset,
+  revisionNotePresetGroups,
+  toggleRevisionNotePreset,
+} from "../domain/revision-note-presets";
 import type { ViewerAsset } from "../domain/types";
 
 export type ReviewDialogMode =
   | "approve"
+  | "send-to-revise"
   | "add-note"
-  | "deny"
-  | "reopen"
   | "start-revision"
   | "archive"
   | "restore";
@@ -23,6 +27,7 @@ interface ReviewDialogProps {
 }
 
 const needsNote = (mode: ReviewDialogMode) =>
+  mode === "send-to-revise" ||
   mode === "add-note" ||
   mode === "start-revision";
 
@@ -36,53 +41,45 @@ const dialogCopy = (mode: ReviewDialogMode) => {
           "This selects the revision for the Library and clears it from Intake. Its immutable files will not move or change.",
         submit: "Approve revision",
       };
+    case "send-to-revise":
+      return {
+        eyebrow: "REVISION DECISION",
+        title: "Send this candidate to Revise",
+        description:
+          "Add a practical note for the next creator-agent pass. You can add more notes later from Revise.",
+        submit: "Send to Revise",
+      };
     case "add-note":
       return {
         eyebrow: "REVISION NOTE",
-        title: "Request a revision",
+        title: "Add another revision note",
         description:
-          "The candidate stays in Intake but cannot be approved while this note is unresolved. Optional targets make feedback easier to process.",
-        submit: "Add revision note",
-      };
-    case "deny":
-      return {
-        eyebrow: "CANDIDATE DECISION",
-        title: "Move this candidate to Denied?",
-        description:
-          "Denied is a dormant, recoverable lane. You can return the candidate to Intake or move it to Archive later.",
-        submit: "Deny candidate",
-      };
-    case "reopen":
-      return {
-        eyebrow: "CANDIDATE RECOVERY",
-        title: "Return this candidate to Intake?",
-        description:
-          "The candidate and all its notes will become active again. Unresolved notes will continue to block approval.",
-        submit: "Return to Intake",
+          "Keep the note short and visible. Optional targets make animation-specific feedback easier to process later.",
+        submit: "Add note",
       };
     case "start-revision":
       return {
         eyebrow: "NEW WORKING REVISION",
         title: "Start a revision from this Library version",
         description:
-          "The approved revision stays selected in the Library. This creates an Intake candidate with an unresolved note against the same immutable base until Antigravity returns a new candidate.",
+          "The approved revision stays selected in the Library. This creates a Revise workspace against the same immutable base until Antigravity returns a new candidate.",
         submit: "Start revision",
       };
     case "archive":
       return {
         eyebrow: "REVISION STORAGE",
-        title: "Archive this denied candidate?",
+        title: "Archive this working candidate?",
         description:
-          "Archive is recoverable cold storage. Existing notes and any separately approved Library revision remain untouched.",
+          "Archive is recoverable secondary storage. Existing notes and any separately approved Library revision remain untouched.",
         submit: "Archive candidate",
       };
     case "restore":
       return {
         eyebrow: "REVISION STORAGE",
-        title: "Restore this candidate to Denied?",
+        title: "Restore this candidate to Revise?",
         description:
-          "The candidate and its existing notes will return to Denied, where you can reopen it into Intake if wanted.",
-        submit: "Restore to Denied",
+          "The candidate and its existing notes will return to the Revise queue.",
+        submit: "Restore to Revise",
       };
   }
 };
@@ -204,6 +201,43 @@ export function ReviewDialog({
 
         {needsNote(mode) ? (
           <div className="note-fields">
+            <div className="revision-presets">
+              <div className="revision-presets__heading">
+                <span>Quick issues</span>
+                <small>Choose any that apply, then edit the note freely.</small>
+              </div>
+              {revisionNotePresetGroups.map((group) => (
+                <section key={group.label}>
+                  <span>{group.label}</span>
+                  <div className="revision-presets__buttons">
+                    {group.presets.map((preset) => {
+                      const selected = hasRevisionNotePreset(text, preset.text);
+                      return (
+                        <button
+                          type="button"
+                          className={selected ? "is-selected" : undefined}
+                          aria-pressed={selected}
+                          title={preset.text}
+                          disabled={busy}
+                          onClick={() =>
+                            setText((currentText) =>
+                              toggleRevisionNotePreset(
+                                currentText,
+                                preset.text,
+                              ),
+                            )
+                          }
+                          key={preset.label}
+                        >
+                          {preset.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                </section>
+              ))}
+            </div>
+
             <label>
               <span>What should change?</span>
               <textarea

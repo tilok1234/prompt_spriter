@@ -44,14 +44,14 @@ const createWorkspaceRoot = () => {
   return workspaceRoot;
 };
 
-const seedIntakeAsset = ({
+const seedReviseAsset = ({
   workspaceRoot,
   assetId,
   name,
   updatedAt,
   noteText,
   target = {},
-  lane = "intake",
+  lane = "revise",
 }) => {
   const assetDirectory = join(
     workspaceRoot,
@@ -120,9 +120,9 @@ afterEach(() => {
 });
 
 describe("revision batches", () => {
-  it("snapshots exact Intake candidates with unresolved notes without changing review state", () => {
+  it("snapshots exact Revise candidates with unresolved notes without changing review state", () => {
     const workspaceRoot = createWorkspaceRoot();
-    const lion = seedIntakeAsset({
+    const lion = seedReviseAsset({
       workspaceRoot,
       assetId: "enemy-lion-001",
       name: "Lion",
@@ -133,7 +133,7 @@ describe("revision batches", () => {
         frames: [2, 4],
       },
     });
-    const boar = seedIntakeAsset({
+    const boar = seedReviseAsset({
       workspaceRoot,
       assetId: "enemy-boar-001",
       name: "Boar",
@@ -204,22 +204,22 @@ describe("revision batches", () => {
     expect(batches.entries[0].batch.id).toBe("heavy-movement-pass");
   });
 
-  it("refuses stale, non-Intake, duplicate, and overwrite requests", () => {
+  it("refuses stale, non-Revise, duplicate, and overwrite requests", () => {
     const workspaceRoot = createWorkspaceRoot();
-    const intake = seedIntakeAsset({
+    const revise = seedReviseAsset({
       workspaceRoot,
       assetId: "enemy-lion-001",
       name: "Lion",
       updatedAt: "2026-07-30T18:00:00.000Z",
       noteText: "Increase the mane size.",
     });
-    const denied = seedIntakeAsset({
+    const intake = seedReviseAsset({
       workspaceRoot,
       assetId: "enemy-boar-001",
       name: "Boar",
       updatedAt: "2026-07-30T18:01:00.000Z",
       noteText: "Broaden the silhouette.",
-      lane: "denied",
+      lane: "intake",
     });
 
     expect(() =>
@@ -228,7 +228,7 @@ describe("revision batches", () => {
         batchId: "stale-pass",
         selections: [
           {
-            ...intake.selection,
+            ...revise.selection,
             expectedUpdatedAt: "2026-07-30T17:00:00.000Z",
           },
         ],
@@ -239,29 +239,29 @@ describe("revision batches", () => {
       createRevisionBatch({
         workspaceRoot,
         batchId: "wrong-lane-pass",
-        selections: [denied.selection],
+        selections: [intake.selection],
       }),
-    ).toThrow("in Intake");
+    ).toThrow("in Revise");
 
     expect(() =>
       createRevisionBatch({
         workspaceRoot,
         batchId: "duplicate-pass",
-        selections: [intake.selection, intake.selection],
+        selections: [revise.selection, revise.selection],
       }),
     ).toThrow("duplicate selection");
 
     createRevisionBatch({
       workspaceRoot,
       batchId: "protected-pass",
-      selections: [intake.selection],
+      selections: [revise.selection],
       now: () => "2026-07-30T18:05:00.000Z",
     });
     expect(() =>
       createRevisionBatch({
         workspaceRoot,
         batchId: "protected-pass",
-        selections: [intake.selection],
+        selections: [revise.selection],
       }),
     ).toThrow("will not be overwritten");
   });

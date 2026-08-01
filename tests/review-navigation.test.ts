@@ -2,28 +2,28 @@ import { describe, expect, it } from "vitest";
 import { routeAfterReviewAction } from "../src/domain/review-navigation";
 
 describe("review action navigation", () => {
-  it("keeps the Intake tab after denying a candidate", () => {
+  it("keeps the Intake tab after sending a candidate to Revise", () => {
     expect(
       routeAfterReviewAction({
-        action: "deny",
+        action: "send-to-revise",
         currentSection: "intake",
-        nextSection: "denied",
+        nextSection: "revise",
         assetId: "enemy-mob-32-example",
         revisionId: "r001",
       }),
     ).toBe("#/intake");
   });
 
-  it("keeps the Denied tab after archiving a candidate", () => {
+  it("keeps the Revise tab after archiving a candidate", () => {
     expect(
       routeAfterReviewAction({
         action: "archive",
-        currentSection: "denied",
+        currentSection: "revise",
         nextSection: "archive",
         assetId: "enemy-mob-32-example",
         revisionId: "r001",
       }),
-    ).toBe("#/denied");
+    ).toBe("#/revise");
   });
 
   it("keeps the selected Library revision after starting a revision", () => {
@@ -31,14 +31,14 @@ describe("review action navigation", () => {
       routeAfterReviewAction({
         action: "start-revision",
         currentSection: "library",
-        nextSection: "intake",
+        nextSection: "revise",
         assetId: "enemy-mob-32-example",
         revisionId: "r001",
       }),
     ).toBe("#/library/review/enemy-mob-32-example/r001");
   });
 
-  it("still opens the destination for other review actions", () => {
+  it("keeps the Intake tab after approving a candidate", () => {
     expect(
       routeAfterReviewAction({
         action: "approve",
@@ -47,18 +47,18 @@ describe("review action navigation", () => {
         assetId: "enemy-mob-32-example",
         revisionId: "r001",
       }),
-    ).toBe("#/library/review/enemy-mob-32-example/r001");
+    ).toBe("#/intake");
   });
 
-  it("opens the exact Intake candidate when Denied is reopened", () => {
+  it("opens the exact Revise candidate when an archived item is restored", () => {
     expect(
       routeAfterReviewAction({
-        action: "reopen",
-        currentSection: "denied",
-        nextSection: "intake",
+        action: "restore",
+        currentSection: "archive",
+        nextSection: "revise",
         assetId: "enemy-mob-32-example",
         revisionId: "r001",
       }),
-    ).toBe("#/intake/review/enemy-mob-32-example/r001");
+    ).toBe("#/revise/review/enemy-mob-32-example/r001");
   });
 });

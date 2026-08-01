@@ -25,6 +25,12 @@ particular:
 
 - establish readable down, left, right, and up idle silhouettes before filling
   the timeline;
+- spend the v2 recognition budget on exactly one dominant silhouette anchor and
+  one secondary identifying feature, both readable at native 1x in all four
+  idle directions;
+- give thin, spectral, floating, and winged subjects a solid central body; keep
+  equipment separated from humanoid torsos in front/back, and keep plant or
+  construct cores distinct from their supports;
 - render those four idle poses as a checkpoint before generating the remaining
   frames for both v1 and v2, even when a Lua or JavaScript generator is used;
 - keep one fixed elevated game camera and ground plane; for long, low bodies,

@@ -78,6 +78,12 @@ describe("Promptinator", () => {
     expect(parsed.entries[0].promptText).toContain(
       "Required style profile: assembler-inspired-v2@0.1.0",
     );
+    expect(parsed.entries[0].promptText).toContain(
+      "Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature",
+    );
+    expect(parsed.entries[0].promptText).toContain(
+      "Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views",
+    );
   });
 
   it("refuses incomplete input without writing a store", () => {
@@ -103,7 +109,7 @@ describe("Promptinator", () => {
       now: () => "2026-07-31T08:00:00.000Z",
     });
     expect(first.importedCount).toBe(2);
-    expect(first.store.schemaVersion).toBe("1.4.0");
+    expect(first.store.schemaVersion).toBe("1.5.0");
     expect(first.store.entries[0].style.id).toBe("assembler-inspired-v2");
     expect(first.store.entries[0].formulaVersion).toBe("structured-v2");
     const duplicate = importPromptCatalog({
@@ -267,7 +273,7 @@ describe("Promptinator", () => {
     );
 
     const migrated = readPromptinatorStore({ workspaceRoot: root });
-    expect(migrated.schemaVersion).toBe("1.4.0");
+    expect(migrated.schemaVersion).toBe("1.5.0");
     expect(migrated.activeTestBatch).toBeNull();
     expect(migrated.entries[0].style.id).toBe("assembler-inspired-v2");
     expect(migrated.entries[0].formulaVersion).toBe("structured-v2");
@@ -279,6 +285,85 @@ describe("Promptinator", () => {
     expect(migrated.entries[1].state).toBe("copied");
     expect(migrated.entries[1].style.id).toBe("assembler-inspired-v1");
     expect(migrated.entries[1].history.at(-1).action).toBe("copied");
+  });
+
+  it("adds recognition safeguards only when historical v2 work is safely Ready", () => {
+    const root = workspace();
+    const imported = importPromptCatalog({
+      workspaceRoot: root,
+      text: sample,
+      sourceName: "recognition-migration.txt",
+      expectedUpdatedAt: "1970-01-01T00:00:00.000Z",
+      now: () => "2026-08-01T08:00:00.000Z",
+    });
+    const recognitionFragments = [
+      "Use a recognition budget",
+      "Thin, spectral, floating, or winged subjects",
+      "Keep a humanoid's key weapon or tool",
+      "Do not let a tiny face, eye, or detail",
+    ];
+    const legacyPrompt = (promptText) =>
+      promptText
+        .split("\n")
+        .filter(
+          (line) =>
+            !recognitionFragments.some((fragment) => line.includes(fragment)),
+        )
+        .join("\n");
+    const oldStore = {
+      ...imported.store,
+      schemaVersion: "1.4.0",
+      updatedAt: "2026-08-01T08:01:00.000Z",
+      entries: [
+        {
+          ...imported.store.entries[0],
+          promptText: legacyPrompt(imported.store.entries[0].promptText),
+        },
+        {
+          ...imported.store.entries[1],
+          promptText: legacyPrompt(imported.store.entries[1].promptText),
+          state: "copied",
+          copiedAt: "2026-08-01T08:01:00.000Z",
+          history: [
+            ...imported.store.entries[1].history,
+            { action: "copied", at: "2026-08-01T08:01:00.000Z" },
+          ],
+        },
+      ],
+    };
+    mkdirSync(join(root, "promptinator"), { recursive: true });
+    writeFileSync(
+      join(root, "promptinator", "store.json"),
+      `${JSON.stringify(oldStore, null, 2)}\n`,
+      "utf8",
+    );
+
+    const migrated = readPromptinatorStore({ workspaceRoot: root });
+    expect(migrated.schemaVersion).toBe("1.5.0");
+    expect(migrated.entries[0].promptText).toContain(
+      "Use a recognition budget",
+    );
+    expect(migrated.entries[0].history.at(-1)).toEqual({
+      action: "recognition-safeguards-migrated",
+      at: "2026-08-01T08:01:00.000Z",
+    });
+    expect(migrated.entries[1].state).toBe("copied");
+    expect(migrated.entries[1].promptText).not.toContain(
+      "Use a recognition budget",
+    );
+    expect(migrated.entries[1].history.at(-1).action).toBe("copied");
+
+    const requeued = transitionPromptinatorEntry({
+      workspaceRoot: root,
+      entryId: migrated.entries[1].id,
+      action: "requeue",
+      expectedUpdatedAt: migrated.updatedAt,
+      now: () => "2026-08-01T08:02:00.000Z",
+    });
+    expect(requeued.entries[1].state).toBe("ready");
+    expect(requeued.entries[1].promptText).toContain(
+      "Use a recognition budget",
+    );
   });
 
   it("atomically claims the lowest Ready entry and keeps it resumable", () => {

@@ -6,18 +6,18 @@ interface IconProps {
     | "chevron"
     | "grid"
     | "intake"
-    | "denied"
     | "library"
     | "pause"
     | "play"
     | "prompt"
+    | "revise"
     | "search"
     | "step";
 }
 
 const paths: Record<IconProps["name"], string> = {
   intake: "M4 5h16v14H4z M8 9h8 M8 13h5",
-  denied: "M5 5l14 14 M19 5L5 19 M4 4h16v16H4z",
+  revise: "M5 18l2-4L17 4l3 3L10 17z M13 6l3 3",
   library: "M5 4h14v16H5z M8 4v16 M11 8h5 M11 12h5",
   archive: "M4 7h16v13H4z M3 4h18v4H3z M9 11h6",
   category: "M4 4h6v6H4z M14 4h6v6h-6z M4 14h6v6H4z M14 14h6v6h-6z",

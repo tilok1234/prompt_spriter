@@ -48,15 +48,15 @@ const requiredText = new Map([
     "AGENTS.md",
     [
       "Automated checks are validation, never visual approval.",
-      "Only a Denied candidate may",
+      "Archive is available only from Revise.",
       "Do not create or change `.mcp.json`",
     ],
   ],
   [
     "docs/WORKFLOW.md",
     [
-      "Unresolved notes are the approval safeguard",
-      "Archive is available only from Denied.",
+      "There is no Denied state",
+      "Archive is available only from Revise.",
       "Game-ready export defaults to the exact approved revision",
     ],
   ],

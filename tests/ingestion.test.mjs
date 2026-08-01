@@ -466,14 +466,14 @@ Avoid: House-cat proportions.
     });
   });
 
-  it("registers r002 from the exact Intake base with open notes and preserves r001", () => {
+  it("registers r002 from the exact Revise base and preserves r001", () => {
     const workspaceRoot = createWorkspaceRoot();
     const assetDirectory = seedFixtureLibrary(workspaceRoot);
     const reviewPath = join(assetDirectory, "review.json");
     const intake = readJson(reviewPath);
     applyReviewAction({
       libraryRoot: join(workspaceRoot, "library"),
-      action: "add-note",
+      action: "send-to-revise",
       assetId: "fixture-ember-slime-001",
       revisionId: "r001",
       expectedUpdatedAt: intake.updatedAt,
@@ -606,7 +606,7 @@ Avoid: House-cat proportions.
 
     applyReviewAction({
       libraryRoot,
-      action: "add-note",
+      action: "send-to-revise",
       assetId: "fixture-ember-slime-001",
       revisionId: "r002",
       expectedUpdatedAt: review.updatedAt,
@@ -617,29 +617,20 @@ Avoid: House-cat proportions.
       now: () => "2026-07-30T16:02:00.000Z",
       noteIdFactory: () => "r002-revision-note",
     });
-    const revisionRequestedR002 = readJson(reviewPath);
-    expect(revisionRequestedR002.approvedRevisionId).toBe("r001");
-    expect(revisionRequestedR002.candidate).toEqual({
+    const revisedR002 = readJson(reviewPath);
+    expect(revisedR002.approvedRevisionId).toBe("r001");
+    expect(revisedR002.candidate).toEqual({
       revisionId: "r002",
-      lane: "intake",
+      lane: "revise",
     });
 
-    applyReviewAction({
-      libraryRoot,
-      action: "deny",
-      assetId: "fixture-ember-slime-001",
-      revisionId: "r002",
-      expectedUpdatedAt: revisionRequestedR002.updatedAt,
-      now: () => "2026-07-30T16:03:00.000Z",
-    });
-    const deniedR002 = readJson(reviewPath);
     applyReviewAction({
       libraryRoot,
       action: "archive",
       assetId: "fixture-ember-slime-001",
       revisionId: "r002",
-      expectedUpdatedAt: deniedR002.updatedAt,
-      now: () => "2026-07-30T16:04:00.000Z",
+      expectedUpdatedAt: revisedR002.updatedAt,
+      now: () => "2026-07-30T16:03:00.000Z",
     });
     const archivedR002 = readJson(reviewPath);
     expect(archivedR002.approvedRevisionId).toBe("r001");
@@ -649,7 +640,7 @@ Avoid: House-cat proportions.
     });
   });
 
-  it("refuses revision ingestion unless the Intake base has unresolved notes", () => {
+  it("refuses revision ingestion unless the declared base is in Revise", () => {
     const workspaceRoot = createWorkspaceRoot();
     const assetDirectory = seedFixtureLibrary(workspaceRoot);
     const { jobDirectory } = createStagingJob({
@@ -666,7 +657,7 @@ Avoid: House-cat proportions.
         workspaceRoot,
         verifySource: false,
       }),
-    ).toThrow("active Intake candidate with unresolved revision notes");
+    ).toThrow("active Revise candidate with unresolved revision notes");
     expect(
       existsSync(join(assetDirectory, "revisions", "r002")),
     ).toBe(false);

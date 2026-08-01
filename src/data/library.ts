@@ -39,9 +39,8 @@ interface RevisionBatchResponse {
 
 export type ReviewMutationAction =
   | "approve"
+  | "send-to-revise"
   | "add-note"
-  | "deny"
-  | "reopen"
   | "start-revision"
   | "archive"
   | "restore";

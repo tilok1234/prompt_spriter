@@ -1,7 +1,7 @@
 # Project status
 
 **Current phase:** Phase 4 - revision batches underway; v2 production style active
-**Plan:** `docs/MASTER_PLAN.md`, version 0.4
+**Plan:** `docs/MASTER_PLAN.md`, version 0.5
 **Repository:** `https://github.com/tilok1234/prompt_spriter`
 
 ## Completed checkpoint
@@ -18,7 +18,7 @@ Phases 0 through 2 are complete:
 - animated browser Intake viewer with direction, animation, frame, zoom, and
   background controls;
 - contract/library scanner and structural PNG validation;
-- review-state unit tests, including Archive-only-from-Denied;
+- review-state unit tests, including Archive-only-from-Revise;
 - production TypeScript/Vite build.
 - read-only inventory of the visible Aseprite Pro MCP capabilities;
 - user-started Antigravity workflow;
@@ -41,17 +41,17 @@ the user's visual decision remain separate.
 
 ## Phase 3 completed checkpoint
 
-The Phase 3 review loop is implemented and was simplified in Phase 4 so Intake
-is the sole active candidate lane:
+The complete Phase 3 review loop is implemented:
 
 - manual Approve of one exact Intake revision;
-- Add revision note while the candidate stays in Intake;
+- Send to Revise with one required actionable note;
+- grouped, multi-select quick-issue presets that compose editable actionable
+  feedback in both note-entry dialogs;
 - optional note targets for direction, animation, and frames;
-- unresolved-note safeguard blocking approval until revision ingestion;
-- derived **Awaiting review** and **Revision requested** Intake filters;
-- Deny and Return-to-Intake actions;
-- Archive action available only from Denied;
-- Restore action returning Archive candidates to Denied;
+- additional notes from the Revise view;
+- defensive unresolved-note approval blocking;
+- Archive action available only from Revise;
+- Restore action returning Archive candidates to Revise;
 - Library membership for the exact approved revision;
 - atomic `review.json` replacement with retry-safe Windows writes;
 - stale-review conflict detection and exact revision/lane enforcement;
@@ -60,7 +60,7 @@ is the sole active candidate lane:
 - protected **Start revision** from an approved Library revision with a required
   actionable note;
 - completion-required existing-asset revision ingestion from the exact active
-  Intake candidate with unresolved notes;
+  Revise candidate with unresolved notes;
 - automatic next `rNNN` allocation with parent-revision provenance;
 - preserved approved revision while a newer immutable candidate returns to
   Intake;
@@ -74,17 +74,17 @@ is the sole active candidate lane:
   retry, preserved `r001` hashes, and protected Library membership;
 - disposable two-revision browser QA with no runtime errors.
 
-The live lion remains in Intake with `approvedRevisionId: null`. Implementation
-and tests do not make a visual decision for the user.
+Runtime review state is user-owned and continues to change independently of
+Git. Implementation and tests do not make a visual decision for the user.
 
-`npm.cmd run check` passes the current gate with 9 test files and 49 tests.
+`npm.cmd run check` passes the current gate with 10 test files and 57 tests.
 Technical validation and the user's visual decision remain separate.
 
 ## Phase 4 current work
 
 The first revision-batch slice is implemented:
 
-- multi-selection of exact Intake candidates with unresolved notes;
+- multi-selection of exact Revise candidates with unresolved notes;
 - unique kebab-case revision-batch identity;
 - stale `review.updatedAt`, exact revision, lane, and unresolved-note checks;
 - deterministic `batch.json` registration;
@@ -94,8 +94,9 @@ The first revision-batch slice is implemented:
 - read-only Batches view with saved briefs and copy control;
 - tests proving batch creation never changes review records or immutable sprite
   artifacts.
-- deterministic in-memory migration of legacy Revise candidates into Intake,
-  with schema `1.1.0` persisted on the next trusted review action or ingestion;
+- deterministic in-memory migration of schema `1.0.0` Revise and schema `1.1.0`
+  Intake-with-notes or Denied candidates into Revise, with schema `1.2.0`
+  persisted on the next trusted review action or ingestion;
 - recovery of a fully validated new-asset transaction when Windows interrupts
   the final registration move;
 - development-viewer exclusion of the ignored `workspace/` tree from Vite file
@@ -118,19 +119,22 @@ The first revision-batch slice is implemented:
 - Promptinator viewer lanes for Ready, In progress, and Completed, including a
   refresh control for external Antigravity updates.
 - `assembler-inspired-v2@0.1.0` promoted to the production creation default;
-- Promptinator store schema `1.4.0`, which retains the Ready-only v2 migration
-  and adds one atomic active v2 test-batch dispatch pin;
+- Promptinator store schema `1.5.0`, which retains the Ready-only v2 migration,
+  adds one atomic active v2 test-batch dispatch pin, and refreshes only
+  still-Ready v2 prompts with the recognition safeguards while preserving
+  dispatched and completed prompt provenance;
 - Ready-only legacy-v1 selection for deliberate compatibility work.
 - explicit multi-selection of 2-24 Ready entries into a durable v2 test batch;
 - prominent exact next-claim entry/style display shared by trusted claim and
   manual Copy next;
 - trusted claim priority constrained to the active test batch, with an explicit
   stop instead of silent spillover when the selected group is exhausted.
-- simplified review schema `1.1.0` with Intake as the sole active lane, Denied
-  as reversible dormant rejection, Archive-only-from-Denied, and deterministic
-  legacy Revise projection;
-- unresolved-note approval blocking plus Awaiting-review and Revision-requested
-  Intake filters;
+- restored review schema `1.2.0` with Intake, Revise, and Archive candidate
+  lanes, Revise-only notes and batching, and Archive-only-from-Revise;
+- grouped quick-note presets in Send-to-Revise, Add-note, and Start-revision
+  dialogs, while preserving editable free-form feedback;
+- recognition-specific quick notes for a hidden key feature, an overly chunky
+  merged body, and misaligned face or eyes;
 
 Remaining Phase 4 work:
 
@@ -181,6 +185,17 @@ The first prompt-density canary is recorded in
   Slushbelly Yeti, Glaciershell Beetle, Kelpcoil Serpent, and Meadow Slime all
   carry exact v2 provenance and immutable `r001` Intake results. Their visual
   review remains a separate user decision.
+- A read-only first-attempt outcome review found that v2 sharply reduced the
+  Archive rate but that native-scale subject recognition remained the dominant
+  reason for Revise. v2 now has a two-feature recognition budget plus
+  body-plan-specific center-mass and feature-separation guidance in the
+  Ready-only prompt and creator gate; the immutable used v2 style profile is
+  unchanged.
+- The next quality experiment is a pending 12-sprite, first-attempt-only v2
+  batch: four winged/ethereal, four humanoid-with-props, and four
+  construct/plant/animal subjects. Record all user outcomes before any
+  revision iteration. Targets are at least 50% direct approval, at most 10%
+  Archive, and readability complaints on fewer than 25% of candidates.
 
 ## Frozen first-slice decisions
 
