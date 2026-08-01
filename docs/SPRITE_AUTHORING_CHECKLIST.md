@@ -38,6 +38,35 @@ Apply the matching construction emphasis without inventing a new body plan:
   trunk, pot, or chassis supports so the body does not merge into one chunky
   unidentifiable mass.
 
+Then build the chosen plan from its separated masses. These recipes are the
+minimum construction, not decoration:
+
+- **biped:** three stacked masses — head (with any mask or hat), torso, and
+  legs with feet — each separated by contour or value. The head stays at or
+  under one third of standing height. A carried weapon, staff, or tool keeps
+  at least one transparent or contrasting pixel between its shaft and the
+  torso for most of its length; it never fuses into the body silhouette.
+- **quadruped:** one horizontal torso carried on four leg contacts (two may
+  merge per side in profile) with a visible belly gap or belly-shadow between
+  torso and ground for part of the torso's length; the head overlaps one end.
+- **flyer:** a solid center body around a third of the wingspan or more; wings
+  attach at shoulder height with readable sweep; feet or a tail settle the
+  mass so it is not a floating rectangle.
+- **shell or armored tank:** a dome plus a visible support row — feet, skirt,
+  or claws breaking the dome's base line — and a head or face mass protruding
+  from the shell so the silhouette is never one closed lump.
+- **serpent:** a head visibly wider or higher-contrast than the tail and at
+  least one direction change in the body curve; down/up views use overlap
+  rather than a straight column.
+- **fungus-amorphous:** a rounded organic silhouette with empty bounding-box
+  corners, at least two separated value masses (cap and stem, core and
+  membrane), and a face or focal cluster anchored to the main mass.
+
+If any direction's silhouette reads as a single rectangle with straight sides
+— no limb, gap, appendage, or contour break — the construction has failed
+regardless of what the validator reports. Rebuild from the plan's masses
+before continuing.
+
 This budget is a Promptinator and creator-side safeguard for new v2 work; it
 does not rewrite the immutable `assembler-inspired-v2@0.1.0` profile or any
 used request. A deliberate legacy-v1 job keeps its exact style while still

@@ -43,6 +43,10 @@ particular:
   upright bipeds or humanoids;
 - preserve a recognizable creature body plan instead of collapsing the subject
   into a blob, box, rock, or prop-like shape;
+- build the plan from its separated minimum masses per the checklist recipes
+  (head/torso/legs for bipeds, torso-on-legs with a belly gap for quadrupeds,
+  center-plus-wings for flyers, dome-plus-support-row for shells); no
+  direction may read as a single straight-sided slab;
 - make profiles and the rear view genuinely rotate the anatomy and required
   asymmetry;
 - derive and state per-row prop visibility before drawing (down shows the
