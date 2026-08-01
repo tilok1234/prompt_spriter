@@ -163,6 +163,18 @@
       "idle": 2,
       "walk": 3,
       "attack": 3
+    },
+    "anatomyMotion": {
+      "translationOnly": "warning",
+      "alignmentShiftPx": 2,
+      "minIdleResidualPixels": 6,
+      "minWalkResidualPixels": 15,
+      "minWalkFramesMeetingResidual": 2
+    },
+    "groundContact": {
+      "unstableContact": "warning",
+      "groundedMinBottomRow": 27,
+      "minWalkFramesOnBaselineRow": 2
     }
   }
 }

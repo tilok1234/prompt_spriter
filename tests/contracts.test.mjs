@@ -140,6 +140,144 @@ describe("sprite sheet contract inspection", () => {
   });
 });
 
+const motionValidation = {
+  ...qualityValidation,
+  anatomyMotion: {
+    translationOnly: "warning",
+    alignmentShiftPx: 2,
+    minIdleResidualPixels: 6,
+    minWalkResidualPixels: 15,
+    minWalkFramesMeetingResidual: 2,
+  },
+  groundContact: {
+    unstableContact: "warning",
+    groundedMinBottomRow: 6,
+    minWalkFramesOnBaselineRow: 2,
+  },
+};
+const motionRevision = { ...qualityRevision, validation: motionValidation };
+
+const drawCreature = (png, column, { offsetY = 1, accents = [] }) => {
+  const accentKeys = new Set(accents.map(([bx, by]) => `${bx},${by}`));
+  for (let by = 0; by < 6; by += 1) {
+    for (let bx = 0; bx < 6; bx += 1) {
+      const index = (png.width * (offsetY + by) + column * 8 + 1 + bx) * 4;
+      const accent = accentKeys.has(`${bx},${by}`);
+      png.data[index] = accent ? 40 : 180;
+      png.data[index + 1] = accent ? 160 : 70;
+      png.data[index + 2] = accent ? 220 : 50;
+      png.data[index + 3] = 255;
+    }
+  }
+};
+
+const writeMotionSheet = (path, cells) => {
+  const png = new PNG({ width: 80, height: 8, colorType: 6 });
+  cells.forEach((cell, column) => drawCreature(png, column, cell));
+  writeFileSync(path, PNG.sync.write(png));
+};
+
+const fullRows = (rows) =>
+  rows.flatMap((by) => [0, 1, 2, 3, 4, 5].map((bx) => [bx, by]));
+
+describe("anatomy motion and ground contact advisories", () => {
+  it("flags translation-only idle, sliding walk, and bobbing ground contact", () => {
+    const root = mkdtempSync(join(tmpdir(), "prompt-spriter-contract-"));
+    temporaryRoots.push(root);
+    const path = join(root, "translation-bob.png");
+    writeMotionSheet(path, [
+      { offsetY: 1, accents: [[1, 0]] },
+      { offsetY: 2, accents: [[1, 0]] },
+      { offsetY: 1, accents: [[2, 1]] },
+      { offsetY: 2, accents: [[3, 1]] },
+      { offsetY: 1, accents: [[4, 1]] },
+      { offsetY: 2, accents: [[5, 1]] },
+      { offsetY: 1, accents: [[0, 2]] },
+      { offsetY: 1, accents: [[1, 2]] },
+      { offsetY: 1, accents: [[2, 2]] },
+      { offsetY: 1, accents: [[3, 2]] },
+    ]);
+
+    const result = inspectSpriteSheet(path, motionRevision);
+
+    expect(result.failures).toEqual([]);
+    expect(result.warnings).toContain(
+      `${path}: down idle changes 0 pixels beyond its best +/-2px translation; minimum is 6`,
+    );
+    expect(result.warnings).toContain(
+      `${path}: down walk has 0 frames moving at least 15 pixels beyond the translated idle pose; minimum is 2`,
+    );
+    expect(result.warnings).toContain(
+      `${path}: down idle bottom contact moves from pixel row 6 to 7; ground contact must stay fixed`,
+    );
+  });
+
+  it("accepts anatomy-level motion with stable ground contact", () => {
+    const root = mkdtempSync(join(tmpdir(), "prompt-spriter-contract-"));
+    temporaryRoots.push(root);
+    const path = join(root, "anatomy-motion.png");
+    writeMotionSheet(path, [
+      { offsetY: 1, accents: [[1, 0]] },
+      {
+        offsetY: 1,
+        accents: [[1, 0], [2, 2], [3, 2], [2, 3], [3, 3], [2, 4], [3, 4]],
+      },
+      {
+        offsetY: 1,
+        accents: [[1, 0], ...fullRows([3, 4]), [2, 2], [3, 2], [2, 5], [3, 5]],
+      },
+      { offsetY: 1, accents: [[2, 0]] },
+      {
+        offsetY: 1,
+        accents: [[1, 0], ...fullRows([2, 5]), [0, 3], [5, 3], [0, 4], [5, 4]],
+      },
+      { offsetY: 1, accents: [[3, 0]] },
+      { offsetY: 1, accents: [[0, 2]] },
+      { offsetY: 1, accents: [[1, 2]] },
+      { offsetY: 1, accents: [[2, 2]] },
+      { offsetY: 1, accents: [[3, 2]] },
+    ]);
+
+    const result = inspectSpriteSheet(path, motionRevision);
+
+    expect(result.failures).toEqual([]);
+    expect(
+      result.warnings.filter(
+        (warning) =>
+          warning.includes("translat") || warning.includes("ground"),
+      ),
+    ).toEqual([]);
+  });
+
+  it("skips ground-contact checks for hovering silhouettes but still requires anatomy motion", () => {
+    const root = mkdtempSync(join(tmpdir(), "prompt-spriter-contract-"));
+    temporaryRoots.push(root);
+    const path = join(root, "hovering.png");
+    writeMotionSheet(path, [
+      { offsetY: 0, accents: [[1, 0]] },
+      { offsetY: 1, accents: [[1, 0]] },
+      { offsetY: 0, accents: [[2, 1]] },
+      { offsetY: 1, accents: [[3, 1]] },
+      { offsetY: 0, accents: [[4, 1]] },
+      { offsetY: 1, accents: [[5, 1]] },
+      { offsetY: 0, accents: [[0, 2]] },
+      { offsetY: 0, accents: [[1, 2]] },
+      { offsetY: 0, accents: [[2, 2]] },
+      { offsetY: 0, accents: [[3, 2]] },
+    ]);
+
+    const result = inspectSpriteSheet(path, motionRevision);
+
+    expect(result.failures).toEqual([]);
+    expect(result.warnings).toContain(
+      `${path}: down idle changes 0 pixels beyond its best +/-2px translation; minimum is 6`,
+    );
+    expect(
+      result.warnings.filter((warning) => warning.includes("ground")),
+    ).toEqual([]);
+  });
+});
+
 describe("library quality scan scope", () => {
   it("can preserve integrity checks without reapplying current quality floors", () => {
     const repositoryRoot = resolve(import.meta.dirname, "..");

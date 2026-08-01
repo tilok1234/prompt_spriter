@@ -207,6 +207,34 @@ export const validateCategorySemantics = (category, label) => {
     }
   }
 
+  const walkFrames = animationsById.get("walk")?.frames ?? 0;
+  const anatomyMotion = category.validation.anatomyMotion;
+  if (anatomyMotion) {
+    if (anatomyMotion.alignmentShiftPx > 4) {
+      failures.push(
+        `${label}: anatomy-motion alignment shift must stay within 0-4 pixels`,
+      );
+    }
+    if (anatomyMotion.minWalkFramesMeetingResidual > walkFrames) {
+      failures.push(
+        `${label}: anatomy-motion walk frame requirement exceeds the walk animation length`,
+      );
+    }
+  }
+  const groundContact = category.validation.groundContact;
+  if (groundContact) {
+    if (groundContact.groundedMinBottomRow >= category.frame.height) {
+      failures.push(
+        `${label}: ground-contact grounded row threshold exceeds the frame height`,
+      );
+    }
+    if (groundContact.minWalkFramesOnBaselineRow > walkFrames) {
+      failures.push(
+        `${label}: ground-contact walk frame requirement exceeds the walk animation length`,
+      );
+    }
+  }
+
   return failures;
 };
 
@@ -271,6 +299,34 @@ const assertPathInside = (root, path) => {
   );
 };
 
+const bestShiftResidual = (reference, candidate, width, height, maxShift) => {
+  let best = Infinity;
+  for (let dy = -maxShift; dy <= maxShift && best > 0; dy += 1) {
+    for (let dx = -maxShift; dx <= maxShift && best > 0; dx += 1) {
+      let differing = 0;
+      for (let y = 0; y < height; y += 1) {
+        for (let x = 0; x < width; x += 1) {
+          const targetIndex = (y * width + x) * 4;
+          const sourceX = x - dx;
+          const sourceY = y - dy;
+          const inside =
+            sourceX >= 0 && sourceX < width && sourceY >= 0 && sourceY < height;
+          const sourceIndex = (sourceY * width + sourceX) * 4;
+          for (let channel = 0; channel < 4; channel += 1) {
+            const sourceValue = inside ? reference[sourceIndex + channel] : 0;
+            if (sourceValue !== candidate[targetIndex + channel]) {
+              differing += 1;
+              break;
+            }
+          }
+        }
+      }
+      if (differing < best) best = differing;
+    }
+  }
+  return best;
+};
+
 export const inspectSpriteSheet = (path, revision) => {
   const failures = [];
   const warnings = [];
@@ -306,12 +362,22 @@ export const inspectSpriteSheet = (path, revision) => {
     () => Array(revision.sheet.columns).fill(null),
   );
   const quality = revision.validation ?? null;
-  const describeFrame = (row, column) => {
+  const motionCells = Array.from(
+    { length: revision.sheet.rows },
+    () => Array(revision.sheet.columns).fill(null),
+  );
+  const bottomRows = Array.from(
+    { length: revision.sheet.rows },
+    () => Array(revision.sheet.columns).fill(-1),
+  );
+  const directionName = (row) => {
     const directionValue = revision.directions?.[row];
-    const direction =
-      typeof directionValue === "string"
-        ? directionValue
-        : directionValue?.id ?? `row ${row + 1}`;
+    return typeof directionValue === "string"
+      ? directionValue
+      : directionValue?.id ?? `row ${row + 1}`;
+  };
+  const describeFrame = (row, column) => {
+    const direction = directionName(row);
     const animation = revision.animations?.find(
       (candidate) =>
         column >= candidate.startColumn &&
@@ -331,6 +397,9 @@ export const inspectSpriteSheet = (path, revision) => {
       let maxY = -1;
       const frameColors = new Set();
       const bytes = [];
+      const motionPixels = new Uint8Array(
+        revision.sheet.cellWidth * revision.sheet.cellHeight * 4,
+      );
       for (let y = 0; y < revision.sheet.cellHeight; y += 1) {
         for (let x = 0; x < revision.sheet.cellWidth; x += 1) {
           const pixelX = column * revision.sheet.cellWidth + x;
@@ -346,6 +415,11 @@ export const inspectSpriteSheet = (path, revision) => {
             frameColors.add(
               `${png.data[index]},${png.data[index + 1]},${png.data[index + 2]}`,
             );
+            const motionIndex = (y * revision.sheet.cellWidth + x) * 4;
+            motionPixels[motionIndex] = png.data[index];
+            motionPixels[motionIndex + 1] = png.data[index + 1];
+            motionPixels[motionIndex + 2] = png.data[index + 2];
+            motionPixels[motionIndex + 3] = alpha;
           }
           if (alpha > 0) {
             if (
@@ -399,6 +473,9 @@ export const inspectSpriteSheet = (path, revision) => {
         );
       }
 
+      motionCells[row][column] = motionPixels;
+      bottomRows[row][column] = maxY;
+
       const hash = Buffer.from(bytes).toString("base64");
       cellHashes[row][column] = hash;
       const prior = frameHashes.get(hash);
@@ -424,13 +501,105 @@ export const inspectSpriteSheet = (path, revision) => {
         );
         const distinct = new Set(hashes.filter(Boolean)).size;
         if (distinct < minimum) {
-          const directionValue = revision.directions?.[row];
-          const direction =
-            typeof directionValue === "string"
-              ? directionValue
-              : directionValue?.id ?? `row ${row + 1}`;
           failures.push(
-            `${path}: ${direction} ${animation.id} has ${distinct} distinct frame${distinct === 1 ? "" : "s"}; minimum is ${minimum}`,
+            `${path}: ${directionName(row)} ${animation.id} has ${distinct} distinct frame${distinct === 1 ? "" : "s"}; minimum is ${minimum}`,
+          );
+        }
+      }
+    }
+  }
+
+  const reportCheck = (severity, message) => {
+    if (severity === "error") failures.push(message);
+    else warnings.push(message);
+  };
+  const idleAnimation = revision.animations?.find(
+    (animation) => animation.id === "idle",
+  );
+  const walkAnimation = revision.animations?.find(
+    (animation) => animation.id === "walk",
+  );
+
+  const anatomyMotion = quality?.anatomyMotion;
+  if (anatomyMotion && idleAnimation) {
+    const shift = anatomyMotion.alignmentShiftPx;
+    for (let row = 0; row < revision.sheet.rows; row += 1) {
+      const idleReference = motionCells[row][idleAnimation.startColumn];
+      if (!idleReference) continue;
+
+      if (idleAnimation.frames >= 2) {
+        const idleSecond = motionCells[row][idleAnimation.startColumn + 1];
+        if (idleSecond) {
+          const residual = bestShiftResidual(
+            idleReference,
+            idleSecond,
+            revision.sheet.cellWidth,
+            revision.sheet.cellHeight,
+            shift,
+          );
+          if (residual < anatomyMotion.minIdleResidualPixels) {
+            reportCheck(
+              anatomyMotion.translationOnly,
+              `${path}: ${directionName(row)} idle changes ${residual} pixel${residual === 1 ? "" : "s"} beyond its best +/-${shift}px translation; minimum is ${anatomyMotion.minIdleResidualPixels}`,
+            );
+          }
+        }
+      }
+
+      if (walkAnimation) {
+        let meetingFrames = 0;
+        for (let frame = 0; frame < walkAnimation.frames; frame += 1) {
+          const walkFrame = motionCells[row][walkAnimation.startColumn + frame];
+          if (!walkFrame) continue;
+          const residual = bestShiftResidual(
+            idleReference,
+            walkFrame,
+            revision.sheet.cellWidth,
+            revision.sheet.cellHeight,
+            shift,
+          );
+          if (residual >= anatomyMotion.minWalkResidualPixels) {
+            meetingFrames += 1;
+          }
+        }
+        if (meetingFrames < anatomyMotion.minWalkFramesMeetingResidual) {
+          reportCheck(
+            anatomyMotion.translationOnly,
+            `${path}: ${directionName(row)} walk has ${meetingFrames} frame${meetingFrames === 1 ? "" : "s"} moving at least ${anatomyMotion.minWalkResidualPixels} pixels beyond the translated idle pose; minimum is ${anatomyMotion.minWalkFramesMeetingResidual}`,
+          );
+        }
+      }
+    }
+  }
+
+  const groundContact = quality?.groundContact;
+  if (groundContact && idleAnimation) {
+    for (let row = 0; row < revision.sheet.rows; row += 1) {
+      const baseline = bottomRows[row][idleAnimation.startColumn];
+      if (baseline < groundContact.groundedMinBottomRow) continue;
+
+      for (let frame = 1; frame < idleAnimation.frames; frame += 1) {
+        const bottom = bottomRows[row][idleAnimation.startColumn + frame];
+        if (bottom >= 0 && bottom !== baseline) {
+          reportCheck(
+            groundContact.unstableContact,
+            `${path}: ${directionName(row)} idle bottom contact moves from pixel row ${baseline} to ${bottom}; ground contact must stay fixed`,
+          );
+          break;
+        }
+      }
+
+      if (walkAnimation) {
+        let onBaseline = 0;
+        for (let frame = 0; frame < walkAnimation.frames; frame += 1) {
+          if (bottomRows[row][walkAnimation.startColumn + frame] === baseline) {
+            onBaseline += 1;
+          }
+        }
+        if (onBaseline < groundContact.minWalkFramesOnBaselineRow) {
+          reportCheck(
+            groundContact.unstableContact,
+            `${path}: ${directionName(row)} walk keeps ${onBaseline} frame${onBaseline === 1 ? "" : "s"} on ground row ${baseline}; minimum is ${groundContact.minWalkFramesOnBaselineRow}`,
           );
         }
       }

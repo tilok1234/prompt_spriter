@@ -409,6 +409,66 @@
             "walk": { "type": "integer", "minimum": 1 },
             "attack": { "type": "integer", "minimum": 1 }
           }
+        },
+        "anatomyMotion": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "translationOnly",
+            "alignmentShiftPx",
+            "minIdleResidualPixels",
+            "minWalkResidualPixels",
+            "minWalkFramesMeetingResidual"
+          ],
+          "properties": {
+            "translationOnly": {
+              "enum": [
+                "warning",
+                "error"
+              ]
+            },
+            "alignmentShiftPx": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minIdleResidualPixels": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "minWalkResidualPixels": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "minWalkFramesMeetingResidual": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "groundContact": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "unstableContact",
+            "groundedMinBottomRow",
+            "minWalkFramesOnBaselineRow"
+          ],
+          "properties": {
+            "unstableContact": {
+              "enum": [
+                "warning",
+                "error"
+              ]
+            },
+            "groundedMinBottomRow": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minWalkFramesOnBaselineRow": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
         }
       }
     }

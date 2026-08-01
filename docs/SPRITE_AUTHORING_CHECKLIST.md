@@ -123,6 +123,13 @@ shockwaves must not substitute for a changed pose. Reusing a neutral pose as a
 deliberate recovery is acceptable; repeatedly reusing unchanged frames across
 idle, walk, and attack is not.
 
+Structural validation now emits advisory warnings for exactly these failures:
+idle or walk frames that are only a translated copy of the idle pose, and
+grounded bodies whose bottom contact row shifts while standing or walking
+(`validation.anatomyMotion` and `validation.groundContact` in the category
+contract). Treat any of those advisories on your own submission as a failed
+motion gate to repair before completion, not as noise to explain away.
+
 ## 5. Pass the material and cluster gate
 
 - Use a few large value groups before small texture marks.

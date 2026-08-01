@@ -53,3 +53,21 @@ side art or an explicit documented exception.
 - no baked shadow;
 - readable at both 1x and 4x nearest-neighbor scale.
 
+## Automated motion advisories
+
+Structural validation backs two of the review emphases with advisory checks
+configured in `category.json` under `validation.anatomyMotion` and
+`validation.groundContact`:
+
+- an idle or walk frame that is explainable as a whole-sprite translation of
+  the idle key pose (after trying every alignment shift up to
+  `alignmentShiftPx`) is flagged as translation-only motion;
+- a grounded silhouette (idle bottom contact at or below
+  `groundedMinBottomRow`) whose bottom contact row moves during idle, or whose
+  walk keeps fewer than `minWalkFramesOnBaselineRow` frames on the ground row,
+  is flagged as unstable ground contact.
+
+Both checks are warnings, not errors: existing immutable revisions keep their
+stored validation reports, and a warning still requires the visual gate in
+`docs/SPRITE_AUTHORING_CHECKLIST.md` rather than replacing it.
+
