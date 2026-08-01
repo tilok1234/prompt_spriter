@@ -44,6 +44,7 @@ export interface PromptinatorEntry {
       | "style-selected"
       | "default-style-migrated"
       | "recognition-safeguards-migrated"
+      | "directional-safeguards-migrated"
       | "v2-test-batch-selected";
     at: string;
     style?: { id: string; version: string };
@@ -56,7 +57,7 @@ export interface PromptinatorEntry {
 
 export interface PromptinatorStore {
   kind: "promptinator-store";
-  schemaVersion: "1.5.0";
+  schemaVersion: "1.6.0";
   updatedAt: string;
   activeTestBatch: {
     id: string;

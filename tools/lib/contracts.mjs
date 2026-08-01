@@ -234,6 +234,20 @@ export const validateCategorySemantics = (category, label) => {
       );
     }
   }
+  const attackReadability = category.validation.attackReadability;
+  if (attackReadability) {
+    if (attackReadability.alignmentShiftPx > 4) {
+      failures.push(
+        `${label}: attack-readability alignment shift must stay within 0-4 pixels`,
+      );
+    }
+    const attackFrames = animationsById.get("attack")?.frames ?? 0;
+    if (attackReadability.minAttackFramesMeetingResidual > attackFrames) {
+      failures.push(
+        `${label}: attack-readability frame requirement exceeds the attack animation length`,
+      );
+    }
+  }
 
   return failures;
 };
@@ -325,6 +339,38 @@ const bestShiftResidual = (reference, candidate, width, height, maxShift) => {
     }
   }
   return best;
+};
+
+const opaqueComponents = (cell, width, height) => {
+  const total = width * height;
+  const visited = new Uint8Array(total);
+  const components = [];
+  for (let start = 0; start < total; start += 1) {
+    if (visited[start] || cell[start * 4 + 3] === 0) continue;
+    const queue = [start];
+    visited[start] = 1;
+    const pixels = [];
+    while (queue.length > 0) {
+      const index = queue.pop();
+      pixels.push(index);
+      const x = index % width;
+      const y = (index / width) | 0;
+      for (let dy = -1; dy <= 1; dy += 1) {
+        for (let dx = -1; dx <= 1; dx += 1) {
+          if (dx === 0 && dy === 0) continue;
+          const nx = x + dx;
+          const ny = y + dy;
+          if (nx < 0 || nx >= width || ny < 0 || ny >= height) continue;
+          const neighbor = ny * width + nx;
+          if (visited[neighbor] || cell[neighbor * 4 + 3] === 0) continue;
+          visited[neighbor] = 1;
+          queue.push(neighbor);
+        }
+      }
+    }
+    components.push(pixels);
+  }
+  return components;
 };
 
 export const inspectSpriteSheet = (path, revision) => {
@@ -601,6 +647,154 @@ export const inspectSpriteSheet = (path, revision) => {
             groundContact.unstableContact,
             `${path}: ${directionName(row)} walk keeps ${onBaseline} frame${onBaseline === 1 ? "" : "s"} on ground row ${baseline}; minimum is ${groundContact.minWalkFramesOnBaselineRow}`,
           );
+        }
+      }
+    }
+  }
+
+  const attackReadability = quality?.attackReadability;
+  const attackAnimation = revision.animations?.find(
+    (animation) => animation.id === "attack",
+  );
+  if (attackReadability && idleAnimation && attackAnimation) {
+    const cellWidth = revision.sheet.cellWidth;
+    const cellHeight = revision.sheet.cellHeight;
+    const facingVectors = {
+      down: [0, 1],
+      up: [0, -1],
+      left: [-1, 0],
+      right: [1, 0],
+    };
+    for (let row = 0; row < revision.sheet.rows; row += 1) {
+      const idleReference = motionCells[row][idleAnimation.startColumn];
+      if (!idleReference) continue;
+
+      const idleDilated = new Uint8Array(cellWidth * cellHeight);
+      for (let y = 0; y < cellHeight; y += 1) {
+        for (let x = 0; x < cellWidth; x += 1) {
+          if (idleReference[(y * cellWidth + x) * 4 + 3] === 0) continue;
+          for (let dy = -1; dy <= 1; dy += 1) {
+            for (let dx = -1; dx <= 1; dx += 1) {
+              const nx = x + dx;
+              const ny = y + dy;
+              if (nx >= 0 && nx < cellWidth && ny >= 0 && ny < cellHeight) {
+                idleDilated[ny * cellWidth + nx] = 1;
+              }
+            }
+          }
+        }
+      }
+
+      let framesWithBodyMotion = 0;
+      const effectCentroids = [];
+      let effectsNearEdge = false;
+      for (let frame = 0; frame < attackAnimation.frames; frame += 1) {
+        const attackCell = motionCells[row][attackAnimation.startColumn + frame];
+        if (!attackCell) continue;
+        const components = opaqueComponents(attackCell, cellWidth, cellHeight);
+        if (components.length === 0) continue;
+        let bodyIndex = 0;
+        for (let index = 1; index < components.length; index += 1) {
+          if (components[index].length > components[bodyIndex].length) {
+            bodyIndex = index;
+          }
+        }
+        const transientPixels = [];
+        components.forEach((pixels, index) => {
+          if (index === bodyIndex) return;
+          const persistentOverlap = pixels.filter(
+            (pixel) => idleDilated[pixel] === 1,
+          ).length;
+          if (persistentOverlap * 2 >= pixels.length) return;
+          transientPixels.push(...pixels);
+        });
+
+        const bodyOnly = Uint8Array.from(attackCell);
+        for (const pixel of transientPixels) {
+          bodyOnly[pixel * 4] = 0;
+          bodyOnly[pixel * 4 + 1] = 0;
+          bodyOnly[pixel * 4 + 2] = 0;
+          bodyOnly[pixel * 4 + 3] = 0;
+        }
+        const residual = bestShiftResidual(
+          idleReference,
+          bodyOnly,
+          cellWidth,
+          cellHeight,
+          attackReadability.alignmentShiftPx,
+        );
+        if (residual >= attackReadability.minBodyResidualPixels) {
+          framesWithBodyMotion += 1;
+        }
+
+        if (transientPixels.length > 0) {
+          let sumX = 0;
+          let sumY = 0;
+          for (const pixel of transientPixels) {
+            sumX += pixel % cellWidth;
+            sumY += (pixel / cellWidth) | 0;
+          }
+          let bodySumX = 0;
+          let bodySumY = 0;
+          for (const pixel of components[bodyIndex]) {
+            bodySumX += pixel % cellWidth;
+            bodySumY += (pixel / cellWidth) | 0;
+          }
+          effectCentroids.push({
+            x: sumX / transientPixels.length,
+            y: sumY / transientPixels.length,
+            bodyX: bodySumX / components[bodyIndex].length,
+            bodyY: bodySumY / components[bodyIndex].length,
+          });
+          const margin = attackReadability.minEffectsEdgeMarginPx;
+          if (
+            !effectsNearEdge &&
+            transientPixels.some((pixel) => {
+              const x = pixel % cellWidth;
+              const y = (pixel / cellWidth) | 0;
+              return (
+                x < margin ||
+                y < margin ||
+                x >= cellWidth - margin ||
+                y >= cellHeight - margin
+              );
+            })
+          ) {
+            effectsNearEdge = true;
+          }
+        }
+      }
+
+      if (framesWithBodyMotion < attackReadability.minAttackFramesMeetingResidual) {
+        reportCheck(
+          attackReadability.effectsOnly,
+          `${path}: ${directionName(row)} attack has ${framesWithBodyMotion} frame${framesWithBodyMotion === 1 ? "" : "s"} with body motion of at least ${attackReadability.minBodyResidualPixels} pixels beyond the idle pose; minimum is ${attackReadability.minAttackFramesMeetingResidual}`,
+        );
+      }
+      if (effectsNearEdge) {
+        reportCheck(
+          attackReadability.effectsEdgeContact,
+          `${path}: ${directionName(row)} attack effects come closer than ${attackReadability.minEffectsEdgeMarginPx}px to the cell edge`,
+        );
+      }
+      const facing = facingVectors[directionName(row)];
+      if (facing && effectCentroids.length >= 1) {
+        const last = effectCentroids[effectCentroids.length - 1];
+        const bearingX = last.x - last.bodyX;
+        const bearingY = last.y - last.bodyY;
+        const bearing = Math.hypot(bearingX, bearingY);
+        if (bearing >= attackReadability.minEffectsTravelPx) {
+          const cosAngle =
+            (bearingX * facing[0] + bearingY * facing[1]) / bearing;
+          const limit = Math.cos(
+            (attackReadability.maxEffectsAngleFromFacingDeg * Math.PI) / 180,
+          );
+          if (cosAngle < limit) {
+            reportCheck(
+              attackReadability.misaimedEffects,
+              `${path}: ${directionName(row)} attack effects end at (${Math.round(bearingX)}, ${Math.round(bearingY)}) relative to the body, outside ${attackReadability.maxEffectsAngleFromFacingDeg} degrees of the ${directionName(row)} facing`,
+            );
+          }
         }
       }
     }

@@ -469,6 +469,66 @@
               "minimum": 1
             }
           }
+        },
+        "attackReadability": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "effectsOnly",
+            "misaimedEffects",
+            "effectsEdgeContact",
+            "alignmentShiftPx",
+            "minBodyResidualPixels",
+            "minAttackFramesMeetingResidual",
+            "maxEffectsAngleFromFacingDeg",
+            "minEffectsTravelPx",
+            "minEffectsEdgeMarginPx"
+          ],
+          "properties": {
+            "effectsOnly": {
+              "enum": [
+                "warning",
+                "error"
+              ]
+            },
+            "misaimedEffects": {
+              "enum": [
+                "warning",
+                "error"
+              ]
+            },
+            "effectsEdgeContact": {
+              "enum": [
+                "warning",
+                "error"
+              ]
+            },
+            "alignmentShiftPx": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "minBodyResidualPixels": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "minAttackFramesMeetingResidual": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "maxEffectsAngleFromFacingDeg": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 180
+            },
+            "minEffectsTravelPx": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "minEffectsEdgeMarginPx": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
         }
       }
     }

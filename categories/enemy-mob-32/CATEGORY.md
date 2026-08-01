@@ -55,9 +55,9 @@ side art or an explicit documented exception.
 
 ## Automated motion advisories
 
-Structural validation backs two of the review emphases with advisory checks
-configured in `category.json` under `validation.anatomyMotion` and
-`validation.groundContact`:
+Structural validation backs the review emphases with advisory checks
+configured in `category.json` under `validation.anatomyMotion`,
+`validation.groundContact`, and `validation.attackReadability`:
 
 - an idle or walk frame that is explainable as a whole-sprite translation of
   the idle key pose (after trying every alignment shift up to
@@ -65,9 +65,15 @@ configured in `category.json` under `validation.anatomyMotion` and
 - a grounded silhouette (idle bottom contact at or below
   `groundedMinBottomRow`) whose bottom contact row moves during idle, or whose
   walk keeps fewer than `minWalkFramesOnBaselineRow` frames on the ground row,
-  is flagged as unstable ground contact.
+  is flagged as unstable ground contact;
+- attack frames are separated into the connected body mass and detached
+  transient effect clusters: too few frames with real body motion beyond the
+  idle pose, effect clusters that end up outside the facing cone
+  (`maxEffectsAngleFromFacingDeg` around the row's direction), and effect
+  pixels closer than `minEffectsEdgeMarginPx` to the cell edge are each
+  flagged.
 
-Both checks are warnings, not errors: existing immutable revisions keep their
-stored validation reports, and a warning still requires the visual gate in
-`docs/SPRITE_AUTHORING_CHECKLIST.md` rather than replacing it.
+All of these checks are warnings, not errors: existing immutable revisions
+keep their stored validation reports, and a warning still requires the visual
+gate in `docs/SPRITE_AUTHORING_CHECKLIST.md` rather than replacing it.
 

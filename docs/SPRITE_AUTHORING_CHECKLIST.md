@@ -62,6 +62,12 @@ do not rotate the finished side-view drawing or the canvas by 90 degrees.
 - Preserve the same head size, body thickness, major masses, and signature
   features through the turn. Foreshortening changes visible length, not the
   creature's anatomy.
+- Derive asymmetric prop placement mechanically instead of guessing per row:
+  facing down puts the creature's left side on the viewer's right; facing up
+  puts it on the viewer's left; the left-facing profile shows the creature's
+  own left flank and the right-facing profile its right flank. Write the
+  four-row visibility out before drawing, and keep far-flank props hidden
+  rather than sliding them to the visible side.
 - A `quadruped` must remain a low four-legged body in down and up. Keep a
   horizontal torso mass with four supports attached or visibly overlapped
   around it; never reinterpret the front or rear view as an upright biped,

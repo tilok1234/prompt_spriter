@@ -175,6 +175,17 @@
       "unstableContact": "warning",
       "groundedMinBottomRow": 27,
       "minWalkFramesOnBaselineRow": 2
+    },
+    "attackReadability": {
+      "effectsOnly": "warning",
+      "misaimedEffects": "warning",
+      "effectsEdgeContact": "warning",
+      "alignmentShiftPx": 2,
+      "minBodyResidualPixels": 12,
+      "minAttackFramesMeetingResidual": 2,
+      "maxEffectsAngleFromFacingDeg": 60,
+      "minEffectsTravelPx": 2,
+      "minEffectsEdgeMarginPx": 2
     }
   }
 }

@@ -278,6 +278,122 @@ describe("anatomy motion and ground contact advisories", () => {
   });
 });
 
+const attackRevision = {
+  sheet: {
+    cellWidth: 16,
+    cellHeight: 16,
+    columns: 10,
+    rows: 1,
+    width: 160,
+    height: 16,
+  },
+  directions: ["down"],
+  animations: [
+    { id: "idle", startColumn: 0, frames: 2 },
+    { id: "walk", startColumn: 2, frames: 4 },
+    { id: "attack", startColumn: 6, frames: 4 },
+  ],
+  validation: {
+    attackReadability: {
+      effectsOnly: "warning",
+      misaimedEffects: "warning",
+      effectsEdgeContact: "warning",
+      alignmentShiftPx: 2,
+      minBodyResidualPixels: 12,
+      minAttackFramesMeetingResidual: 2,
+      maxEffectsAngleFromFacingDeg: 60,
+      minEffectsTravelPx: 2,
+      minEffectsEdgeMarginPx: 2,
+    },
+  },
+};
+
+const writeAttackSheet = (path, cells) => {
+  const png = new PNG({ width: 160, height: 16, colorType: 6 });
+  const paint = (index, accent) => {
+    png.data[index] = accent ? 40 : 180;
+    png.data[index + 1] = accent ? 160 : 70;
+    png.data[index + 2] = accent ? 220 : 50;
+    png.data[index + 3] = 255;
+  };
+  cells.forEach(({ recolorRows = [], extras = [] }, column) => {
+    for (let by = 0; by < 6; by += 1) {
+      for (let bx = 0; bx < 6; bx += 1) {
+        paint(
+          (png.width * (6 + by) + column * 16 + 2 + bx) * 4,
+          recolorRows.includes(by),
+        );
+      }
+    }
+    for (const [x, y] of extras) {
+      paint((png.width * y + column * 16 + x) * 4, true);
+    }
+  });
+  writeFileSync(path, PNG.sync.write(png));
+};
+
+describe("attack readability advisories", () => {
+  it("flags effects-only attacks, misaimed trajectories, and edge-hugging effects", () => {
+    const root = mkdtempSync(join(tmpdir(), "prompt-spriter-contract-"));
+    temporaryRoots.push(root);
+    const path = join(root, "misaimed-attack.png");
+    writeAttackSheet(path, [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      { extras: [[13, 10], [14, 10]] },
+      { extras: [[13, 7], [14, 7]] },
+      { extras: [[13, 4], [14, 4]] },
+    ]);
+
+    const result = inspectSpriteSheet(path, attackRevision);
+
+    expect(result.failures).toEqual([]);
+    expect(result.warnings).toContain(
+      `${path}: down attack has 0 frames with body motion of at least 12 pixels beyond the idle pose; minimum is 2`,
+    );
+    expect(result.warnings).toContain(
+      `${path}: down attack effects end at (9, -4) relative to the body, outside 60 degrees of the down facing`,
+    );
+    expect(result.warnings).toContain(
+      `${path}: down attack effects come closer than 2px to the cell edge`,
+    );
+  });
+
+  it("accepts body-readable attacks with facing-aligned effects and persistent satellites", () => {
+    const root = mkdtempSync(join(tmpdir(), "prompt-spriter-contract-"));
+    temporaryRoots.push(root);
+    const path = join(root, "aimed-attack.png");
+    const satellite = [[2, 2], [3, 2]];
+    writeAttackSheet(path, [
+      { extras: satellite },
+      { extras: satellite },
+      { extras: satellite },
+      { extras: satellite },
+      { extras: satellite },
+      { extras: satellite },
+      { recolorRows: [0, 1], extras: [...satellite, [11, 4]] },
+      { recolorRows: [2, 3], extras: [...satellite, [11, 8]] },
+      { extras: [...satellite, [5, 13]] },
+      { extras: satellite },
+    ]);
+
+    const result = inspectSpriteSheet(path, attackRevision);
+
+    expect(result.failures).toEqual([]);
+    expect(
+      result.warnings.filter(
+        (warning) =>
+          warning.includes("attack effects") || warning.includes("body motion"),
+      ),
+    ).toEqual([]);
+  });
+});
+
 describe("library quality scan scope", () => {
   it("can preserve integrity checks without reapplying current quality floors", () => {
     const repositoryRoot = resolve(import.meta.dirname, "..");

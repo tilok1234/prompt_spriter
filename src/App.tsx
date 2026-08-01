@@ -207,7 +207,7 @@ function App() {
   const [promptinatorStore, setPromptinatorStore] =
     useState<PromptinatorStore>({
       kind: "promptinator-store",
-      schemaVersion: "1.5.0",
+      schemaVersion: "1.6.0",
       updatedAt: "1970-01-01T00:00:00.000Z",
       activeTestBatch: null,
       entries: [],

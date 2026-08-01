@@ -42,6 +42,12 @@ particular:
   into a blob, box, rock, or prop-like shape;
 - make profiles and the rear view genuinely rotate the anatomy and required
   asymmetry;
+- derive and state per-row prop visibility before drawing (down shows the
+  creature's left on the viewer's right; up shows it on the viewer's left; each
+  profile shows its own near flank) and keep far-flank props hidden;
+- state each row's on-screen attack direction before animating; thrown effects
+  travel toward that row's facing, stay at least 2 pixels inside the cell
+  edges, and resolve into a recovery pose;
 - animate four meaningful locomotion phases rather than translating or bobbing
   an unchanged body;
 - make anticipation, action, impact, and recovery readable with the effects

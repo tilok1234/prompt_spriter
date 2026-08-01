@@ -32,7 +32,7 @@ const claimIdPattern =
   /^claim-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
 const testBatchIdPattern =
   /^v2-test-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
-const currentStoreVersion = "1.5.0";
+const currentStoreVersion = "1.6.0";
 const productionStyle = { id: "assembler-inspired-v2", version: "0.1.0" };
 const legacyStyle = { id: "assembler-inspired-v1", version: "0.1.0" };
 const structuredV2RecognitionRules = [
@@ -40,6 +40,10 @@ const structuredV2RecognitionRules = [
   "- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.",
   "- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.",
   "- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.",
+];
+const structuredV2DirectionalRules = [
+  "- Derive prop visibility per row before drawing: facing down places the creature's left side on the viewer's right; facing up places it on the viewer's left; the left-facing profile shows the creature's own left flank; the right-facing profile shows its right flank. State which asymmetric props are visible in each of the four rows and keep far-flank props hidden.",
+  "- State each row's on-screen attack direction before animating: thrown or projected effects travel toward that row's facing (down toward the cell bottom, up toward the top, left and right toward their edges), stay at least 2 pixels inside every cell edge, and resolve into a recovery pose rather than freezing mid-flight.",
 ];
 
 export class PromptinatorError extends Error {
@@ -80,7 +84,7 @@ const renderPromptinatorPromptVersion = (
     style = productionStyle,
     formulaVersion = "structured-v2",
   },
-  { includeRecognitionRules },
+  { includeRecognitionRules, includeDirectionalRules = false },
 ) =>
   [
     "Read and follow the project documentation.",
@@ -119,11 +123,18 @@ const renderPromptinatorPromptVersion = (
           "- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.",
           "- Use only the required style profile's master palette and contour rule.",
           ...(includeRecognitionRules ? structuredV2RecognitionRules : []),
+          ...(includeDirectionalRules ? structuredV2DirectionalRules : []),
         ]
       : []),
   ].join("\n");
 
 export const renderPromptinatorPrompt = (options) =>
+  renderPromptinatorPromptVersion(options, {
+    includeRecognitionRules: true,
+    includeDirectionalRules: true,
+  });
+
+const renderRecognitionEraPrompt = (options) =>
   renderPromptinatorPromptVersion(options, { includeRecognitionRules: true });
 
 const renderLegacyPromptinatorPrompt = (options) =>
@@ -318,7 +329,7 @@ const lockPathFor = (workspaceRoot) =>
 
 const migrateStore = (store) => {
   if (
-    !["1.0.0", "1.1.0", "1.2.0", "1.3.0", "1.4.0"].includes(
+    !["1.0.0", "1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0"].includes(
       store?.schemaVersion,
     )
   ) {
@@ -389,6 +400,26 @@ const migrateStore = (store) => {
       };
     }
 
+    if (
+      normalizedEntry.state === "ready" &&
+      normalizedEntry.style?.id === productionStyle.id &&
+      normalizedEntry.style?.version === productionStyle.version &&
+      normalizedEntry.formulaVersion === "structured-v2" &&
+      normalizedEntry.promptText === renderRecognitionEraPrompt(promptOptions)
+    ) {
+      return {
+        ...normalizedEntry,
+        promptText: renderPromptinatorPrompt(promptOptions),
+        history: [
+          ...normalizedEntry.history,
+          {
+            action: "directional-safeguards-migrated",
+            at: store.updatedAt,
+          },
+        ],
+      };
+    }
+
     return normalizedEntry;
   };
   return {
@@ -412,10 +443,13 @@ const expectedPromptTexts = (entry) => {
   };
   return {
     current: renderPromptinatorPrompt(options),
-    legacy:
+    historical:
       entry.formulaVersion === "structured-v2"
-        ? renderLegacyPromptinatorPrompt(options)
-        : null,
+        ? [
+            renderRecognitionEraPrompt(options),
+            renderLegacyPromptinatorPrompt(options),
+          ]
+        : [],
   };
 };
 
@@ -498,7 +532,8 @@ const validateStore = (store, label) => {
     }
     const promptTexts = expectedPromptTexts(entry);
     const keepsHistoricalPrompt =
-      entry.state !== "ready" && entry.promptText === promptTexts.legacy;
+      entry.state !== "ready" &&
+      promptTexts.historical.includes(entry.promptText);
     if (entry.promptText !== promptTexts.current && !keepsHistoricalPrompt) {
       failures.push(`${label}: mismatched prompt text for ${entry.id}`);
     }
@@ -523,6 +558,7 @@ const validateStore = (store, label) => {
           "style-selected",
           "default-style-migrated",
           "recognition-safeguards-migrated",
+          "directional-safeguards-migrated",
           "v2-test-batch-selected",
         ].includes(lastAction))
     ) {
