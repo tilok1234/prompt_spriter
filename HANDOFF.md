@@ -2,7 +2,7 @@
 
 **Date:** 2026-08-01
 **Canonical repository:** `C:\Users\headc\Documents\prompt_spriter`
-**Checkpoint branch:** `codex/prompt-safeguards-review-flow`
+**Checkpoint branch:** `main`
 **Current phase:** Phase 4 revision batches; v2 production style active
 
 ## Start here
