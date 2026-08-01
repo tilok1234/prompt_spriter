@@ -58,6 +58,7 @@ const schemaFiles = [
   "completion.schema.json",
   "batch.schema.json",
   "promptinator.schema.json",
+  "style-examples.schema.json",
 ];
 
 const schemaForKind = {
@@ -71,6 +72,7 @@ const schemaForKind = {
   "completion-marker": "completion.schema.json",
   batch: "batch.schema.json",
   "promptinator-store": "promptinator.schema.json",
+  "style-example-registry": "style-examples.schema.json",
 };
 
 export const createContractValidator = () => {

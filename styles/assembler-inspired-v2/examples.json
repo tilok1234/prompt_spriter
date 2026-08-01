@@ -1,0 +1,28 @@
+{
+  "kind": "style-example-registry",
+  "schemaVersion": "1.0.0",
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "examples": [
+    {
+      "assetId": "enemy-mob-32-banner-drummer",
+      "revisionId": "r001",
+      "sheetPath": "workspace/library/assets/enemy-mob-32-banner-drummer/revisions/r001/sheet.png",
+      "sourcePath": "workspace/library/assets/enemy-mob-32-banner-drummer/revisions/r001/source.aseprite",
+      "sheetSha256": "a2822512a37314eaf856a517830651758693a1c1b30e6643aa1bbff5d8d9a5f7",
+      "note": "User-picked humanoid exemplar: equipment separated from torso with genuine drum-beat body motion.",
+      "promotedAt": "2026-08-01T20:34:10.301Z"
+    },
+    {
+      "assetId": "enemy-mob-32-orbit-owl",
+      "revisionId": "r001",
+      "sheetPath": "workspace/library/assets/enemy-mob-32-orbit-owl/revisions/r001/sheet.png",
+      "sourcePath": "workspace/library/assets/enemy-mob-32-orbit-owl/revisions/r001/source.aseprite",
+      "sheetSha256": "0689071faabd3109d27c96ee17a26588a8a27d97466b5849dac8b04fef434f9f",
+      "note": "User-picked flyer exemplar: readable orbiting-satellite silhouette and strong four-direction rotation.",
+      "promotedAt": "2026-08-01T20:33:48.331Z"
+    }
+  ]
+}

@@ -109,7 +109,7 @@ describe("Promptinator", () => {
       now: () => "2026-07-31T08:00:00.000Z",
     });
     expect(first.importedCount).toBe(2);
-    expect(first.store.schemaVersion).toBe("1.6.0");
+    expect(first.store.schemaVersion).toBe("1.7.0");
     expect(first.store.entries[0].style.id).toBe("assembler-inspired-v2");
     expect(first.store.entries[0].formulaVersion).toBe("structured-v2");
     const duplicate = importPromptCatalog({
@@ -273,7 +273,7 @@ describe("Promptinator", () => {
     );
 
     const migrated = readPromptinatorStore({ workspaceRoot: root });
-    expect(migrated.schemaVersion).toBe("1.6.0");
+    expect(migrated.schemaVersion).toBe("1.7.0");
     expect(migrated.activeTestBatch).toBeNull();
     expect(migrated.entries[0].style.id).toBe("assembler-inspired-v2");
     expect(migrated.entries[0].formulaVersion).toBe("structured-v2");
@@ -303,6 +303,7 @@ describe("Promptinator", () => {
       "Do not let a tiny face, eye, or detail",
       "Derive prop visibility per row",
       "State each row's on-screen attack direction",
+      "open and study every promoted example sheet",
     ];
     const legacyPrompt = (promptText) =>
       promptText
@@ -341,7 +342,7 @@ describe("Promptinator", () => {
     );
 
     const migrated = readPromptinatorStore({ workspaceRoot: root });
-    expect(migrated.schemaVersion).toBe("1.6.0");
+    expect(migrated.schemaVersion).toBe("1.7.0");
     expect(migrated.entries[0].promptText).toContain(
       "Use a recognition budget",
     );
@@ -380,6 +381,7 @@ describe("Promptinator", () => {
     const directionalFragments = [
       "Derive prop visibility per row",
       "State each row's on-screen attack direction",
+      "open and study every promoted example sheet",
     ];
     const recognitionEraPrompt = (promptText) =>
       promptText
@@ -422,7 +424,7 @@ describe("Promptinator", () => {
     );
 
     const migrated = readPromptinatorStore({ workspaceRoot: root });
-    expect(migrated.schemaVersion).toBe("1.6.0");
+    expect(migrated.schemaVersion).toBe("1.7.0");
     expect(migrated.entries[0].promptText).toContain(
       "Derive prop visibility per row",
     );
@@ -433,6 +435,72 @@ describe("Promptinator", () => {
     expect(migrated.entries[1].state).toBe("copied");
     expect(migrated.entries[1].promptText).not.toContain(
       "Derive prop visibility per row",
+    );
+    expect(migrated.entries[1].history.at(-1).action).toBe("copied");
+  });
+
+  it("adds example guidance only when historical v2 work is safely Ready", () => {
+    const root = workspace();
+    const imported = importPromptCatalog({
+      workspaceRoot: root,
+      text: sample,
+      sourceName: "example-migration.txt",
+      expectedUpdatedAt: "1970-01-01T00:00:00.000Z",
+      now: () => "2026-08-01T10:00:00.000Z",
+    });
+    const exampleFragments = ["open and study every promoted example sheet"];
+    const directionalEraPrompt = (promptText) =>
+      promptText
+        .split("\n")
+        .filter(
+          (line) =>
+            !exampleFragments.some((fragment) => line.includes(fragment)),
+        )
+        .join("\n");
+    const oldStore = {
+      ...imported.store,
+      schemaVersion: "1.6.0",
+      updatedAt: "2026-08-01T10:01:00.000Z",
+      entries: [
+        {
+          ...imported.store.entries[0],
+          promptText: directionalEraPrompt(
+            imported.store.entries[0].promptText,
+          ),
+        },
+        {
+          ...imported.store.entries[1],
+          promptText: directionalEraPrompt(
+            imported.store.entries[1].promptText,
+          ),
+          state: "copied",
+          copiedAt: "2026-08-01T10:01:00.000Z",
+          history: [
+            ...imported.store.entries[1].history,
+            { action: "copied", at: "2026-08-01T10:01:00.000Z" },
+          ],
+        },
+      ],
+    };
+    mkdirSync(join(root, "promptinator"), { recursive: true });
+    writeFileSync(
+      join(root, "promptinator", "store.json"),
+      `${JSON.stringify(oldStore, null, 2)}\n`,
+      "utf8",
+    );
+
+    const migrated = readPromptinatorStore({ workspaceRoot: root });
+    expect(migrated.schemaVersion).toBe("1.7.0");
+    expect(migrated.entries[0].promptText).toContain(
+      "open and study every promoted example sheet",
+    );
+    expect(migrated.entries[0].history.at(-1)).toEqual({
+      action: "example-guidance-migrated",
+      at: "2026-08-01T10:01:00.000Z",
+    });
+    expect(migrated.entries[1].state).toBe("copied");
+    expect(migrated.entries[1].promptText).not.toContain(
+      "open and study every promoted example sheet",
     );
     expect(migrated.entries[1].history.at(-1).action).toBe("copied");
   });

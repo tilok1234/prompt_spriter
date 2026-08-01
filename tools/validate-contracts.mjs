@@ -8,6 +8,10 @@ import {
   validateRecord,
   validateStyleSemantics,
 } from "./lib/contracts.mjs";
+import {
+  readStyleExampleRegistry,
+  validateStyleExampleRegistry,
+} from "./lib/style-examples.mjs";
 
 const categoryPath = join(
   repositoryRoot,
@@ -36,6 +40,18 @@ const failures = [
     ...validateStyleSemantics(value, path),
   ]),
 ];
+
+for (const { value } of styles) {
+  const registry = readStyleExampleRegistry({ styleId: value.id });
+  if (!registry) continue;
+  failures.push(
+    ...validateStyleExampleRegistry({
+      registry,
+      label: join(repositoryRoot, "styles", value.id, "examples.json"),
+      ajv,
+    }),
+  );
+}
 
 const library = validateLibraryRoot({
   ajv,

@@ -23,6 +23,9 @@ vertical slice.
 Follow `docs/SPRITE_AUTHORING_CHECKLIST.md` before completing the job. In
 particular:
 
+- open and study every promoted example sheet listed in
+  `styles/<style>/examples.json` at 1x and nearest-neighbor 4x before drawing;
+  match their construction quality without copying their pixels;
 - establish readable down, left, right, and up idle silhouettes before filling
   the timeline;
 - spend the v2 recognition budget on exactly one dominant silhouette anchor and

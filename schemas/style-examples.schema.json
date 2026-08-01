@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://prompt-spriter.local/schemas/style-examples.schema.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "kind",
+    "schemaVersion",
+    "style",
+    "examples"
+  ],
+  "properties": {
+    "kind": {
+      "const": "style-example-registry"
+    },
+    "schemaVersion": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/semver"
+    },
+    "style": {
+      "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/contractRef"
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "assetId",
+          "revisionId",
+          "sheetPath",
+          "sourcePath",
+          "sheetSha256",
+          "note",
+          "promotedAt"
+        ],
+        "properties": {
+          "assetId": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/kebabId"
+          },
+          "revisionId": {
+            "type": "string",
+            "pattern": "^r[0-9]{3}$"
+          },
+          "sheetPath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sourcePath": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sheetSha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "note": {
+            "type": "string",
+            "minLength": 1
+          },
+          "promotedAt": {
+            "$ref": "https://prompt-spriter.local/schemas/common.schema.json#/$defs/dateTime"
+          }
+        }
+      }
+    }
+  }
+}

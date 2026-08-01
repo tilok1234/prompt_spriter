@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-quarantine-reaver",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "duplicate-frames",
+      "level": "warning",
+      "status": "warning",
+      "message": "Found duplicate frames in walk cycle."
+    }
+  ],
+  "createdAt": "2026-08-01T22:21:00+02:00"
+}

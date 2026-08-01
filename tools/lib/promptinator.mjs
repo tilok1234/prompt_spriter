@@ -32,7 +32,7 @@ const claimIdPattern =
   /^claim-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
 const testBatchIdPattern =
   /^v2-test-[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$/;
-const currentStoreVersion = "1.6.0";
+const currentStoreVersion = "1.7.0";
 const productionStyle = { id: "assembler-inspired-v2", version: "0.1.0" };
 const legacyStyle = { id: "assembler-inspired-v1", version: "0.1.0" };
 const structuredV2RecognitionRules = [
@@ -44,6 +44,9 @@ const structuredV2RecognitionRules = [
 const structuredV2DirectionalRules = [
   "- Derive prop visibility per row before drawing: facing down places the creature's left side on the viewer's right; facing up places it on the viewer's left; the left-facing profile shows the creature's own left flank; the right-facing profile shows its right flank. State which asymmetric props are visible in each of the four rows and keep far-flank props hidden.",
   "- State each row's on-screen attack direction before animating: thrown or projected effects travel toward that row's facing (down toward the cell bottom, up toward the top, left and right toward their edges), stay at least 2 pixels inside every cell edge, and resolve into a recovery pose rather than freezing mid-flight.",
+];
+const structuredV2ExampleRules = (style) => [
+  `- Before drawing, open and study every promoted example sheet listed in styles/${style.id}/examples.json at native 1x and nearest-neighbor 4x; match their construction quality, mass separation, and camera without copying their pixels into a different subject.`,
 ];
 
 export class PromptinatorError extends Error {
@@ -84,7 +87,11 @@ const renderPromptinatorPromptVersion = (
     style = productionStyle,
     formulaVersion = "structured-v2",
   },
-  { includeRecognitionRules, includeDirectionalRules = false },
+  {
+    includeRecognitionRules,
+    includeDirectionalRules = false,
+    includeExampleRules = false,
+  },
 ) =>
   [
     "Read and follow the project documentation.",
@@ -124,11 +131,19 @@ const renderPromptinatorPromptVersion = (
           "- Use only the required style profile's master palette and contour rule.",
           ...(includeRecognitionRules ? structuredV2RecognitionRules : []),
           ...(includeDirectionalRules ? structuredV2DirectionalRules : []),
+          ...(includeExampleRules ? structuredV2ExampleRules(style) : []),
         ]
       : []),
   ].join("\n");
 
 export const renderPromptinatorPrompt = (options) =>
+  renderPromptinatorPromptVersion(options, {
+    includeRecognitionRules: true,
+    includeDirectionalRules: true,
+    includeExampleRules: true,
+  });
+
+const renderDirectionalEraPrompt = (options) =>
   renderPromptinatorPromptVersion(options, {
     includeRecognitionRules: true,
     includeDirectionalRules: true,
@@ -329,7 +344,7 @@ const lockPathFor = (workspaceRoot) =>
 
 const migrateStore = (store) => {
   if (
-    !["1.0.0", "1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0"].includes(
+    !["1.0.0", "1.1.0", "1.2.0", "1.3.0", "1.4.0", "1.5.0", "1.6.0"].includes(
       store?.schemaVersion,
     )
   ) {
@@ -420,6 +435,26 @@ const migrateStore = (store) => {
       };
     }
 
+    if (
+      normalizedEntry.state === "ready" &&
+      normalizedEntry.style?.id === productionStyle.id &&
+      normalizedEntry.style?.version === productionStyle.version &&
+      normalizedEntry.formulaVersion === "structured-v2" &&
+      normalizedEntry.promptText === renderDirectionalEraPrompt(promptOptions)
+    ) {
+      return {
+        ...normalizedEntry,
+        promptText: renderPromptinatorPrompt(promptOptions),
+        history: [
+          ...normalizedEntry.history,
+          {
+            action: "example-guidance-migrated",
+            at: store.updatedAt,
+          },
+        ],
+      };
+    }
+
     return normalizedEntry;
   };
   return {
@@ -446,6 +481,7 @@ const expectedPromptTexts = (entry) => {
     historical:
       entry.formulaVersion === "structured-v2"
         ? [
+            renderDirectionalEraPrompt(options),
             renderRecognitionEraPrompt(options),
             renderLegacyPromptinatorPrompt(options),
           ]
@@ -559,6 +595,7 @@ const validateStore = (store, label) => {
           "default-style-migrated",
           "recognition-safeguards-migrated",
           "directional-safeguards-migrated",
+          "example-guidance-migrated",
           "v2-test-batch-selected",
         ].includes(lastAction))
     ) {

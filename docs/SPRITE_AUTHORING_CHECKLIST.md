@@ -43,6 +43,12 @@ does not rewrite the immutable `assembler-inspired-v2@0.1.0` profile or any
 used request. A deliberate legacy-v1 job keeps its exact style while still
 using the native-scale visibility questions below for self-review.
 
+When the required style has promoted example sheets (listed in
+`styles/<style>/examples.json`), open each one at native 1x and
+nearest-neighbor 4x before drawing. Study how they separate masses, anchor the
+face, and hold one camera through the turn; match that construction quality
+for the new subject without copying their pixels.
+
 ## 2. Lock one camera and ground plane
 
 All four rows show the same creature turning on one fixed ground plane under
