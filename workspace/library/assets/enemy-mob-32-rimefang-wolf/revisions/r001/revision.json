@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-rimefang-wolf",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:37:30.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Rimefang Wolf\".\n\nCreative brief\nName: Rimefang Wolf\nCollection: Frostveil Pack. Cold-climate animals adapted to blizzards, frozen lakes, icicles, and delayed shattering projectile patterns.\nCore concept: A pack hunter that creates delayed ice bursts from its bite projectiles.\nBody and silhouette: Lean wolf with raised shoulders, pointed ears, thick tail, and an ice-covered jaw.\nSignature features: Long crystal fangs, frosted back stripe, and pale breath cloud.\nPalette and materials: Blue-gray, snow white, pale cyan, and dark navy.\nMovement personality: Focused, circling, and suddenly aggressive.\nAttack concept: Spits a slow ice fang that stops after a short distance and shatters sideways into two smaller shards.\nDirectional details: The left ear has a triangular frost-coated tear.\nAvoid: Ordinary white wolf, glowing fantasy fire, realistic fur rendering.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "0c102bc2a2d2220fc7fd6dee2f2ab2fee52ab80c2cd157ce9d96419f7468bb49"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "20489888e8c0d35972683ea3b2ad6a1ae9dc378c654aa281fc7bbf107fbff480"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "22cbf9f285b263c54adfaace3880128186b0f79b070f5a6504ddd6391f17a46e"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

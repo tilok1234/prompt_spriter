@@ -1,0 +1,3 @@
+Summarize the purpose and current structure of this project. Do not change any files.
+---NEXT---
+Review the project documentation and identify the three most important next steps. Do not change any files.

@@ -1,0 +1,27 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-snowdrift-lynx",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "contract-identity",
+      "level": "info",
+      "status": "passed",
+      "message": "References live enemy-mob-32 and assembler-inspired-v2 contract."
+    },
+    {
+      "code": "sheet-dimensions",
+      "level": "info",
+      "status": "passed",
+      "message": "Sprite sheet is 320x128 with 32x32 cells across 10 columns and 4 rows."
+    },
+    {
+      "code": "source-parity",
+      "level": "info",
+      "status": "passed",
+      "message": "Aseprite source reproduces sheet.png with exact pixel parity."
+    }
+  ],
+  "createdAt": "2026-08-02T01:40:00.000Z"
+}

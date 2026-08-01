@@ -1,7 +1,7 @@
 {
   "kind": "promptinator-store",
   "schemaVersion": "1.7.0",
-  "updatedAt": "2026-08-01T23:34:54.560Z",
+  "updatedAt": "2026-08-01T23:37:16.063Z",
   "entries": [
     {
       "id": "prompt-0001-mossback-tuskling",
@@ -9627,7 +9627,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -9658,9 +9658,19 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T23:37:16.063Z",
+          "claimId": "claim-edaf8fe1-027c-4f74-a73c-84f463985702"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-edaf8fe1-027c-4f74-a73c-84f463985702",
+        "claimedAt": "2026-08-01T23:37:16.063Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-rushfin-otter"
+      },
       "completion": null
     },
     {

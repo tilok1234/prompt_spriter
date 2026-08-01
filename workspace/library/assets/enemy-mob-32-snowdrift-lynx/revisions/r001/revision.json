@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-snowdrift-lynx",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:40:30.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Snowdrift Lynx\".\n\nCreative brief\nName: Snowdrift Lynx\nCollection: Frostveil Pack. Cold-climate animals adapted to blizzards, frozen lakes, icicles, and delayed shattering projectile patterns.\nCore concept: A concealed ambusher whose movement is revealed by a raised trail of snow.\nBody and silhouette: Compact feline with long legs, broad paws, short tail, and tall ear tufts.\nSignature features: Snow-covered back, oversized paw prints, and icy ear crystals.\nPalette and materials: Off-white, pale gray, muted blue, and charcoal.\nMovement personality: Silent, patient, and explosively quick.\nAttack concept: Burrows beneath a snowdrift while leaving a visible moving mound, then erupts and releases a five-shot fan.\nDirectional details: The right ear tuft is tipped in dark charcoal.\nAvoid: Invisible ambush, domestic cat proportions, excessive fluffy detail.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "30893e77e39ded40a413922e64b0b94d011487962f3438b3c19fe7fc2c933af1"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "ca2708c7b106614b425ae0ecb4eccfda767e2a3baced800db8fc5c54ead85fd6"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "6bf1170b779522b7e87f5bc7676ef77f38d93c8edfbcaffcd3096470028c3b3c"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

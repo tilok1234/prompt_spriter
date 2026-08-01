@@ -5,6 +5,7 @@ coverage/
 workspace/staging/
 workspace/qa/
 workspace/transactions/
+launcher/data/
 src-tauri/target/
 
 .env

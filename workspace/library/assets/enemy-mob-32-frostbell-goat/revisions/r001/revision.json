@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-frostbell-goat",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:41:45.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Frostbell Goat\".\n\nCreative brief\nName: Frostbell Goat\nCollection: Frostveil Pack. Cold-climate animals adapted to blizzards, frozen lakes, icicles, and delayed shattering projectile patterns.\nCore concept: A rhythmic support creature that sends staggered waves with its frozen bell.\nBody and silhouette: Sturdy mountain goat with curved horns, thick chest, and a large bell hanging beneath its neck.\nSignature features: Ice-coated bell, snow beard, and chipped horn tips.\nPalette and materials: Warm gray, dark brown, pale blue, and dull bronze.\nMovement personality: Sure-footed, stubborn, and rhythmically calm.\nAttack concept: Shakes its bell three times, sending alternating left and right semicircles of frost pellets.\nDirectional details: The bell hangs slightly toward the left side of the chest.\nAvoid: Cute farm goat, church-themed clothing, full circular attacks without gaps.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "fc1d29eb3a32f82da5ebcd9de5becddf6f5d760129a27ffcadcb76d5ca26e735"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "e7fe180b65b7df9e305ac62e19e544e10982e798395fee10c3ca20747b32ecb9"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "8d37daa5453d9b6ee5005f410f789b80dd363b6684ea4ed030dac34cb474cb9b"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

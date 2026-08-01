@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-icicle-antler-doe",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:39:10.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Icicle Antler Doe\".\n\nCreative brief\nName: Icicle Antler Doe\nCollection: Frostveil Pack. Cold-climate animals adapted to blizzards, frozen lakes, icicles, and delayed shattering projectile patterns.\nCore concept: A graceful ranged enemy that drops delayed icicles from marked positions.\nBody and silhouette: Slender doe with long legs, a narrow head, and delicate branching ice antlers.\nSignature features: Hanging icicle points, frost collar, and glowing hoof marks.\nPalette and materials: Pale tan, snow white, icy blue, and muted silver.\nMovement personality: Alert, graceful, and evasive.\nAttack concept: Marks three small frost circles on the ground; icicles descend into them after a clearly readable delay.\nDirectional details: The right antler has one fewer branch than the left.\nAvoid: Huge majestic boss deer, realistic antler complexity, invisible falling projectiles.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "62cce7d57487901db118645cbfb316dd25e8b79875c8dcc0fcb4f4a9a32f6570"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "a8a2fe3c9951395d8a8b916d452a995bc3a738c74b090e307194b0b45a58f5fb"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "2df4ee2056d2ab1d5a820573a860e8f6fab440ed763ae07fdf9722b14d2102ad"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}
