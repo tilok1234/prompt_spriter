@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-coaljaw-hound",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T00:00:26.681Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0046-coaljaw-hound\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Coaljaw Hound\".\n\n## Creative brief\n\n- Collection: Cinderwild Pack. Creatures adapted to volcanic fields, ash forests, magma pools, and burnt wilderness.\n- Core concept: A pursuing attacker that uses short-range burst volleys.\n- Body and silhouette: Lean canine frame, oversized jaw, raised shoulder ridge, and thin tail.\n- Signature features: Coal teeth, smoke breath, and a glowing chest cavity.\n- Palette and materials: Matte black, ash gray, orange, and cracked charcoal.\n- Movement personality: Relentless, twitchy, and highly aggressive.\n- Attack concept: Closes distance, snaps its jaw, and releases a compact shotgun burst of embers.\n- Directional details: The right side of the jaw is chipped, and smoke exits mainly from the left nostril.\n- Avoid: Skeletal undead dog, ordinary wolf with flames, huge hellhound boss.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "b9099004f1fffd640b12e7d82f11b69c23ba9b22a1fc6c80f867bd00be29d364"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "920cd4ac9dd059111772f2a8f3da292e7c663b838e1ec601657ffe0dae391939"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "730af8123f865162d0df02ff870b5e7a1060432e15fa88d0abc1090b7c979f43"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

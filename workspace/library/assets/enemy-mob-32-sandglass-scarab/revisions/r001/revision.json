@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-sandglass-scarab",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T22:31:45.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0021-sandglass-scarab\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Sandglass Scarab\".\n\n## Creative brief\n\n- Collection: Sunscorched Expanse. Desert enemies using sand, mirages, needles, heat, armor, and sudden bursts of speed.\n- Core concept: An armored controller that alternates between fast and slow projectile patterns.\n- Body and silhouette: Oval beetle body, thick front legs, and tall hourglass-shaped shell.\n- Signature features: Transparent sand chamber, shovel mandibles, and engraved shell rim.\n- Palette and materials: Gold, sandstone, black, and translucent amber.\n- Movement personality: Methodical, mechanical, and difficult to interrupt.\n- Attack concept: Fires a fast outward ring followed by a slower inward-moving ring.\n- Directional details: A crack runs through the upper chamber on the shell’s right side.\n- Avoid: Tiny realistic beetle, literal mechanical clock, jeweled royal ornament.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "4fc592e2d71535616590eb88f9861ae3f881e50e67cc4dd33c66df9555310195"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "d29c808d2aaa44ab12f6f4f78a7aa399f21b19bd19bc0b4b59ff96fe60ce79ea"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "e9baa002b3365f434cd384e4fd61e421f8ab842d1b3c3e3fb26574c2825590e9"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

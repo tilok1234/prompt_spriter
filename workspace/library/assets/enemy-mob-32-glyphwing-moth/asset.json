@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-glyphwing-moth",
+  "name": "Glyphwing Moth",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-01T02:21:48.452Z",
+  "tags": [
+    "glyphwing",
+    "moth",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

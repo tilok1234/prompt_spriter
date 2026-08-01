@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-brineclaw-crab",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-2aa5e085-c179-4c08-ab70-e6473a8edd12",
+      "text": "The silhouette is too generic; exaggerate the subject's most distinctive body shape and identifying feature.",
+      "createdAt": "2026-08-01T10:40:56.699Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T10:40:56.699Z"
+}

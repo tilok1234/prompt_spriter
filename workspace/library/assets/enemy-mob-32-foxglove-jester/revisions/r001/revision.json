@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-foxglove-jester",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T12:43:58.241Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0108-foxglove-jester\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Foxglove Jester\".\n\n## Creative brief\n\n- Collection: The Gloam Court. Moonlit fey nobles, servants, tricksters, and warriors. Elegant at first glance, but strange, territorial, and dangerous.\n- Core concept: A bouncing artillery trickster that fills awkward spaces with delayed explosions.\n- Body and silhouette: Lanky humanoid, long sleeves, pointed shoes, and a drooping three-pronged hood.\n- Signature features: Foxglove bell hood, seed-pod juggling balls, and a smiling wooden mask.\n- Palette and materials: Muted magenta, sage green, pale yellow, and soft plant fibers.\n- Movement personality: Erratic, theatrical, and difficult to predict.\n- Attack concept: Tosses seed pods that bounce twice before bursting into circular rings with one deliberate safe gap.\n- Directional details: The longest hood point hangs to the right, and a green glove covers the left hand.\n- Avoid: Modern circus clown, horror clown makeup, random untelegraphed explosions.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "254a0f8f5c12c10825bf06f97be5281269fbffbd42c593e29a4dd1cbcfc5897d"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "9bdda31b2a92105faaafd8fd96282c34be961ab0128445be70e2e6b092a62bc8"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "9f67aef7404f05f910d54c896e9085602842bd3230f62178e87c6447c3ec88e4"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

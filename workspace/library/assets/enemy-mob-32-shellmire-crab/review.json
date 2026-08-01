@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-shellmire-crab",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-32345e4b-e9cd-469e-9a12-981aafd8929a",
+      "text": "bad",
+      "createdAt": "2026-07-31T19:35:12.597Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-07-31T19:41:56.165Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-07-31T19:41:56.165Z"
+}

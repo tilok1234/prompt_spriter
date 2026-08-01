@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-needleback-skink",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T20:37:00.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0023-needleback-skink\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Needleback Skink\".\n\n## Creative brief\n\n- Collection: Sunscorched Expanse. Desert enemies using sand, mirages, needles, heat, armor, and sudden bursts of speed.\n- Core concept: A rapid-fire desert lizard that punishes direct approaches.\n- Body and silhouette: Long low body, short legs, wide head, and raised spine ridge.\n- Signature features: Needle-covered back, striped tail, and metallic-looking throat scales.\n- Palette and materials: Ochre, charcoal, pale cream, and dry matte scales.\n- Movement personality: Twitchy, defensive, and quick to reverse direction.\n- Attack concept: Raises its back and fires narrow fans of needles in three successive bursts.\n- Directional details: One long white needle stands near the left shoulder.\n- Avoid: Porcupine mammal, dragon wings, oversized fantasy spikes.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "39ef88fbc3e77f7e5c6a94ecfd3f06e86970cad042dcdcad629058b9330e1f58"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "0067b61947ac0f9bd0859359a3b9f84efd131ec619a633208ca9c25f75cf5372"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "a544ec62804dcbc174d0992cf90fb2c8f456e92dfacf6cfd6ca31f303747bf78"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

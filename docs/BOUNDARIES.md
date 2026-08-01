@@ -74,7 +74,9 @@ Neither action may approve, revise, archive, restore, or add user notes.
   trusted ingestion after completion-required validation passes.
 - Agents never write directly into `workspace/library/` or transaction folders.
 - Ingested revisions are immutable.
-- Runtime library data is stored under the ignored `workspace/` root during
-  early development.
+- Durable runtime state under `workspace/` (`library/`, `promptinator/`,
+  `batches/`) is tracked in git so the asset library is backed up with the
+  repository; transient areas (`staging/`, `qa/`, `transactions/`) stay
+  untracked.
 - No automatic deletion or destructive cleanup is allowed.
 - If a path or asset identity is ambiguous, stop before writing.

@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-barkhide-mauler",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-93ae5646-ff89-4834-9f94-8b95e832e7bd",
+      "text": "doesnt look like anything",
+      "createdAt": "2026-07-31T16:35:50.261Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-07-31T19:40:20.948Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-07-31T19:40:20.948Z"
+}

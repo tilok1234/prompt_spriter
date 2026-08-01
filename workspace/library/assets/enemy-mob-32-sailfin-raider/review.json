@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-sailfin-raider",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-2e4aba3d-272c-4050-8a21-b9a3a901f00d",
+      "text": "needs legs",
+      "createdAt": "2026-08-01T10:40:40.637Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T10:40:40.637Z"
+}

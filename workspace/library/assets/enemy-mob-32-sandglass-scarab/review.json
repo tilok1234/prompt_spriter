@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-sandglass-scarab",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-84208bbf-1bbf-4ae3-9553-f33960d864db",
+      "text": "bad",
+      "createdAt": "2026-07-31T20:35:44.040Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-01T13:19:38.290Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-01T13:19:38.290Z"
+}

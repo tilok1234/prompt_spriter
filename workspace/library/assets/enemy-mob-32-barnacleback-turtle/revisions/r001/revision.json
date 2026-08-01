@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-barnacleback-turtle",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T02:29:12.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0052-barnacleback-turtle\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Barnacleback Turtle\".\n\n## Creative brief\n\n- Collection: Tidewreck Kin. Coastal enemies formed from reef life, shipwreck debris, salt, foam, kelp, and shallow-sea magic.\n- Core concept: A durable coastal tank that releases projectiles when struck.\n- Body and silhouette: Wide oval shell, short paddlelike legs, and a blocky head.\n- Signature features: Barnacle clusters, broken anchor chain, and foamy mouth.\n- Palette and materials: Sea green, gray, cream, and corroded iron.\n- Movement personality: Slow, calm, and difficult to push aside.\n- Attack concept: Periodically retracts and sends a ring of bubbles outward; taking damage accelerates the next ring.\n- Directional details: The anchor chain hangs from the right side, while the largest barnacle sits left.\n- Avoid: Friendly sea turtle, fully aquatic swimming pose, enormous island-shell creature.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "cb1edad9466a4d0b9b351890ee9d6d2e463a1d97944d2f6c73b5d1e14593d7cf"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "1cf95a92759dabb6d8c19a17eecb3d0b32b232c64ee53e79c46b1d73dd622634"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "647698789a63641f669cfb627ed6ab00844fc36667fad93735d79d76502c7243"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

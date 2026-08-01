@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-cometback-lizard",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T04:28:15.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0075-cometback-lizard\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Cometback Lizard\".\n\n## Creative brief\n\n- Collection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\n- Core concept: A fast runner that uses curved projectile trails.\n- Body and silhouette: Long low reptilian body, powerful rear legs, narrow head, and sweeping tail.\n- Signature features: Comet-shaped back crystal, star-speckled scales, and glowing tail tip.\n- Palette and materials: Midnight blue, violet, white, and glassy cyan.\n- Movement personality: Energetic, smooth, and momentum-driven.\n- Attack concept: Sprints in an arc while dropping projectiles that continue curving in the same direction.\n- Directional details: The back crystal points toward the right, and the left rear foot is pale.\n- Avoid: Dragon wings, cosmic galaxy texture everywhere, ordinary gecko proportions.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "0e5f0a86e6df201cfdc47da5070db29f4b47710ac436e48d52c904db572d0cc8"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "7176ea1488d41db032427d8d75609af2520595efe875acfa7b7d0125e0dc8307"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "b273741fdc05ffd2c912ba0e9c06a5fdc3417aab3b3bb50039b1f2d76056a8fe"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-prism-slime",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T04:10:30.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0073-prism-slime\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Prism Slime\".\n\n## Creative brief\n\n- Collection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\n- Core concept: A reflective slime that changes projectile behavior according to its active facet.\n- Body and silhouette: Rounded triangular blob with three flattened sides and a suspended crystal core.\n- Signature features: Prism core, three colored surface patches, and sharp light reflections.\n- Palette and materials: Clear gray, muted red, blue, yellow, and gelatinous crystal.\n- Movement personality: Slow, elastic, and reactive.\n- Attack concept: Cycles between straight, splitting, and gently curving projectile volleys.\n- Directional details: A small bubble remains trapped on the right side of the core.\n- Avoid: Rainbow overload, perfectly transparent body, ordinary spherical slime.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "52c482ed742c71ca628e75a60e806ad631af0830f0b13ae84f32d032c8f131e2"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "fc675983339175e6c66d18ce3b5a09207ea9b104a47a7519b05b10a217651e17"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "e17501132b08d1507485a55c11d9d394e53edb82fcd81750e8cd361e6492c86c"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

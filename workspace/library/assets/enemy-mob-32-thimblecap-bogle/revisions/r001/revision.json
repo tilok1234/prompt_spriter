@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-thimblecap-bogle",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T13:17:43.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0101-thimblecap-bogle\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Thimblecap Bogle\".\n\n## Creative brief\n\n- Collection: The Gloam Court. Moonlit fey nobles, servants, tricksters, and warriors. Elegant at first glance, but strange, territorial, and dangerous.\n- Core concept: A small fey ambusher that darts into close range before retreating behind larger allies.\n- Body and silhouette: Squat goblinlike body, oversized thimble helmet, bent knees, and a narrow needle weapon.\n- Signature features: Silver thimble helmet, sewing-needle spear, and a short petal cape.\n- Palette and materials: Dusky blue, tarnished silver, violet, and dry flower petals.\n- Movement personality: Nervous, mischievous, and startlingly quick.\n- Attack concept: Leaps from a glowing flower ring, thrusts its needle forward, then throws three thin needle projectiles while retreating.\n- Directional details: The petal cape is torn on the right, and a tiny shield remains strapped to its left arm.\n- Avoid: Garden gnome, mushroom creature, childlike proportions.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "c50daac3b7e03d3936066b04858d7a0e8ed05f89181fc946f481181174b9f9f1"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "8a4ecb10e1a0992dde37a5926abb3657f4de2877e2cdc7c02e6ea23d1be562cd"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "1b5c0f049e9dd5fb5e8ea14ae36d67edb4f3c54f7e12aa107e384c147d7ab099"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

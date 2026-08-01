@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-lavacrust-tortoise",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T02:05:54.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0047-lavacrust-tortoise\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Lavacrust Tortoise\".\n\n## Creative brief\n\n- Collection: Cinderwild Pack. Creatures adapted to volcanic fields, ash forests, magma pools, and burnt wilderness.\n- Core concept: An armored mortar enemy that controls distant positions.\n- Body and silhouette: Broad low body, massive domed shell, and thick stone legs.\n- Signature features: Lava channels across the shell, basalt beak, and smoking joints.\n- Palette and materials: Dark basalt, deep red, orange, and rough volcanic rock.\n- Movement personality: Extremely slow, patient, and immovable.\n- Attack concept: Launches magma globs that land in a line and split into four smaller droplets.\n- Directional details: The largest lava channel exits on the shell’s back-right edge.\n- Avoid: Friendly turtle, fully liquid body, exaggerated volcano on its back.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "9ffd57a332baac7a21627ef82522bb06446997385a16b55ce67560062fd4570c"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "f180ed55499fd38862d95cb26f5630db5f8cfa0903db4bd9355cd4cce72eb736"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "0fc75649a93d7f45519049273b4be9dfa2a72fdd09c4d8480fe609323dcda60f"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

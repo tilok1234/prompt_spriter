@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-mirage-hare",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory warnings on duplicate start-walk frame postures and cell boundary contact on high leap frames."
+    }
+  ],
+  "createdAt": "2026-07-31T20:49:25.000Z"
+}

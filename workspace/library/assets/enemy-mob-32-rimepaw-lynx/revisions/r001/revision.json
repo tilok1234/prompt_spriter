@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-rimepaw-lynx",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T22:58:09.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0031-rimepaw-lynx\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Rimepaw Lynx\".\n\n## Creative brief\n\n- Collection: Frostbound Heights. Snowfield and mountain creatures built around momentum, slippery movement, ice shards, and delayed avalanches.\n- Core concept: A mobile pouncer that attacks from changing angles.\n- Body and silhouette: Compact feline body, high shoulders, large paws, and pointed ear tufts.\n- Signature features: Frost-covered paws, ice-crystal whiskers, and short tufted tail.\n- Palette and materials: Pale gray, white, icy blue, and soft snow-dusted fur.\n- Movement personality: Silent, graceful, and explosively quick.\n- Attack concept: Leaps to a marked point and releases a forward fan of narrow ice shards.\n- Directional details: The left ear tuft is longer, and a blue stripe crosses the right flank.\n- Avoid: Domestic cat, saber-toothed tiger, oversized fluffy mane.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "8a16109a9e74c95ce2420f8aa27769dd86a00eeccd5691869bc0d100d2598fc0"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "e30a7058455a08cdc0e1aa7a0f5ae5c8fb199ecaab866fb3ad96226b6996dea9"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "783287a56576658b581ea7f9c70129a178ae3dd6e932a21332d5a251bd281207"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

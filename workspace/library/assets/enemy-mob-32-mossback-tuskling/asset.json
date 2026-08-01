@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-mossback-tuskling",
+  "name": "Mossback Tuskling",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-07-30T22:35:33.596Z",
+  "tags": [
+    "mossback",
+    "tuskling",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

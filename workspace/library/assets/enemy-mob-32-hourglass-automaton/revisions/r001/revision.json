@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-hourglass-automaton",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T03:55:55.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0070-hourglass-automaton\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Hourglass Automaton\".\n\n## Creative brief\n\n- Collection: Runeforge Sentinels. Ancient magical constructs with readable geometric shapes, stone bodies, metal components, and programmed attack cycles.\n- Core concept: A control construct that creates alternating fast and slow combat zones.\n- Body and silhouette: Tall narrow frame with an hourglass torso, long arms, and tripod feet.\n- Signature features: Flowing luminous sand, rotating shoulder rings, and masklike head.\n- Palette and materials: Black iron, amber glass, pale sand, and bronze.\n- Movement personality: Slow, exact, and ritualistically repetitive.\n- Attack concept: Projects one circle that slows projectiles and another that accelerates them, then fires through both.\n- Directional details: The upper glass chamber is chipped on the left, and the right shoulder ring is smaller.\n- Avoid: Literal grandfather clock, human wizard, unreadable time distortion effects.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "c6038c10eb2ae774fa80f819f67f462811403f2f8e6c4afb70cf64e92497ea9e"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "9576c72675ac3426b929fa13738cbb5a174c9199300b6e25993f9ae584b364e1"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "a6b2e0b201450719212c312516217fb5d1fe2360394a7ee2c0e72d7ba6109d5e"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

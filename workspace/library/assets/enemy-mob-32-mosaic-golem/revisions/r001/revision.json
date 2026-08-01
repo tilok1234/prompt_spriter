@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-mosaic-golem",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T01:51:14.288Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0069-mosaic-golem\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Mosaic Golem\".\n\n## Creative brief\n\n- Collection: Runeforge Sentinels. Ancient magical constructs with readable geometric shapes, stone bodies, metal components, and programmed attack cycles.\n- Core concept: A modular construct that breaks apart as its health decreases.\n- Body and silhouette: Broad humanoid shape assembled from square and triangular stone tiles.\n- Signature features: Colored mosaic chest, floating tile joints, and blank mask face.\n- Palette and materials: Sandstone, faded blue, terracotta red, and gold grout.\n- Movement personality: Stiff, durable, and increasingly unstable.\n- Attack concept: Throws body tiles as slow projectiles, reducing its armor but increasing movement speed.\n- Directional details: A blue triangular tile remains on the left shoulder throughout every damage state.\n- Avoid: Smooth clay statue, giant boss proportions, loose tiles hiding the silhouette.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "048b785d45d88e405b03b01f6dd039635784f8ff543b6f9763375c41a39a678d"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "4a1d066d3c81e00c70d14f1f055b00218d6f7e3247fb5d8b2b4dee0b97c385ff"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "9c12b13e79c2c2f21ce2a2c1e58fec9c286ed0e75cb8d87688f0b3f6808f837d"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

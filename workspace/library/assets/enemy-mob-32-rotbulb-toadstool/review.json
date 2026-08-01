@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-rotbulb-toadstool",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-8eac2b43-c528-4c87-9a1a-edac1fc5110e",
+      "text": "bad",
+      "createdAt": "2026-07-31T19:35:22.298Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-07-31T20:24:04.140Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-07-31T20:24:04.140Z"
+}

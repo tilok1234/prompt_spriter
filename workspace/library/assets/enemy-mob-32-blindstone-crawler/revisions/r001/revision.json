@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-blindstone-crawler",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T14:57:05.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0111-blindstone-crawler\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Blindstone Crawler\".\n\n## Creative brief\n\n- Collection: Underking’s Delve. Blind cavern fauna, kobold miners, deep-dwelling tribes, and creatures adapted to echoes, darkness, and cramped tunnels.\n- Core concept: A cave predator that detects movement and attacks through vibrations.\n- Body and silhouette: Flat six-legged body, broad armored head, low abdomen, and long sensory feelers.\n- Signature features: Sealed eyes, stone-plated shell, and forked vibration feelers.\n- Palette and materials: Chalk gray, dark slate, pale pink, and rough mineral armor.\n- Movement personality: Cautious, twitchy, and suddenly aggressive.\n- Attack concept: Pauses to sense movement, then sends three narrow tremor lines toward the player’s recent position.\n- Directional details: The left feeler is shorter, and a white mineral patch covers the rear-right shell.\n- Avoid: Ordinary spider, glowing eyes, excessive number of legs.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "c79f6e8180d858176217d5e7b699acf84ce490bff700323470bf3890d170cda4"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "b75096b342b10cbb2c6a78662ed13f3391813509688408efe6e7fe3012e04287"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "dcba675191ecc8f415c902741bc6bf9e28f4c9971269f13b920d3a76e4d5a443"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

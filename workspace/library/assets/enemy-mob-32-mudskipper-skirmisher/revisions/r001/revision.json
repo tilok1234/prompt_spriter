@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-mudskipper-skirmisher",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T16:49:46.858Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0013-mudskipper-skirmisher\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Mudskipper Skirmisher\".\n\n## Creative brief\n\n- Collection: Mireborn Swarm. Swamp creatures built around mud, reeds, bubbles, toxins, shallow water, and deceptive movement.\n- Core concept: A fast amphibious attacker that zigzags around the player.\n- Body and silhouette: Low fishlike body with muscular front fins and a tall dorsal crest.\n- Signature features: Bulging eyes, muddy fin-hands, and bright throat markings.\n- Palette and materials: Blue-gray, mud brown, orange, and slick wet skin.\n- Movement personality: Hyperactive, erratic, and confrontational.\n- Attack concept: Performs short sideways hops while firing alternating left-right volleys of water darts.\n- Directional details: The dorsal crest bends toward the creature’s right, and one eye is scarred.\n- Avoid: Realistic small mudskipper, merfolk body, overly comical expression.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "e514c859c169944f1a45bee435929d686ff11d23d890a6f72613c8ae310be24c"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "bd8f1005d9702daed506673c502ab8a6123ba4d2e53958c09c764042c44f7ad8"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "4ef22dd78f36a078c86c7f22c65925ce169f8dd5a92db001e917b25859a2a2cc"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

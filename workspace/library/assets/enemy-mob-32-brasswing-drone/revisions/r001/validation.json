@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-brasswing-drone",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 1, column 3 duplicates row 1, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 1, column 9 has 6 opaque boundary pixels; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 1, column 10 duplicates row 1, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 2, column 3 duplicates row 2, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 2, column 9 has 7 opaque boundary pixels; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 2, column 10 has 4 opaque boundary pixels; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 3, column 3 duplicates row 3, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 3, column 9 has 7 opaque boundary pixels; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 3, column 10 has 4 opaque boundary pixels; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 4, column 3 duplicates row 4, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 4, column 9 has 6 opaque boundary pixels; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brasswing-drone\\sheet.png: frame row 4, column 10 duplicates row 4, column 1; validation.json is not present; write it from the preflight result before completion"
+    }
+  ],
+  "createdAt": "2026-08-01T01:46:12.258Z"
+}

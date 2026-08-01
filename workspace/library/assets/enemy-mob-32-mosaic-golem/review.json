@@ -1,0 +1,28 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-mosaic-golem",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-92a286e1-9737-47af-b973-044772132c72",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-01T10:39:54.470Z",
+      "resolvedAt": null,
+      "target": {}
+    },
+    {
+      "id": "note-a2a4be23-827e-43b5-a1d6-07efd4717421",
+      "text": "i think hes supposed to have a weapon in his hands and he needws morre depth and detail",
+      "createdAt": "2026-08-01T13:03:25.454Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T13:03:25.454Z"
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-gullspear-skirmisher",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T00:54:33.093Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0055-gullspear-skirmisher\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Gullspear Skirmisher\".\n\n## Creative brief\n\n- Collection: Tidewreck Kin. Coastal enemies formed from reef life, shipwreck debris, salt, foam, kelp, and shallow-sea magic.\n- Core concept: An aerial diving enemy that attacks along clearly telegraphed lines.\n- Body and silhouette: Narrow seabird body, long wings, pointed beak, and spear-like tail feathers.\n- Signature features: Metal beak cap, rope-wrapped legs, and sharp silver feathers.\n- Palette and materials: White, gray, dull silver, and faded blue.\n- Movement personality: Loud, aggressive, and opportunistic.\n- Attack concept: Marks a line, dives across it, and drops two trailing rows of feather projectiles.\n- Directional details: A rope loop hangs from the left leg, and the right wingtip is dark.\n- Avoid: Ordinary harmless seagull, humanoid bird warrior, giant eagle form.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "a6db22757db49e9af0595af3c9c25c458eb3daf60555ddf7a2b2565caad0c9d1"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "d868b93eb2478d4ee9311220d0d62b6bbb0e6772fabf6ae441d95fcb273ed274"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "5d6b283adfed3cde58d6e46a6d97a69029a2b0a6de45e40639b1f6731ce494d3"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

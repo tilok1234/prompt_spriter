@@ -1,0 +1,28 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-gravecloth-wanderer",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-71cc3935-5d6e-4d0d-a169-b86b96bad738",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-01T10:36:44.106Z",
+      "resolvedAt": null,
+      "target": {}
+    },
+    {
+      "id": "note-6357317f-135e-4c13-b744-31d1874b29b6",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-01T13:02:01.842Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T13:02:01.842Z"
+}

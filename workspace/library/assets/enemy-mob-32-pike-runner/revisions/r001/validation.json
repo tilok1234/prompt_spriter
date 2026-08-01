@@ -1,0 +1,69 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-pike-runner",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "sheet-dimensions",
+      "level": "info",
+      "status": "passed",
+      "message": "The sheet is 320x128 with 32x32 cells."
+    },
+    {
+      "code": "vertical-slice-layout",
+      "level": "info",
+      "status": "passed",
+      "message": "Idle, walk, and attack occupy 10 columns across four direction rows."
+    },
+    {
+      "code": "source-artifact",
+      "level": "info",
+      "status": "passed",
+      "message": "Aseprite source matches exported sheet and tags."
+    },
+    {
+      "code": "cell-boundary-contact",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pike-runner\\sheet.png: frame row 1, column 8 has 5 opaque boundary pixels"
+    },
+    {
+      "code": "cell-boundary-contact",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pike-runner\\sheet.png: frame row 1, column 9 has 5 opaque boundary pixels"
+    },
+    {
+      "code": "cell-boundary-contact",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pike-runner\\sheet.png: frame row 2, column 8 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "cell-boundary-contact",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pike-runner\\sheet.png: frame row 2, column 9 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "cell-boundary-contact",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pike-runner\\sheet.png: frame row 4, column 7 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "cell-boundary-contact",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pike-runner\\sheet.png: frame row 4, column 8 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "cell-boundary-contact",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pike-runner\\sheet.png: frame row 4, column 9 has 1 opaque boundary pixel"
+    }
+  ],
+  "createdAt": "2026-08-01T09:47:02.943Z"
+}

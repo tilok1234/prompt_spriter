@@ -1,0 +1,19 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-obsidian-skitter",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-01T13:02:53.031Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-01T13:02:53.031Z"
+}

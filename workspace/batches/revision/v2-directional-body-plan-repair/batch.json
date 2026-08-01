@@ -1,0 +1,31 @@
+{
+  "kind": "batch",
+  "schemaVersion": "1.0.0",
+  "id": "v2-directional-body-plan-repair",
+  "batchType": "revision",
+  "createdAt": "2026-08-01T00:08:00.562Z",
+  "items": [
+    {
+      "assetId": "enemy-mob-32-driftwing-owl",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Revise the existing sheet; do not restart from scratch. Preserve the strong front/back owl face and expressive wing motion. Replace the left/right attack frame 3 boundary-touching rectangular blocks with curved feather crescents fully inside the cell. Strengthen the right-eye patch and left-wingtip notch consistently through down, left, right, and up. Increase pose variation so walk and attack read as deliberate motion rather than repeated holds. Pass when the asymmetric features rotate correctly at 1x and the attack effects no longer look clipped."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-kelpcoil-serpent",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] doesnt read as a snake",
+        "[entire sprite] Rebuild the current candidate around the same concept while preserving the green kelp mane, pearl eye, pale coral hook, and palette. Remove the rectangular plinths and upright pillar construction. Build one continuous connected serpent body: a low 24-29 px side profile with a wider head and tapered tail, plus a compact overlap or shallow S-curve in down and up on the same ground plane. Attach the fronds and scales to the body and keep the coral hook on the anatomical right. Redraw the attack as a body-led curved sweep or crescent rather than horizontal bars. Pass when all four rows unmistakably read as the same grounded serpent at 1x."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-snowcap-ram",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Revise the existing sheet; do not restart from scratch. Preserve the low side-view ram silhouette, off-white/slate/pale-blue palette, and charge concept. Rebuild down and up so the same animal remains a low four-legged quadruped: keep a horizontal torso visible, connect four supports around it, and remove the upright mask-like front/rear read. Rotate the broken right horn and heavier left-shoulder snow consistently in every direction. Shorten or shift the left/right attack frame 3 effects so no opaque pixel touches the cell edge. Pass when all four directions read as one ram at 1x and attack effects remain inside their 32x32 cells."
+      ]
+    }
+  ]
+}

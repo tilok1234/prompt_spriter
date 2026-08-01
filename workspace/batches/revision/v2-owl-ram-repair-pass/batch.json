@@ -1,0 +1,23 @@
+{
+  "kind": "batch",
+  "schemaVersion": "1.0.0",
+  "id": "v2-owl-ram-repair-pass",
+  "batchType": "revision",
+  "createdAt": "2026-08-01T00:21:17.243Z",
+  "items": [
+    {
+      "assetId": "enemy-mob-32-driftwing-owl",
+      "baseRevisionId": "r002",
+      "notes": [
+        "[entire sprite] Revise the existing sheet; do not restart from scratch. Preserve the compact owl silhouette, clear front/back rotation, right-eye patch, left-wingtip notch, and newly boundary-safe cells. In left and right attack frame 3, replace the straight white rectangular bar with a clearly curved crescent-feather cluster fully inside the 32x32 cell. Do not reuse exact walk poses as attack frames: redraw the body and wing silhouettes so every attack frame reads as a deliberate wind-up, release, or recovery rather than a repeated hold. Pass when the crescent attack reads at 1x, no attack frame duplicates a walk frame, and all asymmetrical features rotate consistently."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-snowcap-ram",
+      "baseRevisionId": "r002",
+      "notes": [
+        "[entire sprite] Revise the existing sheet; do not restart from scratch. Preserve the readable side-view ram, palette, horn/snow identity, and boundary-safe charge. Redraw the down and up construction across idle, walk, and attack around a low horizontal torso with the head overlapping one end and the rear mass at the other. Show four connected supports around that torso using near/far overlap; remove the current vertically stacked head over two long legs. Keep the broken right horn and heavier left-shoulder snow anatomically consistent. Pass when down and up unmistakably read as the same low four-legged ram at 1x, never an upright biped."
+      ]
+    }
+  ]
+}

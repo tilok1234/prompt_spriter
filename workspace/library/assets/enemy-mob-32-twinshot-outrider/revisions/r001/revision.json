@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-twinshot-outrider",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T09:57:12.058Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0088-twinshot-outrider\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Twinshot Outrider\".\n\n## Creative brief\n\n- Collection: Ironroad Marauders. A rough humanoid faction using practical weapons, stolen equipment, traps, formations, and complementary battlefield roles.\n- Core concept: A fast ranged skirmisher using two compact hand crossbows.\n- Body and silhouette: Lean humanoid with extended arms, short cape, and light leg armor.\n- Signature features: Mismatched crossbows, split cape, and feathered cap.\n- Palette and materials: Dark green, brown, pale wood, and dull brass.\n- Movement personality: Confident, agile, and constantly circling.\n- Attack concept: Alternates shots from each crossbow while moving, then fires both simultaneously in crossing angles.\n- Directional details: The brass crossbow remains in the left hand, and the cape is torn on the right.\n- Avoid: Mounted rider, gunslinger appearance, perfectly matching weapons.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "a70362e55c4604227e08012d337d80c06a668f51ba6d4fcb41a5b958c3ce7d2d"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "0692eb8a043c87c3d431f7d5864a52de85a93e16576ed860c7079e89bfb47977"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "e487839903bf975db72562bfaf1cd506f30b0a748e0248c0f22bb76e8f86432e"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

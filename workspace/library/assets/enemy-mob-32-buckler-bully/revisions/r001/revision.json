@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-buckler-bully",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T11:18:00.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0084-buckler-bully\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Buckler Bully\".\n\n## Creative brief\n\n- Collection: Ironroad Marauders. A rough humanoid faction using practical weapons, stolen equipment, traps, formations, and complementary battlefield roles.\n- Core concept: A close-range shield unit that protects ranged marauders.\n- Body and silhouette: Stocky humanoid with broad shoulders, a round shield, and short club.\n- Signature features: Dent-covered buckler, iron nose guard, and thick padded vest.\n- Palette and materials: Dark blue cloth, brown leather, gray iron, and faded yellow.\n- Movement personality: Pushy, stubborn, and confrontational.\n- Attack concept: Blocks frontal attacks, shield-bashes in a short cone, then fires debris pellets outward.\n- Directional details: The buckler stays on the left arm, and the club hangs to the right.\n- Avoid: Full medieval knight, enormous tower shield, comedic drunk bandit.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "f08725ce1108b21060887258e1f7cf5f90b80e8d273a2088f816e1c06fb35855"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "72030b711f75cb5150306a10ddbfdb0d56d78b79820b9418010c48e16721f3d2"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "f2311c2bdfaf65674c8f766e3c6cf0acc759bd127229d2ce774589639b6b865e"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

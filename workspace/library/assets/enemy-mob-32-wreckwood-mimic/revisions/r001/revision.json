@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-wreckwood-mimic",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T01:19:31.637Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0058-wreckwood-mimic\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Wreckwood Mimic\".\n\n## Creative brief\n\n- Collection: Tidewreck Kin. Coastal enemies formed from reef life, shipwreck debris, salt, foam, kelp, and shallow-sea magic.\n- Core concept: An ambush creature disguised as harmless shipwreck debris.\n- Body and silhouette: Boxy pile of planks that unfolds into four wooden legs and a jagged mouth.\n- Signature features: Rusty nails, torn sail cloth, and a glowing knot-hole eye.\n- Palette and materials: Waterlogged brown, dull iron, faded red, and splintered wood.\n- Movement personality: Still until approached, then frantic and clattering.\n- Attack concept: Bursts open with a ring of nails before scuttling away and firing wooden splinters backward.\n- Directional details: The red cloth stays attached to the right side, and the eye opens on the left plank.\n- Avoid: Treasure chest mimic, full wooden ship, overly grotesque teeth.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "9f607d307f1d2f0816a172087c90866bf0f4c27e79d5b81dce3583f24b79ed01"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "006234b781de3a7259f3d558162bdd18cc5e9a702673d9854165f2ce4cab31bc"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "fdbb88da3adfd1eb1e68dc33441eecee5a14633a697864cb7deb3e0107df458d"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

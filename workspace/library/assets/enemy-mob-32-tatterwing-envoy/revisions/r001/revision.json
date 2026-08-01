@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-tatterwing-envoy",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T12:51:08.094Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0109-tatterwing-envoy\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Tatterwing Envoy\".\n\n## Creative brief\n\n- Collection: The Gloam Court. Moonlit fey nobles, servants, tricksters, and warriors. Elegant at first glance, but strange, territorial, and dangerous.\n- Core concept: A hovering support enemy that marks players and redirects allied projectiles toward them.\n- Body and silhouette: Thin floating humanoid, elongated sleeves, narrow waist, and four ragged wings.\n- Signature features: Torn parchment wings, wax seals, and a featureless silver face.\n- Palette and materials: Faded parchment, burgundy wax, silver, and dark violet.\n- Movement personality: Calm, formal, and evasive.\n- Attack concept: Places a visible wax-seal mark on the ground; nearby fey projectiles curve slightly toward the marked area.\n- Directional details: A large red seal hangs from the lower-left wing, and the upper-right wing is torn shorter.\n- Avoid: Angelic appearance, insect body, unreadable projectile curvature.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "35c44d52c32ff5dfe1b6a454d4dcb7e84923806dfbfcbf69269f2ee06686c2ac"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "6bbd644cdbbf581fa76373278eb81b888e483526e5b0a61582f4f3fe6c91e7fe"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "8edb60a69f2a7ae434cf3262d4bd17b6f5e409dc90a00ca32bc870dafde24ec5"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

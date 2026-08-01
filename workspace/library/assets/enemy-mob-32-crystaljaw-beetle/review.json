@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-crystaljaw-beetle",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-df2c8e2b-6454-43b0-b793-0beeb63feeca",
+      "text": "An asymmetrical feature changes anatomical sides between views; keep it attached to the same side through every direction.",
+      "createdAt": "2026-08-01T09:38:05.474Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T09:38:05.474Z"
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-bogbelly-croaker",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T16:42:38.951Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0011-bogbelly-croaker\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Bogbelly Croaker\".\n\n## Creative brief\n\n- Collection: Mireborn Swarm. Swamp creatures built around mud, reeds, bubbles, toxins, shallow water, and deceptive movement.\n- Core concept: A swamp artillery frog that attacks over obstacles.\n- Body and silhouette: Round swollen body, wide mouth, short forelegs, and powerful rear legs.\n- Signature features: Huge throat pouch, mud-covered back, and reedlike eyebrow growths.\n- Palette and materials: Olive green, muddy brown, pale yellow, and wet rubbery skin.\n- Movement personality: Lazy between attacks but explosive when jumping.\n- Attack concept: Inflates its throat and launches three bubbling projectiles that land in a triangular formation.\n- Directional details: A dark wart cluster remains above its left eye.\n- Avoid: Tiny normal frog, brightly colored poison frog, cute smiling expression.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "86107879cc4b6b6c45527bc938bb51aee30ec689178350237ba1a0148648b7ea"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "203d8934a0ca032463e17b2aabe1adbf7484cd17a5919b6fb89c359acf4f2d2a"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "4d509720de95e99045ff875c79d7d2898a82eb4d6c5effe3c3def2408024b804"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

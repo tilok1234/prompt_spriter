@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-mirage-hare",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T20:49:25.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0027-mirage-hare\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Mirage Hare\".\n\n## Creative brief\n\n- Collection: Sunscorched Expanse. Desert enemies using sand, mirages, needles, heat, armor, and sudden bursts of speed.\n- Core concept: A deceptive skirmisher that creates temporary false copies of itself.\n- Body and silhouette: Slender hare body, extremely long ears, and narrow hind legs.\n- Signature features: Shimmering ear tips, mirrored eyes, and a fading double-image trail.\n- Palette and materials: Pale tan, sky blue, white, and heat-haze transparency.\n- Movement personality: Playful, elusive, and unpredictable without being random.\n- Attack concept: Creates two stationary mirage copies; all three fire, but only the real hare’s projectile deals full damage.\n- Directional details: The real hare has a dark mark on its right hind leg.\n- Avoid: Cute mascot rabbit, wizard robe, completely invisible real body.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "72b74e2ee112120fe3315223a23a546ddf75cce0fa874270977879d6ed88154f"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "dbc274e7cf81c8e31c7d9643567743d245e9421849442259f1625ee702b66c15"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "6960ca8410b9ba452ee52f33f8308882d4b80d2feb52a767ba06dca51114f9a6"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

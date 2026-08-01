@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-kelpcoil-serpent",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-01T02:13:21.000Z",
+  "request": "Rebuild the current candidate around the same concept while preserving the green kelp mane, pearl eye, pale coral hook, and palette. Remove the rectangular plinths and upright pillar construction. Build one continuous connected serpent body: a low 24-29 px side profile with a wider head and tapered tail, plus a compact overlap or shallow S-curve in down and up on the same ground plane. Attach the fronds and scales to the body and keep the coral hook on the anatomical right. Redraw the attack as a body-led curved sweep or crescent rather than horizontal bars. Pass when all four rows unmistakably read as the same grounded serpent at 1x.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "b133a9851b777b740894db37a9cae32a4cf24f3c0f2440e95ecce888660e6412"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "be3fae169748d5dc15150ebf2430150117afbd57756c54d562dbf32ea6028a65"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "d246e5208ffc9a82d2728013e9bd06544f99ebb8f8ab207cbebfb919e2b177c3"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-dewglass-sprite",
+  "name": "Dewglass Sprite",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-01T13:58:00.000Z",
+  "tags": [
+    "dewglass",
+    "sprite",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-rootjaw-burrower",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T18:05:56.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0006-rootjaw-burrower\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Rootjaw Burrower\".\n\n## Creative brief\n\n- Collection: Thornwood Brood. Woodland creatures shaped by roots, thorns, mushrooms, and ancient forest magic.\n- Core concept: An underground ambusher that forces players to watch the ground.\n- Body and silhouette: Long armored torso, powerful digging forelimbs, and a wedge-shaped head.\n- Signature features: Rootlike mandibles, layered bark plates, and dirt-covered claws.\n- Palette and materials: Soil brown, dark bark, pale roots, and rough stone-like claws.\n- Movement personality: Restless, forceful, and surprisingly fast underground.\n- Attack concept: Burrows beneath the player, reveals moving cracks, then erupts with a forward dirt-and-root cone.\n- Directional details: One mandible is forked, and a pale root stripe runs along the left flank.\n- Avoid: Giant worm, realistic mole, invisible attacks without ground telegraphs.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "18e495bad708c7d344427cbb756a347885da278561ba40db49eea11f73c31dc1"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "b622e510629a928ddc6ef99f9683bef9e7474594da3e3df67b059d1546631bb2"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "3be412dc225e74328484745a1c86bb1538f5d37b344b25edc6dd8abe49f891ce"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-thornseed-shepherd",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T16:37:30.423Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0010-thornseed-shepherd\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Thornseed Shepherd\".\n\n## Creative brief\n\n- Collection: Thornwood Brood. Woodland creatures shaped by roots, thorns, mushrooms, and ancient forest magic.\n- Core concept: A small treant support unit that grows temporary projectile-firing plants.\n- Body and silhouette: Thin trunk body, long branch arms, root feet, and a crooked stafflike limb.\n- Signature features: Hanging seed pods, crown of thorns, and a hollow face.\n- Palette and materials: Weathered brown, sage green, dull purple, and fibrous plant matter.\n- Movement personality: Slow, ritualistic, and protective of nearby creatures.\n- Attack concept: Plants thornseeds that sprout into temporary turrets firing simple aimed shots.\n- Directional details: Three seed pods hang from its left arm, while the right branch ends in a fork.\n- Avoid: Giant ancient treant, leafy friendly druid, overly detailed facial features.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "2b4550458d540ea624fc43cf420e2329c142c1de8123c2dbb8e216ff9d50f68c"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "969f35067a8e04f3ae810bb51e2920f9dd43d7fca0719b752677e9e191e4a6a2"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "02f3b33efa72d960840d41c4a014571b4d8620f316cd148fa8ecc6f755283e5a"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

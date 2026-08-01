@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-bombsatchel-rascal",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T11:15:51.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0083-bombsatchel-rascal\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Bombsatchel Rascal\".\n\n## Creative brief\n\n- Collection: Ironroad Marauders. A rough humanoid faction using practical weapons, stolen equipment, traps, formations, and complementary battlefield roles.\n- Core concept: A mobile bomber that forces players away from clustered safe areas.\n- Body and silhouette: Short broad humanoid, oversized satchel, hunched posture, and one throwing arm raised.\n- Signature features: Bulging bomb bag, patched hood, and smoking fuse bundle.\n- Palette and materials: Faded orange, brown, black iron, and dirty canvas.\n- Movement personality: Reckless, excited, and constantly shuffling.\n- Attack concept: Throws bouncing bombs that explode into four evenly spaced fragments.\n- Directional details: The satchel remains on the right side, and the left glove is bright orange.\n- Avoid: Comic clown bomber, modern explosives, screen-filling explosions.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "bce3481963270b6226b7a79b1a861838aead00dfc9ac8de8a580fd33b5af26ab"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "7d9e5b7d2bfb9096d8912779c661bb72ffbeb03d4817d92f8a6f971a32b0fc0c"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "1d50a230ebb6fad0a0dcb03fdb01c90b4f51b4185c0614ff02aa07aa9fc11158"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

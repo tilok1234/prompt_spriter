@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-gravecloth-wanderer",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T10:26:35.935Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0093-gravecloth-wanderer\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Gravecloth Wanderer\".\n\n## Creative brief\n\n- Collection: Grave Lantern Covenant. Folkloric undead and graveyard spirits using candles, bells, old cloth, runes, mossy armor, and restrained spectral magic.\n- Core concept: A shrouded undead caster that sends broad waves through open space.\n- Body and silhouette: Tall narrow wrapped body with no visible legs and two trailing cloth arms.\n- Signature features: Layered burial cloth, dim eye slit, and stone weights at the hems.\n- Palette and materials: Dusty cream, gray, faded blue, and old linen.\n- Movement personality: Slow, floating, and mournfully persistent.\n- Attack concept: Sweeps one cloth arm to release a wide row of slow spectral threads.\n- Directional details: A stone weight hangs from the left sleeve, while the right sleeve is torn.\n- Avoid: Mummy bandages, horror gore, perfectly clean white ghost.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "7c24b7bfa0748ea6f1c94d21013a7f09f2da8a7843d7890ad27956fdc7fdeb9b"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "4409fe5ae5d17775800f0af8908d9e7bbe8d9166064f12c55f02f8fc921d2668"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "3dd4a262a2aec4c5f88f129175f35802916d860319d8c3eaea9a5d00de088708"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

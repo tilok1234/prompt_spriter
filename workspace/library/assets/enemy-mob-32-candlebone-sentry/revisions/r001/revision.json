@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-candlebone-sentry",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T12:09:12.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0091-candlebone-sentry\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Candlebone Sentry\".\n\n## Creative brief\n\n- Collection: Grave Lantern Covenant. Folkloric undead and graveyard spirits using candles, bells, old cloth, runes, mossy armor, and restrained spectral magic.\n- Core concept: A skeletal ranged guard whose attacks leave temporary flames.\n- Body and silhouette: Thin upright skeleton with a short bow and a candle fixed to its skull.\n- Signature features: Skull candle, mossy ribs, and bone-tipped arrows.\n- Palette and materials: Old ivory, moss green, wax yellow, and weathered brown.\n- Movement personality: Stiff, patient, and obedient.\n- Attack concept: Fires straight arrows that leave small candle flames where they stop.\n- Directional details: The candle sits on the skull’s left side, and the quiver hangs on the right.\n- Avoid: Gore, flaming skull cliché, heavily armored skeleton.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "bb476f6eff6466d27475e95d6a5d88228e7a40a86ff1a022e0741a69876e9b13"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "9383aba9ca0188dd247090894d6e0f11a0ab4962a48596191db48fe317402791"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "e4e998c459d5d23ce28c1a896c266c2ef0767d2ac26e7121552dc1ed0dd7c47d"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

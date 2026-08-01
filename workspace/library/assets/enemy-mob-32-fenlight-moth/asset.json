@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-fenlight-moth",
+  "name": "Fenlight Moth",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-07-31T19:29:02.960Z",
+  "tags": [
+    "fenlight",
+    "moth",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

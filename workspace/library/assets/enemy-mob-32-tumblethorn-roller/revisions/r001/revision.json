@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-tumblethorn-roller",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T20:52:39.796Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0028-tumblethorn-roller\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Tumblethorn Roller\".\n\n## Creative brief\n\n- Collection: Sunscorched Expanse. Desert enemies using sand, mirages, needles, heat, armor, and sudden bursts of speed.\n- Core concept: A rolling cactus creature that creates radial pressure after colliding.\n- Body and silhouette: Round armored body with short limbs tucked beneath a thorny shell.\n- Signature features: Cactus plates, dry flower crest, and a visible face slit.\n- Palette and materials: Sage green, tan, faded red, and dry fibrous thorns.\n- Movement personality: Clumsy while walking but fast and committed while rolling.\n- Attack concept: Rolls in a straight line, rebounds once, then releases a circular needle burst.\n- Directional details: The red flower grows on the upper-left side of its shell.\n- Avoid: Ordinary tumbleweed, featureless spiked ball, cheerful cactus mascot.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "02c291b2c66752f0c448985ac158d2900b5dcb552b96c76a5b391997b35daa21"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "441c4b3112637a96190682b819cb0f3761085c335022e8c5a50eb4e17cd78381"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "eb8696c755748c0d8e0c2ffdaa73c6f3d0d8d0832c4317246d53e86683d1d91d"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

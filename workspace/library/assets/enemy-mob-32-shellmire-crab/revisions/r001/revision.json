@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-shellmire-crab",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T19:33:31.802Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0016-shellmire-crab\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Shellmire Crab\".\n\n## Creative brief\n\n- Collection: Mireborn Swarm. Swamp creatures built around mud, reeds, bubbles, toxins, shallow water, and deceptive movement.\n- Core concept: A sideways-moving tank that blocks lanes with broad volleys.\n- Body and silhouette: Wide armored shell, low body, thick claws, and many short legs.\n- Signature features: Mud-packed shell, one enlarged claw, and reeds growing from its back.\n- Palette and materials: Brown, swamp green, rust orange, and rough crusted shell.\n- Movement personality: Defensive, territorial, and laterally agile.\n- Attack concept: Strafes sideways while firing a wide fan of mud pellets from its smaller claw.\n- Directional details: The large claw remains on its right side in every direction.\n- Avoid: Bright red dinner crab, perfectly symmetrical claws, ocean-only appearance.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "a815afc30df3e26ddc2066b9480f3fb1c9607c141bbab91220934f7aef3d9af2"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "6d10d9227c4f1d87dce34303e0d22b641d3bbf6a4fddac9980af1ea5beb28afc"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "d770764e0bba96570247b4dc1a14d11a38096df11ed839b8c527ef5ca1f88ed5"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

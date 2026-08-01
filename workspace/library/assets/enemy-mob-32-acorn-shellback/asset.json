@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-acorn-shellback",
+  "name": "Acorn Shellback",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-07-31T17:57:15.000Z",
+  "tags": [
+    "acorn",
+    "shellback",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-sapspitter-gecko",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T16:34:50.936Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0009-sapspitter-gecko\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Sapspitter Gecko\".\n\n## Creative brief\n\n- Collection: Thornwood Brood. Woodland creatures shaped by roots, thorns, mushrooms, and ancient forest magic.\n- Core concept: A mobile area-denial creature that covers escape routes with sticky pools.\n- Body and silhouette: Low elongated body, spread toes, curled tail, and oversized throat.\n- Signature features: Amber throat sac, leaf-shaped toes, and translucent sap droplets.\n- Palette and materials: Lime green, bark brown, honey amber, and glossy wet sap.\n- Movement personality: Skittish, twitchy, and quick to retreat.\n- Attack concept: Spits arcing sap globules that burst into slowing puddles and smaller droplets.\n- Directional details: The tail curls clockwise when viewed from above, and the right eye is darker.\n- Avoid: Chameleon features, poisonous acid interpretation, oversized cartoon tongue.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "4dd98e89e6c70a59c78dd484ac43abadcc8b666dc377fca025b76d8daa50a1ee"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "5a5c42433b2c13cdb6985afef0ab18d01a599d98de72d35c8ab8723917308b48"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "e5b06b4833e4162d04883b68e5385b28218eb80b30d88a19913213466249043c"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

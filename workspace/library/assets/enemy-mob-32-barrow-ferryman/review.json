@@ -1,0 +1,28 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-barrow-ferryman",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-bf10b4dd-c40d-460b-8f4e-1a3584b0fb68",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-01T11:19:16.994Z",
+      "resolvedAt": null,
+      "target": {}
+    },
+    {
+      "id": "note-c7a6b872-4a67-4140-adb3-bcb599ccd02c",
+      "text": "to chunky body",
+      "createdAt": "2026-08-01T12:59:08.153Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T12:59:08.153Z"
+}

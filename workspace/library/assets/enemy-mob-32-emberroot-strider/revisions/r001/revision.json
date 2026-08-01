@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-emberroot-strider",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T00:23:27.886Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0050-emberroot-strider\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Emberroot Strider\".\n\n## Creative brief\n\n- Collection: Cinderwild Pack. Creatures adapted to volcanic fields, ash forests, magma pools, and burnt wilderness.\n- Core concept: A burnt woodland creature that constructs temporary walls of flame.\n- Body and silhouette: Tall thin trunk body, four long root legs, and branching arm structures.\n- Signature features: Glowing root core, charred branch crown, and hanging coal pods.\n- Palette and materials: Blackened wood, deep brown, orange, and dull red.\n- Movement personality: Slow, stilted, and methodical.\n- Attack concept: Plants coal pods in a row; the pods ignite sequentially to create a moving flame lane.\n- Directional details: One long branch extends from the right side, while two pods hang on the left.\n- Avoid: Giant forest boss, leafy healthy tree, humanoid fire wizard.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "3b32f5fe18c422746ea186240d009e23b12bcfa4227293375d6f9dc4f66f6529"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "f90fe7bb68d98becf0330cdbc86ed0c26c94f242c88d83debc272a5cde7fc721"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "ec9dd2e0b184cc84f1cb50504ce79e3d77e61e355699c33f99425dc21a21211a"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

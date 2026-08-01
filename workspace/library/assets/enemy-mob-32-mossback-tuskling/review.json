@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.1.0",
+  "assetId": "enemy-mob-32-mossback-tuskling",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "intake"
+  },
+  "notes": [
+    {
+      "id": "note-ad8364f3-9d2d-4013-9632-45e627d97e5d",
+      "text": "needs some more detailø in face",
+      "createdAt": "2026-07-31T23:51:37.552Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-07-31T23:51:37.552Z"
+}

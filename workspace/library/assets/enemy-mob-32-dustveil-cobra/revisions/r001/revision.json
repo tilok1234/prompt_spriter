@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-dustveil-cobra",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T22:45:20.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0025-dustveil-cobra\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Dustveil Cobra\".\n\n## Creative brief\n\n- Collection: Sunscorched Expanse. Desert enemies using sand, mirages, needles, heat, armor, and sudden bursts of speed.\n- Core concept: A desert sniper that establishes long, dangerous firing lanes.\n- Body and silhouette: Coiled lower body, upright neck, wide hood, and narrow head.\n- Signature features: Veil-like hood markings, crystal fangs, and drifting sand around the coil.\n- Palette and materials: Beige, muted violet, dark brown, and glassy pale fangs.\n- Movement personality: Controlled, watchful, and precise.\n- Attack concept: Displays a thin aim line before firing a fast venom lance followed by two slower side shots.\n- Directional details: The hood’s left marking is circular while the right marking is split.\n- Avoid: Egyptian crown, giant boss cobra, acid-green poison everywhere.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "903e304316ed0f55573979113e1dea58f50ec90ffe5df69ad7727d0ef7849a15"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "c7018c255622d1fb45c2acd4c4bea0d0d97f82ac688d69a4245d6d626bff6ada"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "ea50a5ff37a408b713050f8f529ea3aca83a3cd52596b91ebbd4d82d9d9672ce"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

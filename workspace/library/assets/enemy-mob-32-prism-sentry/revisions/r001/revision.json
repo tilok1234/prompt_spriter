@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-prism-sentry",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T01:31:56.525Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0063-prism-sentry\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Prism Sentry\".\n\n## Creative brief\n\n- Collection: Runeforge Sentinels. Ancient magical constructs with readable geometric shapes, stone bodies, metal components, and programmed attack cycles.\n- Core concept: A stationary geometric turret that rotates patterned beam volleys.\n- Body and silhouette: Floating triangular prism above a small circular stone base.\n- Signature features: Three colored facets, orbiting rune ring, and narrow central eye.\n- Palette and materials: Pale crystal, muted red, blue, yellow, and carved gray stone.\n- Movement personality: Precise, emotionless, and entirely rotational.\n- Attack concept: Fires three rotating spokes of slow crystal projectiles, then pauses to realign.\n- Directional details: A chipped corner remains on the blue facet.\n- Avoid: Rainbow laser show, futuristic security camera, invisible base.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "1f7e6229cea81cd5719daa959c7b68f69dd6d0f663b5b7da34c3abf893c20b97"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "86886d1487b179d6101b046dc9bc4f241ef395fae2286f55664e86b4075fa62f"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "ba1b888cf3b05f93fe4eb167ffa93ae63426f84f2265fe0aeb64999be99b212d"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

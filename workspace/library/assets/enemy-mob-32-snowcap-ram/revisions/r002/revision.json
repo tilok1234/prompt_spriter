@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-snowcap-ram",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-01T02:13:58.000Z",
+  "request": "Revise the existing sheet; do not restart from scratch. Preserve the low side-view ram silhouette, off-white/slate/pale-blue palette, and charge concept. Rebuild down and up so the same animal remains a low four-legged quadruped: keep a horizontal torso visible, connect four supports around it, and remove the upright mask-like front/rear read. Rotate the broken right horn and heavier left-shoulder snow consistently in every direction. Shorten or shift the left/right attack frame 3 effects so no opaque pixel touches the cell edge. Pass when all four directions read as one ram at 1x and attack effects remain inside their 32x32 cells.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "da1e5f8faf1b46ba56eb7d865c6123a9d7fd034ea1bb523151285f08a29cca6a"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "5a41626ad9aaad78a880ecd380dd896d2607c03589b48c116977a0be0ee7aad3"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "ce23af90a955df4b2b73d3600c5fcdc0887aa3ba9db1c165eed52e54b9b14b4b"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-sapspitter-gecko",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-85b6821c-379d-486d-89c1-eb37fbb5233e",
+      "text": "directions is messed up",
+      "createdAt": "2026-07-31T19:41:14.142Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-01T13:20:16.063Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-01T13:20:16.063Z"
+}

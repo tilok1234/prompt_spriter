@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-copper-cogling",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T03:27:30.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0061-copper-cogling\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Copper Cogling\".\n\n## Creative brief\n\n- Collection: Runeforge Sentinels. Ancient magical constructs with readable geometric shapes, stone bodies, metal components, and programmed attack cycles.\n- Core concept: A basic roaming construct that creates simple cross-shaped patterns.\n- Body and silhouette: Small round body balanced on two wheel-like feet with short arms.\n- Signature features: Exposed central cog, square head plate, and glowing rune eye.\n- Palette and materials: Tarnished copper, dark bronze, teal patina, and pale blue light.\n- Movement personality: Busy, repetitive, and slightly unstable.\n- Attack concept: Stops briefly and fires four bolts in the cardinal directions before rotating the pattern.\n- Directional details: A bent antenna sits on the left, and one wheel has a missing tooth.\n- Avoid: Modern robot, cute wind-up toy, excessive steampunk machinery.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "fe0b2d9ed06838304f2588fa9791d80cd7b499758c47cd099cbdfcc0413ed8af"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "91f059173b8696c19357e86807eea67a613a4edfd92c87f7b82ac31ac5bbba99"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "04f07b9fda93ac9a3f39eb9400dd7db446ce4938325f3f647d377a0c9d7d2455"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-cinderhoof-boar",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T23:47:57.846Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0041-cinderhoof-boar\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Cinderhoof Boar\".\n\n## Creative brief\n\n- Collection: Cinderwild Pack. Creatures adapted to volcanic fields, ash forests, magma pools, and burnt wilderness.\n- Core concept: A fiery charger that leaves temporary burning lanes.\n- Body and silhouette: Thick boar body, sloped head, powerful shoulders, and glowing hooves.\n- Signature features: Coal mane, ember tusks, and cracks along the legs.\n- Palette and materials: Charcoal black, ember orange, dark red, and scorched hide.\n- Movement personality: Aggressive, heavy, and difficult to divert.\n- Attack concept: Charges forward and leaves a short trail of evenly spaced flame patches.\n- Directional details: The left tusk glows brighter, and a crack runs across the right shoulder.\n- Avoid: Normal boar covered in fire, demonic horns, gigantic proportions.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "c294f8698ecd4f80becf23057071281e6eb85e1ae4d83e40acdc003352ce989b"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "f05ca0c7b43a7cc78216cb4105788fe617263dac5edcd2e26fa8f5e4998f407c"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "4adfca244fec06c04174b800ac31fb5bb6fa10b3ec195ba01ab7170cf0f6498e"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

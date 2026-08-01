@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-bellflower-duellist",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T13:25:53.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0103-bellflower-duellist\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Bellflower Duellist\".\n\n## Creative brief\n\n- Collection: The Gloam Court. Moonlit fey nobles, servants, tricksters, and warriors. Elegant at first glance, but strange, territorial, and dangerous.\n- Core concept: A fey swordsman that combines precise lunges with controlled projectile fans.\n- Body and silhouette: Thin humanoid frame, upright fencing posture, narrow limbs, and a bell-shaped coat.\n- Signature features: Petal rapier, bellflower collar, and smooth porcelain mask.\n- Palette and materials: Indigo, pale blue, silver, and soft flower-petal fabric.\n- Movement personality: Proud, measured, and sharply responsive.\n- Attack concept: Performs a marked straight lunge, pivots, and releases a five-projectile petal fan from the rapier.\n- Directional details: The rapier stays in the right hand, and the mask has a blue tear beneath its left eye.\n- Avoid: Human noble, oversized ball gown, comedic fairy prince.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "a698a5373dbef30066b80b57f9087b3eb1e32e33f1f6669f5fdbabf756b9a5b5"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "42b829d4c25b2ff083b6e4666b8003d78b667573d4ee9cb271cf9f15c1b6ec57"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "79f36ada854e0a74cb20177a7b0c65bf56c44ca05cce59b3941ac3e7fa9fee0e"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

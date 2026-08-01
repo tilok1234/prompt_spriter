@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-oasis-husk",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T22:54:50Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0029-oasis-husk\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Oasis Husk\".\n\n## Creative brief\n\n- Collection: Sunscorched Expanse. Desert enemies using sand, mirages, needles, heat, armor, and sudden bursts of speed.\n- Core concept: A dried plant elemental that alternates between water and sand attacks.\n- Body and silhouette: Thin trunk body, bent palm-leaf arms, and a hollow basinlike torso.\n- Signature features: Turquoise water core, wilted palm crown, and cracked clay limbs.\n- Palette and materials: Sun-bleached tan, faded green, turquoise, and dry clay.\n- Movement personality: Slow, brittle, and strangely graceful.\n- Attack concept: Throws water globes that form slowing pools, then shatters those pools into outward-flying sand shards.\n- Directional details: One leaf arm hangs lower on the right, and the water core is exposed on the left.\n- Avoid: Friendly palm tree, fully liquid elemental, Egyptian statue design.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "f73c820ecdb296e192de64fcbe0bef16c6b7d7e002591827fc28be81dfc2914f"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "5be8df315a8e861420fc59aed82ea33e0497cd158a1cea52b9d74017d673ad44"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "a8ef426f489220f7ee910182aabdf69dd9d3f178b674480e84ffd7036fe6c4fc"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

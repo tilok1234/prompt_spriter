@@ -1,0 +1,21 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-dewglass-sprite",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "sheet-dimensions",
+      "level": "info",
+      "status": "passed",
+      "message": "The sprite sheet is 320x128 with 32x32 cells."
+    },
+    {
+      "code": "duplicate-frames",
+      "level": "warning",
+      "status": "warning",
+      "message": "Some frames duplicate earlier keyframes or have boundary contact."
+    }
+  ],
+  "createdAt": "2026-08-01T13:58:00.000Z"
+}

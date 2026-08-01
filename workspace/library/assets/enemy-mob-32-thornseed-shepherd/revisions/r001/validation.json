@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-thornseed-shepherd",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory duplicate frame warnings on pre-attack posture."
+    }
+  ],
+  "createdAt": "2026-07-31T16:37:30.423Z"
+}

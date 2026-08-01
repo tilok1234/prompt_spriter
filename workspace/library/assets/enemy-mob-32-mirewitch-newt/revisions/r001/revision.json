@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-mirewitch-newt",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T22:29:15.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0020-mirewitch-newt\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Mirewitch Newt\".\n\n## Creative brief\n\n- Collection: Mireborn Swarm. Swamp creatures built around mud, reeds, bubbles, toxins, shallow water, and deceptive movement.\n- Core concept: A swamp support caster that protects and empowers nearby creatures.\n- Body and silhouette: Small upright amphibian with a long tail, round head, and oversized staff.\n- Signature features: Lily-pad hood, crooked reed staff, and jars hanging from a belt.\n- Palette and materials: Blue-green, violet, tan, and wet plant fibers.\n- Movement personality: Cautious, calculating, and constantly backing away.\n- Attack concept: Fires spiraling swamp orbs and places a temporary protective bubble around one ally.\n- Directional details: Two jars hang on the right hip, while a single pouch sits on the left.\n- Avoid: Human witch with newt features, elaborate robes, friendly healer appearance.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "4a4edd36ffd562d61f8c316194bf099a3d4df790205ab2aa3580c4b910c7bc51"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "a6dc4dcb24141ca0b0ec4fe1b066c02c4809adeba0f813ca022bc660fc8b3bce"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "bc75e75e7b8e957b12aeff601b4dbbe00220db30acb4ac733386531e6bc5214b"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

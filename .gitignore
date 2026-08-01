@@ -1,7 +1,10 @@
 node_modules/
 dist/
 coverage/
-workspace/
+# Transient runtime areas; durable state (library, promptinator, batches) is tracked
+workspace/staging/
+workspace/qa/
+workspace/transactions/
 src-tauri/target/
 
 .env

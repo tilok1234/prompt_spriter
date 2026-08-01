@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-thornseed-shepherd",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-80ff12db-a91d-4458-90db-12f93c2c093f",
+      "text": "weird with the black stuff in the back",
+      "createdAt": "2026-07-31T16:41:45.750Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-01T13:20:00.801Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-01T13:20:00.801Z"
+}

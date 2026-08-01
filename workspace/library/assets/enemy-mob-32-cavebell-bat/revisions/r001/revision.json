@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-cavebell-bat",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T16:55:53.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0113-cavebell-bat\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Cavebell Bat\".\n\n## Creative brief\n\n- Collection: Underking’s Delve. Blind cavern fauna, kobold miners, deep-dwelling tribes, and creatures adapted to echoes, darkness, and cramped tunnels.\n- Core concept: A flying sonar attacker that controls broad cones in front of itself.\n- Body and silhouette: Broad angular wings, small body, large ears, and a swollen bell-shaped throat.\n- Signature features: Bronze throat plate, oversized ears, and ring markings across the wings.\n- Palette and materials: Black-brown, tarnished bronze, pale gray, and leathery wings.\n- Movement personality: Restless, reactive, and constantly turning toward movement.\n- Attack concept: Inflates its throat before releasing visible concentric sound projectiles in a forward cone.\n- Directional details: The right ear is torn, and the throat plate is fastened on the left.\n- Avoid: Tiny realistic bat, invisible sonar damage, vampire features.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.\n- Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature; the dominant anchor must remain recognizable at native 1x in all four idle directions.\n- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.\n- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.\n- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "60c92e0dcef47b9c5986c0bf9dd98778417a1eabff29799b2bd73503fab2e8cd"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "bdeec1e15f547e7924d295bef3c1e02ac51e4ac5b7fa78104a0781ecc1af0a09"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "c63d54563e637d140f772147c0c7a34e1ef5cf5cd8cb4118507fda6b4177436e"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-acorn-shellback",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T17:57:25.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0003-acorn-shellback\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Acorn Shellback\".\n\n## Creative brief\n\n- Collection: Thornwood Brood. Woodland creatures shaped by roots, thorns, mushrooms, and ancient forest magic.\n- Core concept: A defensive forest tortoise that becomes dangerous when attacked repeatedly.\n- Body and silhouette: Wide, low body with a large round shell and short planted legs.\n- Signature features: Acorn-cap shell, tiny root claws, and a pointed wooden beak.\n- Palette and materials: Walnut brown, tan, muted green, and hard polished wood.\n- Movement personality: Slow, patient, and difficult to displace.\n- Attack concept: Retracts into its shell before firing bouncing acorn projectiles in eight directions.\n- Directional details: A pale crack crosses the shell’s right side and must remain consistently placed.\n- Avoid: Ordinary turtle, metallic armor, comically tiny head.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "b6fb5ca756dd2822e5edbeddece3cb409918fb1c71cae9348aff10cc0722f19d"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "f86b9ff39a74d7030e04e8c95333813c02d64b4d22127cdbb7ca76902d4a55d4"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "73e774de5250292f11d2db6bb23268a09ae6b4e44c55bb023e62df5f287de756"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

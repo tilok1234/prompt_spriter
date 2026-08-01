@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-leechcoil-slitherer",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-b01bb7ef-c04c-4c13-977d-4da623ab9b12",
+      "text": "bad",
+      "createdAt": "2026-07-31T19:27:40.704Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-07-31T20:24:08.315Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-07-31T20:24:08.315Z"
+}

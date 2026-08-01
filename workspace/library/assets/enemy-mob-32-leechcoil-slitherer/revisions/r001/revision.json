@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-leechcoil-slitherer",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T16:53:44.626Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0014-leechcoil-slitherer\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Leechcoil Slitherer\".\n\n## Creative brief\n\n- Collection: Mireborn Swarm. Swamp creatures built around mud, reeds, bubbles, toxins, shallow water, and deceptive movement.\n- Core concept: A draining pursuer that becomes more dangerous at close range.\n- Body and silhouette: Long thick body with a circular mouth and curled rear section.\n- Signature features: Pale ringed mouth, segmented sides, and floating red-black droplets.\n- Palette and materials: Deep maroon, black, muddy purple, and glossy skin.\n- Movement personality: Smooth, relentless, and unsettlingly calm.\n- Attack concept: Fires slow droplets that orbit the player briefly before collapsing inward.\n- Directional details: A pale stripe runs along the left half of its body, ending before the tail.\n- Avoid: Gore-heavy design, thin earthworm shape, tentacled sea monster.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "9ba913754712f8c920ad1b8cb52528d7818e02c834a3a81337ee6c33719d9e2c"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "f9aeab9e549bbae58758b328d20f2acef2a4aaaeb52168b427de5670c67f6e84"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "1f9b7d347594edbb5f08cb11b7a589e9fdff7b57c1a7a8b33f5646b02914769f"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

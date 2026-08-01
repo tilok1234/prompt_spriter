@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-hailcrest-wolf",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T01:27:44.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0039-hailcrest-wolf\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Hailcrest Wolf\".\n\n## Creative brief\n\n- Collection: Frostbound Heights. Snowfield and mountain creatures built around momentum, slippery movement, ice shards, and delayed avalanches.\n- Core concept: A pack shooter that coordinates bursts with nearby wolves.\n- Body and silhouette: Lean wolf body, broad chest, sharp ears, and raised crystalline mane.\n- Signature features: Hailstone mane, white muzzle, and shard-tipped tail.\n- Palette and materials: Steel gray, white, pale cyan, and coarse winter fur.\n- Movement personality: Tactical, assertive, and constantly testing distance.\n- Attack concept: Fires three aimed hailstones; nearby wolves delay their volleys to create alternating lanes.\n- Directional details: The mane is taller on the left, and one front paw is white.\n- Avoid: Giant dire wolf, glowing magical pet, random uncoordinated projectile spam.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "67d6b57993d15c5661c0b1102bd285f70484e82bc1a3e0b18891721a2a652e13"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "286ab12f11fe818d63bf062053d2748c807762f69ab86e7004aaf79c07af6a64"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "82cc94f4bf2ec2647d92e6d0051e35cc4241e5cda791ec530c1dcadac2f8f540"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

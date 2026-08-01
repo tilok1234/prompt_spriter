@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-dewglass-sprite",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-f4d1d4e0-b350-4f43-828c-a47197201c6e",
+      "text": "The silhouette is too generic; exaggerate the subject's most distinctive body shape and identifying feature.\nThe sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.\nThe sprite does not resemble a recognizable creature or object; rebuild the defining silhouette and focal feature.",
+      "createdAt": "2026-08-01T12:00:12.435Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-01T12:57:50.128Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-01T12:57:50.128Z"
+}

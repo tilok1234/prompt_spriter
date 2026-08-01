@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-bogbelly-croaker",
+  "name": "Bogbelly Croaker",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-07-31T16:42:38.951Z",
+  "tags": [
+    "bogbelly",
+    "croaker",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

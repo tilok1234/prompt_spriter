@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-sunspoke-vulture",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validated with hard alpha, zero empty frames, zero duplicate frames, and zero boundary contact warnings."
+    }
+  ],
+  "createdAt": "2026-07-31T20:43:23.950Z"
+}

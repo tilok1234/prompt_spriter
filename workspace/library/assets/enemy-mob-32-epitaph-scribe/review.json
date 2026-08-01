@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-epitaph-scribe",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-e962773f-8d64-410f-8c98-20bc3ee16786",
+      "text": "The silhouette is too generic; exaggerate the subject's most distinctive body shape and identifying feature.",
+      "createdAt": "2026-08-01T11:19:37.607Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T11:19:37.607Z"
+}

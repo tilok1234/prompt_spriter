@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-gullspear-skirmisher",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-e69ef4d8-a1ff-44a4-b855-e118df9947da",
+      "text": "need to fix the foot/leg",
+      "createdAt": "2026-08-01T10:40:17.256Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T10:40:17.256Z"
+}

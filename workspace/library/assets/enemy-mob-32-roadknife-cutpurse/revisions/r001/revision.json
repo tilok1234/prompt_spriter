@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-roadknife-cutpurse",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T11:01:30.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0081-roadknife-cutpurse\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Roadknife Cutpurse\".\n\n## Creative brief\n\n- Collection: Ironroad Marauders. A rough humanoid faction using practical weapons, stolen equipment, traps, formations, and complementary battlefield roles.\n- Core concept: A fast melee skirmisher that disengages with a projectile attack.\n- Body and silhouette: Small lean humanoid, low stance, short cloak, and two curved knives.\n- Signature features: Hooded face, mismatched knives, and several stolen coin pouches.\n- Palette and materials: Dusty brown, faded green, dull iron, and worn cloth.\n- Movement personality: Nervous, opportunistic, and quick to retreat.\n- Attack concept: Dashes in for two slashes, then leaps backward while throwing a three-knife fan.\n- Directional details: The longer knife stays in the right hand, and the pouches hang on the left hip.\n- Avoid: Assassin in black, elegant rogue armor, supernatural teleportation.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "e0cf85cef9b9750e322f9249c8749df1ef84571977a7857c2a59c7913bdcb87e"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "4c6d22fc39b0a7f50a0c5fd9425940646d5954b4c5b6008cd5686bccccd2eade"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "292b684fc116e9d1cf07dddd525c69e6a80159ab1972e60c6e3a0ec5e299b854"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

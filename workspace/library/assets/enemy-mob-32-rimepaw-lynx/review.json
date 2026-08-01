@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.1.0",
+  "assetId": "enemy-mob-32-rimepaw-lynx",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "denied"
+  },
+  "notes": [
+    {
+      "id": "note-e1e3b00b-bd3e-4fa0-b671-e25fc97a473a",
+      "text": "bad",
+      "createdAt": "2026-07-31T22:16:47.280Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-07-31T23:19:17.749Z"
+}

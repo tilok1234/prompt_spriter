@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-runejar-walker",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-d358f2d3-5384-4cc0-abc2-05c5a3beeafb",
+      "text": "The sprite does not resemble a recognizable creature or object; rebuild the defining silhouette and focal feature.",
+      "createdAt": "2026-08-01T10:39:14.181Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T10:39:14.181Z"
+}

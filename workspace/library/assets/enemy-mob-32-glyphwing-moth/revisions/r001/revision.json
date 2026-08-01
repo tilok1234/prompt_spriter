@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-glyphwing-moth",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T04:21:53.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0074-glyphwing-moth\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Glyphwing Moth\".\n\n## Creative brief\n\n- Collection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\n- Core concept: A pattern caster whose wings preview the next bullet formation.\n- Body and silhouette: Wide symmetrical wings, small central body, and long curled antennae.\n- Signature features: Moving glyphs on the wings, square wing tips, and glowing abdomen.\n- Palette and materials: Deep navy, cream, muted magenta, and luminous ink.\n- Movement personality: Calm, hovering, and ritualistic.\n- Attack concept: Displays a shape across its wings before firing projectiles in the same square, triangle, or spiral formation.\n- Directional details: One glyph is permanently incomplete on the lower-left wing.\n- Avoid: Fairy humanoid, realistic moth fuzz, patterns too small to read.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "a3aa3c3fe926343eb39e5a8c13a31f0c297f9ba79ef2f01499536caeb087079e"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "433f7f0a6daa4654f9c2b96a2b6d449eaf3ec28f52537388c35d3eb78fc716af"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "aa67960d369c0dcac03c1f35c97a6bdba4545412f13aa6bf47e9c62565ded822"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

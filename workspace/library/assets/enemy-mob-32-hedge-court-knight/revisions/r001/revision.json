@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-hedge-court-knight",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T14:54:45.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0110-hedge-court-knight\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Hedge-Court Knight\".\n\n## Creative brief\n\n- Collection: The Gloam Court. Moonlit fey nobles, servants, tricksters, and warriors. Elegant at first glance, but strange, territorial, and dangerous.\n- Core concept: A disciplined fey frontline unit that protects ranged members of the court.\n- Body and silhouette: Compact armored humanoid, large oval shield, narrow lance, and leaf-shaped helmet.\n- Signature features: Layered hedge armor, polished thorn lance, and beetle-shell shield.\n- Palette and materials: Deep green, black, silver, and glossy dark shell.\n- Movement personality: Formal, stubborn, and carefully defensive.\n- Attack concept: Advances behind its shield, thrusts its lance through a narrow lane, then releases thorns diagonally behind itself.\n- Directional details: The shield remains on the left arm, and a white feather is fixed to the helmet’s right side.\n- Avoid: Ordinary human knight, oversized plate armor, cute miniature soldier.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "72911db2bd7197eed15c4efd30d076a8e2acd9ff41be57f02add04a1b43b6c0b"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "ec2cb70970636bc50f3919a59bf9ea1a0fef85b403b8af02e0b3e1d3c48a7308"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "f79ddf7a9a863e413d71dcba2819c0b37efadfa50222e1f847ab2406c226a3df"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

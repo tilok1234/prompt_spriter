@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-slate-warder",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T03:30:02.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0062-slate-warder\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Slate Warder\".\n\n## Creative brief\n\n- Collection: Runeforge Sentinels. Ancient magical constructs with readable geometric shapes, stone bodies, metal components, and programmed attack cycles.\n- Core concept: A shield construct that protects weaker sentinels behind it.\n- Body and silhouette: Broad rectangular torso, short stone legs, one huge shield arm, and a small head.\n- Signature features: Slate shield, glowing chest rune, and layered shoulder blocks.\n- Palette and materials: Blue-gray stone, dull silver, cyan runes, and chipped edges.\n- Movement personality: Slow, disciplined, and defensive.\n- Attack concept: Faces the player with its shield raised while firing paired shots from openings beside the shield.\n- Directional details: The shield always occupies its left arm, and the right shoulder is cracked.\n- Avoid: Human knight in armor, smooth sci-fi plating, perfectly clean stone.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "3db3b8a496129da5981937198bf7ab676f07ba8f1d63d009628f028e382b80e6"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "96ee83a02669a48d96af143a1fa83f1577f248308720add112e72fb40e63e53f"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "815522ed55d1c8c64e8f4991d22e88f24022837fbb023d37d44b493e8f9ee772"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

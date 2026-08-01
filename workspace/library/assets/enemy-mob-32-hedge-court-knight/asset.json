@@ -1,0 +1,22 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-hedge-court-knight",
+  "name": "Hedge-Court Knight",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-01T12:54:37.446Z",
+  "tags": [
+    "hedge",
+    "court",
+    "knight",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

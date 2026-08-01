@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-oasis-husk",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-27e3578a-f5ff-4e66-948c-79294560fc39",
+      "text": "broken",
+      "createdAt": "2026-07-31T22:16:53.816Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-01T13:19:29.607Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-01T13:19:29.607Z"
+}

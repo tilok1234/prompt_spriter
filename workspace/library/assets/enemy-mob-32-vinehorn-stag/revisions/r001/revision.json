@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-vinehorn-stag",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T18:03:56.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0005-vinehorn-stag\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Vinehorn Stag\".\n\n## Creative brief\n\n- Collection: Thornwood Brood. Woodland creatures shaped by roots, thorns, mushrooms, and ancient forest magic.\n- Core concept: A graceful long-range sniper that punishes standing in open ground.\n- Body and silhouette: Tall narrow body, long legs, raised head, and branching antlers.\n- Signature features: Vine-wrapped antlers, glowing flower buds, and a leaf-fringed chest.\n- Palette and materials: Dark wood brown, forest green, pale pink, and faint golden light.\n- Movement personality: Graceful, cautious, and deliberate.\n- Attack concept: Plants its feet and fires a fast pollen lance after displaying a clear targeting line.\n- Directional details: Its left antler carries two flowers while the right carries one.\n- Avoid: Ordinary deer, majestic boss scale, excessive antler complexity.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "f722f9f65b6ee83ed9ebe2079028220f2b943b07060773a0e6b1d47663645b19"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "4339c903f6325cbe065291f67afade11410332a5b7cb0264bf5e04e04322a915"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "b55ff9cbea21cf96fc293c5f40ae586e98076203e8d2e1d8f5baaf76ea9c0a59"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

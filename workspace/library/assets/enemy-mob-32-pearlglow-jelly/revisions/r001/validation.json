@@ -1,0 +1,21 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-pearlglow-jelly",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "contract-identity",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission matches category and style contracts."
+    },
+    {
+      "code": "sheet-inspection",
+      "level": "info",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pearlglow-jelly\\sheet.png: frame row 1, column 10 has 1 opaque boundary pixel; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pearlglow-jelly\\sheet.png: frame row 2, column 10 has 1 opaque boundary pixel; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pearlglow-jelly\\sheet.png: frame row 3, column 10 has 1 opaque boundary pixel; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pearlglow-jelly\\sheet.png: frame row 4, column 10 has 1 opaque boundary pixel"
+    }
+  ],
+  "createdAt": "2026-08-01T01:21:41.573Z"
+}

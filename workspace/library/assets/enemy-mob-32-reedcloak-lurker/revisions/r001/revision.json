@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-reedcloak-lurker",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T18:47:48.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0012-reedcloak-lurker\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Reedcloak Lurker\".\n\n## Creative brief\n\n- Collection: Mireborn Swarm. Swamp creatures built around mud, reeds, bubbles, toxins, shallow water, and deceptive movement.\n- Core concept: A camouflaged marsh sniper that hides among tall vegetation.\n- Body and silhouette: Tall hunched birdlike predator with stilt legs and a long pointed beak.\n- Signature features: Reed mantle, narrow beak, and one glowing eye beneath the vegetation.\n- Palette and materials: Dull green, straw yellow, dark brown, and fibrous reeds.\n- Movement personality: Patient, tense, and unnaturally still.\n- Attack concept: Reveals itself briefly to fire a narrow line of high-speed reed needles.\n- Directional details: Its cloak hangs lower on the right side, and the visible eye is always the left one.\n- Avoid: Humanoid archer, ordinary heron, invisible attack with no reveal animation.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "a9379262ccbd23c37ba555286af35c2234c2b552c13e339bf58cdc485196ae7c"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "61c3b909fc0da4c89a87bea72857dd268279a0639f6a69705d46ffbcdb3dbf1a"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "bf9ccc6d2a759250b9fbd085045fc77fd2d05eeab317d19062f8613b2e18b135"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

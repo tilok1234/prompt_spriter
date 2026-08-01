@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-cinderhoof-boar",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-387d3801-473f-4994-aa76-2541288fbe21",
+      "text": "The outline is too heavy, broken, or noisy; simplify it and use dark pixels only where they clarify the silhouette or separate forms.",
+      "createdAt": "2026-08-01T10:42:50.543Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T10:42:50.543Z"
+}

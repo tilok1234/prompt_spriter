@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-dunecrest-jackal",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T22:34:56.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0022-dunecrest-jackal\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Dunecrest Jackal\".\n\n## Creative brief\n\n- Collection: Sunscorched Expanse. Desert enemies using sand, mirages, needles, heat, armor, and sudden bursts of speed.\n- Core concept: An agile flanker that fires curved projectiles around cover.\n- Body and silhouette: Lean canine body, long legs, narrow waist, and tall ears.\n- Signature features: Sand-fin crest, crescent tail, and clothlike neck ruff.\n- Palette and materials: Sandy tan, dark brown, muted blue, and dusty fur.\n- Movement personality: Fast, clever, and constantly circling.\n- Attack concept: Launches crescent-shaped blades that curve toward the player from alternating sides.\n- Directional details: The left ear carries a bronze ring, and the tail tip is dark.\n- Avoid: Egyptian deity costume, domestic dog, overly muscular wolf.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "58327fcbda5e40bbf14c71600467a2308facc79dd6ac9eb52711c834b7918478"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "b220fd8008fc7567eb77ebb262268b7ead3ba5d93808dc85898a32291b93bda2"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "4d359fa935ea0ae9c67e27d8d64c53ef02e3290169027aa3837645bfbab15ba9"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-driftwing-owl",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-01T02:13:00.000Z",
+  "request": "Revise the existing sheet; do not restart from scratch. Preserve the strong front/back owl face and expressive wing motion. Replace the left/right attack frame 3 boundary-touching rectangular blocks with curved feather crescents fully inside the cell. Strengthen the right-eye patch and left-wingtip notch consistently through down, left, right, and up. Increase pose variation so walk and attack read as deliberate motion rather than repeated holds. Pass when the asymmetric features rotate correctly at 1x and the attack effects no longer look clipped.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "2ce2c7d8f133d356cd738d0d0a89a8d91007a95a94c58e97c293886054dcc82e"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "2d87e0abfd57716bf8b9252e63ab99afd99c5ab92e98ae6e0c9b96383ba785ce"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "77322a855cc493196cf0aecd8a888c63c76e8b74b894a428a91e6ea6653cb9f2"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

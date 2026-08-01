@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-lanterncap-hopper",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T17:59:20.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0004-lanterncap-hopper\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Lanterncap Hopper\".\n\n## Creative brief\n\n- Collection: Thornwood Brood. Woodland creatures shaped by roots, thorns, mushrooms, and ancient forest magic.\n- Core concept: A mushroom-frog ambusher that creates expanding projectile rings.\n- Body and silhouette: Squat frog body with long folded rear legs and a tall mushroom cap.\n- Signature features: Glowing cap spots, dangling fungal tendrils, and an inflated throat pouch.\n- Palette and materials: Deep red, cream, moss green, and softly glowing yellow spores.\n- Movement personality: Still and watchful between sudden energetic leaps.\n- Attack concept: Jumps to a marked location and releases a ring of slow spores when it lands.\n- Directional details: Three bright spots form a triangle on the cap, with the largest spot on the left.\n- Avoid: Harmless cartoon mushroom, realistic frog anatomy, poisonous neon overload.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "188cd822294a7c56c0bb9bf1b72f7bba8c67d86d36a039520c3abbd0484c0040"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "0ef0a67f512b2c399b05905f3a6db3d403192948823700d823632b6096f97912"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "bdc2aac1101197e96604b82c5af2f89e2c5e93b5770f8ecb1923ee8e84fff7d0"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-cobweb-page",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T11:55:51.079Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0104-cobweb-page\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Cobweb Page\".\n\n## Creative brief\n\n- Collection: The Gloam Court. Moonlit fey nobles, servants, tricksters, and warriors. Elegant at first glance, but strange, territorial, and dangerous.\n- Core concept: A fey support unit that restricts movement and prepares firing positions for stronger court enemies.\n- Body and silhouette: Small hooded humanoid, hunched posture, oversized scroll case, and long thin fingers.\n- Signature features: Web-covered scroll, spool belt, and a veil hiding most of the face.\n- Palette and materials: Dusty cream, faded violet, gray silk, and dark leather.\n- Movement personality: Timid, methodical, and constantly repositioning.\n- Attack concept: Draws triangular cobweb sigils on the ground that slow movement and fire silk needles when crossed.\n- Directional details: The scroll case hangs on the left hip, while the web spool is carried in the right hand.\n- Avoid: Full spider body, scholarly human child, dense invisible webbing.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "d8398377605d8ae757dddbd0b0f71c3e8f24c11e68f5383cc6fe824dde50a915"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "0f194f60d3be0da22ddec9dd482ded0a5df286343bc693e03320286a9c42a8ec"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "ef3f343d8667a7a898e201e00b88994f2b8fd777c54f99ba57606dada2d84bc0"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

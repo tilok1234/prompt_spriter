@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-tombmoth-swarm",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-1d8b2faa-15ff-4cd4-9a53-b1af87479be4",
+      "text": "The sprite does not resemble a recognizable creature or object; rebuild the defining silhouette and focal feature.",
+      "createdAt": "2026-08-01T10:42:19.058Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T10:42:19.058Z"
+}

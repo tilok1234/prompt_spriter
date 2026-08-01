@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-smokeveil-raptor",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T00:21:53.053Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0049-smokeveil-raptor\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Smokeveil Raptor\".\n\n## Creative brief\n\n- Collection: Cinderwild Pack. Creatures adapted to volcanic fields, ash forests, magma pools, and burnt wilderness.\n- Core concept: A fast predator that conceals its repositioning without becoming fully invisible.\n- Body and silhouette: Lean two-legged reptile, long tail, low head, and narrow forearms.\n- Signature features: Smoking neck feathers, ember eyes, and black glass claws.\n- Palette and materials: Charcoal, dark gray, muted orange, and smoky feather textures.\n- Movement personality: Calculated, stalking, and suddenly explosive.\n- Attack concept: Creates a small smoke patch, dashes visibly through it, then fires a backward spread of hot ash.\n- Directional details: The left foreclaw is larger, and three orange feathers remain visible in smoke.\n- Avoid: Featherless dinosaur, total invisibility, dragon breath attack.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "5b8aa934e80936df9f812570658a1b6d85d5d1e511f0979b368dc0bf2da000bd"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "451aec71533f7d392b51e5c0e14aff10fb6fe7be5e0abded9dbf594bec187f97"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "5cbad12ab57b1fd8e06c30bb3ae44d341c857d0ac949b867ef788c5d02df3fee"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

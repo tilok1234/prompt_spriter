@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-mossback-tuskling",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-30T22:35:58.433178Z",
+  "request": "Read and follow the project documentation.\n\nCreate an enemy-mob-32 sprite named \"Mossback Tuskling\".\n\n## Creative brief\n\n- Core concept: A forest boar charger that pressures players out of safe positions.\n- Body and silhouette: Compact wedge-shaped body, short legs, lowered head, and broad shoulders.\n- Signature features: Moss-covered back, curved wooden tusks, and a leaf-shaped tail.\n- Palette and materials: Bark brown, moss green, pale ivory, and rough organic textures.\n- Movement personality: Heavy and stubborn until it suddenly accelerates.\n- Attack concept: Telegraphs a straight charge, then scatters seed projectiles sideways when it stops.\n- Directional details: The right tusk is shorter, and the largest moss patch remains on its left shoulder.\n- Avoid: Domestic pig appearance, oversized boss proportions, realistic fur rendering.\n\nResolve all production details from the current repository contracts and complete the candidate in Intake-ready staging",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "7af5e6228ddb54afdd0c602808c79b28049c7bec0d0391aff04b9997fd599839"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "dceb8f4d86700fd6f59a3c975dce5029220ae4c4485c083fc9980230fce00c32"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "bb1d97b96b2248c040f360cbd7f14f24940a63321fe4830f627da3a6b1a11439"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

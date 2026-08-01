@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-chainhook-poacher",
+  "name": "Chainhook Poacher",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-01T11:55:00.000Z",
+  "tags": [
+    "chainhook",
+    "poacher",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-ironmask-enforcer",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-ad8359ae-4f5c-47dc-92e7-56ac0bbaeb48",
+      "text": "needs weapon improved",
+      "createdAt": "2026-08-01T10:27:30.251Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T10:27:30.251Z"
+}

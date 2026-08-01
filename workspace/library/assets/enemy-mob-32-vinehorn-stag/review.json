@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-vinehorn-stag",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-be342d16-13ca-49ec-b94c-14d847cf9beb",
+      "text": "broken",
+      "createdAt": "2026-07-31T16:21:17.784Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-07-31T19:41:27.870Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-07-31T19:41:27.870Z"
+}

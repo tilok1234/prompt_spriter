@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-mana-mite",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T03:58:00.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0071-mana-mite\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Mana Mite\".\n\n## Creative brief\n\n- Collection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\n- Core concept: A tiny swarm enemy that becomes dangerous in large groups.\n- Body and silhouette: Small diamond-shaped body with six short legs and a crystal abdomen.\n- Signature features: Glowing crystal back, forked feelers, and bright joint points.\n- Palette and materials: Violet, cobalt, pale cyan, and hard crystal.\n- Movement personality: Restless, communal, and rapidly changing direction.\n- Attack concept: Fires one simple bolt toward the average direction faced by the swarm.\n- Directional details: A dark chip marks the crystal’s rear-left corner.\n- Avoid: Microscopic bug realism, harmless sparkle creature, excessive particle trails.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "d8ce41d5d4a01f44124d4414f57f516c19df207438a54a5d49b7e4a2fc28b07e"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "5ecb8c0f5d3f2cfefdb2f85272693cd469b53190c58962353b9874a6c4ce8243"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "ebc7fa52bc1b9d93334ac7d2d588d05db84f612fe1ec2db90664c7bd9d9dd9d2"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

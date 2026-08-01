@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-barkhide-mauler",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T16:32:21.881Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0008-barkhide-mauler\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Barkhide Mauler\".\n\n## Creative brief\n\n- Collection: Thornwood Brood. Woodland creatures shaped by roots, thorns, mushrooms, and ancient forest magic.\n- Core concept: A heavy forest bruiser that creates close-range shockwaves.\n- Body and silhouette: Broad bear-shaped torso, oversized forelimbs, hunched back, and short legs.\n- Signature features: Bark armor plates, mossy shoulders, and glowing sap cracks.\n- Palette and materials: Dark bark brown, moss green, amber, and thick wooden surfaces.\n- Movement personality: Slow, angry, and committed once it chooses a target.\n- Attack concept: Slams both forelimbs down, sending three widening rows of bark shards forward.\n- Directional details: The left shoulder plate is larger, and an amber crack crosses the right forearm.\n- Avoid: Friendly bear, full humanoid posture, enormous raid-boss size.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "b2219bb50b87f03be0625dab934880471d6bcdffed969365a25cedd2a2be1bad"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "be3453ba264df6d35497dc3386f9576d6fb9d6db2d41a44307f039f1382230d7"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "b90a50a7c572ab70c56b29198f03013d61b0cd2c91807f9ff797b4a6b300dc4d"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-prism-sentry",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-9de45162-2753-4e45-ae55-37078431c30c",
+      "text": "The sprite does not resemble a recognizable creature or object; rebuild the defining silhouette and focal feature.",
+      "createdAt": "2026-08-01T10:39:20.182Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T10:39:20.182Z"
+}

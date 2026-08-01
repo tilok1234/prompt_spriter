@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-brambletail-slinker",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T17:43:45.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0002-brambletail-slinker\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Brambletail Slinker\".\n\n## Creative brief\n\n- Collection: Thornwood Brood. Woodland creatures shaped by roots, thorns, mushrooms, and ancient forest magic.\n- Core concept: A foxlike woodland skirmisher that attacks while retreating.\n- Body and silhouette: Slender body, low posture, long legs, and an oversized thorn-covered tail.\n- Signature features: Bramble tail, narrow glowing eyes, and leaf-shaped ears.\n- Palette and materials: Rust orange, dark green, muted brown, and dry thorn textures.\n- Movement personality: Nervous, cunning, and constantly repositioning.\n- Attack concept: Fires curved thorn shots while circling and leaves short-lived thorn trails behind itself.\n- Directional details: One ear is split, and the tail always curls toward the creature’s right.\n- Avoid: Cute pet fox, fiery magical fox, excessively fluffy silhouette.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "55282496e51f40b88c9868d9a4ea79903bc64809097e16c99d96bc6044e68438"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "40b98c4dcc90025b9ad8a5a95a30cac98bb17c3cfb299e78492ead7cec5cb6f6"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "69f4d79d0cea813428c9379c6a37ae3e1260849edce1fefdcd06e07b024440fd"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

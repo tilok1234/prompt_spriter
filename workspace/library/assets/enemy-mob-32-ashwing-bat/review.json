@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.1.0",
+  "assetId": "enemy-mob-32-ashwing-bat",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "intake"
+  },
+  "notes": [
+    {
+      "id": "note-952e6dd4-ca99-4b2e-94e9-762f935bc1fd",
+      "text": "eyes sand mouth shouldnt be visible through wing",
+      "createdAt": "2026-07-31T23:52:43.310Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-07-31T23:52:43.310Z"
+}

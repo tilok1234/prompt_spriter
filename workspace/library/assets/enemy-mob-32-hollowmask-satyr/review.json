@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-hollowmask-satyr",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-da01d55c-aa1d-43bd-b1c5-39f47b5828b4",
+      "text": "got to fix the lazy eye",
+      "createdAt": "2026-08-01T12:50:25.469Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T12:50:25.469Z"
+}

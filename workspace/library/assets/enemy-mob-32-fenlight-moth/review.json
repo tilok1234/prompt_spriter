@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-fenlight-moth",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-e493b776-3956-4869-a3e2-c20c4f49eb7a",
+      "text": "bad",
+      "createdAt": "2026-07-31T19:33:12.739Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-07-31T19:41:47.389Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-07-31T19:41:47.389Z"
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-chainstone-hound",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T03:38:50.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0064-chainstone-hound\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Chainstone Hound\".\n\n## Creative brief\n\n- Collection: Runeforge Sentinels. Ancient magical constructs with readable geometric shapes, stone bodies, metal components, and programmed attack cycles.\n- Core concept: A pursuit construct that restricts movement with dragging chains.\n- Body and silhouette: Blocky four-legged body, wedge head, broad shoulders, and trailing chain tail.\n- Signature features: Rune collar, chain tail, and stone fang plates.\n- Palette and materials: Dark granite, rusted iron, orange runes, and chipped stone.\n- Movement personality: Heavy, relentless, and sharply responsive.\n- Attack concept: Charges a short distance, then swings its chain tail in a semicircle of linked projectiles.\n- Directional details: The chain attaches to the right hip, and the left front leg carries a pale rune.\n- Avoid: Flesh-and-stone hybrid, ordinary armored dog, overly long chain.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "43b321e2ebc8211f63ae34d8e2be25d3c3b5756680bad8574e88e406741d59ee"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "5b37163cf5064b4eab16fcb68ddb9f04918f8d8596190c11c2bdbc2f5dfba515"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "c5b2133f769ed79d38604be5895f87f7921780bfd6eab708559014ce4fcad351"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

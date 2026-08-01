@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-brineclaw-crab",
+  "name": "Brineclaw Crab",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-01T00:27:33.936Z",
+  "tags": [
+    "brineclaw",
+    "crab",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

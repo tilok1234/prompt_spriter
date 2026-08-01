@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-mudskipper-skirmisher",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-536a8313-2cbb-4088-a845-55a5174a6986",
+      "text": "The silhouette is too generic; exaggerate the subject's most distinctive body shape and identifying feature.",
+      "createdAt": "2026-08-01T10:43:50.877Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T10:43:50.877Z"
+}

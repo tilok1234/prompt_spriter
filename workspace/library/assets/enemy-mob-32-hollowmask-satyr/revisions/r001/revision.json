@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-hollowmask-satyr",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T14:41:34+02:00",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0107-hollowmask-satyr\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Hollowmask Satyr\".\n\n## Creative brief\n\n- Collection: The Gloam Court. Moonlit fey nobles, servants, tricksters, and warriors. Elegant at first glance, but strange, territorial, and dangerous.\n- Core concept: A mobile bruiser that combines hoof attacks with deceptive changes of direction.\n- Body and silhouette: Lean humanoid torso, bent goat legs, forward-curving horns, and a low charging posture.\n- Signature features: Hollow wooden mask, brass hoof rings, and a short fur mantle.\n- Palette and materials: Dark brown, mossy gold, cream, and worn wood.\n- Movement personality: Mocking, energetic, and aggressively playful.\n- Attack concept: Stomps to release a crescent of ground projectiles, then dashes through the largest opening.\n- Directional details: The left horn is wrapped in gold wire, and the mask is cracked beneath the right eye.\n- Avoid: Demonic goat, musical party satyr, oversized muscular torso.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "c652b89e092c40142e068029a3bb64308979f815cee42b0bcf9aaf17cf3b49ab"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "9787b683f8da3a744582b38991ba602196aed6c9f98c75e40300a5616bbebdd6"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "609308d056ec5677dca3d5d5dc8dfc76c8b27d10601f2563b9ae74a313ee3124"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

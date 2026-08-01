@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-acorn-shellback",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-098bae69-3430-4a5a-b345-22334471b38e",
+      "text": "Doesnt actually look like anything",
+      "createdAt": "2026-07-31T16:03:19.780Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-07-31T19:41:21.873Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-07-31T19:41:21.873Z"
+}

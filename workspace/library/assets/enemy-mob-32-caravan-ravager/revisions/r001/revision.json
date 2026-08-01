@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-caravan-ravager",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T20:56:26.812Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0030-caravan-ravager\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Caravan Ravager\".\n\n## Creative brief\n\n- Collection: Sunscorched Expanse. Desert enemies using sand, mirages, needles, heat, armor, and sudden bursts of speed.\n- Core concept: An armored hyena assault unit that combines pursuit with ranged pressure.\n- Body and silhouette: Broad canine torso, long forelegs, hunched shoulders, and layered scavenged armor.\n- Signature features: Torn caravan cloth, metal jaw guard, and bundles of throwing spikes.\n- Palette and materials: Dusty brown, faded red, dull iron, and worn leather.\n- Movement personality: Aggressive, opportunistic, and relentless against isolated players.\n- Attack concept: Rushes close, leaps backward, then throws a five-projectile fan.\n- Directional details: The jaw guard is attached on the left, and the red cloth trails from the right shoulder.\n- Avoid: Upright gnoll, oversized faction leader, clean matching armor.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "178a3fe6617b3f929b43c6016be6ff27ae773f66fe81cee43ac804f8ef7b0bbb"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "88c7a88e014f8b530a2d8045f4e90fabbc59c6ae0a73baeae18a2a68deb7acf0"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "3f0c51e8e4f6142244b01950894f9ac186af44833f18d37ebfbd02e245bb295c"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

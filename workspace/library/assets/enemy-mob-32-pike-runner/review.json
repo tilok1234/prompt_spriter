@@ -1,0 +1,28 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-pike-runner",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-0fe4621b-40d3-431b-9c83-da885289768f",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-01T10:36:58.444Z",
+      "resolvedAt": null,
+      "target": {}
+    },
+    {
+      "id": "note-7e24473d-a85f-417e-86c0-fda7ae730eee",
+      "text": "side views are not good",
+      "createdAt": "2026-08-01T13:02:15.203Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T13:02:15.203Z"
+}

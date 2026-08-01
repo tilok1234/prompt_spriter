@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-gloomfin-eel",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-60db621b-884c-4695-9f69-1bb2ea8d7484",
+      "text": "directions not consistent",
+      "createdAt": "2026-07-31T19:39:33.798Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-01T13:19:48.083Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-01T13:19:48.083Z"
+}

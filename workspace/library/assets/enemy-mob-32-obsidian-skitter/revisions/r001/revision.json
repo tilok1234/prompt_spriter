@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-obsidian-skitter",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T01:56:05.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0044-obsidian-skitter\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Obsidian Skitter\".\n\n## Creative brief\n\n- Collection: Cinderwild Pack. Creatures adapted to volcanic fields, ash forests, magma pools, and burnt wilderness.\n- Core concept: A glassy crawler whose projectiles ricochet from terrain.\n- Body and silhouette: Flat six-legged body, pointed abdomen, and wide blade-like forelimbs.\n- Signature features: Mirror-black shell, bright fracture lines, and crystal-tipped legs.\n- Palette and materials: Black obsidian, violet reflections, orange cracks, and sharp glass.\n- Movement personality: Precise, nervous, and angular.\n- Attack concept: Fires thin obsidian shards that bounce once from walls before shattering.\n- Directional details: A large triangular fracture remains on the shell’s left side.\n- Avoid: Furry spider, metallic robot, excessive leg count or detail.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "a680f09df728d32a26ccaefd5be47a9eab5ddfd1a6af5af3a24fb51988d4bc35"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "8ee43a7dce6f4be291604cab6025a7aee5cf4e7941a032718c5be2d93a22f584"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "7143565b7008610e11c772c0950b7aafa9bfdeb1f0df2e338d933c2395e88ed8"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

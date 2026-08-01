@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-runejar-walker",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T01:41:49.841Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0065-runejar-walker\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Runejar Walker\".\n\n## Creative brief\n\n- Collection: Runeforge Sentinels. Ancient magical constructs with readable geometric shapes, stone bodies, metal components, and programmed attack cycles.\n- Core concept: A walking ceramic artillery unit containing unstable magical energy.\n- Body and silhouette: Large jar body on four thin stone legs with a narrow sealed neck.\n- Signature features: Glowing cracks, rune-painted lid, and dangling seal tags.\n- Palette and materials: Cream ceramic, indigo paint, gold, and violet magic.\n- Movement personality: Wobbly, cautious, and unstable.\n- Attack concept: Fires arcing rune droplets that land as small rotating projectile glyphs.\n- Directional details: The largest crack runs down the left side, and two tags hang on the right.\n- Avoid: Friendly pottery character, metal cauldron, realistic liquid spilling constantly.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "2575fb9483e97893114254778caf4ce8ac368c4b2caf18ecc0c186f536fe09f6"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "418e8aa8f425c36166550621431433cde9a93486573bd759c2c7b82f5bb3247f"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "a4bb523ee6d55cd518b39aa1f07b5d0370c697d0e08938b855dc09cc8939a75f"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

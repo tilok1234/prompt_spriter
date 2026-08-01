@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-marshjaw-snapper",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T19:37:58.457Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0019-marshjaw-snapper\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Marshjaw Snapper\".\n\n## Creative brief\n\n- Collection: Mireborn Swarm. Swamp creatures built around mud, reeds, bubbles, toxins, shallow water, and deceptive movement.\n- Core concept: A crocodilian charger that divides the battlefield with a muddy wake.\n- Body and silhouette: Long armored body, huge flat head, low legs, and thick tail.\n- Signature features: Reed-covered back, broad jaws, and chipped dorsal plates.\n- Palette and materials: Dark olive, mud brown, pale teeth, and rugged scales.\n- Movement personality: Patient at first, then brutally direct.\n- Attack concept: Rushes forward with open jaws and leaves two lines of mud droplets spreading behind it.\n- Directional details: A missing plate near the right shoulder exposes a pale patch.\n- Avoid: Realistic full-size crocodile, upright humanoid posture, invisible water movement.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "9fba9a8f2023f29662345fff351c3391a8cd378c380bbe8c2bb7a0ed09d891f9"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "430066693018d2866fb12e770422d20f038c60f9bc9b9c37e7aa612708046022"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "e17066e35d97a1215e5c8a6f8af68ed64ff31d54d0b9a855b84d6dfce5c2dc75"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

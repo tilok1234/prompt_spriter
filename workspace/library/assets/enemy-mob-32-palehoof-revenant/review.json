@@ -1,0 +1,28 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-palehoof-revenant",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-2553b467-0c1a-460b-9505-cbcad96b2a8c",
+      "text": "The front and back views do not look like the same creature as the side views; unify the proportions, body plan, and identifying features.",
+      "createdAt": "2026-08-01T10:44:13.323Z",
+      "resolvedAt": null,
+      "target": {}
+    },
+    {
+      "id": "note-8f2ea137-19a1-4fbe-8236-9a8f93aebbfc",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-01T13:01:57.281Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T13:01:57.281Z"
+}

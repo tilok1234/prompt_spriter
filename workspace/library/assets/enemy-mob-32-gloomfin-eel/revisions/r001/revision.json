@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-gloomfin-eel",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T19:37:00.384Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0018-gloomfin-eel\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Gloomfin Eel\".\n\n## Creative brief\n\n- Collection: Mireborn Swarm. Swamp creatures built around mud, reeds, bubbles, toxins, shallow water, and deceptive movement.\n- Core concept: A shallow-water ambusher that creates dangerous lightning lanes.\n- Body and silhouette: Long serpentine body, broad head, and thin fin running along its spine.\n- Signature features: Glowing fin nodes, whiskerlike feelers, and a forked tail.\n- Palette and materials: Midnight blue, muddy green, electric cyan, and slick skin.\n- Movement personality: Smooth, secretive, and violently fast during attacks.\n- Attack concept: Dashes between two marked points, leaving a short-lived electrified line behind.\n- Directional details: The left whisker is shorter, and three bright nodes sit near the tail.\n- Avoid: Ocean sea serpent, dragon head, constant lightning covering the silhouette.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "4a33f7d1ee3e25aafc85dba8a925bf5dc3507312e15c7fe08c9834c5af3cd302"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "b77253a871659a8cc9122b8d17c31ea6b607fac907bb482331d5e3ef1fa33c38"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "9559bd58814490c45ce2e59055984e429ce9f579710a0b0406b293d04c63cc9b"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,25 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.1.0",
+  "assetId": "enemy-mob-32-kelpcoil-serpent",
+  "approvedRevisionId": "r002",
+  "candidate": null,
+  "notes": [
+    {
+      "id": "note-1454d939-7ae0-464a-ae2c-d71b04e497c8",
+      "text": "doesnt read as a snake",
+      "createdAt": "2026-07-31T23:17:43.064Z",
+      "resolvedAt": "2026-08-01T02:13:21.000Z",
+      "target": {}
+    },
+    {
+      "id": "note-8035fe7c-b183-4345-a605-f1160ff2ee38",
+      "text": "Rebuild the current candidate around the same concept while preserving the green kelp mane, pearl eye, pale coral hook, and palette. Remove the rectangular plinths and upright pillar construction. Build one continuous connected serpent body: a low 24-29 px side profile with a wider head and tapered tail, plus a compact overlap or shallow S-curve in down and up on the same ground plane. Attach the fronds and scales to the body and keep the coral hook on the anatomical right. Redraw the attack as a body-led curved sweep or crescent rather than horizontal bars. Pass when all four rows unmistakably read as the same grounded serpent at 1x.",
+      "createdAt": "2026-08-01T00:07:43.113Z",
+      "resolvedAt": "2026-08-01T02:13:21.000Z",
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T00:21:01.678Z"
+}

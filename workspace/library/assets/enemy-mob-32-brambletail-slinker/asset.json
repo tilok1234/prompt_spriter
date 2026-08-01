@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-brambletail-slinker",
+  "name": "Brambletail Slinker",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-07-31T17:42:00.000Z",
+  "tags": [
+    "brambletail",
+    "slinker",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

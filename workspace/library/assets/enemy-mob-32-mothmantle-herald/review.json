@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-mothmantle-herald",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-82a395ca-b3e8-4ed0-9fce-c1f56a8b2bf1",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.\nThe palette lacks useful value separation; strengthen contrast between the silhouette, materials, and focal details.",
+      "createdAt": "2026-08-01T12:41:11.208Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T12:41:11.208Z"
+}

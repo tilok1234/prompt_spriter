@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-sunspoke-vulture",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T20:43:23.950Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0024-sunspoke-vulture\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Sunspoke Vulture\".\n\n## Creative brief\n\n- Collection: Sunscorched Expanse. Desert enemies using sand, mirages, needles, heat, armor, and sudden bursts of speed.\n- Core concept: An aerial enemy that orbits before diving through the combat area.\n- Body and silhouette: Broad wings, small head, hooked beak, and fan-shaped tail.\n- Signature features: Sunburst wing markings, bronze beak guard, and long feather tips.\n- Palette and materials: Burnt orange, black, cream, and dusty bronze.\n- Movement personality: Patient, predatory, and suddenly aggressive.\n- Attack concept: Circles while dropping slow feathers, then dives along a clearly marked line.\n- Directional details: The right wing has one missing primary feather.\n- Avoid: Ordinary black vulture, phoenix flames, enormous eagle proportions.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "82862e2384cf602bd1b64def6e76a3b2e08b3cf6a9574092c5827dcbf93e34fb"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "aec44e60ae2afc646d8f724c948701b384a6c46719f562a25221a56f65565488"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "b48ce09a12f577cda360fe5502d5f605d6ad6e18b6b8ad195bb67d19ad9a6161"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

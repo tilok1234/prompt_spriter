@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-barrow-ferryman",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T10:53:10.367Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0100-barrow-ferryman\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Barrow Ferryman\".\n\n## Creative brief\n\n- Collection: Grave Lantern Covenant. Folkloric undead and graveyard spirits using candles, bells, old cloth, runes, mossy armor, and restrained spectral magic.\n- Core concept: A spectral laborer that sweeps wide areas with wave-shaped attacks.\n- Body and silhouette: Tall cloaked figure carrying a long wooden oar, with its lower body fading into mist.\n- Signature features: Weathered oar, hanging grave tokens, and a narrow lantern beneath the hood.\n- Palette and materials: Deep navy, weathered brown, pale cyan, and old copper.\n- Movement personality: Slow, patient, and methodically threatening.\n- Attack concept: Sweeps the oar to send broad crescent waves, then thrusts it forward to create a narrow line attack.\n- Directional details: The lantern hangs on the left side, and three tokens are tied near the oar’s right grip.\n- Avoid: Boat included in the creature, grim reaper scythe, gigantic boss proportions.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "8683388c52b1bf3ae5b2d82eaba510f514bb9d1736ab410e2dc48bde3a260c75"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "28f20d97e8c11d4898b1dbf75453262f4de5b0e0fe452cb5e5651d8dc298823a"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "a566261cd5007644146d90674da56ca130db2948bbab7d933fb07c160d44fb57"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

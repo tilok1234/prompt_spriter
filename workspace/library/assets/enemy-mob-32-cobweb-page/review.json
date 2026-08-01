@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-cobweb-page",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-35df5f14-5c51-42cb-b112-0f4f60c628cd",
+      "text": "The sprite does not resemble a recognizable creature or object; rebuild the defining silhouette and focal feature.\nThe sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-01T12:00:01.347Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-01T12:58:40.473Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-01T12:58:40.473Z"
+}

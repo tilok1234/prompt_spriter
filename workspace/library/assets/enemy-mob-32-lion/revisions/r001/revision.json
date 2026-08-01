@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-lion",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-30T05:19:52.000Z",
+  "request": "Create a 32x32 enemy mob lion using the first vertical slice. Give it idle, walk, and attack animations in down, left, right, and up directions. Follow the repository instructions and put the completed candidate in Intake-ready staging. Do not change project code, contracts, review state, or MCP setup.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "7d9fc5f4b095cf77e5613b7fb3bdba84a669d66bb09b79867f971e0ee8e7e9f4"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "febec1ad2e435854b3d17c43ed00e2e7789d9d40bc2c5af255b9515ea57723db"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "4232cd0b8ba83c4de105aefd6d40fdf1da1429341cc8674cfedf701a65dcf56d"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

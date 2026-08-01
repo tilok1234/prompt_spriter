@@ -1,0 +1,27 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-brambletail-slinker",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "archive"
+  },
+  "notes": [
+    {
+      "id": "note-f3fa0bcb-abcc-4c74-aae9-8af659d286f2",
+      "text": "needs to match front view to side view",
+      "createdAt": "2026-07-31T23:23:16.287Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-01T13:19:56.953Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-01T13:19:56.953Z"
+}

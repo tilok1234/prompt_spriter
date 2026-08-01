@@ -1,0 +1,28 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-foxglove-jester",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-e5eda9a6-7692-4f27-9ec1-a5be7e716bdb",
+      "text": "The silhouette is too generic; exaggerate the subject's most distinctive body shape and identifying feature.\nThe palette lacks useful value separation; strengthen contrast between the silhouette, materials, and focal details.",
+      "createdAt": "2026-08-01T12:51:10.835Z",
+      "resolvedAt": null,
+      "target": {}
+    },
+    {
+      "id": "note-25ab0986-e886-405f-a67e-58db99c84684",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups. needs more depth and detail",
+      "createdAt": "2026-08-01T12:58:19.960Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T12:58:19.960Z"
+}

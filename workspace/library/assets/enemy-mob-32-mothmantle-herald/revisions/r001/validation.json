@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-mothmantle-herald",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory boundary contact and duplicate frame warnings."
+    }
+  ],
+  "createdAt": "2026-08-01T14:01:00.000Z"
+}

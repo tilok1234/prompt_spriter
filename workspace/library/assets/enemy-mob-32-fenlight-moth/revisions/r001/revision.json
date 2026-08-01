@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-fenlight-moth",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T19:30:29.139Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0015-fenlight-moth\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Fenlight Moth\".\n\n## Creative brief\n\n- Collection: Mireborn Swarm. Swamp creatures built around mud, reeds, bubbles, toxins, shallow water, and deceptive movement.\n- Core concept: A flying homing-projectile enemy that distracts players from larger threats.\n- Body and silhouette: Broad triangular wings, tiny central body, and long trailing antennae.\n- Signature features: Lanternlike abdomen, eye-shaped wing marks, and glowing dust.\n- Palette and materials: Teal, charcoal, pale lime, and softly luminous powder.\n- Movement personality: Drifting, hypnotic, and evasive.\n- Attack concept: Releases pairs of slow lights that curve gently toward the player before fading.\n- Directional details: The left wing has a complete eye marking while the right marking is broken.\n- Avoid: Fairy humanoid, realistic fuzzy moth, extremely bright visual effects.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "947452289823ae9c46fe94afa5fc2a4a2a5fd736adb1a1ea5f7fe393e0d978f0"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "192d2849acb59ed34f8f11c91fbf497acff57dac4bd68344d12d7f63d6629f25"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "56f6c4c9ad82f13f4b4526b922c7620e92ea1afa4c2a0a9d4f596632926a5827"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

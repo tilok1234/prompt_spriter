@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-palehoof-revenant",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T10:43:23.682Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0098-palehoof-revenant\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Palehoof Revenant\".\n\n## Creative brief\n\n- Collection: Grave Lantern Covenant. Folkloric undead and graveyard spirits using candles, bells, old cloth, runes, mossy armor, and restrained spectral magic.\n- Core concept: An undead mounted charger that crosses large sections of the battlefield.\n- Body and silhouette: Gaunt spectral horse with a small armored rider fused into the saddle.\n- Signature features: Pale hooves, torn banner lance, and moss-covered horse armor.\n- Palette and materials: Bone white, faded blue, dark iron, and gray-green moss.\n- Movement personality: Silent, direct, and relentless.\n- Attack concept: Charges along a marked lane while releasing paired hoof-shaped projectiles to each side.\n- Directional details: The torn banner hangs to the rider’s right, and the horse’s left eye glows.\n- Avoid: Headless horseman, flaming nightmare horse, oversized cavalry boss.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "1d871fadcdefeeb03c5b7f3aee4d3d734cedaa1d3160a279b662a9f4b4045d72"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "c01c1ca5324821300c00b5c9f1aa6917e39f1cc3e038aec16c77a0141749b62b"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "0e556e12a4ecdf0fcf933af12a3e8028799c21f71f7112d647cedc1b67f2e59f"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-bellgrave-monk",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T12:29:11Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0094-bellgrave-monk\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Bellgrave Monk\".\n\n## Creative brief\n\n- Collection: Grave Lantern Covenant. Folkloric undead and graveyard spirits using candles, bells, old cloth, runes, mossy armor, and restrained spectral magic.\n- Core concept: A ceremonial undead that creates expanding sound patterns.\n- Body and silhouette: Hunched robed figure with a broad hood and a large handbell.\n- Signature features: Cracked bell, rope belt, and wooden prayer plaques.\n- Palette and materials: Dark gray, muted brown, tarnished bronze, and pale blue light.\n- Movement personality: Solemn, rhythmic, and deliberate.\n- Attack concept: Rings the bell to send expanding circles with alternating safe gaps.\n- Directional details: The bell stays in the right hand, and three plaques hang from the left side.\n- Avoid: Living human monk, religious real-world iconography, invisible sound damage.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "88f42920de6d2e0c5f7d0d1f7260b14910f0b986b33d0fa0afd6a60c4da6d141"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "1591745fe637d332206f07bc7f46d144bf53e9f2ffbae783ab940ca65d2aa632"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "7f58deb60671cc8f989db1a0a5885d2aecb69dc6d9f30d2e56ea101d18fbc9f8"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

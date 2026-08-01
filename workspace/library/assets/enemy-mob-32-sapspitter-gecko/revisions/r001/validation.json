@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-sapspitter-gecko",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-sapspitter-gecko\\sheet.png: frame row 1, column 6 duplicates row 1, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-sapspitter-gecko\\sheet.png: frame row 2, column 6 duplicates row 2, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-sapspitter-gecko\\sheet.png: frame row 2, column 10 has 1 opaque boundary pixel; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-sapspitter-gecko\\sheet.png: frame row 3, column 6 duplicates row 3, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-sapspitter-gecko\\sheet.png: frame row 3, column 10 has 2 opaque boundary pixels; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-sapspitter-gecko\\sheet.png: frame row 4, column 6 duplicates row 4, column 1"
+    }
+  ],
+  "createdAt": "2026-07-31T16:34:50.936Z"
+}

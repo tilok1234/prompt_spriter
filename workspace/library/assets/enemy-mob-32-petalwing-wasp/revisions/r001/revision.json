@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-petalwing-wasp",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T16:24:30.682Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0007-petalwing-wasp\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Petalwing Wasp\".\n\n## Creative brief\n\n- Collection: Thornwood Brood. Woodland creatures shaped by roots, thorns, mushrooms, and ancient forest magic.\n- Core concept: A flying strafing enemy that controls horizontal and vertical lanes.\n- Body and silhouette: Thin segmented body with four broad petal-shaped wings.\n- Signature features: Flower wings, needle abdomen, and dangling pollen sacs.\n- Palette and materials: Yellow, burgundy, pale pink, and glossy insect shell.\n- Movement personality: Aggressive, darting, and difficult to pin down.\n- Attack concept: Flies across the combat area while firing evenly spaced three-shot pollen bursts.\n- Directional details: The upper-right wing has a torn edge, and the larger pollen sac hangs on the left.\n- Avoid: Realistic wasp, fairy humanoid, translucent unreadable wings.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "0ff287eb56767a1b16fd5e84b25bcd4d6a819121cf0d1237bb95b5ce2ad5ad0b"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "5230121df8920c4519e0770b614badc4f57da367213fb2c26c38af95c507d32b"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "18dd8bbb0eb174a163c08ad067946b47f25fd2af5f9b1e9c7858ebbf99b174f1"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

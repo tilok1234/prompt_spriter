@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-rotbulb-toadstool",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T19:34:34.444Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0017-rotbulb-toadstool\nPrompt formula: structured-v1\n\nCreate an enemy-mob-32 sprite named \"Rotbulb Toadstool\".\n\n## Creative brief\n\n- Collection: Mireborn Swarm. Swamp creatures built around mud, reeds, bubbles, toxins, shallow water, and deceptive movement.\n- Core concept: A stationary swamp mortar that creates persistent spore zones.\n- Body and silhouette: Thick stalk, swollen uneven cap, and several short rootlike legs.\n- Signature features: Pulsing bulb on top, hanging spore sacs, and split cap edges.\n- Palette and materials: Sickly yellow, muted purple, brown, and damp fungal surfaces.\n- Movement personality: Rooted, slowly pulsing, and reactive rather than mobile.\n- Attack concept: Launches spore bulbs that burst into circular clouds firing droplets outward.\n- Directional details: The largest hanging sac is on the back-left side of the cap.\n- Avoid: Cute mushroom person, gore-covered fungus, perfectly round cap.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini Flash 3.6",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "63bc2d7cebd73649d23619a6a8763e53c5ddb44b88baa34d48ba21d50e7b1564"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "2b2326599ec7c3eb2c1cb64cf2b502fe947bf21145c6cb3bca5853cb45da052c"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "4c33e4535cda7b85a39f50fd38700177706bd31ea9e00e59bf99a0c2dd007830"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

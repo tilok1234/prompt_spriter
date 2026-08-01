@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-spellroot-mandrake",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T10:44:00.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0078-spellroot-mandrake\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Spellroot Mandrake\".\n\n## Creative brief\n\n- Collection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\n- Core concept: A plant caster that relocates by rooting and uprooting.\n- Body and silhouette: Bulbous root body, two arm roots, short legs, and a leafy crown.\n- Signature features: Rune-carved face, scroll-like leaves, and glowing root tips.\n- Palette and materials: Pale tan, dark green, violet, and fibrous root texture.\n- Movement personality: Grumpy, frantic while moving, and rigid while casting.\n- Attack concept: Roots itself and fires four rotating streams; uproots and runs when approached.\n- Directional details: A rolled leaf hangs on the right, and one root arm forks on the left.\n- Avoid: Human baby shape, screaming horror face, ordinary carrot creature.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "e06c984cddbeb8fe044b5bafc79e86150aba038fa8af7aba27a02f84c377792b"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "8f3ba8e342a4b01b2bba75d6732337e39e75ccfd286dcac0975012e3eac42400"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "4550309123d1875069e9a6c8f95771c8a7200013a6c4cbf4a1f7360a8bc06c91"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

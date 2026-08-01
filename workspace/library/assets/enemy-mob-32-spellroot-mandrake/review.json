@@ -1,0 +1,28 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-spellroot-mandrake",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-10781263-d557-44ed-9bb0-4872d82497cc",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-01T09:45:46.809Z",
+      "resolvedAt": null,
+      "target": {}
+    },
+    {
+      "id": "note-4b563aab-efa7-4e2e-baa0-3bd0188dfd9f",
+      "text": "hard to read what it is to chunky body",
+      "createdAt": "2026-08-01T13:00:16.428Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-01T13:00:16.428Z"
+}

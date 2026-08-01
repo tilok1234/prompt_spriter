@@ -1,0 +1,20 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-thornback",
+  "name": "Thornback",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-01T05:29:00.000Z",
+  "tags": [
+    "thornback",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

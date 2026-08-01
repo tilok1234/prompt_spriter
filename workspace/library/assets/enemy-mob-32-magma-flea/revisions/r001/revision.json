@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-magma-flea",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T01:49:50.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0042-magma-flea\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Magma Flea\".\n\n## Creative brief\n\n- Collection: Cinderwild Pack. Creatures adapted to volcanic fields, ash forests, magma pools, and burnt wilderness.\n- Core concept: A tiny jumping enemy that creates delayed explosive pressure.\n- Body and silhouette: Compact oval body, enormous folded rear legs, and small armored head.\n- Signature features: Molten abdomen, obsidian leg tips, and bright eyes.\n- Palette and materials: Black glass, orange magma, dark crimson, and brittle stone.\n- Movement personality: Restless, springy, and difficult to predict.\n- Attack concept: Leaps between marked locations and leaves magma droplets that burst after a delay.\n- Directional details: A pale chip marks the right rear leg.\n- Avoid: Microscopic realistic flea, cute round fire pet, untelegraphed instant explosions.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "ff81c0f42cee351ed3fe1dd587d243d24b0ed25441991863ec69c4660c4d97fb"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "d5261b6c38b9bf8e6637bf7e63ffd5b5fd3fbe4eaccbde6d96303b2f29572466"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "4929b359c410f008de5ab434264ba363f8a2d2c3d8b5e6162292f66ba4014a51"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-tidepool-slime",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T00:51:52.498Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0054-tidepool-slime\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Tidepool Slime\".\n\n## Creative brief\n\n- Collection: Tidewreck Kin. Coastal enemies formed from reef life, shipwreck debris, salt, foam, kelp, and shallow-sea magic.\n- Core concept: A splitting enemy that multiplies into smaller threats when defeated.\n- Body and silhouette: Flat circular body with a raised watery center and wobbling edges.\n- Signature features: Tiny shells inside its body, foam rim, and one floating eye-like pearl.\n- Palette and materials: Clear blue, seafoam white, sand tan, and watery transparency.\n- Movement personality: Slow, flowing, and difficult to read as a solid creature.\n- Attack concept: Pulses outward with bubble rings and splits into two smaller slimes at low health.\n- Directional details: A red shell remains embedded on the left edge in every size.\n- Avoid: Featureless blue blob, poisonous green slime, excessive transparency.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "0ee34bb1e0f7ae44ae06c420eb41d17dc7673f8681e5dc61a8ca6f10ee722bdf"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "b49770de3d132af67886b963774a72bebbc29fa93e8ba918f31928681d557560"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "bf419649459cbea2d8120f3589390d0d10ac1b2fc1d70630b1516e92e5b8aeea"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

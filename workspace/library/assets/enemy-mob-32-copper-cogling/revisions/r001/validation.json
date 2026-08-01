@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-copper-cogling",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "submission-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validated cleanly against category and style contracts."
+    }
+  ],
+  "createdAt": "2026-08-01T03:27:30.000Z"
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-mossback-tuskling-v2",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-07-31T01:07:25.3646424+02:00",
+  "request": "Read and follow the project documentation.\n\nCreate an enemy-mob-32 sprite named \"Mossback Tuskling\".",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 Flash (High)",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "b3ce36830ff1bbafb22d1a3a3ce76609157dbc9061ea45207435dec7b6a41a96"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "d94442a373c056750ce81d79d639bd4488d8f43a86e81c6037f85fb154523790"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "5e318f7add0cafa4a2e636ed1e5f594faebcf064a4a2241d8b55de5c6dd52e4f"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

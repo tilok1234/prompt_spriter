@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-brineclaw-crab",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T00:27:36.631Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0051-brineclaw-crab\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Brineclaw Crab\".\n\n## Creative brief\n\n- Collection: Tidewreck Kin. Coastal enemies formed from reef life, shipwreck debris, salt, foam, kelp, and shallow-sea magic.\n- Core concept: A coastal skirmisher that attacks while moving sideways.\n- Body and silhouette: Broad low shell, long sideways legs, and two raised claws.\n- Signature features: Salt-crusted armor, blue claw tips, and a rope wrapped around its shell.\n- Palette and materials: Sand gray, muted blue, white salt, and rough shell.\n- Movement personality: Defensive, quick laterally, and stubborn.\n- Attack concept: Strafes across the player’s path while firing rows of salt pellets.\n- Directional details: The rope knot remains on the rear-left side, and the right claw is larger.\n- Avoid: Bright restaurant crab, pirate hat, smooth toy-like shell.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "f4357d55dae051c29cbdcedc4e2faa5adf21366b5128a574272dab36dc2ecd42"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "54a78ee2ca93dcde0ee6649bcc28558f33473d6b0dd8bf373744ad8ab9fb992a"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "1f358820088e0f1f85c06dca8d44cfaa2826c6646ed49022f1cf22bba106d4af"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

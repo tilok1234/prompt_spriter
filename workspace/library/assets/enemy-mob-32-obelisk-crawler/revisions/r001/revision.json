@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-obelisk-crawler",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T01:48:01.817Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0067-obelisk-crawler\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Obelisk Crawler\".\n\n## Creative brief\n\n- Collection: Runeforge Sentinels. Ancient magical constructs with readable geometric shapes, stone bodies, metal components, and programmed attack cycles.\n- Core concept: A mobile crystal pillar that creates intersecting projectile lanes.\n- Body and silhouette: Tall narrow obelisk mounted on four low stone legs.\n- Signature features: Glowing rune bands, crystal tip, and spiderlike stone supports.\n- Palette and materials: Black stone, muted purple crystal, gray, and magenta light.\n- Movement personality: Slow, unsettlingly balanced, and deliberate.\n- Attack concept: Fires projectiles from each rune band at different angles, forming temporary grids.\n- Directional details: A missing chunk exposes the left side of the lower rune band.\n- Avoid: Eight-legged spider, enormous monument scale, perfectly smooth pillar.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "252de63d91db0c95bebe3dc7f379903d93aee5ac664ecebdcb4fdf5729e290f7"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "610326cae3098779745a123dff8ffa7139347f54fbd9bbc0ede2fb7d2286ad75"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "b405d5f085102bca11e2b2433c6bfc9e667572e8d0c470b494f094a194b6f584"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

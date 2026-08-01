@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-banner-drummer",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T09:54:35.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0086-banner-drummer\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Banner Drummer\".\n\n## Creative brief\n\n- Collection: Ironroad Marauders. A rough humanoid faction using practical weapons, stolen equipment, traps, formations, and complementary battlefield roles.\n- Core concept: A support marauder that improves nearby attack speed and coordination.\n- Body and silhouette: Broad humanoid carrying a chest drum and a tall banner mounted on its back.\n- Signature features: Patchwork banner, large drumsticks, and a horned cloth cap.\n- Palette and materials: Muted red, mustard yellow, brown, and battered brass.\n- Movement personality: Rhythmic, bold, and reluctant to fight alone.\n- Attack concept: Beats a visible rhythm that causes nearby marauders to fire synchronized volleys.\n- Directional details: The banner leans right, and the larger drumstick stays in the left hand.\n- Avoid: Magical bard, elaborate military uniform, giant faction standard.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "e4fe5bac7c88659254ed632f3dc0dc248148343142b7d7e39e5ab6d81f31d184"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "a2822512a37314eaf856a517830651758693a1c1b30e6643aa1bbff5d8d9a5f7"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "32a32cdd4566b749264a821c1e4693bee5251a816a0acf475f108b791b4691f6"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

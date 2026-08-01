@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-leechcoil-slitherer",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory duplicate frame and boundary contact warnings."
+    }
+  ],
+  "createdAt": "2026-07-31T16:53:44.626Z"
+}

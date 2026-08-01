@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-kelpcoil-serpent",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T00:29:36.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0056-kelpcoil-serpent\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Kelpcoil Serpent\".\n\n## Creative brief\n\n- Collection: Tidewreck Kin. Coastal enemies formed from reef life, shipwreck debris, salt, foam, kelp, and shallow-sea magic.\n- Core concept: A sweeping lane-controller that uses curved wave attacks.\n- Body and silhouette: Long serpentine body, broad finned head, and several trailing kelp fronds.\n- Signature features: Kelp mane, pearl eyes, and hooked coral scales.\n- Palette and materials: Deep green, dark blue, pale coral, and wet plant textures.\n- Movement personality: Smooth, patient, and territorial.\n- Attack concept: Swings its body in an arc, launching a matching crescent wave of water projectiles.\n- Directional details: A pale coral hook protrudes from the right side of its neck.\n- Avoid: Eastern dragon, enormous sea monster, many tentacles.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "e2a90692d46dfcca0d7e9a769bffcafb9f4243d35a6b1e3022391b205e27833f"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "36d9073230667c34de871e4b424768377e10ecc915490f481cebc6da8cef4b61"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "f5a6db6912e6b45c2b14d7d1dcada9f50394bbb5b740e826a0f5768b00109959"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

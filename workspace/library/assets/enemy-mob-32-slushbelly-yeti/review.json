@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.1.0",
+  "assetId": "enemy-mob-32-slushbelly-yeti",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "intake"
+  },
+  "notes": [
+    {
+      "id": "note-50db6b87-62cb-4070-a5ae-d256fcbc6c9f",
+      "text": "colors is wrong on the half back of his body in side views",
+      "createdAt": "2026-07-31T23:18:51.402Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-07-31T23:18:51.402Z"
+}
