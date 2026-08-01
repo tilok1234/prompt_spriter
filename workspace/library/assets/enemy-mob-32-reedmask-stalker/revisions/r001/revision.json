@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-reedmask-stalker",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T21:58:41.875Z",
+  "request": "Create an enemy-mob-32 sprite named \"Reedmask Stalker\".\n\nCreative brief\nName: Reedmask Stalker\nCollection: Mirebound Court. Swamp creatures serving a drowned marsh court, marked by reeds, lilies, mud, spores, leeches, and deceptive water formations.\nCore concept: A camouflaged hunter that reveals itself before firing narrow reed volleys.\nBody and silhouette: Lean hunched marsh creature with long arms, thin legs, and a tall bundle of reeds forming its head.\nSignature features: Woven reed mask, hooked wooden spear, and dripping moss cape.\nPalette and materials: Faded green, wet brown, dark teal, and pale reed yellow.\nMovement personality: Patient, stalking, and suddenly decisive.\nAttack concept: Freezes and brightens its mask before throwing three reed darts with small, consistent gaps between them.\nDirectional details: Its spear is carried in the right hand and has one crooked side branch.\nAvoid: Human tribal stereotype, invisible camouflage, overly narrow silhouette.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "95c5cea3b9212fd1ac0c8a832258cae2b2113fc32d4bac9450085b3546c2d0a8"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "29451db581d7fa72a486e1f6cf48e4f4e0c1bc39c41e3a07aa45802c12c73d8f"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "a5ebdd91aa798c1f2bea48e085a5f8010a64fc5d12415392839940a47f39626d"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

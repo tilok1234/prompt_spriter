@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-kegwick-firestarter",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T00:34:20.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Kegwick Firestarter\".\n\nCreative brief\nName: Kegwick Firestarter\nCollection: Ironroad Marauders. Organized highway raiders who turn practical medieval weapons, shields, traps, chains, and stolen supplies into disciplined projectile patterns.\nCore concept: A delayed area attacker that rolls burning powder kegs across open ground.\nBody and silhouette: Small bundled raider with a round hood, thick gloves, and a keg carried against the chest.\nSignature features: Smoking fuse, soot-blackened goggles, and a belt of ceramic spark pots.\nPalette and materials: Dark leather, barrel brown, soot gray, and controlled orange flame.\nMovement personality: Nervous, hurried, and recklessly enthusiastic.\nAttack concept: Rolls a keg in a straight line; it slows visibly before bursting into eight short-range sparks.\nDirectional details: A bundle of spare fuses is tied to the right side of the belt.\nAvoid: Modern dynamite, enormous explosion cloud, comedic clown appearance.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "2a0c2575c3c7dfc4f1c94ce98d098bb7247c6dc8e5a33d81574716e199242b54"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "94ebb744c456720ce6e6bef97e8336645aae92e065a5c2ce1c533ed6d6371ba6"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "a63d6a8194353c333b772121114062871421a0df43a84371bda6a898b7a6adbe"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

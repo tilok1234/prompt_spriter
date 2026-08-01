@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-bellows-imp",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T21:31:12.624Z",
+  "request": "<USER_REQUEST>\nCreate an enemy-mob-32 sprite named \"Bellows Imp\".\n\nCreative brief\nName: Bellows Imp\nCollection: Ashforge Remnants. Abandoned forge creatures and half-living constructs powered by coals, slag, chains, soot, and unstable furnace heat.\nCore concept: A mobile pressure attacker that pushes projectiles outward with blasts of heated air.\nBody and silhouette: Small hunched imp with a leathery bellows torso, thin limbs, and a nozzle-shaped mouth.\nSignature features: Accordion body folds, iron handle on its back, and ember-lit cheeks.\nPalette and materials: Soot black, scorched leather brown, dull brass, and hot orange.\nMovement personality: Fidgety, mischievous, and constantly compressing.\nAttack concept: Expands before releasing a wide cone of slow cinders that accelerate as they travel away.\nDirectional details: One brass handle is attached only on the right side of its back.\nAvoid: Red devil stereotype, bat wings, modern mechanical blower.\n</USER_REQUEST>",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "68ea8397fdb43ce785fbdca561db591ee04f2cd908145b6a7c6845f53e1b50ef"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "6cda711920daeb22c3db39e2c0501b0a14137bb8a78275c1c51278ff4d1f6445"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "6e3f25431c82a023a761c20607a24cc8643719336701776e99d99e0c0ee50562"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

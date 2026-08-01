@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-roadhook-brute",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T00:32:31.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Roadhook Brute\".\n\nCreative brief\nName: Roadhook Brute\nCollection: Ironroad Marauders. Organized highway raiders who turn practical medieval weapons, shields, traps, chains, and stolen supplies into disciplined projectile patterns.\nCore concept: A close-range controller that uses a heavy hook to pull attention into dangerous lanes.\nBody and silhouette: Broad muscular humanoid with a sleeveless coat, bent posture, and a large hook attached to a chain.\nSignature features: Oversized shoulder guard, wrapped chain arm, and iron jaw plate.\nPalette and materials: Muddy red, leather brown, dark iron, and dirty cream.\nMovement personality: Lumbering, threatening, and direct.\nAttack concept: Swings the hook overhead before throwing it along a clearly marked line; on retrieval, sparks fire outward from both sides of the chain.\nDirectional details: The armored shoulder is always the right shoulder.\nAvoid: Supernatural butcher monster, grappling attack without telegraph, excessive blood or gore.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "8edb4531b83ab6dbca7521c4a365732991071d839b3686837f63df338607d249"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "9428fb325ad6dcbe4a671bbe06bb3fab0bec8ec30027cecfe46751d1921a5a56"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "2e7670603184048115eb7179490fd6eb3220817e09e1c0b85bdf8bf7f162dad4"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

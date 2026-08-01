@@ -1,0 +1,33 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-pavise-poacher",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pavise-poacher\\sheet.png: frame row 1, column 9 has 8 opaque boundary pixels"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pavise-poacher\\sheet.png: frame row 2, column 9 has 7 opaque boundary pixels"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pavise-poacher\\sheet.png: frame row 3, column 9 has 7 opaque boundary pixels"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-pavise-poacher\\sheet.png: frame row 4, column 9 has 11 opaque boundary pixels"
+    }
+  ],
+  "createdAt": "2026-08-01T22:28:11.510Z"
+}

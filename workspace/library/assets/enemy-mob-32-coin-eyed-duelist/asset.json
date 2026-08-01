@@ -1,0 +1,22 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-coin-eyed-duelist",
+  "name": "Coin-Eyed Duelist",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T01:20:00.000Z",
+  "tags": [
+    "coin",
+    "eyed",
+    "duelist",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

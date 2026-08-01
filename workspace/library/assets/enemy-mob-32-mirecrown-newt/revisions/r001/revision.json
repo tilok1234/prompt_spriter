@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-mirecrown-newt",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T22:01:16.725Z",
+  "request": "Create an enemy-mob-32 sprite named \"Mirecrown Newt\".\n\nCreative brief\nName: Mirecrown Newt\nCollection: Mirebound Court. Swamp creatures serving a drowned marsh court, marked by reeds, lilies, mud, spores, leeches, and deceptive water formations.\nCore concept: A slow royal caster that surrounds itself with rotating globules.\nBody and silhouette: Upright newt with a broad head, short limbs, long tail, and a crown of marsh reeds.\nSignature features: Reed crown, pearl-like throat spots, and a mud-stained mantle.\nPalette and materials: Deep teal, muted gold, peat brown, and pale aqua.\nMovement personality: Proud, measured, and ceremonially slow.\nAttack concept: Summons four water globes that orbit once before launching outward one at a time toward the player.\nDirectional details: The crown’s tallest reed leans toward the left.\nAvoid: Full humanoid king, jeweled luxury crown, realistic amphibian proportions.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "ff82e0cc013a922c9d0b2afc98307b82a7fc030e2883ef99a7b44e7862d5fe0f"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "cdce669c7032160921f57b00f35d3f5d80b1c20610c40a02b92b10ff247f481b"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "ac35c07ad41c24bff6a8e961c31bbfad6bd5be5065bccba83accbcbb09fb6eeb"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

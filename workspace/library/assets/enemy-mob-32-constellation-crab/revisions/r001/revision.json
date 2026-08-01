@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-constellation-crab",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:34:15.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Constellation Crab\".\n\nCreative brief\nName: Constellation Crab\nCollection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\nCore concept: A tactical caster that connects star projectiles into temporary danger lines.\nBody and silhouette: Wide crab with long angular legs, a flat night-sky shell, and two raised crystal claws.\nSignature features: Star points on the shell, glowing connecting lines, and crescent-shaped eyes.\nPalette and materials: Midnight blue, pale gold, muted purple, and silver-white light.\nMovement personality: Sideways, deliberate, and diagram-like.\nAttack concept: Places three bright star orbs around itself, pauses, and then sends damaging beams briefly along the triangle between them.\nDirectional details: A crescent marking occupies only the shell’s upper-right corner.\nAvoid: Realistic ocean crab, zodiac text, beams appearing without placed stars.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "d5b876dbf5d0ed3155522a9e6f271da65babfb32b0b969d16953e4c8063705b1"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "e9f466f5a86b0388007ce09922167967bb03bcfa4c69be8d2a1a7cfec1437037"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "448d11feba93461deb87b29e6fcdb940779729b4e5e7cd37057bec4b58dba449"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

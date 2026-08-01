@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-red-scarf-cutpurse",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T22:25:50.280Z",
+  "request": "Create an enemy-mob-32 sprite named \"Red Scarf Cutpurse\".\n\nCreative brief\nName: Red Scarf Cutpurse\nCollection: Ironroad Marauders. Organized highway raiders who turn practical medieval weapons, shields, traps, chains, and stolen supplies into disciplined projectile patterns.\nCore concept: A fast flanker that throws knives while crossing behind the player.\nBody and silhouette: Small agile humanoid with a short cloak, narrow shoulders, bent knees, and a dagger in each hand.\nSignature features: Long red scarf, dark eye mask, and several visible throwing knives.\nPalette and materials: Dusty brown, dark charcoal, muted red, and worn steel.\nMovement personality: Cocky, nimble, and evasive.\nAttack concept: Dashes sideways and throws three knives backward across the route it just traveled.\nDirectional details: The scarf knot and trailing cloth sit over the left shoulder.\nAvoid: Ninja costume, ornate assassin armor, knives too small to distinguish.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "6de15c8929ed845a7307e5b68da93fc7340fcb3e67a347b2f4135586a91b4be1"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "2b8bb2ffa0cfeb326e2ec46d68cf313635081a07d3cf0f95d8878859c83a73b7"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "7a28b27a71b7db09821e3a785267896acf0bf5835fe25d53577af0233d27b134"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

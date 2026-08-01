@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-hexbloom-owl",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:33:05.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Hexbloom Owl\".\n\nCreative brief\nName: Hexbloom Owl\nCollection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\nCore concept: A hovering pattern caster that unfolds flower-shaped magical volleys.\nBody and silhouette: Round owl with wide wings, short ear points, and a layered flower shape around its face.\nSignature features: Petal facial disk, rune pupils, and square-tipped feathers.\nPalette and materials: Deep indigo, dusty rose, pale cream, and luminous cyan.\nMovement personality: Calm, watchful, and ritualistically precise.\nAttack concept: Closes its wings, then opens them to release a six-petal arrangement of bolts that slowly expands and rotates.\nDirectional details: One petal above the left eye is dark and cracked.\nAvoid: Cute scholar owl, realistic feathers, excessively intricate facial runes.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "7ce04278086fdf70c103a79abbd41ea5288a84c7536da492eec78eb82811dfc1"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "a0f97299dfc3661d887f8c15f76a13d613a130cd5152229157de5d7941cc4571"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "3ccbae476b1a01563b67c16809cc63987a24d7e728b2b8b27a6e11c84cc899fc"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

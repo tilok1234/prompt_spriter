@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-sapspitter-beetle",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T23:05:00.000Z",
+  "request": "Read and follow the project documentation.\n\nCreate an enemy-mob-32 sprite named \"Sapspitter Beetle\".\n\nCreative brief\nName: Sapspitter Beetle\nCollection: Briarwild Brood. Woodland animals reshaped by an ancient living forest, using thorns, seeds, roots, sap, and leaf-pattern projectiles.\nCore concept: A slow ranged turret that creates temporary sticky zones.\nBody and silhouette: Rounded beetle with a large shell, small head, six compact legs, and an upward-angled mouth nozzle.\nSignature features: Transparent sap chamber, bark-textured shell plates, and two twig-like antennae.\nPalette and materials: Walnut brown, honey amber, dark green, and glossy black.\nMovement personality: Methodical, stubborn, and mechanically precise.\nAttack concept: Fires three amber globules in a shallow spread; each glob leaves a small slowing patch before fading.\nDirectional details: A bite-shaped notch is missing from the rear-right shell edge.\nAvoid: Metallic robot beetle, realistic insect anatomy, translucent details too subtle for 32 pixels.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "c1c385dc5d59f624a3c2cbe282b291f83133f8bbf346d918098b7a493dfa2c51"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "f6320745e87186adb2f7da34d0e73e8fd84f05df7e941e4c8173390028de9054"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "5c6c7ca658bb0d6d04a16a3eec683560e0ca76c6f4b4e7fc9b39f6b5bdecab0d"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

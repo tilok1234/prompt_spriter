@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-ashwheel-gremlin",
+  "name": "Ashwheel Gremlin",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-01T21:53:54.905Z",
+  "tags": [
+    "ashwheel",
+    "gremlin",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

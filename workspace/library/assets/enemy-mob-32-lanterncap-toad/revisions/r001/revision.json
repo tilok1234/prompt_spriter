@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-lanterncap-toad",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T22:58:58Z",
+  "request": "Create an enemy-mob-32 sprite named \"Lanterncap Toad\".\n\nCreative brief\nName: Lanterncap Toad\nCollection: Briarwild Brood. Woodland animals reshaped by an ancient living forest, using thorns, seeds, roots, sap, and leaf-pattern projectiles.\nCore concept: A stationary area-denial caster that grows explosive seed pods.\nBody and silhouette: Broad squat toad with short legs, a wide mouth, and a large mushroom cap growing from its back.\nSignature features: Glowing cap spots, swollen throat pouch, and three seed bulbs around the shoulders.\nPalette and materials: Muddy olive, mushroom red, warm amber, and pale fungal cream.\nMovement personality: Patient, heavy, and suddenly spring-loaded.\nAttack concept: Inflates its throat before lobbing a glowing seed that lands visibly, pauses, and bursts into six evenly spaced spores.\nDirectional details: One small mushroom grows only beside the left eye.\nAvoid: Poison-dart-frog colors, realistic slime, oversized boss proportions.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "df99a62e056acc0c46616ef29bd7ff1e34fd535fa3a61bb781ea07cd55f639be"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "9040346099293411c65b9556d1c7d0181f09f06b3d09119bc647f432438f1575"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "e6dccc536a6c388e6988309a1ed544f0f7eda3961503a10e5f51d1a0a095c327"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

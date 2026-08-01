@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-crucible-crab",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T23:49:05.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Crucible Crab\".\n\nCreative brief\nName: Crucible Crab\nCollection: Ashforge Remnants. Abandoned forge creatures and half-living constructs powered by coals, slag, chains, soot, and unstable furnace heat.\nCore concept: A broad defensive enemy that pours molten streams while moving sideways.\nBody and silhouette: Wide six-legged crab with a deep bowl-shaped shell and two asymmetrical iron claws.\nSignature features: Open crucible back, molten contents, and pouring spouts on both sides.\nPalette and materials: Black iron, orange-yellow metal, dark rust, and cooled slag gray.\nMovement personality: Sideways, measured, and territorial.\nAttack concept: Tilts its shell while strafing, releasing evenly spaced molten droplets in a line parallel to its movement.\nDirectional details: The left claw is narrow while the right claw is hammer-shaped.\nAvoid: Ocean crab colors, cooking pot appearance, liquid covering the entire sprite.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "401d3db98a5874f9cd2796971bda3d05f3a73a3cf2b413da1d1b1d15d7a2dce4"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "5d123862f95bb47ba20a274b2c617ea5c93ab3d41b7ed44fdcdb5df8f93f6b0c"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "725238e78599cdbd450bf4116f8c5264c03367100243c48ec4228a206b1d8821"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

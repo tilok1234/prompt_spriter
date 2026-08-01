@@ -1,7 +1,7 @@
 {
   "kind": "promptinator-store",
   "schemaVersion": "1.7.0",
-  "updatedAt": "2026-08-01T20:39:12.659Z",
+  "updatedAt": "2026-08-01T23:34:54.560Z",
   "entries": [
     {
       "id": "prompt-0001-mossback-tuskling",
@@ -9477,7 +9477,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -9508,9 +9508,19 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T21:59:30.225Z",
+          "claimId": "claim-e18d37de-b5a5-4657-8797-c9946cbc95a6"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-e18d37de-b5a5-4657-8797-c9946cbc95a6",
+        "claimedAt": "2026-08-01T21:59:30.225Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-plaguecart-beetle"
+      },
       "completion": null
     },
     {
@@ -9542,7 +9552,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -9573,9 +9583,19 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T23:34:54.560Z",
+          "claimId": "claim-d772189b-c406-413e-8831-337fdec1b884"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-d772189b-c406-413e-8831-337fdec1b884",
+        "claimedAt": "2026-08-01T23:34:54.560Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-carrion-bellman"
+      },
       "completion": null
     },
     {

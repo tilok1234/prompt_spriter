@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-slag-hound",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory warnings: frame row 1, column 7 duplicates row 1, column 4; frame row 4, column 7 duplicates row 4, column 4"
+    }
+  ],
+  "createdAt": "2026-08-01T23:33:05.000Z"
+}

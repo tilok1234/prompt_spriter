@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-furnace-scarab",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T23:35:14.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Furnace Scarab\". Creative brief: Collection: Ashforge Remnants. Core concept: A rotating artillery unit that vents sparks from different shell openings. Body and silhouette: Wide mechanical beetle with a domed shell, six blunt legs, and a low armored head. Signature features: Four vent holes, riveted shell bands, and a glowing underside. Palette and materials: Dark steel, oxidized copper, furnace orange, and soot brown. Movement personality: Slow, weighty, and rhythmically mechanical. Attack concept: Locks in place and fires from each vent clockwise, producing four clearly timed lines of sparks. Directional details: The rear-left vent is clogged and releases smoke instead of a projectile. Avoid: Sleek technology, realistic beetle legs, tiny indistinguishable rivets.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "6a6e3f632a26a3850dec4a5f47ed086728676eb4a24b21f9337f4c289a54a236"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "8502473107138f40bda8737f50e6033d57b488044630a4a08ea8a8e3a5bdb9c2"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "54334689695367be8f2e911a270dc5263823b2d9032411b6fe4a27ca719cd222"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

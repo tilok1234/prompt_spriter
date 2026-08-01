@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-deepwell-shaman-claude",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validated cleanly against category, style, motion, and source contracts."
+    }
+  ],
+  "createdAt": "2026-08-01T23:31:37.000Z"
+}

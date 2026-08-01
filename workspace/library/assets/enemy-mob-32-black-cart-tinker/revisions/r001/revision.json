@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-black-cart-tinker",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T23:22:24.388Z",
+  "request": "Create an enemy-mob-32 sprite named \"Black Cart Tinker\".\n\nCreative brief\nName: Black Cart Tinker\nCollection: Ironroad Marauders. Organized highway raiders who turn practical medieval weapons, shields, traps, chains, and stolen supplies into disciplined projectile patterns.\nCore concept: A battlefield mechanic that releases rolling wheel hazards from a portable frame.\nBody and silhouette: Stooped raider wearing a tool-covered apron and pushing a small two-wheeled wooden frame.\nSignature features: Spare iron wheel, hanging hammer, and black-painted cart boards.\nPalette and materials: Charred black wood, rusty iron, muted orange cloth, and tan leather.\nMovement personality: Busy, calculating, and awkwardly mobile.\nAttack concept: Detaches a wheel that rolls in a curved path while releasing four outward-facing nail projectiles at fixed intervals.\nDirectional details: The tool hammer hangs from the left side of the apron.\nAvoid: Steampunk machinery, full-size wagon, modern mechanic clothing.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "ac570e6a30e0ad4dba28d501ac62a196a760a75457627beb06cb0053e65a3dbd"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "256a20b130ee82ce5b3fc03c0b7ef0641b966922e685d96566860452832425d7"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "f4a83a48ae79d632b2d022126658ea3a484c4e4c47568c8fc175b73156af86d7"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

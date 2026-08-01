@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "anvilkin-porter",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T21:44:15Z",
+  "request": "Create an enemy-mob-32 sprite named \"Anvilkin Porter\".\n\nCreative brief\nName: Anvilkin Porter\nCollection: Ashforge Remnants. Abandoned forge creatures and half-living constructs powered by coals, slag, chains, soot, and unstable furnace heat.\nCore concept: A heavy support construct that creates shockwaves by dropping its carried anvil.\nBody and silhouette: Squat stone-and-iron humanoid carrying a broad anvil above one shoulder.\nSignature features: Anvil-shaped upper silhouette, coal-filled eye sockets, and blocky gauntlets.\nPalette and materials: Iron gray, basalt black, rust brown, and ember orange.\nMovement personality: Labored, stubborn, and dangerously strong.\nAttack concept: Lifts the anvil higher before slamming it down, sending two expanding semicircles of ground sparks with a gap behind it.\nDirectional details: The anvil is always carried over the right shoulder.\nAvoid: Blacksmith human, giant boss scale, photorealistic metal shading.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "0be8c02007e1e90287a75eb65b1694ed7e7e529e99118578f779b706b9b8cebb"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "c69993f132b4837cb83f1903666274b473643bceab7e817366a38e17a3407ca5"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "ab95ed23a1edca944a863d2b3e2407194b8b251679cb873fa4447d5af69617eb"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

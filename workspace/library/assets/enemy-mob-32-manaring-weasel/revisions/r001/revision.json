@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-manaring-weasel",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T23:35:30.312Z",
+  "request": "Create an enemy-mob-32 sprite named \"Manaring Weasel\".\n\nCreative brief\nName: Manaring Weasel\nCollection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\nCore concept: A rapid disruptor that throws expanding rings from its elongated body.\nBody and silhouette: Long flexible weasel with short legs, pointed head, and curled tail forming a circle.\nSignature features: Floating mana rings, glowing belly marks, and crystal whiskers.\nPalette and materials: Dark turquoise, cream, muted violet, and bright blue light.\nMovement personality: Playful, restless, and difficult to pin down.\nAttack concept: Curls briefly into a loop before firing three expanding rings with alternating open gaps.\nDirectional details: The tail’s crystal tip points inward from the left side of the loop.\nAvoid: Ferret pet appearance, solid unavoidable rings, overly soft magical glow.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "f09cd5126e7bececbb639a65957f3198edd7171a273c390293430ddb71f21f11"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "c6f85c44f154a18abceb6b8f1b6dcda6106a531c6ee17b4026781d110895843e"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "710715ed838e7161855f7cf652d50033e76b67dc7dc528fec97a6283a4915dbe"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-rotwater-eel",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T00:22:10.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Rotwater Eel\".\n\nCreative brief\nName: Rotwater Eel\nCollection: Mirebound Court. Swamp creatures serving a drowned marsh court, marked by reeds, lilies, mud, spores, leeches, and deceptive water formations.\nCore concept: A serpentine flanker that turns its swimming path into a delayed projectile wave.\nBody and silhouette: Long curved eel with a broad jaw, leaf-like fins, and a segmented glowing spine.\nSignature features: Algae beard, luminous back nodes, and a forked marshweed tail.\nPalette and materials: Dark teal, rotten green, muddy yellow, and faint violet.\nMovement personality: Slippery, weaving, and opportunistic.\nAttack concept: Swims through the air or shallow water in an S-curve; its glowing back nodes detach afterward and travel outward from the path.\nDirectional details: The upper jaw has one pale fang on the right side.\nAvoid: Skeletal zombie fish, realistic decay, extremely thin eel body.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "c88dc7e6a8f595e209f220fac3ff4d9cefe0226ce688baad428357f929c60e06"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "34f988460b635c14480af25d8f019c7bcaa59f20aa20168930ba4593397116ad"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "4cc0702ac6325b0e7eec2a42505ca1de5c74e57ef7652642d7443ca3a7c9fc6a"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

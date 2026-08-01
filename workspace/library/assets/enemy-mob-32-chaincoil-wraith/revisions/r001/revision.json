@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-chaincoil-wraith",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T23:42:20.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Chaincoil Wraith\".\n\nCreative brief\nName: Chaincoil Wraith\nCollection: Ashforge Remnants. Abandoned forge creatures and half-living constructs powered by coals, slag, chains, soot, and unstable furnace heat.\nCore concept: A floating controller that creates rotating chains of linked projectiles.\nBody and silhouette: Hooded upper torso fading into a hanging spiral of chain links instead of legs.\nSignature features: Empty hood, glowing wrist shackles, and a circular chain halo.\nPalette and materials: Smoke gray, blackened iron, ember red, and faint brass.\nMovement personality: Drifting, restrained, and ominously deliberate.\nAttack concept: Raises one shackle and releases a curved row of linked iron sparks that slowly rotates around its casting point.\nDirectional details: A broken link hangs below the right wrist.\nAvoid: Detailed ghost face, medieval prisoner with normal legs, chain pattern too dense to dodge.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "f1dac97cab32595bd4d2f94a4373accef2cd58fd0500af1ab69349011625ac45"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "725012e066f9097556bb52c7f501c9f23c3f1848ec36d796f3f1b913782246ea"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "30506efdb1c3c1e0725ab0b979591829753ecae48d4a250f0d79c7ea641aae68"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

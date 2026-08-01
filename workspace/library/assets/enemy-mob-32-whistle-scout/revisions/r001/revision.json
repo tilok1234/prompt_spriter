@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-whistle-scout",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T23:17:37.550Z",
+  "request": "Create an enemy-mob-32 sprite named \"Whistle Scout\".\n\nCreative brief\nName: Whistle Scout\nCollection: Ironroad Marauders. Organized highway raiders who turn practical medieval weapons, shields, traps, chains, and stolen supplies into disciplined projectile patterns.\nCore concept: A mobile signaler whose whistles preview incoming arrow directions.\nBody and silhouette: Slim cloaked lookout with a feathered cap, short bow, and whistle held near the mouth.\nSignature features: Long signal feather, brass whistle, and rolled route map.\nPalette and materials: Muted green, tan leather, pale brass, and faded red.\nMovement personality: Alert, evasive, and always searching for distance.\nAttack concept: Faces one direction and whistles, creating visible arrow markers before firing a line of signal bolts from that side.\nDirectional details: The cap feather bends toward the right.\nAvoid: Bard with musical magic, military officer uniform, tiny unreadable bow.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "c2fa9206e84960232a53aab8df96220e703bb84d471e524abd8d345f8bfc1118"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "31b47781e9017570231bc5b416dca805cba0b7acecfc096564207c141c1051fa"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "33859a5fad21fd55064ba34650adc885eeba2e6e55e32154e88bc4c578c7ca81"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

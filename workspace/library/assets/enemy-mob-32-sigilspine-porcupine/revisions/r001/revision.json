@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-sigilspine-porcupine",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T23:30:16.089Z",
+  "request": "Create an enemy-mob-32 sprite named \"Sigilspine Porcupine\".\n\nCreative brief\nName: Sigilspine Porcupine\nCollection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\nCore concept: A rotating artillery creature whose quills lock into magical formations.\nBody and silhouette: Round low mammal with a pointed face, short legs, and a large fan of oversized quills.\nSignature features: Rune-marked quills, glowing back ring, and crystal nose.\nPalette and materials: Dark plum, pale ivory, deep navy, and magenta light.\nMovement personality: Defensive, twitchy, and increasingly agitated.\nAttack concept: Raises six large quills and launches them sequentially around a rotating compass pattern.\nDirectional details: One black quill remains permanently attached above the right hip.\nAvoid: Cute hedgehog, dozens of tiny quills, uncontrolled full-screen barrage.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "ff098bcc12bf1d3f42bc4b826bb30d1934db9eb8a0c418f77c940c25792ebba6"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "01dda0f2e4bd229f4f790bfe2c2bbfca66e71097bcd693e3a7379da624534cd0"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "7eda57298a909354aefc62356aebbca54763f2fa29dc2f1829fb9d5736cd1b3d"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

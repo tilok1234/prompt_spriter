@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-coin-eyed-duelist",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:20:21.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Coin-Eyed Duelist\".\n\nCreative brief\nName: Coin-Eyed Duelist\nCollection: Ironroad Marauders. Organized highway raiders who turn practical medieval weapons, shields, traps, chains, and stolen supplies into disciplined projectile patterns.\nCore concept: A flamboyant ricochet attacker that uses stolen coins as spinning projectiles.\nBody and silhouette: Lean swordsman with a featherless wide hat, short cape, narrow rapier, and upright stance.\nSignature features: Coin-covered eye patch, coin-chain belt, and bright metal glove.\nPalette and materials: Burgundy, dark leather, tarnished gold, and silver-gray steel.\nMovement personality: Proud, theatrical, and deceptively quick.\nAttack concept: Flicks two large coins diagonally; each changes direction once at a visible sparkle point.\nDirectional details: The coin eye patch always covers the right eye.\nAvoid: Noble hero, pirate stereotype, tiny realistic coins.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "7b1bdb40c7ce9959350a310d615fafce6d8c866304323d89a10595a0d00eb608"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "e4c0a7113dc3c3d8105f7131c898ec38ee7f2efc98a72045880cf73fd3190c5a"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "736f721400171244671664488c6966b52ff6fa37fa9697576ae0654bc221f0cf"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

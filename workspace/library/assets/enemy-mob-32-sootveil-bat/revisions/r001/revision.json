@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-sootveil-bat",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T21:46:17.274Z",
+  "request": "Create an enemy-mob-32 sprite named \"Sootveil Bat\".\n\nCreative brief\nName: Sootveil Bat\nCollection: Ashforge Remnants. Abandoned forge creatures and half-living constructs powered by coals, slag, chains, soot, and unstable furnace heat.\nCore concept: A fast aerial enemy that hides its next shot angle inside a visible smoke trail.\nBody and silhouette: Small bat with oversized triangular wings, pointed ears, and a compact ember body.\nSignature features: Soot-cloud wing edges, glowing mouth, and thin copper wing braces.\nPalette and materials: Soot black, smoke gray, dull copper, and ember yellow.\nMovement personality: Erratic, fluttering, and evasive.\nAttack concept: Flies in a short arc, leaving a dark smoke curve, then sends sparks traveling back along that exact curve.\nDirectional details: The right ear is capped with a small copper band.\nAvoid: Vampire humanoid, invisible dark-on-dark silhouette, realistic membrane detail.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "dd37cb17f084724417f6357008fa99dc1a6a339099b7059231a4836d06a99447"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "9a5d821b92884726c1a15f667263e595fb4ede70c5cea76809aff25066c90d7d"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "5b718ee68cf6e3e3654c74cee023fcfe8e7ad98bc65f16345fd4d864b942d2c1"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

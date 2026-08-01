@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-boglace-frog",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T21:56:18.719Z",
+  "request": "Create an enemy-mob-32 sprite named \"Boglace Frog\".\n\nCreative brief\nName: Boglace Frog\nCollection: Mirebound Court. Swamp creatures serving a drowned marsh court, marked by reeds, lilies, mud, spores, leeches, and deceptive water formations.\nCore concept: A hopping pattern caster that stitches projectile lines between its landing points.\nBody and silhouette: Round frog with long rear legs, raised eyes, and lace-like pondweed hanging from its limbs.\nSignature features: Lily-pad collar, threadlike algae, and a glowing throat sac.\nPalette and materials: Marsh green, muddy brown, pale lavender, and soft yellow-green.\nMovement personality: Springy, cautious, and rhythmically precise.\nAttack concept: Performs three marked hops, then fires slow water beads along the triangular path connecting those landing points.\nDirectional details: A small lily flower grows above the right eye.\nAvoid: Cute cartoon frog, realistic wet skin, water lines too thin to read.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "808c116b24490f6c54bf40701962ff0314c93240721a96365d91f6373a26d270"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "de74fafa112c56fdc937ccfdedc720de3267f6128705fddd82b9005f5cef166f"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "cb78187992838546dd3c6ef7d3a36f732b6a19cbf520b9700fa9219882fdf365"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

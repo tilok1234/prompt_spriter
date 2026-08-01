@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-siltjaw-crocodile",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T00:04:55.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Siltjaw Crocodile\".\n\nCreative brief\nName: Siltjaw Crocodile\nCollection: Mirebound Court. Swamp creatures serving a drowned marsh court, marked by reeds, lilies, mud, spores, leeches, and deceptive water formations.\nCore concept: A waterline ambusher that erupts forward and sends mud waves to both sides.\nBody and silhouette: Long low crocodilian body with a broad jaw, plated back, and thick sweeping tail.\nSignature features: Silt-covered armor ridges, reed growths, and pale eyes above the head.\nPalette and materials: Mud brown, algae green, dark olive, and dull ivory.\nMovement personality: Still, explosive, and brutally direct.\nAttack concept: Submerges beneath a visible ripple, lunges along a marked lane, and sends short mud-wave fans perpendicular to the lunge.\nDirectional details: The final tail plate is chipped on the left side.\nAvoid: Realistic camouflage that hides the sprite, dinosaur spikes, oversized boss scale.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "ac2038e48a37715bfa1eda68832c0ce04039950012e89c6b1c1e70286c2840d8"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "11e79e6d56c715da770f2c25a953f77166cd144e202cb410c955834946c1d915"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "26c45594c449c5884477a9dcc1f680fa29b0da22dc6fa1d175dca2998b5146b9"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

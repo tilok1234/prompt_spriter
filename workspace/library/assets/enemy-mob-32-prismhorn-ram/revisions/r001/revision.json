@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-prismhorn-ram",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:23:01.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Prismhorn Ram\".\n\nCreative brief\nName: Prismhorn Ram\nCollection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\nCore concept: A charging refractor that splits one projectile lane into several colored branches.\nBody and silhouette: Thick-bodied ram with curled crystalline horns, sturdy legs, and a lowered armored head.\nSignature features: Transparent prism horns, glowing forehead rune, and faceted shoulder wool.\nPalette and materials: Cream, deep violet, pale cyan, and muted rainbow reflections.\nMovement personality: Proud, forceful, and geometrically precise.\nAttack concept: Fires a single bright bolt between its horns; after reaching a marked point, the bolt divides into three evenly angled rays.\nDirectional details: The left horn has a chipped outer tip.\nAvoid: Rainbow mascot, ordinary farm sheep, excessive transparent detail.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "5cc209af0a040344eb8a40883997273402ed05352236d5a0189e42b6833bd965"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "0a85ae62f66e1430d6bd5ae3a19bda77ca38500a9104a7559e127d680759e69d"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "74450ecf236b1d6634ed2cb2b729e701a89aef6144077b60a916db7767a37320"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

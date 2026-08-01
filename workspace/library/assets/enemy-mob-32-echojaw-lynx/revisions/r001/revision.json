@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-echojaw-lynx",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T23:24:23.132Z",
+  "request": "Create an enemy-mob-32 sprite named \"Echojaw Lynx\".\n\nCreative brief\nName: Echojaw Lynx\nCollection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\nCore concept: A stalking predator whose attacks repeat from phantom copies of its previous position.\nBody and silhouette: Lean feline with long legs, large ear tufts, short tail, and a wide glowing jaw.\nSignature features: Double-outline echo effect, rune-lined mouth, and floating ear-tip shards.\nPalette and materials: Midnight blue, muted lavender, pale silver, and cyan light.\nMovement personality: Quiet, prowling, and suddenly explosive.\nAttack concept: Fires a narrow claw-shaped spread, relocates, and then an afterimage at its former position repeats the same spread.\nDirectional details: The right ear tuft splits into two prongs.\nAvoid: Domestic cat, ghostly transparency obscuring the shape, realistic spotted fur.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "8a806d0261b9111c45b491e6c4042f2340215954f3e65364e5ffac6214f58725"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "e57f53662eec12a6ee8b97a9bcc73d9c91da0d8640caa61213e4b1d2770f3917"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "4f575a5c96498c9044fb4940c38cd15a95a36677b8dc45b0b9f8a4f500cc5422"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

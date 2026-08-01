@@ -1,0 +1,22 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-red-scarf-cutpurse",
+  "name": "Red Scarf Cutpurse",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T00:24:00.000Z",
+  "tags": [
+    "red",
+    "scarf",
+    "cutpurse",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

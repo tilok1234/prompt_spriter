@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-orbitail-gecko",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:26:22.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Orbitail Gecko\".\n\nCreative brief\nName: Orbitail Gecko\nCollection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\nCore concept: A wall-hugging skirmisher controlled by three orbiting tail fragments.\nBody and silhouette: Low gecko with splayed feet, broad head, and a tail separated into floating segments.\nSignature features: Three orbiting tail stones, glowing toe pads, and a spiral back rune.\nPalette and materials: Deep teal, pale mint, muted magenta, and smooth crystal gray.\nMovement personality: Quick, sticky, and sharply directional.\nAttack concept: Tail segments orbit visibly before launching one by one toward the player, then slowly returning to reform the tail.\nDirectional details: The smallest fragment always orbits on the gecko’s left side.\nAvoid: Chameleon eyes, realistic skin texture, tail fragments resembling random debris.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "9ef66b3ee47b8a62bfa66d82031180e065e057c985b76447c5d66b662aeeb2b8"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "569d8a95bc2b0d7c7e0b460b50bde15f37188e9adb3a77b328292468c76889f1"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "fdc70a2ad44440208a26c7496152ede1d840636f4ed9f4111a40b8c1653b4345"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

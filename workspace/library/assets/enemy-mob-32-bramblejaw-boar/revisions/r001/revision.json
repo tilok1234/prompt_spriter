@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-bramblejaw-boar",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T21:02:57.874Z",
+  "request": "Create an enemy-mob-32 sprite named \"Bramblejaw Boar\".\n\nCreative brief\nName: Bramblejaw Boar\nCollection: Briarwild Brood. Woodland animals reshaped by an ancient living forest, using thorns, seeds, roots, sap, and leaf-pattern projectiles.\nCore concept: A lane-controlling charger that releases sideward bramble bursts.\nBody and silhouette: Low muscular boar with a heavy head, thick shoulders, short legs, and forward-curving tusks.\nSignature features: Interwoven bramble mane, bark-plated forehead, and leaf-wrapped tusks.\nPalette and materials: Dark umber, thorny green, weathered tan, and dull ivory.\nMovement personality: Stubborn, aggressive, and momentum-driven.\nAttack concept: Scrapes the ground to telegraph a straight charge, then fires perpendicular thorn sprays from both sides while rushing forward.\nDirectional details: The left tusk is broken near its tip.\nAvoid: Domestic pig, flaming boar, overly detailed individual vines.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "582bdaab125786ad223374fa8439a0b336333b52a3e8cac3ed4cb6f914617d99"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "bcd9d1097038ef11970a8683baa3397fc40e936eaebb819704c48f145bcce30d"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "bb90a0bbd68cc85bd1158f93b4a769ad368ce27d2aba99ff52f8fd7e1a56ff13"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

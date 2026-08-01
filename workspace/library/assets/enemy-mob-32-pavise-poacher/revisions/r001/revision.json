@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-pavise-poacher",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T00:28:15.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Pavise Poacher\".\n\nCreative brief\nName: Pavise Poacher\nCollection: Ironroad Marauders. Organized highway raiders who turn practical medieval weapons, shields, traps, chains, and stolen supplies into disciplined projectile patterns.\nCore concept: A directional defender that alternates between blocking and crossbow fire.\nBody and silhouette: Crouched humanoid mostly hidden behind a tall rectangular pavise shield.\nSignature features: Painted animal-skull emblem, crossbow extending around the shield edge, and heavy boots.\nPalette and materials: Faded forest green, raw wood, dull iron, and dirty beige.\nMovement personality: Cautious, disciplined, and slow to reposition.\nAttack concept: Faces the player with its shield raised, then visibly leans out and fires a three-bolt fan from the exposed side.\nDirectional details: The crossbow is always operated from the shield’s right edge.\nAvoid: Towering knight, modern riot shield, perfectly clean military equipment.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "3a202e39b0149614f98234cadab4b548a5696d0dc8a071bda2d474f1609200bf"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "8612ca73ae9bd640f6bef6c8c5f09236c12c86db4a1d2bded084f512bd35ac61"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "bf644eed87930aa3143e6b104bd63bae82814f616f6b6de3d0f464e4cec03b26"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

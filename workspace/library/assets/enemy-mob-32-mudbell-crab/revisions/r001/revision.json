@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-mudbell-crab",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T00:11:00.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Mudbell Crab\".\n\nCreative brief\nName: Mudbell Crab\nCollection: Mirebound Court. Swamp creatures serving a drowned marsh court, marked by reeds, lilies, mud, spores, leeches, and deceptive water formations.\nCore concept: A rhythmic defender whose shell pulses produce alternating safe gaps.\nBody and silhouette: Wide marsh crab with a bell-shaped mud shell, six short legs, and two raised claws.\nSignature features: Hanging shell clapper, lily markings, and bubble-covered claws.\nPalette and materials: Peat brown, dull bronze, moss green, and muddy yellow.\nMovement personality: Side-stepping, ceremonial, and rhythmically repetitive.\nAttack concept: Rings its shell three times, producing expanding projectile circles with the safe opening rotating ninety degrees each time.\nDirectional details: The left claw is capped with a pale snail shell.\nAvoid: Metal church bell, ocean-blue crab, visually dense full-circle barrages.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "5c8065a6c4f8581bb5b67e70b9d84db64e0e5186295d642dfbac0d4083ee1ac0"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "9040664bb3f100647d6f21d396c67ac1cebcbd7d69f0eaea6b6e5a4a61b62c5f"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "e6f5a63bf29093bc6b27d698d776bfd431c42c859b9d4231b2596dbc663221af"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

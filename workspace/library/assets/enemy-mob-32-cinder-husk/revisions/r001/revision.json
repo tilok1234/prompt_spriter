@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-cinder-husk",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T21:28:41.423Z",
+  "request": "<USER_REQUEST>\nCreate an enemy-mob-32 sprite named \"Cinder Husk\".\n\nCreative brief\nName: Cinder Husk\nCollection: Ashforge Remnants. Abandoned forge creatures and half-living constructs powered by coals, slag, chains, soot, and unstable furnace heat.\nCore concept: A basic marching attacker that fires predictable volleys whenever its furnace chest opens.\nBody and silhouette: Stocky humanoid shell with broad iron shoulders, short legs, and a hollow helmet.\nSignature features: Furnace-door chest, glowing seams, and a chimney-like neck opening.\nPalette and materials: Black iron, ash gray, ember orange, and dark crimson.\nMovement personality: Rigid, tireless, and industrial.\nAttack concept: Stops, opens its chest door, and fires three slow embers in a straight line before closing and advancing again.\nDirectional details: The left shoulder plate is larger and visibly riveted.\nAvoid: Living human face, science-fiction robot, excessive flame effects obscuring the silhouette.\n</USER_REQUEST>",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "12b9b9cff7cdf30b9b9192489f0c7a19131fa4045214abe27c5ac0ba08179fb0"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "a862661f671291faac2f1e885ca328b7b7724508285bf9e123cba18e70d99335"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "bd10d61faede4873b8dda3b88d39c94448b8441061fdfb27a25bcaaa6980dce6"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

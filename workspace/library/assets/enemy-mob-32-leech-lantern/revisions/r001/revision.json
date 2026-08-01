@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-leech-lantern",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T00:02:51.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Leech Lantern\".\n\nCreative brief\nName: Leech Lantern\nCollection: Mirebound Court. Swamp creatures serving a drowned marsh court, marked by reeds, lilies, mud, spores, leeches, and deceptive water formations.\nCore concept: A floating parasite that creates contracting rings of dark droplets.\nBody and silhouette: Thick curled leech wrapped around a glowing marsh-light orb.\nSignature features: Circular body, lamp-like central glow, and four dangling tendrils.\nPalette and materials: Near-black purple, swamp green, murky red, and pale yellow light.\nMovement personality: Drifting, pulsing, and quietly persistent.\nAttack concept: Expands its body before releasing a wide ring of droplets that slows and then contracts back toward the lantern.\nDirectional details: One tendril on the lower-right side is noticeably shorter.\nAvoid: Real lantern hardware, graphic parasite detail, extremely dark unreadable sprite.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "98de61f74a16e02ce5557c7fc6bded0e608a57ed69d6f6f10b01184e32731a44"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "25ac8015d841fefc7a5116680456e93a3ef2c65ab9de8ed1b981ff3c5b1d9aa6"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "6265f76c5c24e83e38142f93d1b7b751c37179a3f38fd9f87e7e5b9778438a15"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-fenneedle-heron",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T00:09:41.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Fenneedle Heron\".\n\nCreative brief\nName: Fenneedle Heron\nCollection: Mirebound Court. Swamp creatures serving a drowned marsh court, marked by reeds, lilies, mud, spores, leeches, and deceptive water formations.\nCore concept: A precise ranged hunter that fires thin but clearly spaced needle lines.\nBody and silhouette: Tall wading bird with extremely long legs, folded wings, and a straight spear-like beak.\nSignature features: Reed-feather crest, needle bundle beneath one wing, and a dark throat stripe.\nPalette and materials: Fog gray, reed green, faded blue, and pale tan.\nMovement personality: Still, elegant, and lightning-fast when striking.\nAttack concept: Points its beak with a bright line telegraph before firing a rapid sequence of three reed needles down the same lane.\nDirectional details: A broken reed is tied beneath the left wing.\nAvoid: Realistic feather detail, stork proportions, nearly invisible one-pixel projectiles.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "c90ac2a4b8934af38ae6ff35b86f0e6708586f63fae7949fc78b28d8417358f1"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "c24b6c5f36fed580eef90b0c44b947d92ded98d3b97a33c111684718cab74e63"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "ed6d49df3e95c762ad909c10a4bec49da2fe60252a8e4111453bd4e5ae5db7d9"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

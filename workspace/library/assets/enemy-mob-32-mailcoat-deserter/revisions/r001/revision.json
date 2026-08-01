@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-mailcoat-deserter",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:18:20.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Mailcoat Deserter\".\n\nCreative brief\nName: Mailcoat Deserter\nCollection: Ironroad Marauders. Organized highway raiders who turn practical medieval weapons, shields, traps, chains, and stolen supplies into disciplined projectile patterns.\nCore concept: A durable foot soldier that advances behind repeated spear-wave volleys.\nBody and silhouette: Medium-height soldier with a rounded helmet, chainmail coat, small shield, and short throwing spear.\nSignature features: Torn former-regiment tabard, dented helmet, and bundled javelins.\nPalette and materials: Dull steel, desaturated blue, dusty brown, and faded white.\nMovement personality: Trained, steady, and grimly practical.\nAttack concept: Throws three javelins in parallel lanes, walks forward during the gap, and repeats with the lanes offset.\nDirectional details: The old tabard is torn away over the lower-left side.\nAvoid: Heroic knight, pristine royal armor, spear projectiles without visible spacing.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "8b20bfab32cd573b8136fdad92d57edcc4cf0802015300ad7f543b43a123e3df"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "f2d2362584f90952e42cf847f35db42895b0700eb0abdf6ff390639e9b518fdc"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "89d5e50308bc56d3f0f300529e9fa6a8eb91bf323475a4e28b9afa999bfa4770"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

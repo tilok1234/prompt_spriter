@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-sporeback-snail",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T22:06:57.801Z",
+  "request": "Create an enemy-mob-32 sprite named \"Sporeback Snail\". Collection: Mirebound Court. Core concept: Slow hazard maker that releases delayed fungal bursts along its trail. Body: Large low snail with a round mushroom-covered shell and two prominent eye stalks. Signature features: Three cap mushrooms, glowing shell spiral, and dripping moss fringe. Palette: Damp brown, muted violet, pale cream, and bioluminescent green.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "a36811b7385d1ffaabc0412e13956cdb723a50b0382d33b944f98da91df652dc"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "74ace2e12b02236f13000bdfbdb40eb62e5628e62c1e1c463c5546d2c5560a4d"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "90b05158ed01ea35cd6ed6c3ae44aa4207236d45d18246219dc0d8eb56c915b6"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

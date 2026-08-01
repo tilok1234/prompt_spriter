@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-phaseglass-jackal",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T01:30:36.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Phaseglass Jackal\".\n\nCreative brief\nName: Phaseglass Jackal\nCollection: Arcane Menagerie. Wild creatures altered by concentrated magic, with crystalline anatomy, runes, echoes, orbiting objects, and unusual projectile behavior.\nCore concept: A phasing runner that swaps position with one of its own projectiles.\nBody and silhouette: Tall narrow jackal with long ears, angular legs, and a glass-like ribcage.\nSignature features: Transparent torso window, floating shoulder shards, and a bright tail tip.\nPalette and materials: Smoky violet, dark navy, pale cyan, and glassy silver.\nMovement personality: Elusive, calculating, and unnaturally smooth.\nAttack concept: Fires one large slow crystal orb, flashes clearly, and swaps places with that orb after a fixed delay.\nDirectional details: The left shoulder shard is larger than the right.\nAvoid: Egyptian clothing, fully invisible body, teleport without a visible anchor.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "5899296cf77297c0b422cbf74fab7533b413f63b55e7b1027487be8f7b264a19"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "0ced875a45e77dcab73468dea4d4c4e8d382227e05452a2ec72289368164f924"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "212153acc919eebb6ffad0e43e699e21c3ef64750484625a6a7578471eeb1ec5"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

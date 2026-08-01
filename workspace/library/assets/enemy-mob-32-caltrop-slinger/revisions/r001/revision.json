@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-caltrop-slinger",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T00:30:10.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Caltrop Slinger\".\n\nCreative brief\nName: Caltrop Slinger\nCollection: Ironroad Marauders. Organized highway raiders who turn practical medieval weapons, shields, traps, chains, and stolen supplies into disciplined projectile patterns.\nCore concept: A trap specialist that creates temporary zones rather than direct damage pressure.\nBody and silhouette: Lean hooded raider with a shoulder bag, leather sling, and low crouched stance.\nSignature features: Caltrop-filled satchel, wrapped forearms, and triangular metal ammunition.\nPalette and materials: Dark brown, muted mustard, worn gray steel, and faded blue cloth.\nMovement personality: Sneaky, calculating, and constantly retreating.\nAttack concept: Slings a large caltrop bundle to a marked spot where it breaks into four stationary hazards arranged in a cross.\nDirectional details: The ammunition satchel hangs on the left hip.\nAvoid: Magical floating mines, modern explosives, hazards too small to notice.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "0304a8b0e549cfb4fbd053ea950f109ba48d0933e47cd7e99d913b497b7dcf8e"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "43984adec7b3915a421d7d7e1373be36fe52920fedc2672c934d6bcee28d36b9"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "0bae7f6ef22cd70c9b9a4b9561160b8a6d6433bcad704f91937b64c6331b8917"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

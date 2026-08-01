@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-slag-hound",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T23:33:06.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Slag Hound\".\n\nCreative brief\nName: Slag Hound\nCollection: Ashforge Remnants. Abandoned forge creatures and half-living constructs powered by coals, slag, chains, soot, and unstable furnace heat.\nCore concept: A pursuit enemy that sheds dangerous molten fragments whenever it changes direction.\nBody and silhouette: Low canine frame with heavy forequarters, jagged legs, and a cracked molten spine.\nSignature features: Slag-plated hide, furnace-bright mouth, and a chain fragment around the neck.\nPalette and materials: Charcoal black, rust red, molten orange, and cooled stone gray.\nMovement personality: Aggressive, relentless, and unevenly heavy.\nAttack concept: Chases in short bursts and drops a pair of glowing slag fragments whenever it pivots sharply.\nDirectional details: A broken chain trails from the left side of its collar.\nAvoid: Ordinary fire wolf, smooth lava blob, flames replacing the entire body.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "8af38bb33e322c24076a9aabcd2bb9e01a0529423c88f766e9d7d60101c0a18c"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "ff275648d434f054d427ddf1e1ad01c420b0f3ab65289698643208a690a4f54e"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "8978a1ef5a02c2e10e221da2e99b36b4e7be2dad89a8ee6659dd3aa3773cc90e"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

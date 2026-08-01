@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-lotus-veil-spirit",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T00:14:15+02:00",
+  "request": "Create an enemy-mob-32 sprite named \"Lotus Veil Spirit\".\n\nCreative brief\nName: Lotus Veil Spirit\nCollection: Mirebound Court. Swamp creatures serving a drowned marsh court, marked by reeds, lilies, mud, spores, leeches, and deceptive water formations.\nCore concept: A drifting support enemy that hides slow projectiles beneath floating petals.\nBody and silhouette: Small faceless spirit with a wide lotus-petal hood and tapering waterlike lower body.\nSignature features: Layered flower hood, glowing inner face, and two floating lily leaves.\nPalette and materials: Dusky pink, muted teal, pale cream, and soft blue light.\nMovement personality: Serene, gliding, and deceptively gentle.\nAttack concept: Releases large petals that drift outward before opening to reveal a faster water droplet continuing in the same direction.\nDirectional details: One outer petal is darkened on the lower-left side.\nAvoid: Human fairy, beautiful princess face, excessive transparency.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "5e52290ade02e9a5a71f4aa029144bdd687c5ef8d8b22e6901d82c7571ff8e24"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "6d07b05535aec284ddbac05d426d3672455c6b2f3a6ae64d5f157a9f08b16d34"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "da0defcc68a9ccf39fbb392aced01324e258f8a43b168ae9e011d7d1f87922c7"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

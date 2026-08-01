@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-hedge-crossbowman",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "contract-preflight",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validation passed: enemy-mob-32-hedge-crossbowman (passed)"
+    }
+  ],
+  "createdAt": "2026-08-02T01:20:50.000Z"
+}
