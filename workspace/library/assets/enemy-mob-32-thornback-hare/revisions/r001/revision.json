@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-thornback-hare",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T22:42:06.000Z",
+  "request": "Create an enemy-mob-32 sprite named \"Thornback Hare\".\n\nCreative brief\nName: Thornback Hare\nCollection: Briarwild Brood. Woodland animals reshaped by an ancient living forest, using thorns, seeds, roots, sap, and leaf-pattern projectiles.\nCore concept: A nervous skirmisher that leaves thorn volleys behind each evasive leap.\nBody and silhouette: Small crouched hare with long upright ears, oversized hind legs, and an arched thorn-covered back.\nSignature features: Thorn ridge along the spine, leaf-shaped ear tips, and glowing green eyes.\nPalette and materials: Moss green, bark brown, muted cream, and sharp pale thorns.\nMovement personality: Jittery, alert, and explosively quick.\nAttack concept: Leaps sideways before firing two narrow thorn lines through its previous position, punishing players who chase directly.\nDirectional details: The right ear is bent halfway down and must remain bent in every direction.\nAvoid: Cute domestic rabbit, realistic fur texture, thorns too small to read.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "43797a5db82154169d1a1a83395ca7d93140abe3b8a0bcbb4170f7f16afe66f7"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "5828ac8046b4229994d70154d3583a28b3f4128c38b7c78b65dd53ed2d631f3f"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "3b7ac4b96d0e4747e984985257f1b4665f4a822ca2cf1fc42de5e2c672395edb"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}
