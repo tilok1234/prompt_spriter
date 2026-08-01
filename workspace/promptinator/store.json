@@ -1,7 +1,7 @@
 {
   "kind": "promptinator-store",
   "schemaVersion": "1.5.0",
-  "updatedAt": "2026-08-01T14:56:00.188Z",
+  "updatedAt": "2026-08-01T15:44:21.355Z",
   "entries": [
     {
       "id": "prompt-0001-mossback-tuskling",
@@ -8247,7 +8247,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -8270,10 +8270,31 @@
         {
           "action": "recognition-safeguards-migrated",
           "at": "2026-08-01T12:57:12.858Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-01T15:42:41.378Z",
+          "claimId": "claim-2e801198-9682-42f1-9a7d-82fdd6c7e6d8"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-01T17:44:12Z",
+          "claimId": "claim-2e801198-9682-42f1-9a7d-82fdd6c7e6d8",
+          "assetId": "enemy-mob-32-lantern-grub",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-2e801198-9682-42f1-9a7d-82fdd6c7e6d8",
+        "claimedAt": "2026-08-01T15:42:41.378Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-lantern-grub"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-lantern-grub",
+        "revisionId": "r001",
+        "completedAt": "2026-08-01T17:44:12Z"
+      }
     },
     {
       "id": "prompt-0115-oreback-mole",

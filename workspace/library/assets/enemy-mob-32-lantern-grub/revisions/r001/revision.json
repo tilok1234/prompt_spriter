@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-lantern-grub",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-01T17:44:12Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0114-lantern-grub\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Lantern Grub\".\n\n## Creative brief\n\n- Collection: Underking’s Delve. Blind cavern fauna, kobold miners, deep-dwelling tribes, and creatures adapted to echoes, darkness, and cramped tunnels.\n- Core concept: A slow cavern creature that places delayed light mines behind advancing enemies.\n- Body and silhouette: Thick segmented larva, small head, many short feet, and swollen glowing abdomen.\n- Signature features: Lantern abdomen, shovel mandibles, and pale feeler bulbs.\n- Palette and materials: Cream, dark brown, amber-yellow, and translucent soft tissue.\n- Movement personality: Slow, persistent, and almost unaware of danger.\n- Attack concept: Deposits glowing sacs that pulse three times before firing six evenly spaced light bolts.\n- Directional details: A dark spot marks the abdomen’s left side, and the right mandible is chipped.\n- Avoid: Cute caterpillar, fire elemental, brightly colored butterfly larva.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.\n- Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature; the dominant anchor must remain recognizable at native 1x in all four idle directions.\n- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.\n- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.\n- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "2aa367a7be3a32cbdf975013eb9d2fe192b5a15cec1141a741c4b57bf94ad977"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "beed091bd2ab9faad2d28e6dd5f27802a8dc1cc12120db3b527a076967e620e5"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "6399566028edd46a96cd935e53681331f75e2cb72de0def320c228048aa563ad"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}
