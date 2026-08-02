@@ -90,10 +90,22 @@ as the conversation's message.
   directional derivation, style-example guidance, and automatic claim
   completion with full provenance.
 
+Promptinator mode also dispatches **revision batches**: pending items from
+`workspace/batches/revision/<batch-id>/` appear in the list with a `[Rev]`
+badge and are sent before new Promptinator claims (local queue first, then
+revision items, then claims). Each conversation gets the revision template
+reference, the exact asset identity and base revision, and the unresolved
+notes; an item disappears once trusted ingestion creates a revision whose
+parent is the item's base, and items whose asset is no longer an active Revise
+candidate are skipped as stale. Selecting a `[Rev]` row previews the exact
+message.
+
 Settings in `data\settings.json`: `promptinatorEnabled` mirrors the checkbox;
 `promptinatorRepo` overrides the repository root (leave empty to use the
 repository this launcher lives in); `promptinatorClaimant` names the claimant
-recorded in the store (default "Queue Launcher"). Node.js must be on PATH.
+recorded in the store (default "Queue Launcher"); `dispatchRevisionBatches`
+(default true) can turn revision dispatch off while keeping claims. Node.js
+must be on PATH.
 
 ## Subscription-only protection
 

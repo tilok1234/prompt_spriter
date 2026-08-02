@@ -952,6 +952,146 @@ function Get-PromptinatorReadyEntries {
     }
 }
 
+function Get-RevisionBatchQueue {
+    <#
+        Read-only list of revision-batch items that still need a conversation,
+        in batch order. An item is finished once its asset owns a revision
+        whose parentRevisionId equals the item's base revision (trusted
+        ingestion allocates that when the revision job completes).
+    #>
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$RepoPath
+    )
+
+    $batchesRoot = Join-Path $RepoPath 'workspace\batches\revision'
+    if (-not (Test-Path -LiteralPath $batchesRoot)) {
+        return @()
+    }
+
+    $pending = New-Object System.Collections.Generic.List[object]
+    $batchDirectories = Get-ChildItem -LiteralPath $batchesRoot -Directory -ErrorAction SilentlyContinue |
+        Sort-Object Name
+    foreach ($batchDirectory in $batchDirectories) {
+        $batchPath = Join-Path $batchDirectory.FullName 'batch.json'
+        if (-not (Test-Path -LiteralPath $batchPath)) {
+            continue
+        }
+        $batch = $null
+        try {
+            $batch = Get-Content -LiteralPath $batchPath -Raw | ConvertFrom-Json -ErrorAction Stop
+        }
+        catch {
+            continue
+        }
+        $items = @($batch.items)
+        for ($index = 0; $index -lt $items.Count; $index++) {
+            $item = $items[$index]
+            $assetId = [string]$item.assetId
+            $baseRevisionId = [string]$item.baseRevisionId
+            $assetDirectory = Join-Path $RepoPath "workspace\library\assets\$assetId"
+            $revisionsRoot = Join-Path $assetDirectory 'revisions'
+            if (-not (Test-Path -LiteralPath $revisionsRoot)) {
+                continue
+            }
+            $completed = $false
+            foreach ($revisionDirectory in Get-ChildItem -LiteralPath $revisionsRoot -Directory -ErrorAction SilentlyContinue) {
+                $revisionPath = Join-Path $revisionDirectory.FullName 'revision.json'
+                if (-not (Test-Path -LiteralPath $revisionPath)) {
+                    continue
+                }
+                try {
+                    $revision = Get-Content -LiteralPath $revisionPath -Raw | ConvertFrom-Json -ErrorAction Stop
+                    if ([string]$revision.parentRevisionId -ceq $baseRevisionId) {
+                        $completed = $true
+                        break
+                    }
+                }
+                catch {
+                }
+            }
+            if ($completed) {
+                continue
+            }
+            # The revision template's staleness rule: only dispatch while the
+            # base revision is still the active Revise candidate.
+            $reviewPath = Join-Path $assetDirectory 'review.json'
+            if (-not (Test-Path -LiteralPath $reviewPath)) {
+                continue
+            }
+            $stale = $true
+            try {
+                $review = Get-Content -LiteralPath $reviewPath -Raw | ConvertFrom-Json -ErrorAction Stop
+                if (
+                    $null -ne $review.candidate -and
+                    [string]$review.candidate.lane -ceq 'revise' -and
+                    [string]$review.candidate.revisionId -ceq $baseRevisionId
+                ) {
+                    $stale = $false
+                }
+            }
+            catch {
+            }
+            if ($stale) {
+                continue
+            }
+            $name = $assetId
+            $assetPath = Join-Path $assetDirectory 'asset.json'
+            if (Test-Path -LiteralPath $assetPath) {
+                try {
+                    $asset = Get-Content -LiteralPath $assetPath -Raw | ConvertFrom-Json -ErrorAction Stop
+                    if (-not [string]::IsNullOrWhiteSpace([string]$asset.name)) {
+                        $name = [string]$asset.name
+                    }
+                }
+                catch {
+                }
+            }
+            $pending.Add([pscustomobject]@{
+                BatchId = [string]$batch.id
+                AssetId = $assetId
+                BaseRevisionId = $baseRevisionId
+                Name = $name
+                Notes = @($item.notes | ForEach-Object { [string]$_ })
+                Position = $index + 1
+                Total = $items.Count
+            })
+        }
+    }
+    return $pending.ToArray()
+}
+
+function New-RevisionDispatchMessage {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)]
+        [object]$Item
+    )
+
+    $noteLines = @($Item.Notes | ForEach-Object { "- $_" })
+    if ($noteLines.Count -eq 0) {
+        $noteLines = @('- Resolve every unresolved note recorded in review.json.')
+    }
+    $lines = @(
+        'Read and follow the project documentation.'
+        ''
+        'Follow jobs/templates/enemy-mob-32-revision.md for an existing-asset revision job.'
+        ''
+        "Revision batch: $($Item.BatchId) (item $($Item.Position) of $($Item.Total))"
+        "Asset ID: $($Item.AssetId)"
+        "Base revision: $($Item.BaseRevisionId)"
+        "Requested name: $($Item.Name)"
+        "Create a fresh kebab-case staging job directory such as workspace/staging/$($Item.AssetId)-revision."
+        ''
+        'Unresolved notes to resolve:'
+    ) + $noteLines + @(
+        ''
+        "Use the exact submission identity above (assetId, baseRevisionId, requestedName). Follow the template's validator and trusted ingestion commands, and stop only after ingestion reports the new revision in Intake."
+    )
+    return ($lines -join "`r`n")
+}
+
 function Request-PromptinatorClaim {
     <#
         Claims the next Ready Promptinator entry from the Prompt Spriter
@@ -1060,6 +1200,8 @@ Export-ModuleMember -Function @(
     'Request-PromptinatorClaim',
     'ConvertFrom-PromptinatorClaimOutput',
     'Get-PromptinatorReadyEntries',
+    'Get-RevisionBatchQueue',
+    'New-RevisionDispatchMessage',
     'New-QueueEntry',
     'ConvertFrom-BulkPromptText',
     'Add-SentRecord',

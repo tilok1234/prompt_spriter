@@ -385,6 +385,52 @@ try {
     Assert-True ($null -ne $missingView.Error) 'A missing store should surface a view error'
     Assert-Equal 0 (@($missingView.Entries).Count) 'A missing store should produce an empty view'
 
+    # --- Revision-batch dispatch queue ---
+    $revisionRepo = Join-Path $tempRootFull 'revision-repo'
+    $batchDirectory = Join-Path $revisionRepo 'workspace\batches\revision\test-batch'
+    New-Item -ItemType Directory -Path $batchDirectory -Force | Out-Null
+    Write-Utf8FileAtomic -Path (Join-Path $batchDirectory 'batch.json') -Content (@'
+{
+  "kind": "revision-batch",
+  "schemaVersion": "1.0.0",
+  "id": "test-batch",
+  "batchType": "revision",
+  "createdAt": "2026-08-02T00:00:00.000Z",
+  "items": [
+    { "assetId": "critter-pending", "baseRevisionId": "r001", "notes": ["[entire sprite] fix the idle"] },
+    { "assetId": "critter-done", "baseRevisionId": "r001", "notes": ["already revised"] },
+    { "assetId": "critter-stale", "baseRevisionId": "r001", "notes": ["stale item"] }
+  ]
+}
+'@)
+    foreach ($critter in @('critter-pending', 'critter-done')) {
+        $revisionDirectory = Join-Path $revisionRepo "workspace\library\assets\$critter\revisions\r001"
+        New-Item -ItemType Directory -Path $revisionDirectory -Force | Out-Null
+        Write-Utf8FileAtomic -Path (Join-Path $revisionDirectory 'revision.json') -Content '{ "id": "r001", "parentRevisionId": null }'
+        Write-Utf8FileAtomic -Path (Join-Path $revisionRepo "workspace\library\assets\$critter\asset.json") -Content ('{ "id": "' + $critter + '", "name": "' + $critter + ' name" }')
+        Write-Utf8FileAtomic -Path (Join-Path $revisionRepo "workspace\library\assets\$critter\review.json") -Content '{ "kind": "review", "candidate": { "revisionId": "r001", "lane": "revise" }, "approvedRevisionId": null }'
+    }
+    # A stale item: listed in the batch but no longer an active Revise candidate.
+    $staleDirectory = Join-Path $revisionRepo 'workspace\library\assets\critter-stale\revisions\r001'
+    New-Item -ItemType Directory -Path $staleDirectory -Force | Out-Null
+    Write-Utf8FileAtomic -Path (Join-Path $staleDirectory 'revision.json') -Content '{ "id": "r001", "parentRevisionId": null }'
+    Write-Utf8FileAtomic -Path (Join-Path $revisionRepo 'workspace\library\assets\critter-stale\asset.json') -Content '{ "id": "critter-stale", "name": "stale name" }'
+    Write-Utf8FileAtomic -Path (Join-Path $revisionRepo 'workspace\library\assets\critter-stale\review.json') -Content '{ "kind": "review", "candidate": { "revisionId": "r001", "lane": "archive" }, "approvedRevisionId": null }'
+    $doneRevisionDirectory = Join-Path $revisionRepo 'workspace\library\assets\critter-done\revisions\r002'
+    New-Item -ItemType Directory -Path $doneRevisionDirectory -Force | Out-Null
+    Write-Utf8FileAtomic -Path (Join-Path $doneRevisionDirectory 'revision.json') -Content '{ "id": "r002", "parentRevisionId": "r001" }'
+
+    $revisionQueue = @(Get-RevisionBatchQueue -RepoPath $revisionRepo)
+    Assert-Equal 1 $revisionQueue.Count 'Only unfinished, still-active revision items should be pending'
+    Assert-Equal 'critter-pending' ([string]$revisionQueue[0].AssetId) 'The pending item should be the one without a child revision'
+    Assert-Equal 'critter-pending name' ([string]$revisionQueue[0].Name) 'The pending item should carry the asset display name'
+
+    $dispatchMessage = New-RevisionDispatchMessage -Item $revisionQueue[0]
+    Assert-True ($dispatchMessage.Contains('jobs/templates/enemy-mob-32-revision.md')) 'The dispatch message should reference the revision template'
+    Assert-True ($dispatchMessage.Contains('Asset ID: critter-pending')) 'The dispatch message should carry the parseable asset marker'
+    Assert-True ($dispatchMessage.Contains('Base revision: r001')) 'The dispatch message should pin the base revision'
+    Assert-True ($dispatchMessage.Contains('fix the idle')) 'The dispatch message should include the unresolved notes'
+
     # --- PowerShell syntax check of all application scripts ---
     $parseErrors = @()
     $scripts = Get-ChildItem -LiteralPath (Join-Path $rootDirectory 'app') -File | Where-Object { $_.Extension -in @('.ps1', '.psm1') }

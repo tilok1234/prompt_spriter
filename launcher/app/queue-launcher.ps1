@@ -60,11 +60,12 @@ function Get-LauncherSettings {
         promptinatorEnabled = $false
         promptinatorRepo = ''
         promptinatorClaimant = 'Queue Launcher'
+        dispatchRevisionBatches = $true
     }
 
     try {
         $document = Get-Content -LiteralPath $paths.SettingsPath -Raw | ConvertFrom-Json -ErrorAction Stop
-        foreach ($name in @('workingDirectory', 'delimiter', 'maxPromptCharacters', 'windowLeft', 'windowTop', 'windowWidth', 'windowHeight', 'autoSendMode', 'printTimeoutMinutes', 'autoSendConcurrency', 'autoSendModel', 'promptinatorEnabled', 'promptinatorRepo', 'promptinatorClaimant')) {
+        foreach ($name in @('workingDirectory', 'delimiter', 'maxPromptCharacters', 'windowLeft', 'windowTop', 'windowWidth', 'windowHeight', 'autoSendMode', 'printTimeoutMinutes', 'autoSendConcurrency', 'autoSendModel', 'promptinatorEnabled', 'promptinatorRepo', 'promptinatorClaimant', 'dispatchRevisionBatches')) {
             $property = $document.PSObject.Properties | Where-Object { $_.Name -ieq $name } | Select-Object -First 1
             if ($null -ne $property) {
                 $defaults.$name = $property.Value
@@ -155,6 +156,7 @@ function Save-LauncherSettings {
         promptinatorEnabled = ($Settings.promptinatorEnabled -eq $true)
         promptinatorRepo = ([string]$Settings.promptinatorRepo).Trim()
         promptinatorClaimant = ([string]$Settings.promptinatorClaimant).Trim()
+        dispatchRevisionBatches = ($Settings.dispatchRevisionBatches -ne $false)
     }
     Write-Utf8FileAtomic -Path $paths.SettingsPath -Content ($document | ConvertTo-Json -Depth 5)
 }
@@ -331,6 +333,8 @@ $script:PromptinatorView = $null
 $script:PromptinatorStamp = ''
 $script:ClaimJob = $null
 $script:PowershellExe = Join-Path $env:WINDIR 'System32\WindowsPowerShell\v1.0\powershell.exe'
+$script:RevisionQueue = @()
+$script:RevisionQueueCheckedAt = [DateTimeOffset]::MinValue
 $workingDirectoryText.Text = [string]$script:Settings.workingDirectory
 $promptinatorCheck.IsChecked = ($script:Settings.promptinatorEnabled -eq $true)
 
@@ -533,6 +537,58 @@ function Test-PromptinatorReady {
     return (Test-Path -LiteralPath $toolPath)
 }
 
+function Get-RevisionDispatchEnabled {
+    if ($promptinatorCheck.IsChecked -ne $true) {
+        return $false
+    }
+    try {
+        return ($script:Settings.dispatchRevisionBatches -ne $false)
+    }
+    catch {
+        return $true
+    }
+}
+
+function Update-RevisionQueue {
+    # Refreshes the cached pending revision-batch items. Returns $true when
+    # the visible items changed. Reads are throttled because they touch the
+    # library; -Force bypasses the throttle before a dispatch decision.
+    param([switch]$Force)
+
+    if (-not (Get-RevisionDispatchEnabled)) {
+        $had = @($script:RevisionQueue).Count -gt 0
+        $script:RevisionQueue = @()
+        return $had
+    }
+    $age = [DateTimeOffset]::Now - $script:RevisionQueueCheckedAt
+    if (-not $Force -and $age.TotalSeconds -lt 10) {
+        return $false
+    }
+    $script:RevisionQueueCheckedAt = [DateTimeOffset]::Now
+    $fresh = @(Get-RevisionBatchQueue -RepoPath (Get-PromptinatorRepo))
+    $freshKeys = @($fresh | ForEach-Object { "$($_.BatchId):$($_.AssetId)" }) -join '|'
+    $currentKeys = @(@($script:RevisionQueue) | ForEach-Object { "$($_.BatchId):$($_.AssetId)" }) -join '|'
+    $script:RevisionQueue = $fresh
+    return ($freshKeys -cne $currentKeys)
+}
+
+function Test-RevisionItemInFlight {
+    param([Parameter(Mandatory = $true)][string]$AssetId)
+
+    $needle = "Asset ID: $AssetId"
+    foreach ($jobFile in Get-ChildItem -LiteralPath $paths.InflightDirectory -Filter '*.json' -File -ErrorAction SilentlyContinue) {
+        try {
+            $job = Get-Content -LiteralPath $jobFile.FullName -Raw | ConvertFrom-Json -ErrorAction Stop
+            if (([string]$job.text).Contains($needle)) {
+                return $true
+            }
+        }
+        catch {
+        }
+    }
+    return $false
+}
+
 function Update-PromptinatorView {
     # Refreshes the cached read-only view of Ready Promptinator entries.
     # Returns $true when the visible rows changed and the list should redraw.
@@ -567,7 +623,9 @@ function Update-SendAvailability {
     $validDirectory = (-not [string]::IsNullOrWhiteSpace($workingDirectoryValue)) -and (Test-Path -LiteralPath $workingDirectoryValue -PathType Container)
     $hasAgy = $null -ne (Get-AgyExecutable)
     $guardAllows = $null -ne $script:CreditGuard -and $script:CreditGuard.Allowed
-    $hasSource = ($script:AllEntries.Count -gt 0) -or (Test-PromptinatorReady)
+    $hasSource = ($script:AllEntries.Count -gt 0) -or
+        (@($script:RevisionQueue).Count -gt 0 -and (Get-RevisionDispatchEnabled)) -or
+        (Test-PromptinatorReady)
     $queueReady = ($null -eq $script:QueueError) -and $hasSource
     $sendButton.IsEnabled = (-not $script:IsSending) -and ($null -eq $script:ClaimJob) -and $queueReady -and $validDirectory -and $hasAgy -and $guardAllows
 }
@@ -727,6 +785,24 @@ function Update-SelectionState {
         $charCountText.Text = ''
         return
     }
+    if ($selected.Count -gt 0 -and ([string]$selected[0].Id).StartsWith('rev:')) {
+        $moveTopButton.IsEnabled = $false
+        $moveUpButton.IsEnabled = $false
+        $moveDownButton.IsEnabled = $false
+        $editButton.IsEnabled = $false
+        $deleteButton.IsEnabled = $false
+        $revKey = ([string]$selected[0].Id).Substring(4)
+        $revMatch = @($script:RevisionQueue) | Where-Object { "$($_.BatchId):$($_.AssetId)" -ceq $revKey } | Select-Object -First 1
+        if ($null -ne $revMatch) {
+            $previewText.Text = New-RevisionDispatchMessage -Item $revMatch
+            $charCountText.Text = "revision batch item $($revMatch.Position) of $($revMatch.Total)"
+        }
+        else {
+            $previewText.Text = 'This revision item was just completed or removed; the list will refresh shortly.'
+            $charCountText.Text = ''
+        }
+        return
+    }
     if ($selected.Count -gt 0 -and ([string]$selected[0].Id).StartsWith('prompt:')) {
         $moveTopButton.IsEnabled = $false
         $moveUpButton.IsEnabled = $false
@@ -805,6 +881,20 @@ function Update-QueueList {
             $listItem.Display = ('{0,4}.  {1,9}  {2}' -f ($index + 1), ('{0:N0} ch' -f $text.Length), (Format-Snippet -Text $text))
             $items.Add($listItem)
         }
+        $revisionShown = 0
+        if (Get-RevisionDispatchEnabled) {
+            foreach ($revItem in @($script:RevisionQueue)) {
+                $revText = "$($revItem.AssetId)  $($revItem.Name)  $($revItem.BatchId)"
+                if (-not [string]::IsNullOrEmpty($filter) -and $revText.IndexOf($filter, [System.StringComparison]::OrdinalIgnoreCase) -lt 0) {
+                    continue
+                }
+                $listItem = New-Object QueueListItem
+                $listItem.Id = "rev:$($revItem.BatchId):$($revItem.AssetId)"
+                $listItem.Display = ('{0,4}.  {1,9}  {2}' -f ($script:AllEntries.Count + $revisionShown + 1), '[Rev]', "$($revItem.AssetId.Replace('enemy-mob-32-','')) - $($revItem.BatchId)")
+                $items.Add($listItem)
+                $revisionShown++
+            }
+        }
         $promptinatorShown = 0
         if ($promptinatorCheck.IsChecked -eq $true -and $null -ne $script:PromptinatorView) {
             $badge = if ($script:PromptinatorView.BatchActive) { '[Batch]' } else { '[Ready]' }
@@ -817,7 +907,7 @@ function Update-QueueList {
                 }
                 $listItem = New-Object QueueListItem
                 $listItem.Id = "prompt:$($pEntry.Id)"
-                $listItem.Display = ('{0,4}.  {1,9}  {2}' -f ($script:AllEntries.Count + $pOrder), $badge, $pText)
+                $listItem.Display = ('{0,4}.  {1,9}  {2}' -f ($script:AllEntries.Count + $revisionShown + $pOrder), $badge, $pText)
                 $items.Add($listItem)
                 $promptinatorShown++
             }
@@ -832,10 +922,18 @@ function Update-QueueList {
         }
         else {
             $pendingLabel = if ($count -eq 1) { '1 pending' } else { "$count pending" }
+            $extraParts = @()
+            if ($revisionShown -gt 0) {
+                $extraParts += "$revisionShown revision"
+            }
             if ($promptinatorShown -gt 0) {
-                $sourceWord = if ($script:PromptinatorView.BatchActive) { 'in the active test batch' } else { 'Ready in Promptinator' }
-                $pendingText.Text = "$pendingLabel + $promptinatorShown $sourceWord"
-                $window.Title = "Antigravity Queue Launcher - $count pending + $promptinatorShown Promptinator"
+                $sourceWord = if ($script:PromptinatorView.BatchActive) { 'test batch' } else { 'Promptinator' }
+                $extraParts += "$promptinatorShown $sourceWord"
+            }
+            if ($extraParts.Count -gt 0) {
+                $suffix = $extraParts -join ' + '
+                $pendingText.Text = "$pendingLabel + $suffix"
+                $window.Title = "Antigravity Queue Launcher - $count pending + $suffix"
             }
             else {
                 $pendingText.Text = $pendingLabel
@@ -994,7 +1092,8 @@ function Invoke-AutoSendIfReady {
     if ($null -ne $script:QueueError) {
         return
     }
-    if ($script:AllEntries.Count -eq 0 -and -not (Test-PromptinatorReady)) {
+    $revisionPending = (Get-RevisionDispatchEnabled) -and (@($script:RevisionQueue).Count -gt 0)
+    if ($script:AllEntries.Count -eq 0 -and -not $revisionPending -and -not (Test-PromptinatorReady)) {
         if ($script:ActiveLaunches.Count -eq 0 -and $script:AnyAutoLaunchThisSession -and ($autoSendCheck.IsChecked -eq $true)) {
             $autoSendCheck.IsChecked = $false
             Set-Status -Message 'Auto-send finished: the queue is empty.' -Kind Success
@@ -1025,7 +1124,9 @@ function Invoke-PeriodicRefresh {
         if ((Get-QueueFileStamp) -cne $script:QueueStamp) {
             Update-QueueView
         }
-        if (Update-PromptinatorView) {
+        $viewChanged = Update-PromptinatorView
+        $revisionChanged = Update-RevisionQueue
+        if ($viewChanged -or $revisionChanged) {
             Update-QueueList
         }
         Update-ClaimJobState
@@ -1072,6 +1173,7 @@ function Invoke-SendNext {
 
         $entries = @(Get-QueueEntries -Path $paths.QueuePath)
         $fromPromptinator = $false
+        $revisionItem = $null
         if ($null -ne $PrefetchedEntry) {
             $entry = $PrefetchedEntry
             $fromPromptinator = $true
@@ -1079,16 +1181,30 @@ function Invoke-SendNext {
         elseif ($entries.Count -gt 0) {
             $entry = $entries[0]
         }
-        elseif (Test-PromptinatorReady) {
-            # Claims reconcile the whole library and take seconds; run them in
-            # a background process and let the refresh timer finish the send.
-            if ($null -eq $script:ClaimJob) {
-                Start-PromptinatorClaimJob -FromAutoSend:([bool]$FromAutoSend)
-            }
-            return
-        }
         else {
-            throw 'The queue is empty.'
+            if (Get-RevisionDispatchEnabled) {
+                [void](Update-RevisionQueue -Force)
+                foreach ($candidateItem in @($script:RevisionQueue)) {
+                    if (-not (Test-RevisionItemInFlight -AssetId $candidateItem.AssetId)) {
+                        $revisionItem = $candidateItem
+                        break
+                    }
+                }
+            }
+            if ($null -ne $revisionItem) {
+                $entry = New-QueueEntry -Text (New-RevisionDispatchMessage -Item $revisionItem)
+            }
+            elseif (Test-PromptinatorReady) {
+                # Claims reconcile the whole library and take seconds; run them
+                # in a background process and let the refresh timer finish.
+                if ($null -eq $script:ClaimJob) {
+                    Start-PromptinatorClaimJob -FromAutoSend:([bool]$FromAutoSend)
+                }
+                return
+            }
+            else {
+                throw 'The queue is empty.'
+            }
         }
 
         $prompt = [string]$entry.text
@@ -1128,10 +1244,10 @@ function Invoke-SendNext {
         }
         Write-Utf8FileAtomic -Path $jobPath -Content ($job | ConvertTo-Json -Depth 8)
 
-        if ($fromPromptinator) {
-            # The claim never sat in queue.json, but marking it removed makes
-            # the failure path below restore the exact claimed prompt to the
-            # queue front, which is the documented claim-resume path.
+        if ($fromPromptinator -or $null -ne $revisionItem) {
+            # These entries never sat in queue.json, but marking them removed
+            # makes the failure path below place the exact prompt at the queue
+            # front, which doubles as the resume path for both sources.
             $queueRemoved = $true
         }
         else {
@@ -1186,6 +1302,9 @@ function Invoke-SendNext {
 
         $statusMessage = if ($fromPromptinator -and -not [string]::IsNullOrEmpty($PrefetchedEntryLabel)) {
             "Launched a fresh Antigravity conversation for Promptinator entry $PrefetchedEntryLabel."
+        }
+        elseif ($null -ne $revisionItem) {
+            "Launched a revision conversation for $($revisionItem.AssetId) (batch $($revisionItem.BatchId), item $($revisionItem.Position) of $($revisionItem.Total))."
         }
         else {
             "Launched a fresh Antigravity conversation for message $($entry.id.Substring(0, 8))."
@@ -2082,6 +2201,7 @@ $promptinatorCheck.Add_Checked({
         Set-Status -Message "Promptinator pull is on, but the claim tool was not found at $toolPath. Set promptinatorRepo in data\settings.json." -Kind Warning
     }
     [void](Update-PromptinatorView -Force)
+    [void](Update-RevisionQueue -Force)
     Update-QueueList
 })
 
@@ -2089,6 +2209,7 @@ $promptinatorCheck.Add_Unchecked({
     $script:Settings.promptinatorEnabled = $false
     Save-LauncherSettings -Settings $script:Settings
     [void](Update-PromptinatorView)
+    [void](Update-RevisionQueue)
     Update-QueueList
 })
 
@@ -2144,6 +2265,7 @@ try {
     Update-CreditGuard
     Update-QueueView
     [void](Update-PromptinatorView -Force)
+    [void](Update-RevisionQueue -Force)
     Update-QueueList
     Update-RunningState
     if ($script:CreditGuard.Allowed) {
