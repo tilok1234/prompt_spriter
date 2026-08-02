@@ -867,6 +867,91 @@ function Restore-InflightJob {
     }
 }
 
+function Get-PromptinatorReadyEntries {
+    <#
+        Read-only view of the Promptinator queue for display. Returns the
+        entries a future claim would take, in claim order: while a v2 test
+        batch is active, claims come exclusively from it; otherwise the
+        Ready entries are claimed in store order. Never locks or writes.
+    #>
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$RepoPath
+    )
+
+    $storePath = Join-Path $RepoPath 'workspace\promptinator\store.json'
+    if (-not (Test-Path -LiteralPath $storePath)) {
+        return [pscustomobject]@{
+            Entries = @()
+            BatchActive = $false
+            Error = "No Promptinator store was found at $storePath."
+        }
+    }
+
+    try {
+        $store = Get-Content -LiteralPath $storePath -Raw | ConvertFrom-Json -ErrorAction Stop
+    }
+    catch {
+        return [pscustomobject]@{
+            Entries = @()
+            BatchActive = $false
+            Error = "The Promptinator store could not be read: $($_.Exception.Message)"
+        }
+    }
+
+    $allEntries = @()
+    try {
+        $allEntries = @($store.entries)
+    }
+    catch {
+        $allEntries = @()
+    }
+    $byId = @{}
+    foreach ($entry in $allEntries) {
+        $byId[[string]$entry.id] = $entry
+    }
+
+    $batch = $null
+    try {
+        $batch = $store.activeTestBatch
+    }
+    catch {
+        $batch = $null
+    }
+
+    $ordered = New-Object System.Collections.Generic.List[object]
+    if ($null -ne $batch) {
+        foreach ($entryId in @($batch.entryIds)) {
+            $entry = $byId[[string]$entryId]
+            if ($null -ne $entry -and [string]$entry.state -eq 'ready') {
+                $ordered.Add($entry)
+            }
+        }
+    }
+    else {
+        foreach ($entry in $allEntries) {
+            if ([string]$entry.state -eq 'ready') {
+                $ordered.Add($entry)
+            }
+        }
+    }
+
+    $view = @($ordered.ToArray() | ForEach-Object {
+        [pscustomobject]@{
+            Id = [string]$_.id
+            Ordinal = [int]$_.ordinal
+            Name = [string]$_.name
+        }
+    })
+
+    return [pscustomobject]@{
+        Entries = $view
+        BatchActive = ($null -ne $batch)
+        Error = $null
+    }
+}
+
 function Request-PromptinatorClaim {
     <#
         Claims the next Ready Promptinator entry from the Prompt Spriter
@@ -959,6 +1044,7 @@ Export-ModuleMember -Function @(
     'Get-QueueEntries',
     'Save-QueueEntries',
     'Request-PromptinatorClaim',
+    'Get-PromptinatorReadyEntries',
     'New-QueueEntry',
     'ConvertFrom-BulkPromptText',
     'Add-SentRecord',

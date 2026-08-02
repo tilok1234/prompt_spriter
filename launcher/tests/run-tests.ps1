@@ -342,6 +342,43 @@ try {
     Assert-True (-not $missingTool.Ok) 'A repository without the claim tool should be rejected'
     Assert-True ($missingTool.Message -like '*claim tool was not found*') 'The missing-tool error should name the problem'
 
+    # --- Promptinator read-only queue view ---
+    $storeRepo = Join-Path $tempRootFull 'store-repo'
+    New-Item -ItemType Directory -Path (Join-Path $storeRepo 'workspace\promptinator') -Force | Out-Null
+    $storeDocument = [ordered]@{
+        kind = 'promptinator-store'
+        schemaVersion = '1.7.0'
+        updatedAt = '2026-08-02T00:00:00.000Z'
+        activeTestBatch = $null
+        entries = @(
+            [ordered]@{ id = 'prompt-0001-done'; ordinal = 1; name = 'Done Critter'; state = 'completed' }
+            [ordered]@{ id = 'prompt-0002-second'; ordinal = 2; name = 'Second Critter'; state = 'ready' }
+            [ordered]@{ id = 'prompt-0003-third'; ordinal = 3; name = 'Third Critter'; state = 'ready' }
+            [ordered]@{ id = 'prompt-0004-taken'; ordinal = 4; name = 'Taken Critter'; state = 'claimed' }
+        )
+    }
+    Write-Utf8FileAtomic -Path (Join-Path $storeRepo 'workspace\promptinator\store.json') -Content ($storeDocument | ConvertTo-Json -Depth 6)
+
+    $readyView = Get-PromptinatorReadyEntries -RepoPath $storeRepo
+    Assert-True ($null -eq $readyView.Error) 'A valid store should produce no view error'
+    Assert-Equal 2 (@($readyView.Entries).Count) 'Only Ready entries should appear in the view'
+    Assert-Equal 'prompt-0002-second' ([string]$readyView.Entries[0].Id) 'Store order should be preserved without a batch'
+    Assert-True (-not $readyView.BatchActive) 'No batch should be reported when activeTestBatch is null'
+
+    $storeDocument.activeTestBatch = [ordered]@{
+        id = 'v2-test-00000000-0000-0000-0000-000000000000'
+        entryIds = @('prompt-0003-third', 'prompt-0002-second', 'prompt-0004-taken')
+    }
+    Write-Utf8FileAtomic -Path (Join-Path $storeRepo 'workspace\promptinator\store.json') -Content ($storeDocument | ConvertTo-Json -Depth 6)
+    $batchView = Get-PromptinatorReadyEntries -RepoPath $storeRepo
+    Assert-True $batchView.BatchActive 'An active test batch should be reported'
+    Assert-Equal 2 (@($batchView.Entries).Count) 'Only Ready batch members should appear during a batch'
+    Assert-Equal 'prompt-0003-third' ([string]$batchView.Entries[0].Id) 'Batch order should override store order'
+
+    $missingView = Get-PromptinatorReadyEntries -RepoPath (Join-Path $tempRootFull 'no-store-repo')
+    Assert-True ($null -ne $missingView.Error) 'A missing store should surface a view error'
+    Assert-Equal 0 (@($missingView.Entries).Count) 'A missing store should produce an empty view'
+
     # --- PowerShell syntax check of all application scripts ---
     $parseErrors = @()
     $scripts = Get-ChildItem -LiteralPath (Join-Path $rootDirectory 'app') -File | Where-Object { $_.Extension -in @('.ps1', '.psm1') }

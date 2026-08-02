@@ -327,6 +327,8 @@ $script:ActiveLaunches = New-Object System.Collections.Generic.List[object]
 $script:LastFinishedText = ''
 $script:LastChainLaunchAt = [DateTimeOffset]::MinValue
 $script:AnyAutoLaunchThisSession = $false
+$script:PromptinatorView = $null
+$script:PromptinatorStamp = ''
 $workingDirectoryText.Text = [string]$script:Settings.workingDirectory
 $promptinatorCheck.IsChecked = ($script:Settings.promptinatorEnabled -eq $true)
 
@@ -529,6 +531,35 @@ function Test-PromptinatorReady {
     return (Test-Path -LiteralPath $toolPath)
 }
 
+function Update-PromptinatorView {
+    # Refreshes the cached read-only view of Ready Promptinator entries.
+    # Returns $true when the visible rows changed and the list should redraw.
+    param([switch]$Force)
+
+    if ($promptinatorCheck.IsChecked -ne $true) {
+        $hadRows = $null -ne $script:PromptinatorView
+        $script:PromptinatorView = $null
+        $script:PromptinatorStamp = ''
+        return $hadRows
+    }
+
+    $storePath = Join-Path (Get-PromptinatorRepo) 'workspace\promptinator\store.json'
+    $stamp = 'missing'
+    try {
+        $info = Get-Item -LiteralPath $storePath -ErrorAction Stop
+        $stamp = "$($info.LastWriteTimeUtc.Ticks)|$($info.Length)"
+    }
+    catch {
+        $stamp = 'missing'
+    }
+    if (-not $Force -and $stamp -ceq $script:PromptinatorStamp -and $null -ne $script:PromptinatorView) {
+        return $false
+    }
+    $script:PromptinatorStamp = $stamp
+    $script:PromptinatorView = Get-PromptinatorReadyEntries -RepoPath (Get-PromptinatorRepo)
+    return $true
+}
+
 function Update-SendAvailability {
     $workingDirectoryValue = [string]$workingDirectoryText.Text
     $validDirectory = (-not [string]::IsNullOrWhiteSpace($workingDirectoryValue)) -and (Test-Path -LiteralPath $workingDirectoryValue -PathType Container)
@@ -555,8 +586,35 @@ function Update-SelectionState {
         $charCountText.Text = ''
         return
     }
+    if ($selected.Count -gt 0 -and ([string]$selected[0].Id).StartsWith('prompt:')) {
+        $moveTopButton.IsEnabled = $false
+        $moveUpButton.IsEnabled = $false
+        $moveDownButton.IsEnabled = $false
+        $editButton.IsEnabled = $false
+        $deleteButton.IsEnabled = $false
+        $pId = ([string]$selected[0].Id).Substring(7)
+        $pName = ''
+        if ($null -ne $script:PromptinatorView) {
+            $match = @($script:PromptinatorView.Entries) | Where-Object { [string]$_.Id -eq $pId } | Select-Object -First 1
+            if ($null -ne $match) {
+                $pName = [string]$match.Name
+            }
+        }
+        $previewText.Text = "Promptinator entry $pId ($pName).`n`nThis row is a read-only view of the Promptinator queue. The exact prompt is rendered and claimed at send time, after every local message above it has been sent. Reorder or edit it in the Prompt Spriter Promptinator tab, not here."
+        $charCountText.Text = ''
+        return
+    }
     if ($script:AllEntries.Count -eq 0) {
-        $previewText.Text = 'The queue is empty. Use Add / import messages to load entries.'
+        $promptinatorRows = 0
+        if ($null -ne $script:PromptinatorView) {
+            $promptinatorRows = @($script:PromptinatorView.Entries).Count
+        }
+        if ($promptinatorRows -gt 0) {
+            $previewText.Text = "The local queue is empty. $promptinatorRows Promptinator entr$(if ($promptinatorRows -eq 1) { 'y is' } else { 'ies are' }) Ready below - Send next claims the first one."
+        }
+        else {
+            $previewText.Text = 'The queue is empty. Use Add / import messages to load entries.'
+        }
         $charCountText.Text = ''
         return
     }
@@ -606,6 +664,23 @@ function Update-QueueList {
             $listItem.Display = ('{0,4}.  {1,9}  {2}' -f ($index + 1), ('{0:N0} ch' -f $text.Length), (Format-Snippet -Text $text))
             $items.Add($listItem)
         }
+        $promptinatorShown = 0
+        if ($promptinatorCheck.IsChecked -eq $true -and $null -ne $script:PromptinatorView) {
+            $badge = if ($script:PromptinatorView.BatchActive) { '[Batch]' } else { '[Ready]' }
+            $pOrder = 0
+            foreach ($pEntry in @($script:PromptinatorView.Entries)) {
+                $pOrder++
+                $pText = "$($pEntry.Id)  $($pEntry.Name)"
+                if (-not [string]::IsNullOrEmpty($filter) -and $pText.IndexOf($filter, [System.StringComparison]::OrdinalIgnoreCase) -lt 0) {
+                    continue
+                }
+                $listItem = New-Object QueueListItem
+                $listItem.Id = "prompt:$($pEntry.Id)"
+                $listItem.Display = ('{0,4}.  {1,9}  {2}' -f ($script:AllEntries.Count + $pOrder), $badge, $pText)
+                $items.Add($listItem)
+                $promptinatorShown++
+            }
+        }
         $queueList.ItemsSource = $items
 
         $count = $script:AllEntries.Count
@@ -615,8 +690,16 @@ function Update-QueueList {
             $repairButton.Visibility = [System.Windows.Visibility]::Visible
         }
         else {
-            $pendingText.Text = if ($count -eq 1) { '1 pending' } else { "$count pending" }
-            $window.Title = "Antigravity Queue Launcher - $count pending"
+            $pendingLabel = if ($count -eq 1) { '1 pending' } else { "$count pending" }
+            if ($promptinatorShown -gt 0) {
+                $sourceWord = if ($script:PromptinatorView.BatchActive) { 'in the active test batch' } else { 'Ready in Promptinator' }
+                $pendingText.Text = "$pendingLabel + $promptinatorShown $sourceWord"
+                $window.Title = "Antigravity Queue Launcher - $count pending + $promptinatorShown Promptinator"
+            }
+            else {
+                $pendingText.Text = $pendingLabel
+                $window.Title = "Antigravity Queue Launcher - $count pending"
+            }
             $repairButton.Visibility = [System.Windows.Visibility]::Collapsed
         }
 
@@ -797,6 +880,9 @@ function Invoke-PeriodicRefresh {
         Update-CreditGuard
         if ((Get-QueueFileStamp) -cne $script:QueueStamp) {
             Update-QueueView
+        }
+        if (Update-PromptinatorView) {
+            Update-QueueList
         }
         Update-RunningState
     }
@@ -1845,13 +1931,15 @@ $promptinatorCheck.Add_Checked({
     else {
         Set-Status -Message "Promptinator pull is on, but the claim tool was not found at $toolPath. Set promptinatorRepo in data\settings.json." -Kind Warning
     }
-    Update-SendAvailability
+    [void](Update-PromptinatorView -Force)
+    Update-QueueList
 })
 
 $promptinatorCheck.Add_Unchecked({
     $script:Settings.promptinatorEnabled = $false
     Save-LauncherSettings -Settings $script:Settings
-    Update-SendAvailability
+    [void](Update-PromptinatorView)
+    Update-QueueList
 })
 
 $sendButton.Add_Click({ Invoke-SendNext })
@@ -1905,6 +1993,8 @@ $script:RefreshTimer.Add_Tick({ Invoke-PeriodicRefresh })
 try {
     Update-CreditGuard
     Update-QueueView
+    [void](Update-PromptinatorView -Force)
+    Update-QueueList
     Update-RunningState
     if ($script:CreditGuard.Allowed) {
         Set-Status -Message 'Subscription-only guard passed. Choose a working folder and add messages to begin.' -Kind Success
@@ -1918,6 +2008,8 @@ try {
         Write-Output "CREDIT_GUARD_MESSAGE=$($script:CreditGuard.Message)"
         Write-Output "AGY_PATH=$(Get-AgyExecutable)"
         Write-Output "QUEUE_COUNT=$($script:AllEntries.Count)"
+        $promptinatorRows = if ($null -ne $script:PromptinatorView) { @($script:PromptinatorView.Entries).Count } else { -1 }
+        Write-Output "PROMPTINATOR_READY=$promptinatorRows"
         return
     }
 
