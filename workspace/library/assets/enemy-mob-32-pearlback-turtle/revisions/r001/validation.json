@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-pearlback-turtle",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "cell-boundary-contact",
+      "level": "warning",
+      "status": "warning",
+      "message": "frame row 4, column 5 has 1 opaque boundary pixel"
+    }
+  ],
+  "createdAt": "2026-08-02T21:50:31.041Z"
+}

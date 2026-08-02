@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-boltback-boar",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "preflight-passed",
+      "level": "info",
+      "status": "passed",
+      "message": "Preflight submission validation passed clean."
+    }
+  ],
+  "createdAt": "2026-08-03T00:24:40.000Z"
+}

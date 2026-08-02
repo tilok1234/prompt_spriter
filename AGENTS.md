@@ -21,6 +21,10 @@ For a live Antigravity sprite job, also follow
 
 ## Core workflow rules
 
+- Conversations are normally dispatched by the Antigravity Queue Launcher in
+  `launcher/`; treat its `launcher/data/` directory as user-owned runtime
+  state and never edit it. Launcher code changes must keep
+  `launcher/tests/run-tests.ps1` passing under Windows PowerShell 5.1.
 - New completed sprite candidates enter Intake.
 - When the user asks for the next Promptinator sprite, run the documented
   trusted claim command exactly once and use its complete prompt and expected

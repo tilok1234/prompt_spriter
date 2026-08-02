@@ -1,0 +1,27 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-ossuary-hound",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "sheet-dimensions",
+      "level": "info",
+      "status": "passed",
+      "message": "The sprite sheet is 320x128 with 32x32 cells."
+    },
+    {
+      "code": "vertical-slice-layout",
+      "level": "info",
+      "status": "passed",
+      "message": "Idle, walk, and attack occupy 10 columns across four direction rows."
+    },
+    {
+      "code": "source-artifact",
+      "level": "info",
+      "status": "passed",
+      "message": "Source file source.aseprite is present and verified."
+    }
+  ],
+  "createdAt": "2026-08-03T00:05:35.000Z"
+}

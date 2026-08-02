@@ -1,6 +1,6 @@
 # Project status
 
-**Current phase:** Phase 4 - revision batches underway; v2 production style active
+**Current phase:** Automated production loop live (launcher dispatch + repairs); v2 production style active
 **Plan:** `docs/MASTER_PLAN.md`, version 0.5
 **Repository:** `https://github.com/tilok1234/prompt_spriter`
 
@@ -210,6 +210,10 @@ The first prompt-density canary is recorded in
   required master palette and contour rule.
 - Empty frames, intermediate alpha, clipping, and contract mismatches fail;
   duplicate frames and boundary contact warn.
+- Advisory motion checks warn on translation-only idle/walk poses, unstable
+  ground contact, effects-only attacks, misaimed attack effects, and effects
+  hugging the cell edge (`validation.anatomyMotion`, `groundContact`,
+  `attackReadability`).
 - Every frame requires at least 32 opaque pixels, a 6x6 occupied footprint,
   and two visible opaque colors.
 - Per direction, idle requires two distinct frames; walk and attack each

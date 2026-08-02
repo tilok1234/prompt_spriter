@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-brinewheel-crab",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "All structural preflight checks passed."
+    }
+  ],
+  "createdAt": "2026-08-02T23:54:40.000Z"
+}

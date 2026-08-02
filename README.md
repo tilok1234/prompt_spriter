@@ -6,7 +6,11 @@ immutable local-library revisions and gives the user direct control over
 Intake, Revise, Archive, and approved Library state. A deterministic fixture
 remains available when no production library exists.
 
-The intended daily loop is deliberately simple:
+The intended daily loop is deliberately simple, and the bundled **Antigravity
+Queue Launcher** (`launcher/`, see `launcher/README.md`) automates steps 1-2
+and 6-7 end to end: it claims Promptinator entries and dispatches revision
+batches as hidden Antigravity conversations until the queues are empty, while
+every review decision stays with the user.
 
 1. The user asks an Antigravity agent to create a named sprite or simply create
    the next sprite in the Promptinator queue.

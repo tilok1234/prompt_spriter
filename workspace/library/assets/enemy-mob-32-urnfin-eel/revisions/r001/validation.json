@@ -1,0 +1,27 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-urnfin-eel",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "sheet-dimensions",
+      "level": "info",
+      "status": "passed",
+      "message": "The sprite sheet is 320x128 with 32x32 cells."
+    },
+    {
+      "code": "vertical-slice-layout",
+      "level": "info",
+      "status": "passed",
+      "message": "Idle, walk, and attack occupy 10 columns across four direction rows."
+    },
+    {
+      "code": "source-parity",
+      "level": "info",
+      "status": "passed",
+      "message": "Aseprite source file matches exported sheet PNG and duration specifications."
+    }
+  ],
+  "createdAt": "2026-08-02T23:51:55.000Z"
+}

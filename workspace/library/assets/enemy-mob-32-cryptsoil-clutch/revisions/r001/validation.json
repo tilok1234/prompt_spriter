@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-cryptsoil-clutch",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "contract-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "All contract preflight checks passed cleanly."
+    }
+  ],
+  "createdAt": "2026-08-02T22:13:48.346Z"
+}

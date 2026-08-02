@@ -1,0 +1,39 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-censer-chantor",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "submission-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-censer-chantor\\sheet.png: frame row 1, column 10 duplicates row 1, column 1"
+    },
+    {
+      "code": "submission-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-censer-chantor\\sheet.png: frame row 2, column 10 duplicates row 2, column 1"
+    },
+    {
+      "code": "submission-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-censer-chantor\\sheet.png: frame row 3, column 10 duplicates row 3, column 1"
+    },
+    {
+      "code": "submission-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-censer-chantor\\sheet.png: frame row 4, column 10 duplicates row 4, column 1"
+    },
+    {
+      "code": "submission-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "validation.json is not present; write it from the preflight result before completion"
+    }
+  ],
+  "createdAt": "2026-08-02T21:30:22.812Z"
+}

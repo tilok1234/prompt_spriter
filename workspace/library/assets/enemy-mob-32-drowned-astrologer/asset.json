@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-drowned-astrologer",
+  "name": "Drowned Astrologer",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T21:55:07.496Z",
+  "tags": [
+    "drowned",
+    "astrologer",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-chainbound-penitent",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory warnings: C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-chainbound-penitent\\sheet.png: frame row 2, column 8 has 1 opaque boundary pixel; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-chainbound-penitent\\sheet.png: frame row 2, column 9 has 3 opaque boundary pixels; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-chainbound-penitent\\sheet.png: down attack effects end at (11, 3) relative to the body, outside 60 degrees of the down facing"
+    }
+  ],
+  "createdAt": "2026-08-02T21:36:09.081Z"
+}

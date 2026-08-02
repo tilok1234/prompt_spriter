@@ -1,0 +1,22 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-coffin-nail-imp",
+  "name": "Coffin-Nail Imp",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T22:01:40.282Z",
+  "tags": [
+    "coffin",
+    "nail",
+    "imp",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-mourning-crow",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "submission-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "validation.json is not present; write it from the preflight result before completion"
+    }
+  ],
+  "createdAt": "2026-08-02T22:11:58.606Z"
+}
