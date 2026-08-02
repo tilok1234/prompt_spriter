@@ -342,6 +342,12 @@ try {
     Assert-True (-not $missingTool.Ok) 'A repository without the claim tool should be rejected'
     Assert-True ($missingTool.Message -like '*claim tool was not found*') 'The missing-tool error should name the problem'
 
+    $directParse = ConvertFrom-PromptinatorClaimOutput -ExitCode 0 -Output $claimOutput
+    Assert-True $directParse.Ok 'The standalone parser should accept a marker-complete printout'
+    Assert-Equal 'prompt-0123-test-critter' $directParse.EntryId 'The standalone parser should extract the entry ID'
+    $directNoWork = ConvertFrom-PromptinatorClaimOutput -ExitCode 1 -Output 'Promptinator has no Ready entries to claim.'
+    Assert-True $directNoWork.NoWork 'The standalone parser should classify queue exhaustion'
+
     # --- Promptinator read-only queue view ---
     $storeRepo = Join-Path $tempRootFull 'store-repo'
     New-Item -ItemType Directory -Path (Join-Path $storeRepo 'workspace\promptinator') -Force | Out-Null

@@ -1002,7 +1002,21 @@ function Request-PromptinatorClaim {
         $outputText = ($lines -join "`r`n").Trim()
     }
 
-    if ($exitCode -ne 0) {
+    return ConvertFrom-PromptinatorClaimOutput -ExitCode $exitCode -Output $outputText
+}
+
+function ConvertFrom-PromptinatorClaimOutput {
+    [CmdletBinding()]
+    param(
+        [Parameter(Mandatory = $true)]
+        [int]$ExitCode,
+
+        [AllowEmptyString()]
+        [string]$Output
+    )
+
+    $outputText = ([string]$Output).Trim()
+    if ($ExitCode -ne 0) {
         $noWork = $outputText -match 'no Ready entries'
         return [pscustomobject]@{
             Ok = $false
@@ -1044,6 +1058,7 @@ Export-ModuleMember -Function @(
     'Get-QueueEntries',
     'Save-QueueEntries',
     'Request-PromptinatorClaim',
+    'ConvertFrom-PromptinatorClaimOutput',
     'Get-PromptinatorReadyEntries',
     'New-QueueEntry',
     'ConvertFrom-BulkPromptText',

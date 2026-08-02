@@ -329,6 +329,8 @@ $script:LastChainLaunchAt = [DateTimeOffset]::MinValue
 $script:AnyAutoLaunchThisSession = $false
 $script:PromptinatorView = $null
 $script:PromptinatorStamp = ''
+$script:ClaimJob = $null
+$script:PowershellExe = Join-Path $env:WINDIR 'System32\WindowsPowerShell\v1.0\powershell.exe'
 $workingDirectoryText.Text = [string]$script:Settings.workingDirectory
 $promptinatorCheck.IsChecked = ($script:Settings.promptinatorEnabled -eq $true)
 
@@ -567,7 +569,146 @@ function Update-SendAvailability {
     $guardAllows = $null -ne $script:CreditGuard -and $script:CreditGuard.Allowed
     $hasSource = ($script:AllEntries.Count -gt 0) -or (Test-PromptinatorReady)
     $queueReady = ($null -eq $script:QueueError) -and $hasSource
-    $sendButton.IsEnabled = (-not $script:IsSending) -and $queueReady -and $validDirectory -and $hasAgy -and $guardAllows
+    $sendButton.IsEnabled = (-not $script:IsSending) -and ($null -eq $script:ClaimJob) -and $queueReady -and $validDirectory -and $hasAgy -and $guardAllows
+}
+
+function Start-HiddenRunnerProcess {
+    # conhost --headless gives a genuinely windowless console even when
+    # Windows Terminal is the default host, which ignores -WindowStyle Hidden
+    # and would otherwise open an empty terminal window per conversation.
+    param(
+        [Parameter(Mandatory = $true)]
+        [string]$ArgumentLine,
+        [string]$WorkingDirectory
+    )
+
+    $conhostPath = Join-Path $env:WINDIR 'System32\conhost.exe'
+    $startParameters = @{
+        PassThru = $true
+        WindowStyle = 'Hidden'
+    }
+    if (-not [string]::IsNullOrWhiteSpace($WorkingDirectory)) {
+        $startParameters.WorkingDirectory = $WorkingDirectory
+    }
+    if (Test-Path -LiteralPath $conhostPath) {
+        return Start-Process -FilePath $conhostPath -ArgumentList "--headless $($script:PowershellExe) $ArgumentLine" @startParameters
+    }
+    return Start-Process -FilePath $script:PowershellExe -ArgumentList $ArgumentLine @startParameters
+}
+
+function Start-PromptinatorClaimJob {
+    param([bool]$FromAutoSend)
+
+    $node = Get-Command -Name 'node' -ErrorAction SilentlyContinue
+    if ($null -eq $node) {
+        throw 'node was not found on PATH. Node.js is required to claim Promptinator entries.'
+    }
+    $toolPath = Join-Path (Get-PromptinatorRepo) 'tools\claim-next-prompt.mjs'
+    if (-not (Test-Path -LiteralPath $toolPath)) {
+        throw "The Promptinator claim tool was not found at $toolPath."
+    }
+
+    $outPath = Join-Path $paths.InflightDirectory 'claim-pending.out.log'
+    $markerPath = Join-Path $paths.InflightDirectory 'claim-pending.done'
+    Remove-Item -LiteralPath $outPath, $markerPath -Force -ErrorAction SilentlyContinue
+
+    $escapedNode = $node.Source.Replace("'", "''")
+    $escapedTool = $toolPath.Replace("'", "''")
+    $escapedClaimant = (Get-PromptinatorClaimant).Replace("'", "''")
+    $escapedOut = $outPath.Replace("'", "''")
+    $escapedMarker = $markerPath.Replace("'", "''")
+    $claimCommand = "`$output = & '$escapedNode' '$escapedTool' --claimant '$escapedClaimant' 2>&1 | Out-String; Set-Content -LiteralPath '$escapedOut' -Value `$output -Encoding UTF8; Set-Content -LiteralPath '$escapedMarker' -Value ([string]`$LASTEXITCODE) -Encoding Ascii"
+    $encodedClaim = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($claimCommand))
+    $process = Start-HiddenRunnerProcess -ArgumentLine "-NoLogo -NoProfile -ExecutionPolicy Bypass -EncodedCommand $encodedClaim"
+
+    $script:ClaimJob = @{
+        ProcessId = [int]$process.Id
+        OutPath = $outPath
+        MarkerPath = $markerPath
+        FromAutoSend = $FromAutoSend
+        StartedAt = [DateTimeOffset]::Now
+    }
+    Set-Status -Message 'Claiming the next Ready Promptinator entry in the background...' -Kind Normal
+    Update-SendAvailability
+}
+
+function Update-ClaimJobState {
+    if ($null -eq $script:ClaimJob) {
+        return
+    }
+    $job = $script:ClaimJob
+
+    if (-not (Test-Path -LiteralPath $job.MarkerPath)) {
+        if (([DateTimeOffset]::Now - $job.StartedAt).TotalSeconds -gt 180) {
+            $script:ClaimJob = $null
+            Stop-Process -Id $job.ProcessId -Force -ErrorAction SilentlyContinue
+            if ($job.FromAutoSend) {
+                $autoSendCheck.IsChecked = $false
+                Set-Status -Message 'Auto-send stopped: the Promptinator claim did not finish within 3 minutes.' -Kind Error
+            }
+            else {
+                Set-Status -Message 'The Promptinator claim did not finish within 3 minutes and was abandoned.' -Kind Error
+            }
+            Update-SendAvailability
+        }
+        return
+    }
+
+    $exitCode = 1
+    $outputText = ''
+    try {
+        $exitCode = [int](([System.IO.File]::ReadAllText($job.MarkerPath)).Trim())
+    }
+    catch {
+        $exitCode = 1
+    }
+    try {
+        $outputText = [System.IO.File]::ReadAllText($job.OutPath)
+    }
+    catch {
+        $outputText = ''
+    }
+    Remove-Item -LiteralPath $job.OutPath, $job.MarkerPath -Force -ErrorAction SilentlyContinue
+    $script:ClaimJob = $null
+
+    $claim = ConvertFrom-PromptinatorClaimOutput -ExitCode $exitCode -Output $outputText
+    if (-not $claim.Ok) {
+        if ($job.FromAutoSend) {
+            $autoSendCheck.IsChecked = $false
+            if ($claim.NoWork) {
+                Set-Status -Message 'Auto-send finished: the queue is empty and Promptinator has no Ready entries to claim.' -Kind Success
+            }
+            else {
+                Set-Status -Message "Auto-send stopped: the Promptinator claim failed. $($claim.Message)" -Kind Error
+            }
+        }
+        elseif ($claim.NoWork) {
+            Set-Status -Message 'Promptinator has no Ready entries to claim.' -Kind Warning
+        }
+        else {
+            Set-Status -Message "The Promptinator claim failed: $($claim.Message)" -Kind Error
+        }
+        Update-SendAvailability
+        return
+    }
+
+    $entry = New-QueueEntry -Text $claim.Text
+    if ($promptinatorCheck.IsChecked -ne $true) {
+        # The user turned the mode off while the claim ran; keep the claimed
+        # prompt visible and resumable instead of stranding it invisibly.
+        try {
+            $currentEntries = @(Get-QueueEntries -Path $paths.QueuePath)
+            Save-QueueEntries -Path $paths.QueuePath -Entries (@($entry) + $currentEntries)
+            Update-QueueView
+            Set-Status -Message "Promptinator pull was turned off while entry $($claim.EntryId) was being claimed; its prompt was placed at the front of the local queue." -Kind Warning
+        }
+        catch {
+            Set-Status -Message "Promptinator pull was turned off mid-claim and the claimed prompt could not be queued: $($_.Exception.Message)" -Kind Error
+        }
+        return
+    }
+
+    Invoke-SendNext -FromAutoSend:$job.FromAutoSend -PrefetchedEntry $entry -PrefetchedEntryLabel $claim.EntryId
 }
 
 function Update-SelectionState {
@@ -847,6 +988,9 @@ function Invoke-AutoSendIfReady {
     if ($script:IsSending -or $script:ModalOpen) {
         return
     }
+    if ($null -ne $script:ClaimJob) {
+        return
+    }
     if ($null -ne $script:QueueError) {
         return
     }
@@ -884,6 +1028,7 @@ function Invoke-PeriodicRefresh {
         if (Update-PromptinatorView) {
             Update-QueueList
         }
+        Update-ClaimJobState
         Update-RunningState
     }
     catch {
@@ -891,7 +1036,11 @@ function Invoke-PeriodicRefresh {
 }
 
 function Invoke-SendNext {
-    param([switch]$FromAutoSend)
+    param(
+        [switch]$FromAutoSend,
+        [object]$PrefetchedEntry = $null,
+        [string]$PrefetchedEntryLabel = ''
+    )
 
     if ($script:IsSending) {
         return
@@ -923,20 +1072,20 @@ function Invoke-SendNext {
 
         $entries = @(Get-QueueEntries -Path $paths.QueuePath)
         $fromPromptinator = $false
-        if ($entries.Count -gt 0) {
+        if ($null -ne $PrefetchedEntry) {
+            $entry = $PrefetchedEntry
+            $fromPromptinator = $true
+        }
+        elseif ($entries.Count -gt 0) {
             $entry = $entries[0]
         }
         elseif (Test-PromptinatorReady) {
-            Set-Status -Message 'Claiming the next Ready Promptinator entry...' -Kind Normal
-            $claim = Request-PromptinatorClaim -RepoPath (Get-PromptinatorRepo) -Claimant (Get-PromptinatorClaimant)
-            if (-not $claim.Ok) {
-                if ($claim.NoWork) {
-                    throw 'Promptinator has no Ready entries to claim.'
-                }
-                throw "The Promptinator claim failed:`n$($claim.Message)"
+            # Claims reconcile the whole library and take seconds; run them in
+            # a background process and let the refresh timer finish the send.
+            if ($null -eq $script:ClaimJob) {
+                Start-PromptinatorClaimJob -FromAutoSend:([bool]$FromAutoSend)
             }
-            $entry = New-QueueEntry -Text $claim.Text
-            $fromPromptinator = $true
+            return
         }
         else {
             throw 'The queue is empty.'
@@ -999,9 +1148,10 @@ function Invoke-SendNext {
 
         if ($jobMode -eq 'print') {
             # Chained conversations need no window: they run hidden, and the
-            # reply lands in data\logs. Without -NoExit nothing lingers.
+            # reply lands in data\logs. conhost --headless keeps them truly
+            # windowless even when Windows Terminal is the default host.
             $argumentLine = "-NoLogo -NoProfile -ExecutionPolicy Bypass -EncodedCommand $encodedCommand"
-            $process = Start-Process -FilePath $powershellExe -ArgumentList $argumentLine -WorkingDirectory $workingDirectory -WindowStyle Hidden -PassThru
+            $process = Start-HiddenRunnerProcess -ArgumentLine $argumentLine -WorkingDirectory $workingDirectory
         }
         else {
             $argumentLine = "-NoLogo -NoProfile -NoExit -ExecutionPolicy Bypass -EncodedCommand $encodedCommand"
@@ -1034,8 +1184,8 @@ function Invoke-SendNext {
         Update-QueueView
         Update-RunningState
 
-        $statusMessage = if ($fromPromptinator) {
-            "Launched a fresh Antigravity conversation for Promptinator entry $($claim.EntryId)."
+        $statusMessage = if ($fromPromptinator -and -not [string]::IsNullOrEmpty($PrefetchedEntryLabel)) {
+            "Launched a fresh Antigravity conversation for Promptinator entry $PrefetchedEntryLabel."
         }
         else {
             "Launched a fresh Antigravity conversation for message $($entry.id.Substring(0, 8))."

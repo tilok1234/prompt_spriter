@@ -1,7 +1,7 @@
 {
   "kind": "promptinator-store",
   "schemaVersion": "1.7.0",
-  "updatedAt": "2026-08-02T00:13:57.763Z",
+  "updatedAt": "2026-08-02T00:32:49.436Z",
   "entries": [
     {
       "id": "prompt-0001-mossback-tuskling",
@@ -9788,7 +9788,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -9819,10 +9819,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:27:15.449Z",
+          "claimId": "claim-0fc155c7-a617-4e98-bd46-c159b1279464"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T00:28:31.000Z",
+          "claimId": "claim-0fc155c7-a617-4e98-bd46-c159b1279464",
+          "assetId": "enemy-mob-32-millwheel-eel",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-0fc155c7-a617-4e98-bd46-c159b1279464",
+        "claimedAt": "2026-08-02T00:27:15.449Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-millwheel-eel"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-millwheel-eel",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T00:28:31.000Z"
+      }
     },
     {
       "id": "prompt-0134-damjaw-beaver",
@@ -9853,7 +9874,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -9884,10 +9905,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:29:27.144Z",
+          "claimId": "claim-f3f2250c-19d8-48e9-b44c-7129f01ad1ba"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:32:00.000Z",
+          "claimId": "claim-f3f2250c-19d8-48e9-b44c-7129f01ad1ba",
+          "assetId": "enemy-mob-32-damjaw-beaver",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-f3f2250c-19d8-48e9-b44c-7129f01ad1ba",
+        "claimedAt": "2026-08-02T00:29:27.144Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-damjaw-beaver"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-damjaw-beaver",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:32:00.000Z"
+      }
     },
     {
       "id": "prompt-0135-pebbleback-crayfish",
