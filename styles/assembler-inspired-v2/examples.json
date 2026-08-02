@@ -16,6 +16,15 @@
       "promotedAt": "2026-08-01T20:34:10.301Z"
     },
     {
+      "assetId": "enemy-mob-32-masked-chirurgeon",
+      "revisionId": "r001",
+      "sheetPath": "workspace/library/assets/enemy-mob-32-masked-chirurgeon/revisions/r001/sheet.png",
+      "sourcePath": "workspace/library/assets/enemy-mob-32-masked-chirurgeon/revisions/r001/source.aseprite",
+      "sheetSha256": "ad5d456eeadf1927eab54f89b117638d57756c71284314c5ccf899b3e0bfb1ec",
+      "note": "User-approved humanoid caster exemplar: beaked mask silhouette, staff and instrument case separated from the coat, feet under the hem in all four directions.",
+      "promotedAt": "2026-08-02T10:23:42.670Z"
+    },
+    {
       "assetId": "enemy-mob-32-orbit-owl",
       "revisionId": "r001",
       "sheetPath": "workspace/library/assets/enemy-mob-32-orbit-owl/revisions/r001/sheet.png",
