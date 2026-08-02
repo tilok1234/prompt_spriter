@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-lotus-shell-snail",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-486ff8ba-d571-4938-87c3-f75a18aae271",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-02T01:26:28.869Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-02T01:26:28.869Z"
+}

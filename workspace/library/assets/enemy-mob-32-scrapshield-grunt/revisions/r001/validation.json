@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-scrapshield-grunt",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "passed",
+      "message": "Submission validation passed with cell boundary contact warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T04:16:15.000Z"
+}

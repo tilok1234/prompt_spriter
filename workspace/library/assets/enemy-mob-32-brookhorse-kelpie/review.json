@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-brookhorse-kelpie",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-42903556-779d-4bfa-9784-9bd5ea6157f2",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-02T00:52:52.167Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-02T00:52:52.167Z"
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-cliffhook-harpy",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-9d443049-cb56-41a4-b182-bc85bd39d594",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-02T01:20:06.004Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-02T01:20:06.004Z"
+}

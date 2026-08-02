@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-brookhorse-kelpie",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "contract-identity",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission manifest and category contract match"
+    }
+  ],
+  "createdAt": "2026-08-02T02:44:37.000Z"
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-boulderhide-ogre",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-0290f8c2-3b3c-412b-bd4c-11693ef79f19",
+      "text": "The animation does not read as intentional movement; rebuild the key poses, spacing, and recovery while preserving the creature's volume.",
+      "createdAt": "2026-08-02T01:26:22.628Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-02T01:26:22.628Z"
+}

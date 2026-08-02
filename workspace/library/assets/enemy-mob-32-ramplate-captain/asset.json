@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-ramplate-captain",
+  "name": "Ramplate Captain",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T01:32:57.593Z",
+  "tags": [
+    "ramplate",
+    "captain",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

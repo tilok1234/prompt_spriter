@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-mancatcher-sergeant",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory warnings: C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-mancatcher-sergeant\\sheet.png: frame row 1, column 10 duplicates row 1, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-mancatcher-sergeant\\sheet.png: frame row 2, column 10 duplicates row 2, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-mancatcher-sergeant\\sheet.png: frame row 3, column 10 duplicates row 3, column 1; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-mancatcher-sergeant\\sheet.png: frame row 4, column 10 duplicates row 4, column 1"
+    }
+  ],
+  "createdAt": "2026-08-02T01:28:33.674Z"
+}

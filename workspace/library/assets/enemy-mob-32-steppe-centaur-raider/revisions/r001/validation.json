@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-steppe-centaur-raider",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "preflight-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "All layout, frame counts, boundary margins, palette constraints, motion criteria, and ground contact checks passed cleanly."
+    }
+  ],
+  "createdAt": "2026-08-02T04:00:00.000Z"
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-cursed-ploughhorse",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-ca60c007-5525-4fee-afdc-c80e841311e0",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-02T01:22:15.621Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-02T01:22:15.621Z"
+}

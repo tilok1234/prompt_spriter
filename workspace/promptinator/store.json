@@ -1,7 +1,7 @@
 {
   "kind": "promptinator-store",
   "schemaVersion": "1.7.0",
-  "updatedAt": "2026-08-02T00:32:49.436Z",
+  "updatedAt": "2026-08-02T02:37:13.434Z",
   "entries": [
     {
       "id": "prompt-0001-mossback-tuskling",
@@ -9960,7 +9960,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -9991,10 +9991,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:42:27.095Z",
+          "claimId": "claim-aa914673-b74d-4175-b355-f3badfdf9e45"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:46:00.000Z",
+          "claimId": "claim-aa914673-b74d-4175-b355-f3badfdf9e45",
+          "assetId": "enemy-mob-32-pebbleback-crayfish",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-aa914673-b74d-4175-b355-f3badfdf9e45",
+        "claimedAt": "2026-08-02T00:42:27.095Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-pebbleback-crayfish"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-pebbleback-crayfish",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:46:00.000Z"
+      }
     },
     {
       "id": "prompt-0136-brookhorse-kelpie",
@@ -10025,7 +10046,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10056,10 +10077,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:43:29.775Z",
+          "claimId": "claim-a5dc09a7-944e-455c-9c6f-2ef7d493cbf4"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:44:38.000Z",
+          "claimId": "claim-a5dc09a7-944e-455c-9c6f-2ef7d493cbf4",
+          "assetId": "enemy-mob-32-brookhorse-kelpie",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-a5dc09a7-944e-455c-9c6f-2ef7d493cbf4",
+        "claimedAt": "2026-08-02T00:43:29.775Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-brookhorse-kelpie"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-brookhorse-kelpie",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:44:38.000Z"
+      }
     },
     {
       "id": "prompt-0137-silverbelly-pike",
@@ -10090,7 +10132,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10121,10 +10163,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:45:05.938Z",
+          "claimId": "claim-62e014d6-e445-451c-af70-5972c614da75"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T00:47:14.462Z",
+          "claimId": "claim-62e014d6-e445-451c-af70-5972c614da75",
+          "assetId": "enemy-mob-32-silverbelly-pike",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-62e014d6-e445-451c-af70-5972c614da75",
+        "claimedAt": "2026-08-02T00:45:05.938Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-silverbelly-pike"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-silverbelly-pike",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T00:47:14.462Z"
+      }
     },
     {
       "id": "prompt-0138-lotus-shell-snail",
@@ -10155,7 +10218,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10186,10 +10249,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:46:47.089Z",
+          "claimId": "claim-9cd6a9e3-ee96-4cd5-9e82-80d3b7e77326"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T00:48:52.144Z",
+          "claimId": "claim-9cd6a9e3-ee96-4cd5-9e82-80d3b7e77326",
+          "assetId": "enemy-mob-32-lotus-shell-snail",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-9cd6a9e3-ee96-4cd5-9e82-80d3b7e77326",
+        "claimedAt": "2026-08-02T00:46:47.089Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-lotus-shell-snail"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-lotus-shell-snail",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T00:48:52.144Z"
+      }
     },
     {
       "id": "prompt-0139-fordwater-nixie",
@@ -10220,7 +10304,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10251,10 +10335,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:47:50.487Z",
+          "claimId": "claim-2759e418-854e-4587-8c4b-7fe83d8a4c15"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:49:21.000Z",
+          "claimId": "claim-2759e418-854e-4587-8c4b-7fe83d8a4c15",
+          "assetId": "enemy-mob-32-fordwater-nixie",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-2759e418-854e-4587-8c4b-7fe83d8a4c15",
+        "claimedAt": "2026-08-02T00:47:50.487Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-fordwater-nixie"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-fordwater-nixie",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:49:21.000Z"
+      }
     },
     {
       "id": "prompt-0140-weirkeeper-frogling",
@@ -10285,7 +10390,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10316,10 +10421,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:49:09.034Z",
+          "claimId": "claim-0f8bcc9b-e20c-4d7f-b05f-977fbdcac646"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:50:58.000Z",
+          "claimId": "claim-0f8bcc9b-e20c-4d7f-b05f-977fbdcac646",
+          "assetId": "enemy-mob-32-weirkeeper-frogling",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-0f8bcc9b-e20c-4d7f-b05f-977fbdcac646",
+        "claimedAt": "2026-08-02T00:49:09.034Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-weirkeeper-frogling"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-weirkeeper-frogling",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:50:58.000Z"
+      }
     },
     {
       "id": "prompt-0141-cragtooth-goblin",
@@ -10350,7 +10476,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10381,10 +10507,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:50:12.299Z",
+          "claimId": "claim-82a73955-eeda-4070-8b2d-d56b997068b8"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:52:05.000Z",
+          "claimId": "claim-82a73955-eeda-4070-8b2d-d56b997068b8",
+          "assetId": "enemy-mob-32-cragtooth-goblin",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-82a73955-eeda-4070-8b2d-d56b997068b8",
+        "claimedAt": "2026-08-02T00:50:12.299Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-cragtooth-goblin"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-cragtooth-goblin",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:52:05.000Z"
+      }
     },
     {
       "id": "prompt-0142-boulderhide-ogre",
@@ -10415,7 +10562,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10446,10 +10593,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:51:18.306Z",
+          "claimId": "claim-e402439d-d893-4b1b-9efd-2f14907c2165"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T00:53:55.100Z",
+          "claimId": "claim-e402439d-d893-4b1b-9efd-2f14907c2165",
+          "assetId": "enemy-mob-32-boulderhide-ogre",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-e402439d-d893-4b1b-9efd-2f14907c2165",
+        "claimedAt": "2026-08-02T00:51:18.306Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-boulderhide-ogre"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-boulderhide-ogre",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T00:53:55.100Z"
+      }
     },
     {
       "id": "prompt-0143-goatback-slinger",
@@ -10480,7 +10648,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10511,10 +10679,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:52:26.778Z",
+          "claimId": "claim-9d3d4a6c-adb6-45f9-86d6-82a932748ce0"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T00:54:06.259Z",
+          "claimId": "claim-9d3d4a6c-adb6-45f9-86d6-82a932748ce0",
+          "assetId": "enemy-mob-32-goatback-slinger",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-9d3d4a6c-adb6-45f9-86d6-82a932748ce0",
+        "claimedAt": "2026-08-02T00:52:26.778Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-goatback-slinger"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-goatback-slinger",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T00:54:06.259Z"
+      }
     },
     {
       "id": "prompt-0144-cairn-troll",
@@ -10545,7 +10734,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10576,10 +10765,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:54:13.144Z",
+          "claimId": "claim-c440629c-4bff-47a0-8ca1-66ab377fadf6"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T00:56:13.084Z",
+          "claimId": "claim-c440629c-4bff-47a0-8ca1-66ab377fadf6",
+          "assetId": "enemy-mob-32-cairn-troll",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-c440629c-4bff-47a0-8ca1-66ab377fadf6",
+        "claimedAt": "2026-08-02T00:54:13.144Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-cairn-troll"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-cairn-troll",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T00:56:13.084Z"
+      }
     },
     {
       "id": "prompt-0145-cliffhook-harpy",
@@ -10610,7 +10820,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10641,10 +10851,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:55:16.233Z",
+          "claimId": "claim-de432985-39c7-4657-bab4-2f077787b040"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:57:15.000Z",
+          "claimId": "claim-de432985-39c7-4657-bab4-2f077787b040",
+          "assetId": "enemy-mob-32-cliffhook-harpy",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-de432985-39c7-4657-bab4-2f077787b040",
+        "claimedAt": "2026-08-02T00:55:16.233Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-cliffhook-harpy"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-cliffhook-harpy",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:57:15.000Z"
+      }
     },
     {
       "id": "prompt-0146-stonepot-cook",
@@ -10675,7 +10906,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10706,10 +10937,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:56:29.790Z",
+          "claimId": "claim-bde4580a-5b9c-4e33-9700-2a531254543e"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:58:28.000Z",
+          "claimId": "claim-bde4580a-5b9c-4e33-9700-2a531254543e",
+          "assetId": "enemy-mob-32-stonepot-cook",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-bde4580a-5b9c-4e33-9700-2a531254543e",
+        "claimedAt": "2026-08-02T00:56:29.790Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-stonepot-cook"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-stonepot-cook",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:58:28.000Z"
+      }
     },
     {
       "id": "prompt-0147-ridgehorn-brute",
@@ -10740,7 +10992,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10771,10 +11023,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:57:35.678Z",
+          "claimId": "claim-0d681956-838f-42d2-bf17-3590aeb1abb8"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T00:59:08.000Z",
+          "claimId": "claim-0d681956-838f-42d2-bf17-3590aeb1abb8",
+          "assetId": "enemy-mob-32-ridgehorn-brute",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-0d681956-838f-42d2-bf17-3590aeb1abb8",
+        "claimedAt": "2026-08-02T00:57:35.678Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-ridgehorn-brute"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-ridgehorn-brute",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T00:59:08.000Z"
+      }
     },
     {
       "id": "prompt-0148-scree-runner",
@@ -10805,7 +11078,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10836,9 +11109,19 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:57:55.887Z",
+          "claimId": "claim-a508db49-f445-4032-9170-468d41387626"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-a508db49-f445-4032-9170-468d41387626",
+        "claimedAt": "2026-08-02T00:57:55.887Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-scree-runner"
+      },
       "completion": null
     },
     {
@@ -10870,7 +11153,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10901,10 +11184,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:58:44.219Z",
+          "claimId": "claim-5ce55157-29f1-432b-aa04-0a698a489a56"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:02:10.000Z",
+          "claimId": "claim-5ce55157-29f1-432b-aa04-0a698a489a56",
+          "assetId": "enemy-mob-32-thunder-drumkin",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-5ce55157-29f1-432b-aa04-0a698a489a56",
+        "claimedAt": "2026-08-02T00:58:44.219Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-thunder-drumkin"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-thunder-drumkin",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:02:10.000Z"
+      }
     },
     {
       "id": "prompt-0150-peak-seer-shaman",
@@ -10935,7 +11239,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -10966,10 +11270,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:59:47.576Z",
+          "claimId": "claim-b203b94f-68b6-4520-b3f9-ec96319ef3d4"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:01:45.000Z",
+          "claimId": "claim-b203b94f-68b6-4520-b3f9-ec96319ef3d4",
+          "assetId": "enemy-mob-32-peak-seer-shaman",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-b203b94f-68b6-4520-b3f9-ec96319ef3d4",
+        "claimedAt": "2026-08-02T00:59:47.576Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-peak-seer-shaman"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-peak-seer-shaman",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:01:45.000Z"
+      }
     },
     {
       "id": "prompt-0151-needlefield-scarecrow",
@@ -11000,7 +11325,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11031,10 +11356,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:02:01.492Z",
+          "claimId": "claim-2ab098f9-28ba-4a7e-987c-1f627b77d4db"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:03:56.000Z",
+          "claimId": "claim-2ab098f9-28ba-4a7e-987c-1f627b77d4db",
+          "assetId": "enemy-mob-32-needlefield-scarecrow",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-2ab098f9-28ba-4a7e-987c-1f627b77d4db",
+        "claimedAt": "2026-08-02T01:02:01.492Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-needlefield-scarecrow"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-needlefield-scarecrow",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:03:56.000Z"
+      }
     },
     {
       "id": "prompt-0152-milksour-hob",
@@ -11065,7 +11411,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11096,10 +11442,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:03:04.783Z",
+          "claimId": "claim-5f7595a7-092e-4797-bed2-4da4ae4f0ba4"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:05:14.363Z",
+          "claimId": "claim-5f7595a7-092e-4797-bed2-4da4ae4f0ba4",
+          "assetId": "enemy-mob-32-milksour-hob",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-5f7595a7-092e-4797-bed2-4da4ae4f0ba4",
+        "claimedAt": "2026-08-02T01:03:04.783Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-milksour-hob"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-milksour-hob",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:05:14.363Z"
+      }
     },
     {
       "id": "prompt-0153-hayfork-hexer",
@@ -11130,7 +11497,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11161,10 +11528,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:04:23.391Z",
+          "claimId": "claim-10378906-d205-4943-aefe-482f07d48ed0"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:06:14.891Z",
+          "claimId": "claim-10378906-d205-4943-aefe-482f07d48ed0",
+          "assetId": "enemy-mob-32-hayfork-hexer",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-10378906-d205-4943-aefe-482f07d48ed0",
+        "claimedAt": "2026-08-02T01:04:23.391Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-hayfork-hexer"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-hayfork-hexer",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:06:14.891Z"
+      }
     },
     {
       "id": "prompt-0154-kettle-hobbler",
@@ -11195,7 +11583,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11226,10 +11614,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:05:52.148Z",
+          "claimId": "claim-ea1c5581-0f7e-45cf-89c1-dafa3b5b6db3"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:07:49.499Z",
+          "claimId": "claim-ea1c5581-0f7e-45cf-89c1-dafa3b5b6db3",
+          "assetId": "enemy-mob-32-kettle-hobbler",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-ea1c5581-0f7e-45cf-89c1-dafa3b5b6db3",
+        "claimedAt": "2026-08-02T01:05:52.148Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-kettle-hobbler"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-kettle-hobbler",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:07:49.499Z"
+      }
     },
     {
       "id": "prompt-0155-spindle-witchling",
@@ -11260,7 +11669,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11291,10 +11700,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:06:55.465Z",
+          "claimId": "claim-9bf62bb1-4a14-49e6-a360-add042ee9c97"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:09:56.680Z",
+          "claimId": "claim-9bf62bb1-4a14-49e6-a360-add042ee9c97",
+          "assetId": "enemy-mob-32-spindle-witchling",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-9bf62bb1-4a14-49e6-a360-add042ee9c97",
+        "claimedAt": "2026-08-02T01:06:55.465Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-spindle-witchling"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-spindle-witchling",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:09:56.680Z"
+      }
     },
     {
       "id": "prompt-0156-grain-sack-creeper",
@@ -11325,7 +11755,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11356,10 +11786,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:08:06.469Z",
+          "claimId": "claim-84b81af2-aca2-49ff-8019-02a0c770bce7"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:10:00.000Z",
+          "claimId": "claim-84b81af2-aca2-49ff-8019-02a0c770bce7",
+          "assetId": "enemy-mob-32-grain-sack-creeper",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-84b81af2-aca2-49ff-8019-02a0c770bce7",
+        "claimedAt": "2026-08-02T01:08:06.469Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-grain-sack-creeper"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-grain-sack-creeper",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:10:00.000Z"
+      }
     },
     {
       "id": "prompt-0157-cursed-ploughhorse",
@@ -11390,7 +11841,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11421,10 +11872,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:10:12.877Z",
+          "claimId": "claim-f98be7e7-21d7-4a21-b948-23c5e5c23b6d"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:14:09.004Z",
+          "claimId": "claim-f98be7e7-21d7-4a21-b948-23c5e5c23b6d",
+          "assetId": "enemy-mob-32-cursed-ploughhorse",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-f98be7e7-21d7-4a21-b948-23c5e5c23b6d",
+        "claimedAt": "2026-08-02T01:10:12.877Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-cursed-ploughhorse"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-cursed-ploughhorse",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:14:09.004Z"
+      }
     },
     {
       "id": "prompt-0158-waxface-doll",
@@ -11455,7 +11927,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11486,10 +11958,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:11:16.258Z",
+          "claimId": "claim-3253cc61-b9fe-42e2-aa92-e2c66b12cd0f"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:13:23.974Z",
+          "claimId": "claim-3253cc61-b9fe-42e2-aa92-e2c66b12cd0f",
+          "assetId": "enemy-mob-32-waxface-doll",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-3253cc61-b9fe-42e2-aa92-e2c66b12cd0f",
+        "claimedAt": "2026-08-02T01:11:16.258Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-waxface-doll"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-waxface-doll",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:13:23.974Z"
+      }
     },
     {
       "id": "prompt-0159-hearthcat-familiar",
@@ -11520,7 +12013,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11551,10 +12044,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:16:56.737Z",
+          "claimId": "claim-b03aca61-8cdd-4ee9-906e-d4b7c905e5c4"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:19:37.728Z",
+          "claimId": "claim-b03aca61-8cdd-4ee9-906e-d4b7c905e5c4",
+          "assetId": "enemy-mob-32-hearthcat-familiar",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-b03aca61-8cdd-4ee9-906e-d4b7c905e5c4",
+        "claimedAt": "2026-08-02T01:16:56.737Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-hearthcat-familiar"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-hearthcat-familiar",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:19:37.728Z"
+      }
     },
     {
       "id": "prompt-0160-ashbroom-crone",
@@ -11585,7 +12099,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11616,10 +12130,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:17:59.192Z",
+          "claimId": "claim-5f92d3a2-c888-47e5-a373-f57eec15b627"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:19:41.705Z",
+          "claimId": "claim-5f92d3a2-c888-47e5-a373-f57eec15b627",
+          "assetId": "enemy-mob-32-ashbroom-crone",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-5f92d3a2-c888-47e5-a373-f57eec15b627",
+        "claimedAt": "2026-08-02T01:17:59.192Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-ashbroom-crone"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-ashbroom-crone",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:19:41.705Z"
+      }
     },
     {
       "id": "prompt-0161-pavise-arbalist",
@@ -11650,7 +12185,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11681,10 +12216,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:19:55.820Z",
+          "claimId": "claim-fed35e61-72a0-40b0-b657-659a9b18bc9f"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:22:57.126Z",
+          "claimId": "claim-fed35e61-72a0-40b0-b657-659a9b18bc9f",
+          "assetId": "enemy-mob-32-pavise-arbalist",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-fed35e61-72a0-40b0-b657-659a9b18bc9f",
+        "claimedAt": "2026-08-02T01:19:55.820Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-pavise-arbalist"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-pavise-arbalist",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:22:57.126Z"
+      }
     },
     {
       "id": "prompt-0162-powder-sapper",
@@ -11715,7 +12271,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11746,10 +12302,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:20:59.153Z",
+          "claimId": "claim-8d783af1-b3a5-4b2f-8691-d0a8000468d4"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:23:35.000Z",
+          "claimId": "claim-8d783af1-b3a5-4b2f-8691-d0a8000468d4",
+          "assetId": "enemy-mob-32-powder-sapper",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-8d783af1-b3a5-4b2f-8691-d0a8000468d4",
+        "claimedAt": "2026-08-02T01:20:59.153Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-powder-sapper"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-powder-sapper",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:23:35.000Z"
+      }
     },
     {
       "id": "prompt-0163-hookshield-veteran",
@@ -11780,7 +12357,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11811,10 +12388,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:23:18.473Z",
+          "claimId": "claim-9338ca59-99b9-4b9d-99a2-2c91026644bf"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:25:30Z",
+          "claimId": "claim-9338ca59-99b9-4b9d-99a2-2c91026644bf",
+          "assetId": "enemy-mob-32-hookshield-veteran",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-9338ca59-99b9-4b9d-99a2-2c91026644bf",
+        "claimedAt": "2026-08-02T01:23:18.473Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-hookshield-veteran"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-hookshield-veteran",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:25:30Z"
+      }
     },
     {
       "id": "prompt-0164-kennel-sergeant",
@@ -11845,7 +12443,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11876,10 +12474,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:24:22.016Z",
+          "claimId": "claim-3441cfaf-2ce9-408b-b2d8-068eda5868b0"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:27:11.846Z",
+          "claimId": "claim-3441cfaf-2ce9-408b-b2d8-068eda5868b0",
+          "assetId": "enemy-mob-32-kennel-sergeant",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-3441cfaf-2ce9-408b-b2d8-068eda5868b0",
+        "claimedAt": "2026-08-02T01:24:22.016Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-kennel-sergeant"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-kennel-sergeant",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:27:11.846Z"
+      }
     },
     {
       "id": "prompt-0165-mancatcher-sergeant",
@@ -11910,7 +12529,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -11941,10 +12560,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:25:53.400Z",
+          "claimId": "claim-b3aa7dca-5ba6-47bd-b854-a27e90e156f2"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:28:33.674Z",
+          "claimId": "claim-b3aa7dca-5ba6-47bd-b854-a27e90e156f2",
+          "assetId": "enemy-mob-32-mancatcher-sergeant",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-b3aa7dca-5ba6-47bd-b854-a27e90e156f2",
+        "claimedAt": "2026-08-02T01:25:53.400Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-mancatcher-sergeant"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-mancatcher-sergeant",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:28:33.674Z"
+      }
     },
     {
       "id": "prompt-0166-firepot-grenadier",
@@ -11975,7 +12615,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12006,10 +12646,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:27:37.444Z",
+          "claimId": "claim-465f2c7f-3f66-40f4-bcdc-0576d07c9f3e"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:29:36.000Z",
+          "claimId": "claim-465f2c7f-3f66-40f4-bcdc-0576d07c9f3e",
+          "assetId": "enemy-mob-32-firepot-grenadier",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-465f2c7f-3f66-40f4-bcdc-0576d07c9f3e",
+        "claimedAt": "2026-08-02T01:27:37.444Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-firepot-grenadier"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-firepot-grenadier",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:29:36.000Z"
+      }
     },
     {
       "id": "prompt-0167-ladderback-brute",
@@ -12040,7 +12701,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12071,10 +12732,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:28:51.164Z",
+          "claimId": "claim-364a4a1f-30e9-46e4-b702-56144873a4df"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:31:18.000Z",
+          "claimId": "claim-364a4a1f-30e9-46e4-b702-56144873a4df",
+          "assetId": "enemy-mob-32-ladderback-brute",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-364a4a1f-30e9-46e4-b702-56144873a4df",
+        "claimedAt": "2026-08-02T01:28:51.164Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-ladderback-brute"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-ladderback-brute",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:31:18.000Z"
+      }
     },
     {
       "id": "prompt-0168-field-confessor",
@@ -12105,7 +12787,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12136,9 +12818,19 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:29:22.736Z",
+          "claimId": "claim-01b0abfb-bb62-4526-913c-c753c47fa8ea"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-01b0abfb-bb62-4526-913c-c753c47fa8ea",
+        "claimedAt": "2026-08-02T01:29:22.736Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-field-confessor"
+      },
       "completion": null
     },
     {
@@ -12170,7 +12862,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12201,10 +12893,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:29:57.541Z",
+          "claimId": "claim-7e12c445-1e06-4120-9cc2-5a6af5228572"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:32:20.337Z",
+          "claimId": "claim-7e12c445-1e06-4120-9cc2-5a6af5228572",
+          "assetId": "enemy-mob-32-falconer-scout",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-7e12c445-1e06-4120-9cc2-5a6af5228572",
+        "claimedAt": "2026-08-02T01:29:57.541Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-falconer-scout"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-falconer-scout",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:32:20.337Z"
+      }
     },
     {
       "id": "prompt-0170-ramplate-captain",
@@ -12235,7 +12948,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12266,10 +12979,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:31:36.313Z",
+          "claimId": "claim-0c4e6fa4-e2c0-43ee-8576-b20d41d1efd5"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:33:07.000Z",
+          "claimId": "claim-0c4e6fa4-e2c0-43ee-8576-b20d41d1efd5",
+          "assetId": "enemy-mob-32-ramplate-captain",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-0c4e6fa4-e2c0-43ee-8576-b20d41d1efd5",
+        "claimedAt": "2026-08-02T01:31:36.313Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-ramplate-captain"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-ramplate-captain",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:33:07.000Z"
+      }
     },
     {
       "id": "prompt-0171-pactling-scrivener",
@@ -12300,7 +13034,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12331,10 +13065,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:32:39.716Z",
+          "claimId": "claim-89c2597f-c21f-408c-8e7e-c5515b39dc7e"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:36:55.000Z",
+          "claimId": "claim-89c2597f-c21f-408c-8e7e-c5515b39dc7e",
+          "assetId": "enemy-mob-32-pactling-scrivener",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-89c2597f-c21f-408c-8e7e-c5515b39dc7e",
+        "claimedAt": "2026-08-02T01:32:39.716Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-pactling-scrivener"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-pactling-scrivener",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:36:55.000Z"
+      }
     },
     {
       "id": "prompt-0172-chainhorn-brute",
@@ -12365,7 +13120,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12396,9 +13151,19 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:33:13.960Z",
+          "claimId": "claim-fefa172b-307f-4064-8608-db104154c610"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-fefa172b-307f-4064-8608-db104154c610",
+        "claimedAt": "2026-08-02T01:33:13.960Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-chainhorn-brute"
+      },
       "completion": null
     },
     {
@@ -12430,7 +13195,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12461,10 +13226,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:33:43.228Z",
+          "claimId": "claim-493c63e4-8b95-4de5-b38e-8e2556ed2188"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:36:20.000Z",
+          "claimId": "claim-493c63e4-8b95-4de5-b38e-8e2556ed2188",
+          "assetId": "enemy-mob-32-brimstone-hound",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-493c63e4-8b95-4de5-b38e-8e2556ed2188",
+        "claimedAt": "2026-08-02T01:33:43.228Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-brimstone-hound"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-brimstone-hound",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:36:20.000Z"
+      }
     },
     {
       "id": "prompt-0174-censer-devil",
@@ -12495,7 +13281,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12526,10 +13312,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:36:44.999Z",
+          "claimId": "claim-c3740f02-e86c-4c52-b84c-422a12dc32a5"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:38:18.000Z",
+          "claimId": "claim-c3740f02-e86c-4c52-b84c-422a12dc32a5",
+          "assetId": "enemy-mob-32-censer-devil",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-c3740f02-e86c-4c52-b84c-422a12dc32a5",
+        "claimedAt": "2026-08-02T01:36:44.999Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-censer-devil"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-censer-devil",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:38:18.000Z"
+      }
     },
     {
       "id": "prompt-0175-brasshorn-tempter",
@@ -12560,7 +13367,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12591,10 +13398,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:37:48.220Z",
+          "claimId": "claim-0c27e9a0-009d-4794-b9d3-239a8e646d34"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:40:53.113Z",
+          "claimId": "claim-0c27e9a0-009d-4794-b9d3-239a8e646d34",
+          "assetId": "enemy-mob-32-brasshorn-tempter",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-0c27e9a0-009d-4794-b9d3-239a8e646d34",
+        "claimedAt": "2026-08-02T01:37:48.220Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-brasshorn-tempter"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-brasshorn-tempter",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:40:53.113Z"
+      }
     },
     {
       "id": "prompt-0176-guttermaw-fiend",
@@ -12625,7 +13453,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12656,10 +13484,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:38:51.618Z",
+          "claimId": "claim-de1ee6cd-d42f-4d4b-9f39-38a435035d9c"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:41:05.000Z",
+          "claimId": "claim-de1ee6cd-d42f-4d4b-9f39-38a435035d9c",
+          "assetId": "enemy-mob-32-guttermaw-fiend",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-de1ee6cd-d42f-4d4b-9f39-38a435035d9c",
+        "claimedAt": "2026-08-02T01:38:51.618Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-guttermaw-fiend"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-guttermaw-fiend",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:41:05.000Z"
+      }
     },
     {
       "id": "prompt-0177-coin-eyed-imp",
@@ -12690,7 +13539,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12721,10 +13570,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:41:08.233Z",
+          "claimId": "claim-6e70b297-5d4b-4306-81df-534800049341"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:43:01.000Z",
+          "claimId": "claim-6e70b297-5d4b-4306-81df-534800049341",
+          "assetId": "enemy-mob-32-coin-eyed-imp",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-6e70b297-5d4b-4306-81df-534800049341",
+        "claimedAt": "2026-08-02T01:41:08.233Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-coin-eyed-imp"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-coin-eyed-imp",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:43:01.000Z"
+      }
     },
     {
       "id": "prompt-0178-furnace-cherub",
@@ -12755,7 +13625,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12786,10 +13656,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:42:11.426Z",
+          "claimId": "claim-6cbf3896-2297-4a22-a66a-58d95c436e28"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:44:04.585Z",
+          "claimId": "claim-6cbf3896-2297-4a22-a66a-58d95c436e28",
+          "assetId": "enemy-mob-32-furnace-cherub",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-6cbf3896-2297-4a22-a66a-58d95c436e28",
+        "claimedAt": "2026-08-02T01:42:11.426Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-furnace-cherub"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-furnace-cherub",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:44:04.585Z"
+      }
     },
     {
       "id": "prompt-0179-oathbreaker-shade",
@@ -12820,7 +13711,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12851,10 +13742,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:43:19.885Z",
+          "claimId": "claim-51f440b5-f032-4d64-9733-23f4a53bc5d3"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:45:30.000Z",
+          "claimId": "claim-51f440b5-f032-4d64-9733-23f4a53bc5d3",
+          "assetId": "enemy-mob-32-oathbreaker-shade",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-51f440b5-f032-4d64-9733-23f4a53bc5d3",
+        "claimedAt": "2026-08-02T01:43:19.885Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-oathbreaker-shade"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-oathbreaker-shade",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:45:30.000Z"
+      }
     },
     {
       "id": "prompt-0180-hellbell-bailiff",
@@ -12885,7 +13797,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12916,10 +13828,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:44:28.362Z",
+          "claimId": "claim-76aac038-57e5-4fa6-8a44-c25f36312c80"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:48:18.000Z",
+          "claimId": "claim-76aac038-57e5-4fa6-8a44-c25f36312c80",
+          "assetId": "enemy-mob-32-hellbell-bailiff",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-76aac038-57e5-4fa6-8a44-c25f36312c80",
+        "claimedAt": "2026-08-02T01:44:28.362Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-hellbell-bailiff"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-hellbell-bailiff",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:48:18.000Z"
+      }
     },
     {
       "id": "prompt-0181-grassmane-lion",
@@ -12950,7 +13883,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -12981,10 +13914,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:45:52.016Z",
+          "claimId": "claim-b15904b5-267d-41ef-aca3-a46b2bd51b1a"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:48:29.699Z",
+          "claimId": "claim-b15904b5-267d-41ef-aca3-a46b2bd51b1a",
+          "assetId": "enemy-mob-32-grassmane-lion",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-b15904b5-267d-41ef-aca3-a46b2bd51b1a",
+        "claimedAt": "2026-08-02T01:45:52.016Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-grassmane-lion"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-grassmane-lion",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:48:29.699Z"
+      }
     },
     {
       "id": "prompt-0182-spearhorn-antelope",
@@ -13015,7 +13969,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13046,10 +14000,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:48:38.949Z",
+          "claimId": "claim-871aee84-835a-4366-b4b0-2b92c1fa9650"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:50:18.000Z",
+          "claimId": "claim-871aee84-835a-4366-b4b0-2b92c1fa9650",
+          "assetId": "enemy-mob-32-spearhorn-antelope",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-871aee84-835a-4366-b4b0-2b92c1fa9650",
+        "claimedAt": "2026-08-02T01:48:38.949Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-spearhorn-antelope"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-spearhorn-antelope",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:50:18.000Z"
+      }
     },
     {
       "id": "prompt-0183-thunder-yak",
@@ -13080,7 +14055,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13111,10 +14086,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:49:42.133Z",
+          "claimId": "claim-76252aac-bc30-4fd5-923b-93049258be17"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T03:52:30.000Z",
+          "claimId": "claim-76252aac-bc30-4fd5-923b-93049258be17",
+          "assetId": "enemy-mob-32-thunder-yak",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-76252aac-bc30-4fd5-923b-93049258be17",
+        "claimedAt": "2026-08-02T01:49:42.133Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-thunder-yak"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-thunder-yak",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T03:52:30.000Z"
+      }
     },
     {
       "id": "prompt-0184-scythebeak-crane",
@@ -13145,7 +14141,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13176,10 +14172,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:50:45.670Z",
+          "claimId": "claim-5f725c81-8a7f-4d7b-b22a-4017da5a959a"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:52:40.022Z",
+          "claimId": "claim-5f725c81-8a7f-4d7b-b22a-4017da5a959a",
+          "assetId": "enemy-mob-32-scythebeak-crane",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-5f725c81-8a7f-4d7b-b22a-4017da5a959a",
+        "claimedAt": "2026-08-02T01:50:45.670Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-scythebeak-crane"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-scythebeak-crane",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:52:40.022Z"
+      }
     },
     {
       "id": "prompt-0185-burrowstep-marmot",
@@ -13210,7 +14227,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13241,10 +14258,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:52:52.411Z",
+          "claimId": "claim-c63cfbd8-f7fc-46b0-9bb3-5d89764cb6f1"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:55:36.026Z",
+          "claimId": "claim-c63cfbd8-f7fc-46b0-9bb3-5d89764cb6f1",
+          "assetId": "enemy-mob-32-burrowstep-marmot",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-c63cfbd8-f7fc-46b0-9bb3-5d89764cb6f1",
+        "claimedAt": "2026-08-02T01:52:52.411Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-burrowstep-marmot"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-burrowstep-marmot",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:55:36.026Z"
+      }
     },
     {
       "id": "prompt-0186-kitewing-hawk",
@@ -13275,7 +14313,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13306,10 +14344,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:53:55.585Z",
+          "claimId": "claim-8dfc0172-a091-459a-841f-b3b7f92d4c08"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:56:08.623Z",
+          "claimId": "claim-8dfc0172-a091-459a-841f-b3b7f92d4c08",
+          "assetId": "enemy-mob-32-kitewing-hawk",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-8dfc0172-a091-459a-841f-b3b7f92d4c08",
+        "claimedAt": "2026-08-02T01:53:55.585Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-kitewing-hawk"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-kitewing-hawk",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:56:08.623Z"
+      }
     },
     {
       "id": "prompt-0187-steppe-centaur-raider",
@@ -13340,7 +14399,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13371,10 +14430,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:55:54.611Z",
+          "claimId": "claim-821c57d5-6234-4148-a685-4a48516d6f04"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:00:00.000Z",
+          "claimId": "claim-821c57d5-6234-4148-a685-4a48516d6f04",
+          "assetId": "enemy-mob-32-steppe-centaur-raider",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-821c57d5-6234-4148-a685-4a48516d6f04",
+        "claimedAt": "2026-08-02T01:55:54.611Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-steppe-centaur-raider"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-steppe-centaur-raider",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:00:00.000Z"
+      }
     },
     {
       "id": "prompt-0188-bannerback-bison",
@@ -13405,7 +14485,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13436,9 +14516,19 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:56:21.552Z",
+          "claimId": "claim-e960d18b-c5ff-4b83-9df9-ec27423a6ad7"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-e960d18b-c5ff-4b83-9df9-ec27423a6ad7",
+        "claimedAt": "2026-08-02T01:56:21.552Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-bannerback-bison"
+      },
       "completion": null
     },
     {
@@ -13470,7 +14560,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13501,10 +14591,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:56:58.040Z",
+          "claimId": "claim-1293c5cc-b3f9-4808-b2e5-ea260410a32e"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T01:58:40.289Z",
+          "claimId": "claim-1293c5cc-b3f9-4808-b2e5-ea260410a32e",
+          "assetId": "enemy-mob-32-whistlegrass-serpent",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-1293c5cc-b3f9-4808-b2e5-ea260410a32e",
+        "claimedAt": "2026-08-02T01:56:58.040Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-whistlegrass-serpent"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-whistlegrass-serpent",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T01:58:40.289Z"
+      }
     },
     {
       "id": "prompt-0190-windbow-nomad",
@@ -13535,7 +14646,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13566,10 +14677,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T01:58:57.051Z",
+          "claimId": "claim-c8cf77e3-17a6-4067-8445-0f79ce701589"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:01:38.664Z",
+          "claimId": "claim-c8cf77e3-17a6-4067-8445-0f79ce701589",
+          "assetId": "enemy-mob-32-windbow-nomad",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-c8cf77e3-17a6-4067-8445-0f79ce701589",
+        "claimedAt": "2026-08-02T01:58:57.051Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-windbow-nomad"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-windbow-nomad",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:01:38.664Z"
+      }
     },
     {
       "id": "prompt-0191-bellcap-juggler",
@@ -13600,7 +14732,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13631,10 +14763,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:00:50.860Z",
+          "claimId": "claim-6ce27933-519f-4bb5-ba04-6888a04f89ed"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:03:26.245649Z",
+          "claimId": "claim-6ce27933-519f-4bb5-ba04-6888a04f89ed",
+          "assetId": "enemy-mob-32-bellcap-juggler",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-6ce27933-519f-4bb5-ba04-6888a04f89ed",
+        "claimedAt": "2026-08-02T02:00:50.860Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-bellcap-juggler"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-bellcap-juggler",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:03:26.245649Z"
+      }
     },
     {
       "id": "prompt-0192-patchwork-strongman",
@@ -13665,7 +14818,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13696,9 +14849,19 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:01:14.619Z",
+          "claimId": "claim-264f3e07-ecef-4958-893d-5cda0321e972"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-264f3e07-ecef-4958-893d-5cda0321e972",
+        "claimedAt": "2026-08-02T02:01:14.619Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-patchwork-strongman"
+      },
       "completion": null
     },
     {
@@ -13730,7 +14893,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13761,10 +14924,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:01:57.217Z",
+          "claimId": "claim-4858f980-1d02-4440-81e8-cfd9bfca309f"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:03:32.000Z",
+          "claimId": "claim-4858f980-1d02-4440-81e8-cfd9bfca309f",
+          "assetId": "enemy-mob-32-puppet-hound",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-4858f980-1d02-4440-81e8-cfd9bfca309f",
+        "claimedAt": "2026-08-02T02:01:57.217Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-puppet-hound"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-puppet-hound",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:03:32.000Z"
+      }
     },
     {
       "id": "prompt-0194-ribbonblade-dancer",
@@ -13795,7 +14979,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13826,9 +15010,19 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:02:28.496Z",
+          "claimId": "claim-40a57e6d-f790-445c-8da6-93c57666f42f"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-40a57e6d-f790-445c-8da6-93c57666f42f",
+        "claimedAt": "2026-08-02T02:02:28.496Z",
+        "claimant": "Antigravity",
+        "expectedAssetId": "enemy-mob-32-ribbonblade-dancer"
+      },
       "completion": null
     },
     {
@@ -13860,7 +15054,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13891,10 +15085,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:03:46.315Z",
+          "claimId": "claim-47e82483-d79a-4441-b6fb-f26dae19650f"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:07:15.000Z",
+          "claimId": "claim-47e82483-d79a-4441-b6fb-f26dae19650f",
+          "assetId": "enemy-mob-32-fortune-crow",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-47e82483-d79a-4441-b6fb-f26dae19650f",
+        "claimedAt": "2026-08-02T02:03:46.315Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-fortune-crow"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-fortune-crow",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:07:15.000Z"
+      }
     },
     {
       "id": "prompt-0196-barrel-stomper",
@@ -13925,7 +15140,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -13956,10 +15171,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:04:49.424Z",
+          "claimId": "claim-f548ae0a-ad5e-4736-8804-74ed6c629232"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:07:35.307Z",
+          "claimId": "claim-f548ae0a-ad5e-4736-8804-74ed6c629232",
+          "assetId": "enemy-mob-32-barrel-stomper",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-f548ae0a-ad5e-4736-8804-74ed6c629232",
+        "claimedAt": "2026-08-02T02:04:49.424Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-barrel-stomper"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-barrel-stomper",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:07:35.307Z"
+      }
     },
     {
       "id": "prompt-0197-masked-ringmaster",
@@ -13990,7 +15226,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -14021,10 +15257,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:07:51.451Z",
+          "claimId": "claim-1dac0348-7d09-41d6-b37b-802e6122af8d"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:10:15.000Z",
+          "claimId": "claim-1dac0348-7d09-41d6-b37b-802e6122af8d",
+          "assetId": "enemy-mob-32-masked-ringmaster",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-1dac0348-7d09-41d6-b37b-802e6122af8d",
+        "claimedAt": "2026-08-02T02:07:51.451Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-masked-ringmaster"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-masked-ringmaster",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:10:15.000Z"
+      }
     },
     {
       "id": "prompt-0198-candle-acrobat",
@@ -14055,7 +15312,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -14086,10 +15343,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:08:54.611Z",
+          "claimId": "claim-bfc51eb7-521c-4196-afaa-85d529235d52"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:10:00.000Z",
+          "claimId": "claim-bfc51eb7-521c-4196-afaa-85d529235d52",
+          "assetId": "enemy-mob-32-candle-acrobat",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-bfc51eb7-521c-4196-afaa-85d529235d52",
+        "claimedAt": "2026-08-02T02:08:54.611Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-candle-acrobat"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-candle-acrobat",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:10:00.000Z"
+      }
     },
     {
       "id": "prompt-0199-tinwhistle-fool",
@@ -14120,7 +15398,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -14151,10 +15429,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:10:35.994Z",
+          "claimId": "claim-5877030f-4cfc-47ef-8825-a467c3273bd5"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:12:13.000Z",
+          "claimId": "claim-5877030f-4cfc-47ef-8825-a467c3273bd5",
+          "assetId": "enemy-mob-32-tinwhistle-fool",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-5877030f-4cfc-47ef-8825-a467c3273bd5",
+        "claimedAt": "2026-08-02T02:10:35.994Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-tinwhistle-fool"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-tinwhistle-fool",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:12:13.000Z"
+      }
     },
     {
       "id": "prompt-0200-mirror-tent-mimic",
@@ -14185,7 +15484,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -14216,10 +15515,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:11:39.577Z",
+          "claimId": "claim-e8d50952-5b49-4cbd-bf66-4a4e87f44c6e"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:13:30.000Z",
+          "claimId": "claim-e8d50952-5b49-4cbd-bf66-4a4e87f44c6e",
+          "assetId": "enemy-mob-32-mirror-tent-mimic",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-e8d50952-5b49-4cbd-bf66-4a4e87f44c6e",
+        "claimedAt": "2026-08-02T02:11:39.577Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-mirror-tent-mimic"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-mirror-tent-mimic",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:13:30.000Z"
+      }
     },
     {
       "id": "prompt-0201-rustknife-scrapper",
@@ -14250,7 +15570,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14281,10 +15601,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:12:42.901Z",
+          "claimId": "claim-92177d4d-aa7a-4be9-bd50-7d260d91aae1"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:14:30.000Z",
+          "claimId": "claim-92177d4d-aa7a-4be9-bd50-7d260d91aae1",
+          "assetId": "enemy-mob-32-rustknife-scrapper",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-92177d4d-aa7a-4be9-bd50-7d260d91aae1",
+        "claimedAt": "2026-08-02T02:12:42.901Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-rustknife-scrapper"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-rustknife-scrapper",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:14:30.000Z"
+      }
     },
     {
       "id": "prompt-0202-pothelm-skulker",
@@ -14315,7 +15656,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14346,10 +15687,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:13:48.943Z",
+          "claimId": "claim-0f09efde-03e6-4230-8618-c17ae1a929a5"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:15:20.000Z",
+          "claimId": "claim-0f09efde-03e6-4230-8618-c17ae1a929a5",
+          "assetId": "enemy-mob-32-pothelm-skulker",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-0f09efde-03e6-4230-8618-c17ae1a929a5",
+        "claimedAt": "2026-08-02T02:13:48.943Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-pothelm-skulker"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-pothelm-skulker",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:15:20.000Z"
+      }
     },
     {
       "id": "prompt-0203-scrapshield-grunt",
@@ -14380,7 +15742,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14411,10 +15773,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:14:52.525Z",
+          "claimId": "claim-8b52cb03-5901-42e7-b431-13d90335d68b"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:16:20.000Z",
+          "claimId": "claim-8b52cb03-5901-42e7-b431-13d90335d68b",
+          "assetId": "enemy-mob-32-scrapshield-grunt",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-8b52cb03-5901-42e7-b431-13d90335d68b",
+        "claimedAt": "2026-08-02T02:14:52.525Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-scrapshield-grunt"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-scrapshield-grunt",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:16:20.000Z"
+      }
     },
     {
       "id": "prompt-0204-bottlewick-lobber",
@@ -14445,7 +15828,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14476,10 +15859,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:15:55.818Z",
+          "claimId": "claim-f80e15cc-1c08-4397-adc9-368baa6a7b4b"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:17:58.000Z",
+          "claimId": "claim-f80e15cc-1c08-4397-adc9-368baa6a7b4b",
+          "assetId": "enemy-mob-32-bottlewick-lobber",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-f80e15cc-1c08-4397-adc9-368baa6a7b4b",
+        "claimedAt": "2026-08-02T02:15:55.818Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-bottlewick-lobber"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-bottlewick-lobber",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:17:58.000Z"
+      }
     },
     {
       "id": "prompt-0205-wolf-ear-bowhand",
@@ -14510,7 +15914,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14541,10 +15945,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:16:59.292Z",
+          "claimId": "claim-17e320f1-a75b-4957-85af-66def7a87990"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:19:42.333Z",
+          "claimId": "claim-17e320f1-a75b-4957-85af-66def7a87990",
+          "assetId": "enemy-mob-32-wolf-ear-bowhand",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-17e320f1-a75b-4957-85af-66def7a87990",
+        "claimedAt": "2026-08-02T02:16:59.292Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-wolf-ear-bowhand"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-wolf-ear-bowhand",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:19:42.333Z"
+      }
     },
     {
       "id": "prompt-0206-snaretooth-trapper",
@@ -14575,7 +16000,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14606,10 +16031,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:18:27.980Z",
+          "claimId": "claim-9ab42c0b-8faa-4c69-aaf3-dbffd2662821"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:20:18.502583+00:00",
+          "claimId": "claim-9ab42c0b-8faa-4c69-aaf3-dbffd2662821",
+          "assetId": "enemy-mob-32-snaretooth-trapper",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-9ab42c0b-8faa-4c69-aaf3-dbffd2662821",
+        "claimedAt": "2026-08-02T02:18:27.980Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-snaretooth-trapper"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-snaretooth-trapper",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:20:18.502583+00:00"
+      }
     },
     {
       "id": "prompt-0207-mudboot-pikeling",
@@ -14640,7 +16086,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14671,10 +16117,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:20:04.185Z",
+          "claimId": "claim-9b1c4608-834a-469a-83df-c0aea4b6a005"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:21:30.000Z",
+          "claimId": "claim-9b1c4608-834a-469a-83df-c0aea4b6a005",
+          "assetId": "enemy-mob-32-mudboot-pikeling",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-9b1c4608-834a-469a-83df-c0aea4b6a005",
+        "claimedAt": "2026-08-02T02:20:04.185Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-mudboot-pikeling"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-mudboot-pikeling",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:21:30.000Z"
+      }
     },
     {
       "id": "prompt-0208-totemback-runt",
@@ -14705,7 +16172,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14736,10 +16203,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:21:07.628Z",
+          "claimId": "claim-d3972bcf-db33-4cf7-a269-79885a320fc6"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:22:40.000Z",
+          "claimId": "claim-d3972bcf-db33-4cf7-a269-79885a320fc6",
+          "assetId": "enemy-mob-32-totemback-runt",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-d3972bcf-db33-4cf7-a269-79885a320fc6",
+        "claimedAt": "2026-08-02T02:21:07.628Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-totemback-runt"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-totemback-runt",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:22:40.000Z"
+      }
     },
     {
       "id": "prompt-0209-crankcart-goblin",
@@ -14770,7 +16258,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14801,10 +16289,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:22:11.202Z",
+          "claimId": "claim-11e16970-938c-4d02-b7e7-c971c8d36cb6"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:24:52.000Z",
+          "claimId": "claim-11e16970-938c-4d02-b7e7-c971c8d36cb6",
+          "assetId": "enemy-mob-32-crankcart-goblin",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-11e16970-938c-4d02-b7e7-c971c8d36cb6",
+        "claimedAt": "2026-08-02T02:22:11.202Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-crankcart-goblin"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-crankcart-goblin",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:24:52.000Z"
+      }
     },
     {
       "id": "prompt-0210-redcap-hexsnout",
@@ -14835,7 +16344,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14866,10 +16375,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:23:14.623Z",
+          "claimId": "claim-a9a71b5a-8b96-41c8-b896-b53834f3357e"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:25:40.000Z",
+          "claimId": "claim-a9a71b5a-8b96-41c8-b896-b53834f3357e",
+          "assetId": "enemy-mob-32-redcap-hexsnout",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-a9a71b5a-8b96-41c8-b896-b53834f3357e",
+        "claimedAt": "2026-08-02T02:23:14.623Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-redcap-hexsnout"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-redcap-hexsnout",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:25:40.000Z"
+      }
     },
     {
       "id": "prompt-0211-ironjaw-raider",
@@ -14900,7 +16430,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14931,10 +16461,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:25:13.557Z",
+          "claimId": "claim-17bb27da-8539-46ed-9215-7d229bba2d98"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:27:00.000Z",
+          "claimId": "claim-17bb27da-8539-46ed-9215-7d229bba2d98",
+          "assetId": "enemy-mob-32-ironjaw-raider",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-17bb27da-8539-46ed-9215-7d229bba2d98",
+        "claimedAt": "2026-08-02T02:25:13.557Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-ironjaw-raider"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-ironjaw-raider",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:27:00.000Z"
+      }
     },
     {
       "id": "prompt-0212-bonecleaver-brute",
@@ -14965,7 +16516,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -14996,10 +16547,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:26:16.863Z",
+          "claimId": "claim-5b5de56c-4e88-42db-a1f3-33c7019d361e"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:27:55.000Z",
+          "claimId": "claim-5b5de56c-4e88-42db-a1f3-33c7019d361e",
+          "assetId": "enemy-mob-32-bonecleaver-brute",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-5b5de56c-4e88-42db-a1f3-33c7019d361e",
+        "claimedAt": "2026-08-02T02:26:16.863Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-bonecleaver-brute"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-bonecleaver-brute",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:27:55.000Z"
+      }
     },
     {
       "id": "prompt-0213-tuskspear-hunter",
@@ -15030,7 +16602,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -15061,10 +16633,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:27:22.825Z",
+          "claimId": "claim-c02ded8d-ad35-4294-be3d-096228117360"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:29:50.000Z",
+          "claimId": "claim-c02ded8d-ad35-4294-be3d-096228117360",
+          "assetId": "enemy-mob-32-tuskspear-hunter",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-c02ded8d-ad35-4294-be3d-096228117360",
+        "claimedAt": "2026-08-02T02:27:22.825Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-tuskspear-hunter"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-tuskspear-hunter",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:29:50.000Z"
+      }
     },
     {
       "id": "prompt-0214-hide-drum-warcaller",
@@ -15095,7 +16688,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -15126,10 +16719,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:28:26.181Z",
+          "claimId": "claim-03df9107-25df-4f11-8adf-33912d15d700"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:30:54.000Z",
+          "claimId": "claim-03df9107-25df-4f11-8adf-33912d15d700",
+          "assetId": "enemy-mob-32-hide-drum-warcaller",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-03df9107-25df-4f11-8adf-33912d15d700",
+        "claimedAt": "2026-08-02T02:28:26.181Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-hide-drum-warcaller"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-hide-drum-warcaller",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:30:54.000Z"
+      }
     },
     {
       "id": "prompt-0215-chainshield-bulwark",
@@ -15160,7 +16774,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -15191,10 +16805,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:30:20.004Z",
+          "claimId": "claim-717e2913-d415-4981-845d-a25684dea254"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:32:40.190Z",
+          "claimId": "claim-717e2913-d415-4981-845d-a25684dea254",
+          "assetId": "enemy-mob-32-chainshield-bulwark",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-717e2913-d415-4981-845d-a25684dea254",
+        "claimedAt": "2026-08-02T02:30:20.004Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-chainshield-bulwark"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-chainshield-bulwark",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:32:40.190Z"
+      }
     },
     {
       "id": "prompt-0216-boarhide-berserker",
@@ -15225,7 +16860,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -15256,10 +16891,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:31:23.603Z",
+          "claimId": "claim-34b42632-b229-45ef-a056-a5c543c72757"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:33:20.000Z",
+          "claimId": "claim-34b42632-b229-45ef-a056-a5c543c72757",
+          "assetId": "enemy-mob-32-boarhide-berserker",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-34b42632-b229-45ef-a056-a5c543c72757",
+        "claimedAt": "2026-08-02T02:31:23.603Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-boarhide-berserker"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-boarhide-berserker",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:33:20.000Z"
+      }
     },
     {
       "id": "prompt-0217-blackfletch-orc",
@@ -15290,7 +16946,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -15321,10 +16977,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:33:02.694Z",
+          "claimId": "claim-afc4e684-039f-4f10-92d9-62688a25ca51"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:35:00.000Z",
+          "claimId": "claim-afc4e684-039f-4f10-92d9-62688a25ca51",
+          "assetId": "enemy-mob-32-blackfletch-orc",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-afc4e684-039f-4f10-92d9-62688a25ca51",
+        "claimedAt": "2026-08-02T02:33:02.694Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-blackfletch-orc"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-blackfletch-orc",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:35:00.000Z"
+      }
     },
     {
       "id": "prompt-0218-ashpot-bombardier",
@@ -15355,7 +17032,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -15386,10 +17063,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:34:06.463Z",
+          "claimId": "claim-118d36ef-557d-43a5-8ea4-7cecf85d06b7"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T04:35:25.000Z",
+          "claimId": "claim-118d36ef-557d-43a5-8ea4-7cecf85d06b7",
+          "assetId": "enemy-mob-32-ashpot-bombardier",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-118d36ef-557d-43a5-8ea4-7cecf85d06b7",
+        "claimedAt": "2026-08-02T02:34:06.463Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-ashpot-bombardier"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-ashpot-bombardier",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T04:35:25.000Z"
+      }
     },
     {
       "id": "prompt-0219-bannerfang-veteran",
@@ -15420,7 +17118,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -15451,10 +17149,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:35:42.658Z",
+          "claimId": "claim-479d2176-d9c3-42b6-aa1b-c7ddad0ed9b8"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:37:07.118Z",
+          "claimId": "claim-479d2176-d9c3-42b6-aa1b-c7ddad0ed9b8",
+          "assetId": "enemy-mob-32-bannerfang-veteran",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-479d2176-d9c3-42b6-aa1b-c7ddad0ed9b8",
+        "claimedAt": "2026-08-02T02:35:42.658Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-bannerfang-veteran"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-bannerfang-veteran",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:37:07.118Z"
+      }
     },
     {
       "id": "prompt-0220-bloodroot-shaman",
@@ -15485,7 +17204,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "claimed",
       "importedAt": "2026-07-30T23:21:24.833Z",
       "copiedAt": null,
       "source": {
@@ -15516,9 +17235,19 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T02:36:46.108Z",
+          "claimId": "claim-6f6996c9-be45-402e-ae70-1831705bc451"
         }
       ],
-      "claim": null,
+      "claim": {
+        "id": "claim-6f6996c9-be45-402e-ae70-1831705bc451",
+        "claimedAt": "2026-08-02T02:36:46.108Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-bloodroot-shaman"
+      },
       "completion": null
     },
     {

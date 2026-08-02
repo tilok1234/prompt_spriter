@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-scrapshield-grunt",
+  "name": "Scrapshield Grunt",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T04:16:00.000Z",
+  "tags": [
+    "scrapshield",
+    "grunt",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

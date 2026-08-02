@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-silverbelly-pike",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisories."
+    }
+  ],
+  "createdAt": "2026-08-02T00:47:14.462Z"
+}

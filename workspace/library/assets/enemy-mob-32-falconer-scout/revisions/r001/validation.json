@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-falconer-scout",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-falconer-scout\\validation.json: /checks/0/status must be equal to one of the allowed values"
+    }
+  ],
+  "createdAt": "2026-08-02T01:32:20.337Z"
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-peak-seer-shaman",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-0840bd33-7e66-4b3b-a84c-5c0f00b3109e",
+      "text": "The face or eyes are misaligned between directions; place the focal features consistently on the same head volume as the creature turns.",
+      "createdAt": "2026-08-02T01:19:49.544Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-02T01:19:49.544Z"
+}

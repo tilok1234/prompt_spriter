@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-chainshield-bulwark",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-chainshield-bulwark\\validation.json: / must NOT have additional properties; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-chainshield-bulwark\\validation.json: / must NOT have additional properties; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-chainshield-bulwark\\validation.json: / must NOT have additional properties; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-chainshield-bulwark\\validation.json: /checks/0/status must be equal to one of the allowed values"
+    }
+  ],
+  "createdAt": "2026-08-02T02:32:40.190Z"
+}

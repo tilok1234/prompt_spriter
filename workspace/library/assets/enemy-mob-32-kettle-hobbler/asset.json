@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-kettle-hobbler",
+  "name": "Kettle Hobbler",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T01:07:49.425Z",
+  "tags": [
+    "kettle",
+    "hobbler",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

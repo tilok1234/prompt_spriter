@@ -1,0 +1,33 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-waxface-doll",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-waxface-doll\\sheet.png: down attack has 1 frame with body motion of at least 12 pixels beyond the idle pose; minimum is 2"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-waxface-doll\\sheet.png: left attack has 1 frame with body motion of at least 12 pixels beyond the idle pose; minimum is 2"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-waxface-doll\\sheet.png: right attack has 1 frame with body motion of at least 12 pixels beyond the idle pose; minimum is 2"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-waxface-doll\\sheet.png: up attack has 1 frame with body motion of at least 12 pixels beyond the idle pose; minimum is 2"
+    }
+  ],
+  "createdAt": "2026-08-02T01:13:23.974Z"
+}

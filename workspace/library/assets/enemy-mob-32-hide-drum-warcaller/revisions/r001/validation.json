@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-hide-drum-warcaller",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "preflight-contract",
+      "level": "info",
+      "status": "passed",
+      "message": "Preflight category and style contract validation passed."
+    }
+  ],
+  "createdAt": "2026-08-02T02:30:53.344Z"
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-furnace-cherub",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-furnace-cherub\\validation.json: / must have required property 'checks'"
+    },
+    {
+      "code": "structural-validation",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-furnace-cherub\\validation.json: / must have required property 'createdAt'"
+    },
+    {
+      "code": "structural-validation",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-furnace-cherub\\validation.json: / must NOT have additional properties"
+    },
+    {
+      "code": "structural-validation",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-furnace-cherub\\validation.json: / must NOT have additional properties"
+    },
+    {
+      "code": "structural-validation",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-furnace-cherub\\validation.json: / must NOT have additional properties"
+    },
+    {
+      "code": "structural-validation",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-furnace-cherub\\validation.json: / must NOT have additional properties"
+    }
+  ],
+  "createdAt": "2026-08-02T01:44:04.583Z"
+}

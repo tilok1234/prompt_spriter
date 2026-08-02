@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-91f6df6b-2fdb-42c3-8f81-1656d5ecdd02",
+      "text": "The front and back views do not look like the same creature as the side views; unify the proportions, body plan, and identifying features.\nThe sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-02T00:53:37.053Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T01:41:45.000Z"
+  "updatedAt": "2026-08-02T00:53:37.053Z"
 }

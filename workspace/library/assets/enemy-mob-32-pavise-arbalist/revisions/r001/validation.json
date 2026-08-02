@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-pavise-arbalist",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "contract-preflight",
+      "level": "error",
+      "status": "failed",
+      "message": "validation status is \"passed-with-warnings\"; computed status is \"passed\""
+    }
+  ],
+  "createdAt": "2026-08-02T01:22:56.559Z"
+}

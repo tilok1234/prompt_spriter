@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-mancatcher-sergeant",
+  "name": "Mancatcher Sergeant",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T01:28:33.561Z",
+  "tags": [
+    "mancatcher",
+    "sergeant",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

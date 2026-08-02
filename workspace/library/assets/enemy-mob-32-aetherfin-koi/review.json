@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-c50b74b7-fa7e-460f-bbd9-7d97c4f40745",
+      "text": "The front and back views do not look like the same creature as the side views; unify the proportions, body plan, and identifying features.",
+      "createdAt": "2026-08-02T01:20:49.526Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T01:36:00.000Z"
+  "updatedAt": "2026-08-02T01:20:49.526Z"
 }

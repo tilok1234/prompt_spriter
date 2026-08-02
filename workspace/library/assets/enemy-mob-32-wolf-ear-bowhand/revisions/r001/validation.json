@@ -1,0 +1,69 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-wolf-ear-bowhand",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-wolf-ear-bowhand\\sheet.png: frame row 2, column 8 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-wolf-ear-bowhand\\sheet.png: frame row 3, column 8 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-wolf-ear-bowhand\\sheet.png: left idle changes 5 pixels beyond its best +/-2px translation; minimum is 6"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-wolf-ear-bowhand\\sheet.png: right idle changes 2 pixels beyond its best +/-2px translation; minimum is 6"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-wolf-ear-bowhand\\sheet.png: down attack has 1 frame with body motion of at least 12 pixels beyond the idle pose; minimum is 2"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-wolf-ear-bowhand\\sheet.png: left attack effects come closer than 2px to the cell edge"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-wolf-ear-bowhand\\sheet.png: right attack effects come closer than 2px to the cell edge"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-wolf-ear-bowhand\\sheet.png: up attack has 1 frame with body motion of at least 12 pixels beyond the idle pose; minimum is 2"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-wolf-ear-bowhand\\sheet.png: up attack effects end at (7, 8) relative to the body, outside 60 degrees of the up facing"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "validation.json is not present; write it from the preflight result before completion"
+    }
+  ],
+  "createdAt": "2026-08-02T02:19:42.333Z"
+}

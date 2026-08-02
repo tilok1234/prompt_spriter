@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-b9fbe4f5-210b-4215-830a-2a8a4693b432",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.\nThe sprite does not resemble a recognizable creature or object; rebuild the defining silhouette and focal feature.",
+      "createdAt": "2026-08-02T01:30:17.647Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-01T22:42:06.000Z"
+  "updatedAt": "2026-08-02T01:30:17.647Z"
 }

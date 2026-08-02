@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-needlefield-scarecrow",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission passed technical validation cleanly."
+    }
+  ],
+  "createdAt": "2026-08-02T03:03:55.000Z"
+}

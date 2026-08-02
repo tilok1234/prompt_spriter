@@ -1,0 +1,21 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-milksour-hob",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-80d455f7-88fc-4df1-a96b-957386167452",
+      "text": "The attack is not readable; add a clear anticipation, active strike or release, and recovery led by the creature's body.",
+      "createdAt": "2026-08-02T01:25:39.098Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-02T01:25:39.098Z"
+}

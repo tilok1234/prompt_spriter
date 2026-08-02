@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-f7cda748-d96b-4fd9-9f95-eb5024d3f864",
+      "text": "An asymmetrical feature changes anatomical sides between views; keep it attached to the same side through every direction.",
+      "createdAt": "2026-08-02T01:27:48.031Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T00:22:10.000Z"
+  "updatedAt": "2026-08-02T01:27:48.031Z"
 }

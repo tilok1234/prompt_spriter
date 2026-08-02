@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-ashpot-bombardier",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validated cleanly against enemy-mob-32 category and assembler-inspired-v2 style contracts."
+    }
+  ],
+  "createdAt": "2026-08-02T04:35:24.000Z"
+}

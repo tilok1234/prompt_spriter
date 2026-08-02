@@ -1,0 +1,93 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-brimstone-hound",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: frame row 2, column 3 has 2 opaque boundary pixels"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: frame row 2, column 5 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: frame row 2, column 7 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: frame row 2, column 8 has 4 opaque boundary pixels"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: frame row 2, column 9 has 7 opaque boundary pixels"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: frame row 3, column 3 has 2 opaque boundary pixels"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: frame row 3, column 8 has 4 opaque boundary pixels"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: frame row 3, column 9 has 7 opaque boundary pixels"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: frame row 4, column 5 duplicates row 4, column 1"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: down idle changes 5 pixels beyond its best +/-2px translation; minimum is 6"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: down walk has 0 frames moving at least 15 pixels beyond the translated idle pose; minimum is 2"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: left walk has 0 frames moving at least 15 pixels beyond the translated idle pose; minimum is 2"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: right walk has 0 frames moving at least 15 pixels beyond the translated idle pose; minimum is 2"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-brimstone-hound\\sheet.png: up walk has 0 frames moving at least 15 pixels beyond the translated idle pose; minimum is 2"
+    }
+  ],
+  "createdAt": "2026-08-02T03:36:10.000Z"
+}

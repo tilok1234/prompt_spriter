@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-snaretooth-trapper",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Preflight validation passed cleanly."
+    }
+  ],
+  "createdAt": "2026-08-02T02:20:18.502583+00:00"
+}

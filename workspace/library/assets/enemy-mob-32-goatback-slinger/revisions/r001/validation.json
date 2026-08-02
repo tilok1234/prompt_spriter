@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-goatback-slinger",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory warnings: C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-goatback-slinger\\sheet.png: frame row 1, column 6 duplicates row 1, column 4; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-goatback-slinger\\sheet.png: frame row 2, column 6 duplicates row 2, column 4; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-goatback-slinger\\sheet.png: frame row 3, column 6 duplicates row 3, column 4; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-goatback-slinger\\sheet.png: frame row 4, column 6 duplicates row 4, column 4"
+    }
+  ],
+  "createdAt": "2026-08-02T00:54:06.259Z"
+}

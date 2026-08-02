@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-tuskspear-hunter",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "passed",
+      "message": "Submission validation passed with minor preflight warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T04:29:45.000Z"
+}

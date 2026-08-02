@@ -1,0 +1,45 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-grain-sack-creeper",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "category-contract-semantics",
+      "level": "info",
+      "status": "passed",
+      "message": "Category contract enemy-mob-32@0.1.0 structure and timing are valid."
+    },
+    {
+      "code": "style-profile-semantics",
+      "level": "info",
+      "status": "passed",
+      "message": "Style profile assembler-inspired-v2@0.1.0 constraints are satisfied."
+    },
+    {
+      "code": "submission-manifest-schema",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission manifest matches the agent-submission schema."
+    },
+    {
+      "code": "source-artifact-presence",
+      "level": "info",
+      "status": "passed",
+      "message": "Aseprite source file source.aseprite exists and reproduces sheet.png 100% identically."
+    },
+    {
+      "code": "sheet-artifact-inspection",
+      "level": "info",
+      "status": "passed",
+      "message": "Sprite sheet sheet.png (320x128) verified with 8 opaque colors, hard alpha, zero empty frames."
+    },
+    {
+      "code": "thumbnail-artifact-presence",
+      "level": "info",
+      "status": "passed",
+      "message": "Thumbnail file thumbnail.png exists."
+    }
+  ],
+  "createdAt": "2026-08-02T03:10:20.000Z"
+}

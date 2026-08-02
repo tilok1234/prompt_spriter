@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-kitewing-hawk",
+  "name": "Kitewing Hawk",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T01:56:08.622Z",
+  "tags": [
+    "kitewing",
+    "hawk",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}
