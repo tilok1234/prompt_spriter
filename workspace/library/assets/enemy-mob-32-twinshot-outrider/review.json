@@ -4,18 +4,18 @@
   "assetId": "enemy-mob-32-twinshot-outrider",
   "approvedRevisionId": "r001",
   "candidate": {
-    "revisionId": "r001",
-    "lane": "revise"
+    "revisionId": "r002",
+    "lane": "intake"
   },
   "notes": [
     {
       "id": "note-4691f227-5b0e-472a-9da7-3b6af431c03a",
       "text": "Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 4px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4.",
       "createdAt": "2026-08-02T12:06:55.433Z",
-      "resolvedAt": null,
+      "resolvedAt": "2026-08-02T14:37:59.707Z",
       "target": {}
     }
   ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T12:06:55.433Z"
+  "updatedAt": "2026-08-02T14:37:59.707Z"
 }

@@ -1,0 +1,27 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-laughing-javeliner",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-laughing-javeliner\\sheet.png: down attack effects end at (-7, 4) relative to the body, outside 60 degrees of the down facing"
+    },
+    {
+      "code": "structural-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-laughing-javeliner\\sheet.png: up attack effects end at (7, 4) relative to the body, outside 60 degrees of the up facing"
+    },
+    {
+      "code": "structural-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "validation.json is not present; write it from the preflight result before completion"
+    }
+  ],
+  "createdAt": "2026-08-02T14:42:35.932Z"
+}

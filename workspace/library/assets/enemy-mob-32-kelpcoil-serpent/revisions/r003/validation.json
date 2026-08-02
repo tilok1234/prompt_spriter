@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-kelpcoil-serpent-revision",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validated cleanly with 0 warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T16:17:18.000Z"
+}

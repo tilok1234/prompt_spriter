@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-hideback-mauler",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "All structural and contract checks passed cleanly."
+    }
+  ],
+  "createdAt": "2026-08-02T16:45:11.000Z"
+}

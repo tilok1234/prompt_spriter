@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-ironbelly-slime",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory boundary contact and effect position warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T18:36:57.907Z"
+}

@@ -1,0 +1,45 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-broodsac-carrier",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "contract-identity",
+      "level": "info",
+      "status": "passed",
+      "message": "Matches category enemy-mob-32@0.1.0 and style assembler-inspired-v2@0.1.0"
+    },
+    {
+      "code": "file-presence",
+      "level": "info",
+      "status": "passed",
+      "message": "All required staging files are present"
+    },
+    {
+      "code": "sheet-format",
+      "level": "info",
+      "status": "passed",
+      "message": "Sheet dimensions 320x128 match contract (10 columns x 4 rows)"
+    },
+    {
+      "code": "color-count",
+      "level": "info",
+      "status": "passed",
+      "message": "Opaque color count is within style limits"
+    },
+    {
+      "code": "pixel-density",
+      "level": "info",
+      "status": "passed",
+      "message": "All frames satisfy minimum pixel density, occupied bounds, and color count"
+    },
+    {
+      "code": "distinct-frames",
+      "level": "info",
+      "status": "passed",
+      "message": "All direction sequences contain the required minimum distinct frames"
+    }
+  ],
+  "createdAt": "2026-08-02T17:20:35.000Z"
+}

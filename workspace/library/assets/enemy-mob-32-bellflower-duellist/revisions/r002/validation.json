@@ -1,0 +1,63 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-bellflower-duellist-revision",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "submission-failure",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bellflower-duellist-revision\\validation.json: /checks/0 must be object"
+    },
+    {
+      "code": "submission-failure",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bellflower-duellist-revision\\validation.json: /checks/1 must be object"
+    },
+    {
+      "code": "submission-failure",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bellflower-duellist-revision\\validation.json: /checks/2 must be object"
+    },
+    {
+      "code": "submission-failure",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bellflower-duellist-revision\\validation.json: /checks/3 must be object"
+    },
+    {
+      "code": "submission-failure",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bellflower-duellist-revision\\validation.json: /checks/4 must be object"
+    },
+    {
+      "code": "submission-failure",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bellflower-duellist-revision\\validation.json: /checks/5 must be object"
+    },
+    {
+      "code": "submission-failure",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bellflower-duellist-revision\\validation.json: /checks/6 must be object"
+    },
+    {
+      "code": "submission-failure",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bellflower-duellist-revision\\validation.json: /checks/7 must be object"
+    },
+    {
+      "code": "submission-failure",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bellflower-duellist-revision\\validation.json: /checks/8 must be object"
+    }
+  ],
+  "createdAt": "2026-08-02T13:52:29.122Z"
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-sparkspine-imp-revision",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-sparkspine-imp-revision\\sheet.png: left attack effects come closer than 2px to the cell edge; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-sparkspine-imp-revision\\sheet.png: right attack effects come closer than 2px to the cell edge"
+    }
+  ],
+  "createdAt": "2026-08-02T14:35:32.480Z"
+}

@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-bristleback-boar",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission structural validation passed clean."
+    }
+  ],
+  "createdAt": "2026-08-02T19:31:09.743Z"
+}

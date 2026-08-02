@@ -4,18 +4,18 @@
   "assetId": "enemy-mob-32-prism-slime",
   "approvedRevisionId": "r001",
   "candidate": {
-    "revisionId": "r001",
-    "lane": "revise"
+    "revisionId": "r002",
+    "lane": "intake"
   },
   "notes": [
     {
       "id": "note-87a523e3-f79e-4bd8-a413-76b079889f0e",
       "text": "Below current motion floors in the weakest direction: idle changes 1px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4.",
       "createdAt": "2026-08-02T12:06:55.638Z",
-      "resolvedAt": null,
+      "resolvedAt": "2026-08-02T16:29:46.000Z",
       "target": {}
     }
   ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T12:06:55.638Z"
+  "updatedAt": "2026-08-02T16:29:46.000Z"
 }

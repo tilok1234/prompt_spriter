@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-prism-slime",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T16:29:46.000Z",
+  "request": "Rebuild idle and walk with anatomy motion - planted base/masses, moving gelatinous facets and inner core - per checklist section 4.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "cf5f5ad07656aa7796b33452a2b45bdfe7b5b315289390f1153a1c3793e19c30"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "f67fda22fc265b2ba617fc8e9b0016f9e641ea7d0d39c48ca6af8a6cda81cd3b"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "59e3d34baa265b80e7440fa235379e5a26cd6a37b5376d991f7b57212a2e8950"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,13 @@
+{
+  "kind": "review",
+  "schemaVersion": "1.2.0",
+  "assetId": "enemy-mob-32-ribcage-crawler",
+  "approvedRevisionId": null,
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "intake"
+  },
+  "notes": [],
+  "archiveHistory": [],
+  "updatedAt": "2026-08-02T15:10:48.000Z"
+}

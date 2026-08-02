@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-greyfang-wolf",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validated cleanly with no errors or warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T21:29:30.000Z"
+}

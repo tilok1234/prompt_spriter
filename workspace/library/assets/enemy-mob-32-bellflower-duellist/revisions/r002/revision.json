@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-bellflower-duellist",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T13:52:29.122Z",
+  "request": "Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 2px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also keep ground contact planted (no whole-body bob).",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "b379f26d0e35d7aec2fd529b09aa81ff0d5c8eb9192b9a392e388d6974cd007c"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "cfa47b40875dbb044ea1f308eebd6b96e84335b618ec497c01fa404fa9bab69a"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "27bb5f3f7f12e4fd8978c5046c571051297edf0d03088b47001c985c2d8f0386"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

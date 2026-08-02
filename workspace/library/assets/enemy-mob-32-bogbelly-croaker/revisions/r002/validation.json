@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-bogbelly-croaker-revision",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validated cleanly with no advisory warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T15:55:00.000Z"
+}

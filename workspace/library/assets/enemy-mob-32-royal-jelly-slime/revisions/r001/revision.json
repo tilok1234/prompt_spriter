@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-royal-jelly-slime",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T19:29:05.774Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0270-royal-jelly-slime\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Royal Jelly Slime\".\n\n## Creative brief\n\n- Collection: Wandering Oozes. Classic MMO slimes and jellies differentiated through materials, splitting behavior, movement, and projectile mechanics.\n- Core concept: An elite slime that commands smaller jellies and creates layered circular patterns.\n- Body and silhouette: Broad crowned dome, thick base, several smaller gel nodules, and a large central core.\n- Signature features: Natural crown crest, amber core, and orbiting mini-slimes.\n- Palette and materials: Honey gold, cream, pale orange, and glossy jelly.\n- Movement personality: Proud, slow, and surprisingly coordinated.\n- Attack concept: Commands its mini-slimes to fire staggered ring sections, then launches the amber core as a slow returning projectile.\n- Directional details: The crown has a missing point on the left, and the largest mini-slime orbits clockwise from the right.\n- Avoid: Human king accessories, giant raid-boss scale, cheerful smiling face.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.\n- Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature; the dominant anchor must remain recognizable at native 1x in all four idle directions.\n- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.\n- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.\n- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.\n- Derive prop visibility per row before drawing: facing down places the creature's left side on the viewer's right; facing up places it on the viewer's left; the left-facing profile shows the creature's own left flank; the right-facing profile shows its right flank. State which asymmetric props are visible in each of the four rows and keep far-flank props hidden.\n- State each row's on-screen attack direction before animating: thrown or projected effects travel toward that row's facing (down toward the cell bottom, up toward the top, left and right toward their edges), stay at least 2 pixels inside every cell edge, and resolve into a recovery pose rather than freezing mid-flight.\n- Before drawing, open and study every promoted example sheet listed in styles/assembler-inspired-v2/examples.json at native 1x and nearest-neighbor 4x; match their construction quality, mass separation, and camera without copying their pixels into a different subject.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "264b0a81d8462ea36308f5641f0818115962dc39fbe7c0758359362a09f6a93a"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "a7be486da893900694d4dda9fee6ec204fd094c8f1d9d72bd3fac5fecf618039"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "570255229f7ec92c29e7d61bcf7deb9331c820070580c818e4829fb50c54e579"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

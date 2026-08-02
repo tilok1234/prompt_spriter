@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-chestling-slime",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T21:26:15.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0268-chestling-slime\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Chestling Slime\".\n\n## Creative brief\n\n- Collection: Wandering Oozes. Classic MMO slimes and jellies differentiated through materials, splitting behavior, movement, and projectile mechanics.\n- Core concept: A mimic slime hiding inside and around a broken treasure chest.\n- Body and silhouette: Small wooden chest shape with gel overflowing from beneath the lid and forming two pseudopods.\n- Signature features: Broken chest lid, coin-filled core, and gel tongue.\n- Palette and materials: Dark wood, green-blue gel, dull gold, and black iron.\n- Movement personality: Completely still until approached, then greedy and energetic.\n- Attack concept: Bursts open with a ring of coin-shaped projectiles, then hops backward while spitting wooden splinters.\n- Directional details: The lid hinge is broken on the left, and the gel tongue curls right.\n- Avoid: Tooth-filled traditional mimic, friendly treasure slime, enormous gold explosion.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.\n- Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature; the dominant anchor must remain recognizable at native 1x in all four idle directions.\n- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.\n- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.\n- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.\n- Derive prop visibility per row before drawing: facing down places the creature's left side on the viewer's right; facing up places it on the viewer's left; the left-facing profile shows the creature's own left flank; the right-facing profile shows its right flank. State which asymmetric props are visible in each of the four rows and keep far-flank props hidden.\n- State each row's on-screen attack direction before animating: thrown or projected effects travel toward that row's facing (down toward the cell bottom, up toward the top, left and right toward their edges), stay at least 2 pixels inside every cell edge, and resolve into a recovery pose rather than freezing mid-flight.\n- Before drawing, open and study every promoted example sheet listed in styles/assembler-inspired-v2/examples.json at native 1x and nearest-neighbor 4x; match their construction quality, mass separation, and camera without copying their pixels into a different subject.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "a69a39917930c196a5e1778a9d248798b10ea3c0a664783b5026d4a82de87cec"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "acec25919ba87537420e8761bfdb9e8441a4983c6bba2e1bfe9a0351b8bdb4d7"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "34b1dd3b0ed2c07e49c10f8985166562bbbd9116c4c6134b982ecd99dfe486ba"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

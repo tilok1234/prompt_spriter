@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-chainhook-poacher",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T14:01:56.179Z",
+  "request": "Rebuild idle and walk with anatomy motion (planted feet, moving limbs/masses). Re-aim attack effects toward row facing direction and keep ground contact planted.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "0d7579768b75ff4f05edaa42d3192f293bdc5d877542a5a1f703f9578da689d7"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "9cc3f3020f4fcc8aba70e5e38513f131ced85ce9b0cfee903d2ffc7ab551050c"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "4630f0c6a54f0d4c837a4f9920c5a2a0ffb3a8e4d28baca3ec778f92cbf0de5c"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

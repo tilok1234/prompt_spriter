@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-bonecrack-scavenger",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "contract-identity",
+      "level": "info",
+      "status": "passed",
+      "message": "All contract identity requirements met."
+    }
+  ],
+  "createdAt": "2026-08-02T16:41:30.000Z"
+}

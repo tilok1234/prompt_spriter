@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-avalanche-trollkin",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T13:45:28.114Z",
+  "request": "Rebuild idle and walk with anatomy motion (planted feet, moving limbs/masses) and re-aim attack effects toward row facing.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "5b486258ce06f14feb2db6001c420fa3158f458d1c8b22e0507ada5bdea14dbf"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "8c1837eec5c14ad396de6876836e574866c0bd3779079ef2f909e25c96f4c031"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "fcab826870309eeadcf2d6479658e8399795db5e85aa4a80bd4231533f616907"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

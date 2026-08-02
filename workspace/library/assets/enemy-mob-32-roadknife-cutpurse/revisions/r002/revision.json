@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-roadknife-cutpurse",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T16:31:40.000Z",
+  "request": "Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also keep ground contact planted (no whole-body bob).",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "8fbba02e9bb674225a460a1f084e8c5a9bc19b1c28873bbef8176cb3837306fb"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "cca057e01fc1db5815af6bf02f8fd0fc51f4edc4008b9315a625b2728362d488"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "5d7ddc6af239d1a7b21d969c0a6664a86f8839406c7afcb6a608bbaecf9f7884"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

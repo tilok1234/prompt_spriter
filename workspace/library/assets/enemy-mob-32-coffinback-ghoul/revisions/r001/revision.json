@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-coffinback-ghoul",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T15:11:24.786Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0247-coffinback-ghoul\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Coffinback Ghoul\".\n\n## Creative brief\n\n- Collection: Restless Dead. Classic skeletons, zombies, ghosts, ghouls, revenants, and crypt guardians with readable necromantic attacks.\n- Core concept: A hunched undead bruiser using a broken coffin as armor.\n- Body and silhouette: Broad low humanoid, long arms, bent knees, and a large coffin plank across its back.\n- Signature features: Coffin-plank armor, grave nails, and a chain-wrapped forearm.\n- Palette and materials: Gray skin, dark wood, rusted iron, and faded funeral cloth.\n- Movement personality: Hungry, heavy, and surprisingly quick during short charges.\n- Attack concept: Charges shoulder-first, then tears nails from the coffin and throws them in a backward fan.\n- Directional details: The coffin lid hangs lower on the left, and the chain wraps the right arm.\n- Avoid: Graphic cannibal, wooden mimic, giant ogre body.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.\n- Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature; the dominant anchor must remain recognizable at native 1x in all four idle directions.\n- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.\n- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.\n- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.\n- Derive prop visibility per row before drawing: facing down places the creature's left side on the viewer's right; facing up places it on the viewer's left; the left-facing profile shows the creature's own left flank; the right-facing profile shows its right flank. State which asymmetric props are visible in each of the four rows and keep far-flank props hidden.\n- State each row's on-screen attack direction before animating: thrown or projected effects travel toward that row's facing (down toward the cell bottom, up toward the top, left and right toward their edges), stay at least 2 pixels inside every cell edge, and resolve into a recovery pose rather than freezing mid-flight.\n- Before drawing, open and study every promoted example sheet listed in styles/assembler-inspired-v2/examples.json at native 1x and nearest-neighbor 4x; match their construction quality, mass separation, and camera without copying their pixels into a different subject.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "04f1c62fea5a89aaf7196bb0e3c8e1f5c53f09985023e4f4263c2aef047261c5"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "cbf311e7bb0ce113dae9b036a37190dcb58c7552ec074ec8c208a7badc1e29fa"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "fea4a1b0b212bed2d12b9f14618e89511642497aac792177ec7ecaf47d8125b6"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

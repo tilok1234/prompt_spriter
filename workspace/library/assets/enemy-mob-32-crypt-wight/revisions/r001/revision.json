@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-crypt-wight",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T15:16:17.511Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0250-crypt-wight\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Crypt Wight\".\n\n## Creative brief\n\n- Collection: Restless Dead. Classic skeletons, zombies, ghosts, ghouls, revenants, and crypt guardians with readable necromantic attacks.\n- Core concept: An elite undead caster that drains space with contracting necromantic patterns.\n- Body and silhouette: Tall armored spirit, narrow crown, long arms, and a lower body fading into grave mist.\n- Signature features: Empty crown, glowing chest cavity, and broken ceremonial sword.\n- Palette and materials: Charcoal armor, pale cyan, muted violet, and tarnished silver.\n- Movement personality: Calm, authoritative, and slowly advancing.\n- Attack concept: Creates a large ring of spirit bolts that contracts through several deliberate gaps, then fires a sword-wave through the widest opening.\n- Directional details: The broken sword stays in the left hand, and the crown is missing its right point.\n- Avoid: Giant lich boss, full invisibility, completely closed unavoidable rings.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.\n- Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature; the dominant anchor must remain recognizable at native 1x in all four idle directions.\n- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.\n- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.\n- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.\n- Derive prop visibility per row before drawing: facing down places the creature's left side on the viewer's right; facing up places it on the viewer's left; the left-facing profile shows the creature's own left flank; the right-facing profile shows its right flank. State which asymmetric props are visible in each of the four rows and keep far-flank props hidden.\n- State each row's on-screen attack direction before animating: thrown or projected effects travel toward that row's facing (down toward the cell bottom, up toward the top, left and right toward their edges), stay at least 2 pixels inside every cell edge, and resolve into a recovery pose rather than freezing mid-flight.\n- Before drawing, open and study every promoted example sheet listed in styles/assembler-inspired-v2/examples.json at native 1x and nearest-neighbor 4x; match their construction quality, mass separation, and camera without copying their pixels into a different subject.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "4c0b6cf0f07b866271738965d706874a1e2dd0f5c283276617507ea10ec07c35"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "d55697bc681825e452dd05ef1feb48560d027d167fbac50a0034f183809d05a2"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "7e80a21c665b2773a09234b1bfbd6e2f289d7039b3df1995a5273f1d8d90b7cd"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-razorbeak-hawk",
+  "name": "Razorbeak Hawk",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T19:34:22.260Z",
+  "tags": [
+    "razorbeak",
+    "hawk",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

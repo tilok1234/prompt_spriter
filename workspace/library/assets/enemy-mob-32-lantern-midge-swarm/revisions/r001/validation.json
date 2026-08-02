@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-lantern-midge-swarm",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "preflight-check",
+      "level": "info",
+      "status": "passed",
+      "message": "Preflight technical validation passed with 0 warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T15:24:57.707Z"
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-kelpcoil-serpent",
+  "id": "r003",
+  "parentRevisionId": "r002",
+  "createdAt": "2026-08-02T16:17:18.000Z",
+  "request": "Rebuild idle and walk with anatomy motion (planted feet/contact, moving limbs/masses). Give attack readable body anticipation and release instead of effects-only frames while keeping ground contact planted.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r003/source.aseprite",
+      "sha256": "27f1ade980e42dd3e01cc065f4553fe22b873b8546201d8eee5d9d383fbfeea9"
+    },
+    "sheet": {
+      "path": "revisions/r003/sheet.png",
+      "sha256": "3fa440b39bc2bf5bccd46c86ec95e65ad7ef4a75a35e6e00c36267286339108c"
+    },
+    "thumbnail": {
+      "path": "revisions/r003/thumbnail.png",
+      "sha256": "e4a68bcecef67b3100bc4db9dc47239ba337fba3a318cc38932e84d6b354bb68"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r003/validation.json",
+  "batchId": null
+}

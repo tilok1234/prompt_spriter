@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-coaljaw-hound-revision",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "validation.json is not present; write it from the preflight result before completion"
+    }
+  ],
+  "createdAt": "2026-08-02T14:03:54.388Z"
+}

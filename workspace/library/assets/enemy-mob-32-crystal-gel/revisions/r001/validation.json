@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-crystal-gel",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "up walk has 1 frame moving at least 15 pixels beyond the translated idle pose; minimum is 2"
+    }
+  ],
+  "createdAt": "2026-08-02T18:42:30.000Z"
+}

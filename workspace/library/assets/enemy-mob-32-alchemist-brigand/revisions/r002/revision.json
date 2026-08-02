@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-alchemist-brigand",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T15:43:20.000Z",
+  "request": "Rebuild motion and sides to current standards: idle is a translated copy in all four directions and the feet leave the ground; walk slides the same pose; the down attack throws the bottle away from facing; the side views show the far flank's props (purple rack must show facing left, amber flask facing right).",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "7f122ddb06d0090f6d01e31eeb5465a6044ab24cfa6e56e1bdecc20ebc404459"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "8ccec0319c026eef3f857f21135dbda81512bb8deca221fc186925f2633b6370"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "36f3c19a12b35551fb65ee03cdb3b16dda9fb5d389b6cc2b8802567ea2a1d943"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

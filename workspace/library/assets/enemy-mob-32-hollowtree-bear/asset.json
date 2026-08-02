@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-hollowtree-bear",
+  "name": "Hollowtree Bear",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T19:32:13.406Z",
+  "tags": [
+    "hollowtree",
+    "bear",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

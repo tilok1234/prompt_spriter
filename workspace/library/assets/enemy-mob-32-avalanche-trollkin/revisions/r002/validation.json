@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-avalanche-trollkin-revision",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "failure",
+      "level": "error",
+      "status": "failed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-avalanche-trollkin-revision\\completion.json: / must have required property 'producer'"
+    }
+  ],
+  "createdAt": "2026-08-02T13:45:28.114Z"
+}

@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-caustic-ooze",
+  "name": "Caustic Ooze",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T18:37:44.317Z",
+  "tags": [
+    "caustic",
+    "ooze",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

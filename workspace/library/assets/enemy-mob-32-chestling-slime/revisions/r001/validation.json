@@ -1,0 +1,21 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-chestling-slime",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "contract-identity",
+      "level": "info",
+      "status": "passed",
+      "message": "Contract identity matches category enemy-mob-32@0.1.0."
+    },
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validated cleanly with 0 warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T21:26:15.000Z"
+}

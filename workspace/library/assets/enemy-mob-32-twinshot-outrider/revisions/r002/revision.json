@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-twinshot-outrider",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T14:37:59.707Z",
+  "request": "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 4px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "bbdeca17580c5e9125b1618c9307fa2da942c842bc8e8277e59671ea76cf669c"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "cb7f3e681dd6dbd682a3eb40f0a4c39d288f386bce9b15bb0cf190dc64a149c6"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "e487839903bf975db72562bfaf1cd506f30b0a748e0248c0f22bb76e8f86432e"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

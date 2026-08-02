@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-candlebone-sentry",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T15:57:15.000Z",
+  "request": "Below current motion floors in the weakest direction: idle changes 5px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "dc630655afb89e01c60c11f1d4bbd25c8ab8857234c11966788b5b146cc56c9b"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "0153af20d30017b157a6184a93b915bc681c3571a3ad113c1c26e04c2adea168"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "fb84305de40526409adfa6ceef1b27911c3bf3bb08036a2826d012f95bab05f5"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

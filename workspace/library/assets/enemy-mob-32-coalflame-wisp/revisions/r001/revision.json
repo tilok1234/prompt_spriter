@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-coalflame-wisp",
+  "id": "r001",
+  "parentRevisionId": null,
+  "createdAt": "2026-08-02T21:41:00.000Z",
+  "request": "Read and follow the project documentation.\n\nPromptinator entry ID: prompt-0281-coalflame-wisp\nPrompt formula: structured-v2\nRequired style profile: assembler-inspired-v2@0.1.0\nRequired style guide: styles/assembler-inspired-v2/STYLE_GUIDE.md\n\nCreate an enemy-mob-32 sprite named \"Coalflame Wisp\".\n\n## Creative brief\n\n- Collection: Primal Elementals. Classic fire, water, ice, earth, air, mud, storm, nature, and arcane elementals with clear material-based silhouettes.\n- Core concept: A small fire spirit that leaves delayed embers behind its movement.\n- Body and silhouette: Floating teardrop flame, dark coal core, and two short flickering arms.\n- Signature features: Coal center, split flame crest, and trailing sparks.\n- Palette and materials: Ember orange, charcoal black, dark red, and pale yellow.\n- Movement personality: Restless, drifting, and playfully aggressive.\n- Attack concept: Moves in short arcs while dropping coal embers that ignite and fire one projectile after a delay.\n- Directional details: The flame crest splits farther on the left, and the coal core is chipped on the right.\n- Avoid: Friendly candle flame, humanoid fire mage, huge particle trail.\n\n## Interpretation rules\n\n- Left and right refer to the creature's own anatomical sides and must remain consistent in every direction.\n- Treat gameplay effects as motion intent: make the attack readable through body posing, and use the effects layer only where the category contract allows.\n- Hard-alpha and style-contract rules override words such as translucent, glowing, soft, or transparent in the creative brief.\n- Before drawing, choose and state one controlled body plan from the required style guide.\n- Build and inspect the four idle directions under one camera and ground plane before expanding the animation timeline.\n- Use only the required style profile's master palette and contour rule.\n- Use a recognition budget of exactly one dominant silhouette anchor plus one secondary identifying feature; the dominant anchor must remain recognizable at native 1x in all four idle directions.\n- Thin, spectral, floating, or winged subjects still need a solid readable center mass; wings and trailing effects remain secondary to it.\n- Keep a humanoid's key weapon or tool visibly separated from the torso in front and back views. For plant or construct concepts, separate the head or core from its supports instead of merging everything into one chunky mass.\n- Do not let a tiny face, eye, or detail carry the whole concept. Before timeline expansion, verify the subject, defining feature, and head or focal cluster all read at 1x.\n- Derive prop visibility per row before drawing: facing down places the creature's left side on the viewer's right; facing up places it on the viewer's left; the left-facing profile shows the creature's own left flank; the right-facing profile shows its right flank. State which asymmetric props are visible in each of the four rows and keep far-flank props hidden.\n- State each row's on-screen attack direction before animating: thrown or projected effects travel toward that row's facing (down toward the cell bottom, up toward the top, left and right toward their edges), stay at least 2 pixels inside every cell edge, and resolve into a recovery pose rather than freezing mid-flight.\n- Before drawing, open and study every promoted example sheet listed in styles/assembler-inspired-v2/examples.json at native 1x and nearest-neighbor 4x; match their construction quality, mass separation, and camera without copying their pixels into a different subject.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r001/source.aseprite",
+      "sha256": "da08ae488a50e1bbe56d3dee19e7d070fd892b0d1870db874059a8657730c4d7"
+    },
+    "sheet": {
+      "path": "revisions/r001/sheet.png",
+      "sha256": "0b454965c34079b70352c02dec86903acfad2eced16a9a5c641479b4fc9a11fc"
+    },
+    "thumbnail": {
+      "path": "revisions/r001/thumbnail.png",
+      "sha256": "c7083467a92484010190caf29c5dd3ed6cdf8b817a4909aa2ff097ad50b332c8"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r001/validation.json",
+  "batchId": null
+}

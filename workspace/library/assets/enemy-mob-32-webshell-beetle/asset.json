@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-webshell-beetle",
+  "name": "Webshell Beetle",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T17:22:00Z",
+  "tags": [
+    "webshell",
+    "beetle",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

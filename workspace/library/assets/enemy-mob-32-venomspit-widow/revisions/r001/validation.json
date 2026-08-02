@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-venomspit-widow",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validated cleanly with zero warnings or errors."
+    }
+  ],
+  "createdAt": "2026-08-02T17:22:10.000Z"
+}

@@ -1,0 +1,27 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-mana-pudding",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "sheet-dimensions",
+      "level": "info",
+      "status": "passed",
+      "message": "The sprite sheet is 320x128 with 32x32 cells."
+    },
+    {
+      "code": "vertical-slice-layout",
+      "level": "info",
+      "status": "passed",
+      "message": "Idle, walk, and attack occupy 10 columns across four direction rows."
+    },
+    {
+      "code": "source-artifact",
+      "level": "info",
+      "status": "passed",
+      "message": "Aseprite source artifact verified with matching layer and tag contract."
+    }
+  ],
+  "createdAt": "2026-08-02T21:27:37.000Z"
+}

@@ -4,18 +4,18 @@
   "assetId": "enemy-mob-32-candlebone-sentry",
   "approvedRevisionId": "r001",
   "candidate": {
-    "revisionId": "r001",
-    "lane": "revise"
+    "revisionId": "r002",
+    "lane": "intake"
   },
   "notes": [
     {
       "id": "note-eef254da-7453-4311-8eb1-e202fd10885b",
       "text": "Below current motion floors in the weakest direction: idle changes 5px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4.",
       "createdAt": "2026-08-02T12:06:55.559Z",
-      "resolvedAt": null,
+      "resolvedAt": "2026-08-02T15:57:15.000Z",
       "target": {}
     }
   ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T12:06:55.559Z"
+  "updatedAt": "2026-08-02T15:57:15.000Z"
 }

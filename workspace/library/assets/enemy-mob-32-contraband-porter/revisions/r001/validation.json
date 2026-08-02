@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-contraband-porter",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "contract-preflight",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission validation passed: enemy-mob-32-contraband-porter (passed)"
+    }
+  ],
+  "createdAt": "2026-08-02T17:01:50.000Z"
+}

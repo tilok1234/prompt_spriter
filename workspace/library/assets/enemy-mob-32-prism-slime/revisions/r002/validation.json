@@ -1,0 +1,33 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-prism-slime-revision",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "sheet-dimensions",
+      "level": "info",
+      "status": "passed",
+      "message": "The sheet is 320x128 with 32x32 cells."
+    },
+    {
+      "code": "vertical-slice-layout",
+      "level": "info",
+      "status": "passed",
+      "message": "Idle, walk, and attack occupy 10 columns across four direction rows."
+    },
+    {
+      "code": "source-artifact",
+      "level": "info",
+      "status": "passed",
+      "message": "Aseprite source verified with clean sheet parity."
+    },
+    {
+      "code": "motion-floors",
+      "level": "info",
+      "status": "passed",
+      "message": "Idle and walk motion floors satisfied with organic gelatinous anatomy motion."
+    }
+  ],
+  "createdAt": "2026-08-02T16:29:40.000Z"
+}

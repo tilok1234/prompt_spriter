@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-blackmane-warg",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory duplicate frame warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T21:40:00.000Z"
+}

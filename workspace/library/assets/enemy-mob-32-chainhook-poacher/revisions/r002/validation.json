@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-chainhook-poacher-revision",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with warnings: C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-chainhook-poacher-revision\\sheet.png: frame row 2, column 9 has 7 opaque boundary pixels; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-chainhook-poacher-revision\\sheet.png: frame row 3, column 9 has 7 opaque boundary pixels; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-chainhook-poacher-revision\\sheet.png: frame row 4, column 9 has 9 opaque boundary pixels"
+    }
+  ],
+  "createdAt": "2026-08-02T14:01:56.179Z"
+}

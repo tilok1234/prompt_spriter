@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-barnacleback-turtle-revision",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission passed all category and style contract validation checks."
+    }
+  ],
+  "createdAt": "2026-08-02T15:49:00.000Z"
+}

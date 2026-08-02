@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-bogbelly-croaker",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T15:55:00.000Z",
+  "request": "Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses. Re-aim attack effects toward row facing with readable body anticipation and release.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v1",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "dcb5bd8367261564b536eab3d2564d38da4d266f036b23d6089dc83514de1b9a"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "82c57d60b6df126f3b1edd28c5254b194680278927dc2eaafd3e8fd83e873457"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "0554ecf03e725ced2d9f9fb5ca848d2a5d2d85ff6b6106721ac1a7ce54936e4b"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-barnacleback-turtle",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T15:49:30.000Z",
+  "request": "Rebuild idle and walk with anatomy motion (planted feet, moving limbs/masses). Give attack readable body anticipation (head retraction into shell) and release (forceful head thrust and gaping foamy mouth) with planted ground contact.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "a3bbe07aec2ae19c5a8111ea72ed6527fdb661ed8c52c8b5041eac5ec82ad2aa"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "e2885bca65f010f326a455e5ebae48d05506402c4d092bb96bff055b18858f63"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "31060a23f0207c62e2dabb00242f456c117e0aac952f32cc9ea07a7d013535e8"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

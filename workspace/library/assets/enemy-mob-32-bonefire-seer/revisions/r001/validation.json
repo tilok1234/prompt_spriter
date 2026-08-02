@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-bonefire-seer",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "passed",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bonefire-seer\\sheet.png: frame row 3, column 8 has 1 opaque boundary pixel; C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-bonefire-seer\\sheet.png: frame row 3, column 9 has 1 opaque boundary pixel; validation.json is not present; write it from the preflight result before completion"
+    }
+  ],
+  "createdAt": "2026-08-02T14:50:41.791Z"
+}

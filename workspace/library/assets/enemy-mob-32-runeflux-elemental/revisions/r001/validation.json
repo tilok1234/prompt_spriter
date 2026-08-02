@@ -1,0 +1,27 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-runeflux-elemental",
+  "status": "passed",
+  "checks": [
+    {
+      "code": "sheet-dimensions",
+      "level": "info",
+      "status": "passed",
+      "message": "The sheet is 320x128 with 32x32 cells."
+    },
+    {
+      "code": "vertical-slice-layout",
+      "level": "info",
+      "status": "passed",
+      "message": "Idle, walk, and attack occupy 10 columns across four direction rows."
+    },
+    {
+      "code": "source-artifact",
+      "level": "info",
+      "status": "passed",
+      "message": "Aseprite source artifact verified."
+    }
+  ],
+  "createdAt": "2026-08-02T23:26:00.000Z"
+}

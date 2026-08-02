@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-coffinback-ghoul",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory warnings: C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-coffinback-ghoul\\sheet.png: frame row 1, column 4 duplicates row 1, column 2"
+    }
+  ],
+  "createdAt": "2026-08-02T15:11:24.786Z"
+}

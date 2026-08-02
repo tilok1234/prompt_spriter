@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-marshscale-crocodile",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with minor boundary contact warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T19:39:18.484Z"
+}

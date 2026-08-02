@@ -1,0 +1,21 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-barrow-hound",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-barrow-hound\\sheet.png: frame row 1, column 6 duplicates row 1, column 4"
+    },
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-barrow-hound\\sheet.png: frame row 4, column 6 duplicates row 4, column 4"
+    }
+  ],
+  "createdAt": "2026-08-02T15:07:26.892Z"
+}

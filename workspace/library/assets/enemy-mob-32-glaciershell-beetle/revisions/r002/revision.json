@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-glaciershell-beetle",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T14:10:41.769Z",
+  "request": "Rebuild idle and walk with anatomy motion (planted feet, moving limbs/masses). Re-aim attack effects toward row facing, add readable body anticipation and release in attack, and keep ground contact planted.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "427f0e93f4c2c8237ab2fa913cf49f1dae6d1e504f7865a8e8026249a8f760ea"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "f46d1db698c5a37286d22748b83e94f3bd2ac288c19611e37dc63a7c5a9b73b8"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "6fccd65915df102517549b7e1e296daab6c4db81429e26c96f796b8cc64edaf5"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

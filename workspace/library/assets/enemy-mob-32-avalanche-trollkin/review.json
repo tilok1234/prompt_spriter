@@ -4,18 +4,18 @@
   "assetId": "enemy-mob-32-avalanche-trollkin",
   "approvedRevisionId": "r001",
   "candidate": {
-    "revisionId": "r001",
-    "lane": "revise"
+    "revisionId": "r002",
+    "lane": "intake"
   },
   "notes": [
     {
       "id": "note-373c82e9-0282-4263-8f14-2557266c7c95",
       "text": "Below current motion floors in the weakest direction: idle changes 16px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also re-aim the attack effects toward the row's facing.",
       "createdAt": "2026-08-02T12:06:55.743Z",
-      "resolvedAt": null,
+      "resolvedAt": "2026-08-02T13:45:28.114Z",
       "target": {}
     }
   ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T12:06:55.743Z"
+  "updatedAt": "2026-08-02T13:45:28.114Z"
 }

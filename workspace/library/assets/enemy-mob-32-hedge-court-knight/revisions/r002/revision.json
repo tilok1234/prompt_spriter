@@ -1,0 +1,75 @@
+{
+  "kind": "revision",
+  "schemaVersion": "1.0.0",
+  "assetId": "enemy-mob-32-hedge-court-knight",
+  "id": "r002",
+  "parentRevisionId": "r001",
+  "createdAt": "2026-08-02T14:16:45.080Z",
+  "request": "Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also re-aim the attack effects toward the row's facing; give the attack readable body anticipation and release instead of effects-only frames.",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "producer": {
+    "application": "Antigravity with Aseprite Pro MCP",
+    "model": "Gemini 3.6 High",
+    "sessionId": null
+  },
+  "artifacts": {
+    "source": {
+      "path": "revisions/r002/source.aseprite",
+      "sha256": "ad2f7c4bb54ef56e0e39ad7021e7986429019854f60bf750158acdbb2c324ffd"
+    },
+    "sheet": {
+      "path": "revisions/r002/sheet.png",
+      "sha256": "073518668fb750d1886637a9a6342961de0fae72d4b233c886a5d20ce47b03d4"
+    },
+    "thumbnail": {
+      "path": "revisions/r002/thumbnail.png",
+      "sha256": "de84de730136154896b9444732cf068ff59f10e26e8b11d0777aa46a58cdf9e2"
+    }
+  },
+  "sheet": {
+    "cellWidth": 32,
+    "cellHeight": 32,
+    "columns": 10,
+    "rows": 4,
+    "width": 320,
+    "height": 128
+  },
+  "directions": [
+    "down",
+    "left",
+    "right",
+    "up"
+  ],
+  "animations": [
+    {
+      "id": "idle",
+      "startColumn": 0,
+      "frames": 2,
+      "durationMs": 400,
+      "playback": "loop"
+    },
+    {
+      "id": "walk",
+      "startColumn": 2,
+      "frames": 4,
+      "durationMs": 150,
+      "playback": "loop"
+    },
+    {
+      "id": "attack",
+      "startColumn": 6,
+      "frames": 4,
+      "durationMs": 120,
+      "playback": "once"
+    }
+  ],
+  "validationReportPath": "revisions/r002/validation.json",
+  "batchId": null
+}

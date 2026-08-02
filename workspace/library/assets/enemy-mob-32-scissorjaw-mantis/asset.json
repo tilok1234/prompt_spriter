@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-scissorjaw-mantis",
+  "name": "Scissorjaw Mantis",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T15:25:46.295Z",
+  "tags": [
+    "scissorjaw",
+    "mantis",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

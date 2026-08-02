@@ -1,0 +1,21 @@
+{
+  "kind": "asset",
+  "schemaVersion": "1.0.0",
+  "id": "enemy-mob-32-marshscale-crocodile",
+  "name": "Marshscale Crocodile",
+  "category": {
+    "id": "enemy-mob-32",
+    "version": "0.1.0"
+  },
+  "style": {
+    "id": "assembler-inspired-v2",
+    "version": "0.1.0"
+  },
+  "createdAt": "2026-08-02T21:38:00.000Z",
+  "tags": [
+    "marshscale",
+    "crocodile",
+    "antigravity",
+    "enemy-mob-32"
+  ]
+}

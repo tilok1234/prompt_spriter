@@ -1,0 +1,111 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-glaciershell-beetle-revision",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "category-contract-semantics",
+      "level": "info",
+      "status": "passed",
+      "message": "Category contract enemy-mob-32@0.1.0 structure and timing are valid."
+    },
+    {
+      "code": "style-profile-semantics",
+      "level": "info",
+      "status": "passed",
+      "message": "Style profile assembler-inspired-v2@0.1.0 constraints are satisfied."
+    },
+    {
+      "code": "submission-manifest-schema",
+      "level": "info",
+      "status": "passed",
+      "message": "Submission manifest matches the agent-submission schema."
+    },
+    {
+      "code": "source-artifact-presence",
+      "level": "info",
+      "status": "passed",
+      "message": "Aseprite source file source.aseprite exists and reproduces sheet.png 100% identically."
+    },
+    {
+      "code": "sheet-artifact-inspection",
+      "level": "info",
+      "status": "passed",
+      "message": "Sprite sheet sheet.png (320x128) verified with hard alpha, zero empty frames."
+    },
+    {
+      "code": "thumbnail-artifact-presence",
+      "level": "info",
+      "status": "passed",
+      "message": "Thumbnail file thumbnail.png exists."
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-glaciershell-beetle-revision\\sheet.png: frame row 2, column 2 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-glaciershell-beetle-revision\\sheet.png: frame row 2, column 3 has 3 opaque boundary pixels"
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-glaciershell-beetle-revision\\sheet.png: frame row 2, column 8 has 3 opaque boundary pixels"
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-glaciershell-beetle-revision\\sheet.png: frame row 2, column 9 has 3 opaque boundary pixels"
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-glaciershell-beetle-revision\\sheet.png: frame row 2, column 10 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-glaciershell-beetle-revision\\sheet.png: frame row 3, column 2 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-glaciershell-beetle-revision\\sheet.png: frame row 3, column 3 has 3 opaque boundary pixels"
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-glaciershell-beetle-revision\\sheet.png: frame row 3, column 8 has 3 opaque boundary pixels"
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-glaciershell-beetle-revision\\sheet.png: frame row 3, column 9 has 3 opaque boundary pixels"
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "C:\\Users\\headc\\Documents\\prompt_spriter\\workspace\\staging\\enemy-mob-32-glaciershell-beetle-revision\\sheet.png: frame row 3, column 10 has 1 opaque boundary pixel"
+    },
+    {
+      "code": "authoring-advisory-warning",
+      "level": "warning",
+      "status": "warning",
+      "message": "validation.json is not present; write it from the preflight result before completion"
+    }
+  ],
+  "createdAt": "2026-08-02T14:10:41.767Z"
+}
