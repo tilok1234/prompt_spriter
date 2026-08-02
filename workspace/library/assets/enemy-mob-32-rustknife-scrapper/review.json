@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-baf91de6-1f6e-437a-971c-d94d26c47d5e",
+      "text": "animations are way lower quality then the idle sprites",
+      "createdAt": "2026-08-02T11:52:48.912Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T04:14:30.000Z"
+  "updatedAt": "2026-08-02T11:52:48.912Z"
 }

@@ -1,0 +1,142 @@
+{
+  "kind": "batch",
+  "schemaVersion": "1.0.0",
+  "id": "approved-floor-repair",
+  "batchType": "revision",
+  "createdAt": "2026-08-02T12:07:18.690Z",
+  "items": [
+    {
+      "assetId": "enemy-mob-32-alchemist-brigand",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Rebuild motion and sides to current standards: idle is a translated copy in all four directions and the feet leave the ground; walk slides the same pose; the down attack throws the bottle away from facing; the side views show the far flank's props (purple rack must show facing left, amber flask facing right)."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-avalanche-trollkin",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 16px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also re-aim the attack effects toward the row's facing."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-barnacleback-turtle",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 15px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also give the attack readable body anticipation and release instead of effects-only frames; keep ground contact planted (no whole-body bob)."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-bellflower-duellist",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 2px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also keep ground contact planted (no whole-body bob)."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-bogbelly-croaker",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also re-aim the attack effects toward the row's facing; give the attack readable body anticipation and release instead of effects-only frames; keep ground contact planted (no whole-body bob)."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-candlebone-sentry",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 5px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-chainhook-poacher",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 5px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also re-aim the attack effects toward the row's facing; keep ground contact planted (no whole-body bob)."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-coaljaw-hound",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 1px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also keep ground contact planted (no whole-body bob)."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-flintclaw-scorpion",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also give the attack readable body anticipation and release instead of effects-only frames."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-frostbite-weasel",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 26px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also give the attack readable body anticipation and release instead of effects-only frames; keep ground contact planted (no whole-body bob)."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-glaciershell-beetle",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also re-aim the attack effects toward the row's facing; give the attack readable body anticipation and release instead of effects-only frames; keep ground contact planted (no whole-body bob)."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-hedge-court-knight",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 8px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also re-aim the attack effects toward the row's facing; give the attack readable body anticipation and release instead of effects-only frames."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-kelpcoil-serpent",
+      "baseRevisionId": "r002",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 45px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also give the attack readable body anticipation and release instead of effects-only frames; keep ground contact planted (no whole-body bob)."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-magma-flea",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 24px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-mirage-hare",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 3px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-prism-slime",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 1px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-roadknife-cutpurse",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 7px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also keep ground contact planted (no whole-body bob)."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-sparkspine-imp",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 1px beyond translation (floor 6) and walk 8px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4."
+      ]
+    },
+    {
+      "assetId": "enemy-mob-32-twinshot-outrider",
+      "baseRevisionId": "r001",
+      "notes": [
+        "[entire sprite] Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 4px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4."
+      ]
+    }
+  ]
+}

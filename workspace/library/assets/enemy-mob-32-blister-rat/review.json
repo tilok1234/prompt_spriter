@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-da2678b8-99ba-42f9-9b5e-34386e8eaf6c",
+      "text": "i dont like rat or mice , denied",
+      "createdAt": "2026-08-02T11:59:46.555Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-01T21:55:50.000Z"
+  "updatedAt": "2026-08-02T11:59:46.555Z"
 }

@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-0b85c12a-fd19-4707-83c6-98f29d0ab2b9",
+      "text": "The animation does not read as intentional movement; rebuild the key poses, spacing, and recovery while preserving the creature's volume.",
+      "createdAt": "2026-08-02T11:18:57.772Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T04:29:50.000Z"
+  "updatedAt": "2026-08-02T11:18:57.772Z"
 }

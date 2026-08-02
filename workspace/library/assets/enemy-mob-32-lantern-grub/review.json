@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-0b96a378-764f-4ab3-bd20-6d99a5986fa3",
+      "text": "The front and back views do not look like the same creature as the side views; unify the proportions, body plan, and identifying features.\nAn asymmetrical feature changes anatomical sides between views; keep it attached to the same side through every direction.\nThe four directions are inconsistent; reconstruct them under one camera, scale, ground plane, and shared anatomy.",
+      "createdAt": "2026-08-02T12:02:16.131Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-01T17:44:12Z"
+  "updatedAt": "2026-08-02T12:02:16.131Z"
 }

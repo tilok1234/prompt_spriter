@@ -3,8 +3,19 @@
   "schemaVersion": "1.2.0",
   "assetId": "enemy-mob-32-alchemist-brigand",
   "approvedRevisionId": "r001",
-  "candidate": null,
-  "notes": [],
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-9e11d8a8-6374-42a9-b8df-4901729b11a9",
+      "text": "Rebuild motion and sides to current standards: idle is a translated copy in all four directions and the feet leave the ground; walk slides the same pose; the down attack throws the bottle away from facing; the side views show the far flank's props (purple rack must show facing left, amber flask facing right).",
+      "createdAt": "2026-08-02T12:06:55.261Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-01T10:26:23.318Z"
+  "updatedAt": "2026-08-02T12:06:55.261Z"
 }

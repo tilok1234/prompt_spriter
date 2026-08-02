@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-fdd2064a-2213-493f-a9a2-fbba2ad22d76",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.",
+      "createdAt": "2026-08-02T11:59:14.970Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-01T21:58:41.875Z"
+  "updatedAt": "2026-08-02T11:59:14.970Z"
 }

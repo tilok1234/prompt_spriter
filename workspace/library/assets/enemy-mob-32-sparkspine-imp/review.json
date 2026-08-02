@@ -3,8 +3,19 @@
   "schemaVersion": "1.2.0",
   "assetId": "enemy-mob-32-sparkspine-imp",
   "approvedRevisionId": "r001",
-  "candidate": null,
-  "notes": [],
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-496b250d-7720-4e2a-a77c-00dcbc4d754a",
+      "text": "Below current motion floors in the weakest direction: idle changes 1px beyond translation (floor 6) and walk 8px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4.",
+      "createdAt": "2026-08-02T12:06:55.664Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-01T10:42:37.418Z"
+  "updatedAt": "2026-08-02T12:06:55.664Z"
 }

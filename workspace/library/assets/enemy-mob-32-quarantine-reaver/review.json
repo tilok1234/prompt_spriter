@@ -2,12 +2,9 @@
   "kind": "review",
   "schemaVersion": "1.2.0",
   "assetId": "enemy-mob-32-quarantine-reaver",
-  "approvedRevisionId": null,
-  "candidate": {
-    "revisionId": "r001",
-    "lane": "intake"
-  },
+  "approvedRevisionId": "r001",
+  "candidate": null,
   "notes": [],
   "archiveHistory": [],
-  "updatedAt": "2026-08-01T22:21:00+02:00"
+  "updatedAt": "2026-08-02T12:01:24.151Z"
 }

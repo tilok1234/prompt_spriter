@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-31079cf7-6ca7-4d48-803d-69068c7447dc",
+      "text": "badw alking animations",
+      "createdAt": "2026-08-02T11:54:50.849Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T03:36:55.000Z"
+  "updatedAt": "2026-08-02T11:54:50.849Z"
 }

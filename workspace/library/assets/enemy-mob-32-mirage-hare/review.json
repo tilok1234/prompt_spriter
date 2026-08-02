@@ -3,8 +3,19 @@
   "schemaVersion": "1.2.0",
   "assetId": "enemy-mob-32-mirage-hare",
   "approvedRevisionId": "r001",
-  "candidate": null,
-  "notes": [],
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-b7b5fd5b-6f85-428c-a6e9-c825fc0cc37f",
+      "text": "Below current motion floors in the weakest direction: idle changes 3px beyond translation (floor 6) and walk 0px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4.",
+      "createdAt": "2026-08-02T12:06:55.585Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-01T10:43:18.234Z"
+  "updatedAt": "2026-08-02T12:06:55.585Z"
 }

@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-b9e88e5f-45ed-4de5-9b21-b1348fe586a0",
+      "text": "The sprite is not readable at 1x; strengthen the silhouette, focal feature, and major value groups.\nThe animation does not read as intentional movement; rebuild the key poses, spacing, and recovery while preserving the creature's volume.",
+      "createdAt": "2026-08-02T12:01:55.464Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-01T18:24:55.000Z"
+  "updatedAt": "2026-08-02T12:01:55.464Z"
 }

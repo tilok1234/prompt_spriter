@@ -2,12 +2,9 @@
   "kind": "review",
   "schemaVersion": "1.2.0",
   "assetId": "enemy-mob-32-hide-drum-warcaller",
-  "approvedRevisionId": null,
-  "candidate": {
-    "revisionId": "r001",
-    "lane": "intake"
-  },
+  "approvedRevisionId": "r001",
+  "candidate": null,
   "notes": [],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T04:30:54.000Z"
+  "updatedAt": "2026-08-02T11:18:36.725Z"
 }

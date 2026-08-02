@@ -5,9 +5,17 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "revise"
   },
-  "notes": [],
+  "notes": [
+    {
+      "id": "note-03dc575b-fb78-4182-9039-734b28534b15",
+      "text": "face dissapears in attack frames",
+      "createdAt": "2026-08-02T11:53:47.779Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T04:03:32.000Z"
+  "updatedAt": "2026-08-02T11:53:47.779Z"
 }

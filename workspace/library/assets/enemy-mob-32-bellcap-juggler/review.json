@@ -2,12 +2,9 @@
   "kind": "review",
   "schemaVersion": "1.2.0",
   "assetId": "enemy-mob-32-bellcap-juggler",
-  "approvedRevisionId": null,
-  "candidate": {
-    "revisionId": "r001",
-    "lane": "intake"
-  },
+  "approvedRevisionId": "r001",
+  "candidate": null,
   "notes": [],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T02:03:26.245649Z"
+  "updatedAt": "2026-08-02T11:57:40.498Z"
 }

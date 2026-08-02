@@ -2,12 +2,9 @@
   "kind": "review",
   "schemaVersion": "1.2.0",
   "assetId": "enemy-mob-32-bonecleaver-brute",
-  "approvedRevisionId": null,
-  "candidate": {
-    "revisionId": "r001",
-    "lane": "intake"
-  },
+  "approvedRevisionId": "r001",
+  "candidate": null,
   "notes": [],
   "archiveHistory": [],
-  "updatedAt": "2026-08-02T02:27:55.000Z"
+  "updatedAt": "2026-08-02T11:55:20.116Z"
 }

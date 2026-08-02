@@ -3,8 +3,19 @@
   "schemaVersion": "1.2.0",
   "assetId": "enemy-mob-32-bellflower-duellist",
   "approvedRevisionId": "r001",
-  "candidate": null,
-  "notes": [],
+  "candidate": {
+    "revisionId": "r001",
+    "lane": "revise"
+  },
+  "notes": [
+    {
+      "id": "note-fbd801c6-df7f-42c6-9461-2e42c10e022d",
+      "text": "Below current motion floors in the weakest direction: idle changes 0px beyond translation (floor 6) and walk 2px (floor 15 on two frames). Rebuild idle and walk with anatomy motion - planted feet, moving limbs or masses - per checklist section 4. Also keep ground contact planted (no whole-body bob).",
+      "createdAt": "2026-08-02T12:06:55.369Z",
+      "resolvedAt": null,
+      "target": {}
+    }
+  ],
   "archiveHistory": [],
-  "updatedAt": "2026-08-01T12:00:24.312Z"
+  "updatedAt": "2026-08-02T12:06:55.369Z"
 }
