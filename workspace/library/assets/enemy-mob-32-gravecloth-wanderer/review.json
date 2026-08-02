@@ -5,7 +5,7 @@
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "revise"
+    "lane": "archive"
   },
   "notes": [
     {
@@ -23,6 +23,12 @@
       "target": {}
     }
   ],
-  "archiveHistory": [],
-  "updatedAt": "2026-08-01T13:02:01.842Z"
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-02T12:35:32.788Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-02T12:35:32.788Z"
 }

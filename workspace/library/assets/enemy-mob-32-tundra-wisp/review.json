@@ -1,13 +1,19 @@
 {
   "kind": "review",
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "assetId": "enemy-mob-32-tundra-wisp",
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "denied"
+    "lane": "archive"
   },
   "notes": [],
-  "archiveHistory": [],
-  "updatedAt": "2026-07-31T23:51:16.218Z"
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-02T12:35:34.281Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-02T12:35:34.281Z"
 }

@@ -1,11 +1,11 @@
 {
   "kind": "review",
-  "schemaVersion": "1.1.0",
+  "schemaVersion": "1.2.0",
   "assetId": "enemy-mob-32-ashwing-bat",
   "approvedRevisionId": null,
   "candidate": {
     "revisionId": "r001",
-    "lane": "intake"
+    "lane": "archive"
   },
   "notes": [
     {
@@ -16,6 +16,12 @@
       "target": {}
     }
   ],
-  "archiveHistory": [],
-  "updatedAt": "2026-07-31T23:52:43.310Z"
+  "archiveHistory": [
+    {
+      "revisionId": "r001",
+      "archivedAt": "2026-08-02T12:35:31.758Z",
+      "restoredAt": null
+    }
+  ],
+  "updatedAt": "2026-08-02T12:35:31.758Z"
 }
