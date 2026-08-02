@@ -1,0 +1,15 @@
+{
+  "kind": "validation-report",
+  "schemaVersion": "1.0.0",
+  "jobId": "enemy-mob-32-reedbill-spearfisher",
+  "status": "passed-with-warnings",
+  "checks": [
+    {
+      "code": "structural-validation",
+      "level": "warning",
+      "status": "warning",
+      "message": "Submission validated with advisory duplicate frame and boundary contact warnings."
+    }
+  ],
+  "createdAt": "2026-08-02T02:13:07.000Z"
+}

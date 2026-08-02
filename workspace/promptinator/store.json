@@ -1,7 +1,7 @@
 {
   "kind": "promptinator-store",
   "schemaVersion": "1.7.0",
-  "updatedAt": "2026-08-02T00:10:02.456Z",
+  "updatedAt": "2026-08-02T00:13:57.763Z",
   "entries": [
     {
       "id": "prompt-0001-mossback-tuskling",
@@ -9702,7 +9702,7 @@
         "version": "0.1.0"
       },
       "formulaVersion": "structured-v2",
-      "state": "ready",
+      "state": "completed",
       "importedAt": "2026-07-30T23:21:02.797Z",
       "copiedAt": null,
       "source": {
@@ -9733,10 +9733,31 @@
         {
           "action": "example-guidance-migrated",
           "at": "2026-08-01T20:26:14.326Z"
+        },
+        {
+          "action": "claimed",
+          "at": "2026-08-02T00:11:11.153Z",
+          "claimId": "claim-2a40d533-b700-4e05-8208-252dc7856967"
+        },
+        {
+          "action": "completed",
+          "at": "2026-08-02T02:13:10.000Z",
+          "claimId": "claim-2a40d533-b700-4e05-8208-252dc7856967",
+          "assetId": "enemy-mob-32-reedbill-spearfisher",
+          "revisionId": "r001"
         }
       ],
-      "claim": null,
-      "completion": null
+      "claim": {
+        "id": "claim-2a40d533-b700-4e05-8208-252dc7856967",
+        "claimedAt": "2026-08-02T00:11:11.153Z",
+        "claimant": "Queue Launcher",
+        "expectedAssetId": "enemy-mob-32-reedbill-spearfisher"
+      },
+      "completion": {
+        "assetId": "enemy-mob-32-reedbill-spearfisher",
+        "revisionId": "r001",
+        "completedAt": "2026-08-02T02:13:10.000Z"
+      }
     },
     {
       "id": "prompt-0133-millwheel-eel",

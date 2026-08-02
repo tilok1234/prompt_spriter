@@ -592,15 +592,15 @@ function Update-SelectionState {
         $moveDownButton.IsEnabled = $false
         $editButton.IsEnabled = $false
         $deleteButton.IsEnabled = $false
-        $pId = ([string]$selected[0].Id).Substring(7)
-        $pName = ''
+        $promptEntryId = ([string]$selected[0].Id).Substring(7)
+        $promptEntryName = ''
         if ($null -ne $script:PromptinatorView) {
-            $match = @($script:PromptinatorView.Entries) | Where-Object { [string]$_.Id -eq $pId } | Select-Object -First 1
+            $match = @($script:PromptinatorView.Entries) | Where-Object { [string]$_.Id -eq $promptEntryId } | Select-Object -First 1
             if ($null -ne $match) {
-                $pName = [string]$match.Name
+                $promptEntryName = [string]$match.Name
             }
         }
-        $previewText.Text = "Promptinator entry $pId ($pName).`n`nThis row is a read-only view of the Promptinator queue. The exact prompt is rendered and claimed at send time, after every local message above it has been sent. Reorder or edit it in the Prompt Spriter Promptinator tab, not here."
+        $previewText.Text = "Promptinator entry $promptEntryId ($promptEntryName).`n`nThis row is a read-only view of the Promptinator queue. The exact prompt is rendered and claimed at send time, after every local message above it has been sent. Reorder or edit it in the Prompt Spriter Promptinator tab, not here."
         $charCountText.Text = ''
         return
     }
@@ -2030,8 +2030,38 @@ public static class LauncherConsoleWindow
     # the whole session; detaching closes it while the WPF window lives on.
     [void][LauncherConsoleWindow]::FreeConsole()
 
+    # Survive handler bugs instead of dying invisibly: the console is detached,
+    # so an unhandled dispatcher exception would otherwise end the process with
+    # no trace at all.
+    $window.Dispatcher.Add_UnhandledException({
+        param($sender, $e)
+        try {
+            $logDirectory = Join-Path $dataDirectory 'logs'
+            New-Item -ItemType Directory -Path $logDirectory -Force | Out-Null
+            Add-Content -LiteralPath (Join-Path $logDirectory 'launcher-crash.log') -Value "[$([DateTimeOffset]::Now.ToString('o'))] Dispatcher exception:`r`n$($e.Exception | Out-String)"
+        }
+        catch {
+        }
+        try {
+            Set-Status -Message "An internal error was caught and logged to data\logs\launcher-crash.log: $($e.Exception.Message)" -Kind Error
+        }
+        catch {
+        }
+        $e.Handled = $true
+    })
+
     $script:RefreshTimer.Start()
     [void]$window.ShowDialog()
+}
+catch {
+    try {
+        $logDirectory = Join-Path $dataDirectory 'logs'
+        New-Item -ItemType Directory -Path $logDirectory -Force | Out-Null
+        Add-Content -LiteralPath (Join-Path $logDirectory 'launcher-crash.log') -Value "[$([DateTimeOffset]::Now.ToString('o'))] Fatal startup exception:`r`n$($_ | Out-String)"
+    }
+    catch {
+    }
+    throw
 }
 finally {
     if ($null -ne $script:RefreshTimer) {
